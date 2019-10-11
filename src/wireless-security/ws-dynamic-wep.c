@@ -95,7 +95,7 @@ ws_dynamic_wep_new (NMConnection *connection,
 	                                 fill_connection,
 	                                 update_secrets,
 	                                 destroy,
-	                                 "/org/freedesktop/network-manager-applet/ws-dynamic-wep.ui",
+	                                 "/org/gnome/libnma/ws-dynamic-wep.ui",
 	                                 "dynamic_wep_notebook",
 	                                 NULL);
 	if (!parent)

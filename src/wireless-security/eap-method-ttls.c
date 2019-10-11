@@ -419,7 +419,7 @@ eap_method_ttls_new (WirelessSecurity *ws_parent,
 	                          fill_connection,
 	                          update_secrets,
 	                          destroy,
-	                          "/org/freedesktop/network-manager-applet/eap-method-ttls.ui",
+	                          "/org/gnome/libnma/eap-method-ttls.ui",
 	                          "eap_ttls_notebook",
 	                          "eap_ttls_anon_identity_entry",
 	                          FALSE);

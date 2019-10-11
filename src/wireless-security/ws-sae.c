@@ -152,7 +152,7 @@ ws_sae_new (NMConnection *connection, gboolean secrets_only)
 	                                 fill_connection,
 	                                 update_secrets,
 	                                 NULL,
-	                                 "/org/freedesktop/network-manager-applet/ws-sae.ui",
+	                                 "/org/gnome/libnma/ws-sae.ui",
 	                                 "sae_notebook",
 	                                 "psk_entry");
 	if (!parent)

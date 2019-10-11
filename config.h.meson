@@ -1,9 +1,6 @@
 /* Gettext package */
 #mesondefine GETTEXT_PACKAGE
 
-/* Define if you have libnotify 0.7 or later */
-#mesondefine HAVE_LIBNOTIFY_07
-
 /* ISO codes prefix */
 #mesondefine ISO_CODES_PREFIX
 
@@ -41,26 +38,11 @@
 /* Version number of package */
 #mesondefine VERSION
 
-/* Enable using libappindicator */
-#mesondefine WITH_APPINDICATOR
-
-/* Use Ayatana AppIndicator, rathern than Ubuntu's AppIndicator */
-#mesondefine USE_AYATANA_INDICATORS
-
 /* Define if Gcr is available */
 #mesondefine WITH_GCR
 
 /* Define if GTK4 Gcr is available */
 #mesondefine WITH_GCR_GTK4
-
-/* Define if Jansson is available */
-#mesondefine WITH_JANSSON
-
-/* Define if libselinux is available */
-#mesondefine WITH_SELINUX
-
-/* Define if you have ModemManager/WWAN support */
-#mesondefine WITH_WWAN
 
 /* Define to 1 if on MINIX. */
 #mesondefine _MINIX
