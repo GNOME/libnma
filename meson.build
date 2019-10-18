@@ -268,6 +268,15 @@ if enable_introspection
   assert(gir_dep.found(), 'introspection support was requested, but the gobject-introspection library is not available. Use -Dintrospection=false to build without it.')
 endif
 
+# Vala bindings
+enable_vapi = get_option('vapi')
+if enable_vapi
+  assert(enable_introspection, 'vala api require GObject introspection. Use -Dvapi=false to disable it')
+  add_languages('vala')
+  #assert(meson.get_compiler('vala').version().version_compare(vala_req_version),
+  #  'vala ' + vala_req_version + ' is required to build. Use -Dvapi=false to disable it')
+endif
+
 more_asserts = get_option('more_asserts')
 if more_asserts == 'no'
   more_asserts = 0

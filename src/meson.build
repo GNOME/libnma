@@ -171,7 +171,7 @@ if enable_introspection
   gir_dir = join_paths(nma_datadir, 'gir-' + nma_gir_version)
   typelib_dir = join_paths(nma_libdir, 'girepository-' + nma_gir_version)
 
-  gnome.generate_gir(
+  libnma_gir = gnome.generate_gir(
     libnma,
     sources: gir_sources + gir_headers,
     nsversion: nma_gir_version,
@@ -186,7 +186,7 @@ if enable_introspection
   )
 
   if enable_libnma_gtk4
-    gnome.generate_gir(
+    libnma_gtk4_gir = gnome.generate_gir(
       libnma,
       sources: gir_sources + gir_headers,
       nsversion: nma_gir_version,
@@ -198,6 +198,24 @@ if enable_introspection
       install: true,
       install_dir_gir: gir_dir,
       install_dir_typelib: typelib_dir
+    )
+  endif
+endif
+
+if enable_vapi
+  gnome.generate_vapi(
+    'libnma',
+    sources: libnma_gir[0],
+    packages: [ 'libnm', 'gtk+-3.0', 'gio-2.0' ],
+    install: true,
+  )
+
+  if enable_libnma_gtk4
+    gnome.generate_vapi(
+      'libnma-gtk4',
+      sources: libnma_gtk4_gir[0],
+      packages: [ 'libnm', 'gtk4', 'gio-2.0' ],
+      install: true,
     )
   endif
 endif

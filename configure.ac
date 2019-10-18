@@ -221,6 +221,9 @@ AM_CONDITIONAL(WITH_GCR, test "${have_gcr}" == "yes")
 dnl Check for gobject introspection
 GOBJECT_INTROSPECTION_CHECK([0.9.6])
 
+dnl Check for VAPI generator
+VAPIGEN_CHECK(0.17.1.24)
+
 GLIB_CONFIG_NMA
 GLIB_GSETTINGS
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
