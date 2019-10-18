@@ -30,6 +30,7 @@
       gtk3-devel
       NetworkManager-libnm-devel
       pkgconfig
+      /usr/bin/vapigen
       /usr/bin/autopoint
       gcr-devel
       gobject-introspection-devel redhat-rpm-config
@@ -57,6 +58,7 @@
       -Dld_gc=false
       -Dgtk_doc=false
       -Dintrospection=false
+      -Dvapi=false
       -Dmore_asserts=no
       libnma-*/ build
     - ninja -v -C build
@@ -78,6 +80,7 @@
       -Dld_gc=true
       -Dgtk_doc=true
       -Dintrospection=true
+      -Dvapi=true
       -Dmore_asserts=yes
       libnma-*/ build
     - ninja -v -C build
@@ -100,6 +103,7 @@
       --disable-mobile-broadband-provider-info
       --disable-gtk-doc
       --disable-introspection
+      --disable-vala
       --disable-more-warnings
       --without-gcr
     - make -j$(nproc)
@@ -122,6 +126,7 @@
       --enable-mobile-broadband-provider-info
       --enable-gtk-doc
       --enable-introspection
+      --enable-vala
       --enable-more-warnings
       --with-gcr
     - make -j$(nproc)
@@ -179,6 +184,7 @@ centos7:
       NetworkManager-libnm-devel
       pkgconfig
       /usr/bin/autopoint
+      /usr/bin/vapigen
       gcr-devel
       gobject-introspection-devel redhat-rpm-config
       gtk-doc
@@ -196,6 +202,7 @@ centos7:
       --enable-mobile-broadband-provider-info
       --enable-gtk-doc
       --enable-introspection
+      --enable-vala
       --enable-more-warnings
       --with-gcr
     - make -j$(nproc)

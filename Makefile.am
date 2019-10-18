@@ -1,5 +1,6 @@
 include $(GLIB_MAKEFILE)
 -include $(INTROSPECTION_MAKEFILE)
+-include $(VAPIGEN_MAKEFILE)
 include $(top_srcdir)/gtk-doc.make
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
@@ -50,6 +51,12 @@ typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 BUILT_SOURCES += $(typelib_DATA)
 
 INTROSPECTION_GIRS =
+
+if ENABLE_VAPIGEN
+vapidir = $(datadir)/vala/vapi
+VAPIGEN_VAPIS =
+vapi_DATA = $(VAPIGEN_VAPIS) $(VAPIGEN_VAPIS:.vapi=.deps)
+endif
 
 SUBDIRS = \
 	. \
@@ -382,6 +389,13 @@ src_NMA_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-prefi
 INTROSPECTION_GIRS += src/NMA-1.0.gir
 endif
 
+if ENABLE_VAPIGEN
+VAPIGEN_VAPIS += src/libnma.vapi
+src_libnma_vapi_FILES = $(builddir)/src/NMA-1.0.gir
+src_libnma_vapi_DEPS = libnm gtk+-3.0 gio-2.0
+src/libnma.vapi: $(src_libnma_vapi_FILES) $(srcdir)/src/libnma.deps
+endif
+
 check_PROGRAMS_norun += src/tests/mobile-wizard
 
 src_tests_mobile_wizard_CPPFLAGS = \
@@ -569,6 +583,13 @@ src_NMA4_1_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=NMA --symbol-pref
 INTROSPECTION_GIRS += src/NMA4-1.0.gir
 endif
 
+if ENABLE_VAPIGEN
+VAPIGEN_VAPIS += src/libnma-gtk4.vapi
+src_libnma_gtk4_vapi_FILES = $(builddir)/src/NMA4-1.0.gir
+src_libnma_gtk4_vapi_DEPS = libnm gtk4 gio-2.0
+src/libnma-gtk4.vapi: $(src_libnma_gtk4_vapi_FILES) $(srcdir)/src/libnma-gtk4.deps
+endif
+
 check_PROGRAMS_norun += src/tests/mobile-wizard-gtk4
 
 src_tests_mobile_wizard_gtk4_SOURCES = \
@@ -716,6 +737,8 @@ EXTRA_DIST += \
 	src/libnma.pc.in \
 	src/libnma-gtk4.pc.in \
 	src/libnma.ver \
+	src/libnma-gtk4.deps \
+	src/libnma.deps \
 	src/wifi.ui \
 	src/nma-mobile-wizard.ui \
 	src/nma-bar-code-widget.ui \
@@ -805,5 +828,6 @@ EXTRA_DIST += \
 CLEANFILES += \
 	$(INTROSPECTION_GIRS) \
 	$(typelib_DATA) \
+	$(VAPIGEN_VAPIS) \
 	\
 	$(BUILT_SOURCES)
