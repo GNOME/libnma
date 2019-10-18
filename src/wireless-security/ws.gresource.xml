@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-	<gresource prefix="/org/freedesktop/network-manager-applet">
+	<gresource prefix="/org/gnome/libnma">
 		<file preprocess="xml-stripblanks">ws-dynamic-wep.ui</file>
 		<file preprocess="xml-stripblanks">ws-leap.ui</file>
 		<file preprocess="xml-stripblanks">ws-sae.ui</file>
