@@ -284,7 +284,22 @@ libnma_h_pub = \
 	src/nma-ui-utils.h \
 	src/nma-cert-chooser.h \
 	src/nma-bar-code-widget.h \
-	src/nma-bar-code.h
+	src/nma-bar-code.h \
+	\
+	src/nma-ws/nma-ws-dynamic-wep.h \
+	src/nma-ws/nma-ws-leap.h \
+	src/nma-ws/nma-ws-sae.h \
+	src/nma-ws/nma-ws-wep-key.h \
+	src/nma-ws/nma-ws-wpa-eap.h \
+	src/nma-ws/nma-ws-wpa-psk.h \
+	src/nma-ws/nma-eap-fast.h \
+	src/nma-ws/nma-eap.h \
+	src/nma-ws/nma-eap-leap.h \
+	src/nma-ws/nma-eap-peap.h \
+	src/nma-ws/nma-eap-simple.h \
+	src/nma-ws/nma-eap-tls.h \
+	src/nma-ws/nma-eap-ttls.h \
+	src/nma-ws/nma-ws.h
 
 libnma_c_real = \
 	src/nma-wifi-dialog.c \
@@ -296,7 +311,36 @@ libnma_c_real = \
 	src/nma-cert-chooser.c \
 	src/nma-file-cert-chooser.c \
 	src/nma-bar-code-widget.c \
-	src/nma-bar-code.c
+	src/nma-bar-code.c \
+	\
+	src/nma-ws/nma-ws.h \
+	src/nma-ws/nma-ws.c \
+	src/nma-ws/nma-ws-sae.h \
+	src/nma-ws/nma-ws-sae.c \
+	src/nma-ws/nma-ws-wep-key.h \
+	src/nma-ws/nma-ws-wep-key.c \
+	src/nma-ws/nma-ws-wpa-psk.h \
+	src/nma-ws/nma-ws-wpa-psk.c \
+	src/nma-ws/nma-ws-leap.h \
+	src/nma-ws/nma-ws-leap.c \
+	src/nma-ws/nma-ws-wpa-eap.h \
+	src/nma-ws/nma-ws-wpa-eap.c \
+	src/nma-ws/nma-ws-dynamic-wep.h \
+	src/nma-ws/nma-ws-dynamic-wep.c \
+	src/nma-ws/nma-eap.h \
+	src/nma-ws/nma-eap.c \
+	src/nma-ws/nma-eap-tls.h \
+	src/nma-ws/nma-eap-tls.c \
+	src/nma-ws/nma-eap-leap.h \
+	src/nma-ws/nma-eap-leap.c \
+	src/nma-ws/nma-eap-fast.h \
+	src/nma-ws/nma-eap-fast.c \
+	src/nma-ws/nma-eap-ttls.h \
+	src/nma-ws/nma-eap-ttls.c \
+	src/nma-ws/nma-eap-peap.h \
+	src/nma-ws/nma-eap-peap.c \
+	src/nma-ws/nma-eap-simple.h \
+	src/nma-ws/nma-eap-simple.c
 
 EXTRA_DIST += \
 	src/qrcodegen.c \
@@ -456,6 +500,8 @@ src_tests_wireless_security_CPPFLAGS = \
 	$(LIBNM_CFLAGS) \
 	"-I$(srcdir)/shared/" \
 	"-I$(srcdir)/src" \
+	"-I$(srcdir)/src/wireless-security" \
+	"-I$(srcdir)/src/nma-ws" \
 	-Isrc
 
 src_tests_wireless_security_LDADD = \
@@ -563,6 +609,7 @@ src_libnma_gtk4_la_CFLAGS = \
 	"-I$(srcdir)/shared" \
 	"-I$(srcdir)/src/utils" \
 	"-I$(srcdir)/src/wireless-security" \
+	"-I$(srcdir)/src/nma-ws" \
 	"-I$(srcdir)/src" \
 	-Isrc \
 	$(GTK4_CFLAGS) \
@@ -763,7 +810,21 @@ EXTRA_DIST += \
 	src/nma-vpn-password-dialog.ui \
 	src/nma.gresource.xml \
 	src/meson.build \
-	src/tests/meson.build
+	src/tests/meson.build \
+	\
+	src/nma-ws/nma-eap-fast.ui \
+	src/nma-ws/nma-eap-leap.ui \
+	src/nma-ws/nma-eap-peap.ui \
+	src/nma-ws/nma-eap-simple.ui \
+	src/nma-ws/nma-eap-tls.ui \
+	src/nma-ws/nma-eap-ttls.ui \
+	src/nma-ws/nma-ws-dynamic-wep.ui \
+	src/nma-ws/nma-ws-leap.ui \
+	src/nma-ws/nma-ws-sae.ui \
+	src/nma-ws/nma-ws-wep-key.ui \
+	src/nma-ws/nma-ws-wpa-eap.ui \
+	src/nma-ws/nma-ws-wpa-psk.ui \
+	src/nma-ws/meson.build
 
 ###############################################################################
 
