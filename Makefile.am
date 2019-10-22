@@ -128,6 +128,124 @@ EXTRA_DIST += src/utils/meson.build
 
 ###############################################################################
 
+src/wireless-security/ws-resources.h: src/wireless-security/ws.gresource.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/wireless-security --generate-header --internal
+
+src/wireless-security/ws-resources.c: src/wireless-security/ws.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/src/wireless-security --generate-dependencies $(srcdir)/src/wireless-security/ws.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/wireless-security --generate-source --internal
+
+CLEANFILES += \
+	$(wireless_security_h_gen) \
+	$(wireless_security_c_gen)
+
+wireless_security_h_gen = \
+	src/wireless-security/ws-resources.h
+
+wireless_security_c_gen = \
+	src/wireless-security/ws-resources.c
+
+wireless_security_c_real = \
+	src/wireless-security/wireless-security.h \
+	src/wireless-security/wireless-security.c \
+	src/wireless-security/ws-sae.h \
+	src/wireless-security/ws-sae.c \
+	src/wireless-security/ws-wep-key.h \
+	src/wireless-security/ws-wep-key.c \
+	src/wireless-security/ws-wpa-psk.h \
+	src/wireless-security/ws-wpa-psk.c \
+	src/wireless-security/ws-leap.h \
+	src/wireless-security/ws-leap.c \
+	src/wireless-security/ws-wpa-eap.h \
+	src/wireless-security/ws-wpa-eap.c \
+	src/wireless-security/ws-dynamic-wep.h \
+	src/wireless-security/ws-dynamic-wep.c \
+	src/wireless-security/eap-method.h \
+	src/wireless-security/eap-method.c \
+	src/wireless-security/eap-method-tls.h \
+	src/wireless-security/eap-method-tls.c \
+	src/wireless-security/eap-method-leap.h \
+	src/wireless-security/eap-method-leap.c \
+	src/wireless-security/eap-method-fast.h \
+	src/wireless-security/eap-method-fast.c \
+	src/wireless-security/eap-method-ttls.h \
+	src/wireless-security/eap-method-ttls.c \
+	src/wireless-security/eap-method-peap.h \
+	src/wireless-security/eap-method-peap.c \
+	src/wireless-security/eap-method-simple.h \
+	src/wireless-security/eap-method-simple.c \
+	src/wireless-security/helpers.h \
+	src/wireless-security/helpers.c
+
+
+noinst_LTLIBRARIES += src/wireless-security/libwireless-security-libnm.la
+
+src_wireless_security_libwireless_security_libnm_la_SOURCES = \
+	$(wireless_security_c_real)
+
+nodist_src_wireless_security_libwireless_security_libnm_la_SOURCES = \
+	$(wireless_security_c_gen)
+
+src_wireless_security_libwireless_security_libnm_la_CPPFLAGS = \
+	$(dflt_cppflags) \
+	"-I$(srcdir)/shared" \
+	"-I$(srcdir)/src/utils" \
+	"-I$(srcdir)/src" \
+	-Isrc \
+	$(GTK3_CFLAGS) \
+	$(LIBNM_CFLAGS)
+
+src_wireless_security_libwireless_security_libnm_la_LIBADD = \
+	src/utils/libutils-libnm.la \
+	$(GTK3_LIBS) \
+	$(LIBNM_LIBS)
+
+$(src_wireless_security_libwireless_security_libnm_la_OBJECTS): $(wireless_security_h_gen)
+
+if WITH_LIBNMA_GTK4
+
+noinst_LTLIBRARIES += src/wireless-security/libwireless-security-libnm-gtk4.la
+
+src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
+	$(wireless_security_c_real)
+
+nodist_src_wireless_security_libwireless_security_libnm_gtk4_la_SOURCES = \
+	$(wireless_security_c_gen)
+
+src_wireless_security_libwireless_security_libnm_gtk4_la_CPPFLAGS = \
+	"-I$(srcdir)/shared" \
+	"-I$(srcdir)/src/utils" \
+	"-I$(srcdir)/src" \
+	-Isrc \
+	$(GTK4_CFLAGS) \
+	$(LIBNM_CFLAGS)
+
+src_wireless_security_libwireless_security_libnm_gtk4_la_LIBADD = \
+	src/utils/libutils-libnm-gtk4.la \
+	$(GTK4_LIBS) \
+	$(LIBNM_LIBS)
+
+$(src_wireless_security_libwireless_security_libnm_gtk4_la_OBJECTS): $(wireless_security_h_gen)
+
+endif
+
+EXTRA_DIST += \
+	src/wireless-security/eap-method-fast.ui \
+	src/wireless-security/eap-method-leap.ui \
+	src/wireless-security/eap-method-peap.ui \
+	src/wireless-security/eap-method-simple.ui \
+	src/wireless-security/eap-method-tls.ui \
+	src/wireless-security/eap-method-ttls.ui \
+	src/wireless-security/ws-dynamic-wep.ui \
+	src/wireless-security/ws-leap.ui \
+	src/wireless-security/ws-sae.ui \
+	src/wireless-security/ws-wep-key.ui \
+	src/wireless-security/ws-wpa-eap.ui \
+	src/wireless-security/ws-wpa-psk.ui \
+	src/wireless-security/ws.gresource.xml \
+	src/wireless-security/meson.build
+
+###############################################################################
+
 src/nma-resources.h: src/nma.gresource.xml
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src --generate-header --internal
 
@@ -166,21 +284,7 @@ libnma_h_pub = \
 	src/nma-ui-utils.h \
 	src/nma-cert-chooser.h \
 	src/nma-bar-code-widget.h \
-	src/nma-bar-code.h \
-	src/wireless-security/ws-dynamic-wep.h \
-	src/wireless-security/ws-leap.h \
-	src/wireless-security/ws-sae.h \
-	src/wireless-security/ws-wep-key.h \
-	src/wireless-security/ws-wpa-eap.h \
-	src/wireless-security/ws-wpa-psk.h \
-	src/wireless-security/eap-method-fast.h \
-	src/wireless-security/eap-method.h \
-	src/wireless-security/eap-method-leap.h \
-	src/wireless-security/eap-method-peap.h \
-	src/wireless-security/eap-method-simple.h \
-	src/wireless-security/eap-method-tls.h \
-	src/wireless-security/eap-method-ttls.h \
-	src/wireless-security/wireless-security.h
+	src/nma-bar-code.h
 
 libnma_c_real = \
 	src/nma-wifi-dialog.c \
@@ -192,38 +296,7 @@ libnma_c_real = \
 	src/nma-cert-chooser.c \
 	src/nma-file-cert-chooser.c \
 	src/nma-bar-code-widget.c \
-	src/nma-bar-code.c \
-	\
-	src/wireless-security/wireless-security.h \
-	src/wireless-security/wireless-security.c \
-	src/wireless-security/ws-sae.h \
-	src/wireless-security/ws-sae.c \
-	src/wireless-security/ws-wep-key.h \
-	src/wireless-security/ws-wep-key.c \
-	src/wireless-security/ws-wpa-psk.h \
-	src/wireless-security/ws-wpa-psk.c \
-	src/wireless-security/ws-leap.h \
-	src/wireless-security/ws-leap.c \
-	src/wireless-security/ws-wpa-eap.h \
-	src/wireless-security/ws-wpa-eap.c \
-	src/wireless-security/ws-dynamic-wep.h \
-	src/wireless-security/ws-dynamic-wep.c \
-	src/wireless-security/eap-method.h \
-	src/wireless-security/eap-method.c \
-	src/wireless-security/eap-method-tls.h \
-	src/wireless-security/eap-method-tls.c \
-	src/wireless-security/eap-method-leap.h \
-	src/wireless-security/eap-method-leap.c \
-	src/wireless-security/eap-method-fast.h \
-	src/wireless-security/eap-method-fast.c \
-	src/wireless-security/eap-method-ttls.h \
-	src/wireless-security/eap-method-ttls.c \
-	src/wireless-security/eap-method-peap.h \
-	src/wireless-security/eap-method-peap.c \
-	src/wireless-security/eap-method-simple.h \
-	src/wireless-security/eap-method-simple.c \
-	src/wireless-security/helpers.h \
-	src/wireless-security/helpers.c
+	src/nma-bar-code.c
 
 EXTRA_DIST += \
 	src/qrcodegen.c \
@@ -285,7 +358,7 @@ src_libnma_la_CFLAGS = \
 	$(GCR_CFLAGS)
 
 src_libnma_la_LIBADD = \
-	src/utils/libutils-libnm.la \
+	src/wireless-security/libwireless-security-libnm.la \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS) \
 	$(GCR_LIBS)
@@ -479,6 +552,7 @@ src_libnma_gtk4_la_CFLAGS = \
 	$(GCR_GCR4_CFLAGS)
 
 src_libnma_gtk4_la_LIBADD = \
+	src/wireless-security/libwireless-security-libnm-gtk4.la \
 	$(GTK4_LIBS) \
 	$(LIBNM_LIBS) \
 	$(GCR_GCR4_LIBS)
@@ -671,23 +745,7 @@ EXTRA_DIST += \
 	src/nma-vpn-password-dialog.ui \
 	src/nma.gresource.xml \
 	src/meson.build \
-	src/tests/meson.build \
-	\
-	src/wireless-security/eap-method-fast.ui \
-	src/wireless-security/eap-method-leap.ui \
-	src/wireless-security/eap-method-peap.ui \
-	src/wireless-security/eap-method-simple.ui \
-	src/wireless-security/eap-method-tls.ui \
-	src/wireless-security/eap-method-ttls.ui \
-	src/wireless-security/ws-dynamic-wep.ui \
-	src/wireless-security/ws-leap.ui \
-	src/wireless-security/ws-sae.ui \
-	src/wireless-security/ws-wep-key.ui \
-	src/wireless-security/ws-wpa-eap.ui \
-	src/wireless-security/ws-wpa-psk.ui \
-	src/wireless-security/ws.gresource.xml \
-	src/wireless-security/meson.build
-
+	src/tests/meson.build
 
 ###############################################################################
 

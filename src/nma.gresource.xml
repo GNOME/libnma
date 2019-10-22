@@ -7,18 +7,5 @@
 		<file preprocess="xml-stripblanks">nma-mobile-wizard.ui</file>
 		<file preprocess="xml-stripblanks">nma-vpn-password-dialog.ui</file>
 		<file preprocess="xml-stripblanks">nma-bar-code-widget.ui</file>
-
-                <file preprocess="xml-stripblanks" alias="ws-dynamic-wep.ui">wireless-security/ws-dynamic-wep.ui</file>
-                <file preprocess="xml-stripblanks" alias="ws-leap.ui">wireless-security/ws-leap.ui</file>
-                <file preprocess="xml-stripblanks" alias="ws-sae.ui">wireless-security/ws-sae.ui</file>
-                <file preprocess="xml-stripblanks" alias="ws-wep-key.ui">wireless-security/ws-wep-key.ui</file>
-                <file preprocess="xml-stripblanks" alias="ws-wpa-eap.ui">wireless-security/ws-wpa-eap.ui</file>
-                <file preprocess="xml-stripblanks" alias="ws-wpa-psk.ui">wireless-security/ws-wpa-psk.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-fast.ui">wireless-security/eap-method-fast.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-leap.ui">wireless-security/eap-method-leap.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-peap.ui">wireless-security/eap-method-peap.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-simple.ui">wireless-security/eap-method-simple.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-tls.ui">wireless-security/eap-method-tls.ui</file>
-                <file preprocess="xml-stripblanks" alias="eap-method-ttls.ui">wireless-security/eap-method-ttls.ui</file>
 	</gresource>
 </gresources>

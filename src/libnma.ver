@@ -112,25 +112,3 @@ libnma_1_8_22 {
 	nma_bar_code_widget_get_type;
 	nma_bar_code_widget_new;
 } libnma_1_8_12;
-
-libnma_1_8_28 {
-	eap_method_ca_cert_ignore_load;
-	eap_method_ca_cert_ignore_save;
-	ws_802_1x_fill_connection;
-
-	wireless_security_add_to_size_group;
-	wireless_security_adhoc_compatible;
-	wireless_security_fill_connection;
-	wireless_security_get_type;
-	wireless_security_get_widget;
-	wireless_security_set_changed_notify;
-	wireless_security_unref;
-	wireless_security_validate;
-
-	ws_dynamic_wep_new;
-	ws_leap_new;
-	ws_sae_new;
-	ws_wep_key_new;
-	ws_wpa_eap_new;
-	ws_wpa_psk_new;
-} libnma_1_8_22;
