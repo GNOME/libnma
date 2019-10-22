@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright 2007 - 2019 Red Hat, Inc.
+ */
+
+#ifndef NMA_WS_802_1X_PRIVATE_H
+#define NMA_WS_802_1X_PRIVATE_H
+
+struct _NMAWs8021xClass {
+	GtkGridClass parent;
+};
+
+struct _NMAWs8021x {
+	GtkGrid parent;
+
+	GtkWidget *eap_auth_combo;
+	GtkWidget *eap_auth_label;
+	GtkWidget *eap_vbox;
+
+	NMConnection *connection;
+	gboolean secrets_only;
+	gboolean is_editor;
+	char **secrets_hints;
+
+	char *username, *password;
+	gboolean always_ask, show_password;
+};
+
+void nma_ws_802_1x_fill_connection (NMAWs *ws, NMConnection *connection);
+
+void nma_ws_802_1x_set_userpass (NMAWs8021x *self,
+                                 const char *user,
+                                 const char *password,
+                                 gboolean always_ask,
+                                 gboolean show_password);
+
+#endif /* NMA_WS_802_1X_PRIVATE_H */

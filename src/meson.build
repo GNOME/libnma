@@ -16,6 +16,7 @@ version_header = configure_file(
 
 subdir('utils')
 subdir('wireless-security')
+subdir('nma-ws')
 
 cert_chooser_headers = files('nma-cert-chooser.h')
 
@@ -24,7 +25,7 @@ cert_chooser_sources = files(
   'nma-file-cert-chooser.c'
 )
 
-resource_data = files(
+resource_data = nma_ws_resource_data + files(
   'nma-bar-code-widget.ui',
   'nma-mobile-wizard.ui',
   'nma-pkcs11-cert-chooser-dialog.ui',
@@ -39,7 +40,7 @@ built_sources = gnome.compile_resources(
   dependencies: resource_data
 )
 
-gir_headers = cert_chooser_headers + files(
+gir_headers = cert_chooser_headers + nma_ws_headers + files(
   'nma-bar-code-widget.h',
   'nma-bar-code.h',
   'nma-mobile-providers.h',
@@ -54,7 +55,7 @@ install_headers(
   subdir: 'libnma'
 )
 
-gir_sources = [version_header] + cert_chooser_sources + files(
+gir_sources = [version_header] + cert_chooser_sources + nma_ws_sources + files(
   'init.c',
   'nma-bar-code-widget.c',
   'nma-bar-code.c',
@@ -69,7 +70,8 @@ incs = [
   top_inc,
   shared_inc,
   src_inc,
-  wireless_security_inc
+  wireless_security_inc,
+  nma_ws_inc,
 ]
 
 deps = [

@@ -312,6 +312,7 @@ if enable_gtk_doc
     'nma-resources.h',
     'nma-private.h',
     'nma-version.h',
+    'nma-eap.h',
     'eap-method.h',
     'wireless-security.h',
   ]
