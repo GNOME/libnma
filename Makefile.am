@@ -511,6 +511,24 @@ src_tests_wireless_security_LDADD = \
 	src/libnma.la \
 	src/wireless-security/libwireless-security-libnm.la
 
+check_PROGRAMS_norun += src/tests/ws
+
+src_tests_ws_CPPFLAGS = \
+	$(dflt_cppflags) \
+	$(GLIB_CFLAGS) \
+	$(GTK3_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	"-I$(srcdir)/shared/" \
+	"-I$(srcdir)/src" \
+	"-I$(srcdir)/src/nma-ws" \
+	-Isrc
+
+src_tests_ws_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK3_LIBS) \
+	$(LIBNM_LIBS) \
+	src/libnma.la
+
 check_PROGRAMS_norun += src/tests/wifi-dialog-secrets
 
 src_tests_wifi_dialog_secrets_CPPFLAGS = \
