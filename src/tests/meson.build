@@ -6,6 +6,7 @@ tests = [
   'vpn-password-dialog',
   'wifi-dialog',
   'wifi-dialog-secrets',
+  'ws',
 ]
 
 foreach tst : tests

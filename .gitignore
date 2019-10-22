@@ -106,6 +106,8 @@ src/tests/wifi-dialog
 src/tests/wifi-dialog-gtk4
 src/tests/wifi-dialog-secrets
 src/tests/wifi-dialog-secrets-gtk4
+src/tests/ws
+src/tests/ws-gtk4
 src/tests/bar-code
 src/tests/bar-code-gtk4
 src/wireless-security/ws-resources.c

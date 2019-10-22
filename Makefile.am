@@ -483,6 +483,24 @@ src_tests_wifi_dialog_LDADD = \
 	$(LIBNM_LIBS) \
 	src/libnma.la
 
+check_PROGRAMS_norun += src/tests/ws
+
+src_tests_ws_CPPFLAGS = \
+	$(dflt_cppflags) \
+	$(GLIB_CFLAGS) \
+	$(GTK3_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	"-I$(srcdir)/shared/" \
+	"-I$(srcdir)/src" \
+	"-I$(srcdir)/src/nma-ws" \
+	-Isrc
+
+src_tests_ws_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK3_LIBS) \
+	$(LIBNM_LIBS) \
+	src/libnma.la
+
 check_PROGRAMS_norun += src/tests/wifi-dialog-secrets
 
 src_tests_wifi_dialog_secrets_CPPFLAGS = \
@@ -682,6 +700,27 @@ src_tests_wifi_dialog_gtk4_CPPFLAGS = \
 	-Isrc
 
 src_tests_wifi_dialog_gtk4_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK4_LIBS) \
+	$(LIBNM_LIBS) \
+	src/libnma-gtk4.la
+
+check_PROGRAMS_norun += src/tests/ws-gtk4
+
+src_tests_ws_gtk4_SOURCES = \
+	src/tests/ws.c
+
+src_tests_ws_gtk4_CPPFLAGS = \
+	$(dflt_cppflags) \
+	$(GLIB_CFLAGS) \
+	$(GTK4_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	"-I$(srcdir)/shared/" \
+	"-I$(srcdir)/src" \
+	"-I$(srcdir)/src/nma-ws" \
+	-Isrc
+
+src_tests_ws_gtk4_LDADD = \
 	$(GLIB_LIBS) \
 	$(GTK4_LIBS) \
 	$(LIBNM_LIBS) \
