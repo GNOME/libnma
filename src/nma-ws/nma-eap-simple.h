@@ -40,7 +40,7 @@ typedef enum {
 
 typedef struct _NMAEapSimple NMAEapSimple;
 
-NMAEapSimple *nma_eap_simple_new (NMAWs *ws_parent,
+NMAEapSimple *nma_eap_simple_new (NMAWs8021x *ws_8021x,
                                   NMConnection *connection,
                                   NMAEapSimpleType type,
                                   NMAEapSimpleFlags flags,

@@ -10,9 +10,9 @@
 
 #include "nma-ws.h"
 
-typedef struct _NMAEapTTLS NMAEapTTLS;
+typedef struct _NMAEapTtls NMAEapTtls;
 
-NMAEapTTLS *nma_eap_ttls_new (NMAWs *ws_parent,
+NMAEapTtls *nma_eap_ttls_new (NMAWs8021x *ws_8021x,
                               NMConnection *connection,
                               gboolean is_editor,
                               gboolean secrets_only);

@@ -10,9 +10,9 @@
 
 #include "nma-ws.h"
 
-typedef struct _NMAEapFAST NMAEapFAST;
+typedef struct _NMAEapFast NMAEapFast;
 
-NMAEapFAST *nma_eap_fast_new (NMAWs *ws_parent,
+NMAEapFast *nma_eap_fast_new (NMAWs8021x *ws_8021x,
                               NMConnection *connection,
                               gboolean is_editor,
                               gboolean secrets_only);

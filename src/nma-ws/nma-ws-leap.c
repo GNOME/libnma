@@ -8,62 +8,81 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
+#include <ctype.h>
 #include <string.h>
 
 #include "nma-ws.h"
-#include "helpers.h"
+#include "nma-ws-private.h"
+#include "nma-ws-leap.h"
+#include "nma-ws-helpers.h"
 #include "nma-ui-utils.h"
 #include "utils.h"
 
-struct _NMAWsLEAP {
-	NMAWs parent;
-	gboolean editing_connection;
-	const char *password_flags_name;
+typedef struct {
+	GtkGridClass parent;
+} NMAWsLeapClass;
+
+struct _NMAWsLeap {
+	GtkGrid parent;
+
+	GtkWidget *leap_username_entry;
+	GtkWidget *leap_password_entry;
+	GtkWidget *leap_username_label;
+	GtkWidget *leap_password_label;
+	GtkWidget *show_checkbutton_leap;
+
+	NMConnection *connection;
+	gboolean secrets_only;
+};
+
+static void nma_ws_interface_init (NMAWsInterface *iface);
+
+G_DEFINE_TYPE_WITH_CODE (NMAWsLeap, nma_ws_leap, GTK_TYPE_GRID,
+                         G_IMPLEMENT_INTERFACE (NMA_TYPE_WS, nma_ws_interface_init))
+
+enum {
+	PROP_0,
+	PROP_CONNECTION,
+	PROP_SECRETS_ONLY,
+	PROP_LAST
 };
 
 static void
-show_toggled_cb (GtkCheckButton *button, NMAWs *sec)
+show_toggled_cb (GtkCheckButton *button, gpointer user_data)
 {
-	GtkWidget *widget;
+	NMAWsLeap *self = NMA_WS_LEAP (user_data);
 	gboolean visible;
 
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, "leap_password_entry"));
-	g_assert (widget);
-
 	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
+	gtk_entry_set_visibility (GTK_ENTRY (self->leap_password_entry), visible);
 }
 
 static gboolean
-validate (NMAWs *parent, GError **error)
+validate (NMAWs *ws, GError **error)
 {
-	GtkWidget *entry;
+	NMAWsLeap *self = NMA_WS_LEAP (ws);
 	NMSettingSecretFlags secret_flags;
 	const char *text;
 	gboolean ret = TRUE;
 
-	entry = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_username_entry"));
-	g_assert (entry);
-	text = gtk_editable_get_text (GTK_EDITABLE (entry));
+	text = gtk_editable_get_text (GTK_EDITABLE (self->leap_username_entry));
 	if (!text || !strlen (text)) {
-		widget_set_error (entry);
+		widget_set_error (self->leap_username_entry);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing leap-username"));
 		ret = FALSE;
-	} else
-		widget_unset_error (entry);
+	} else {
+		widget_unset_error (self->leap_username_entry);
+	}
 
-	entry = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_password_entry"));
-	g_assert (entry);
-
-	secret_flags = nma_utils_menu_to_secret_flags (entry);
-	text = gtk_editable_get_text (GTK_EDITABLE (entry));
+	secret_flags = nma_utils_menu_to_secret_flags (self->leap_password_entry);
+	text = gtk_editable_get_text (GTK_EDITABLE (self->leap_password_entry));
 
 	if (   secret_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED
 	    || secret_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED
 	    || (text && strlen (text))) {
-		widget_unset_error (entry);
+		widget_unset_error (self->leap_password_entry);
 	} else {
-		widget_set_error (entry);
+		widget_set_error (self->leap_password_entry);
 		if (ret) {
 			g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing leap-password"));
 			ret = FALSE;
@@ -74,36 +93,28 @@ validate (NMAWs *parent, GError **error)
 }
 
 static void
-add_to_size_group (NMAWs *parent, GtkSizeGroup *group)
+add_to_size_group (NMAWs *ws, GtkSizeGroup *group)
 {
-	GtkWidget *widget;
+	NMAWsLeap *self = NMA_WS_LEAP (ws);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_username_label"));
-	gtk_size_group_add_widget (group, widget);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_password_label"));
-	gtk_size_group_add_widget (group, widget);
+	gtk_size_group_add_widget (group, self->leap_username_label);
+	gtk_size_group_add_widget (group, self->leap_password_label);
 }
 
 static void
-fill_connection (NMAWs *parent, NMConnection *connection)
+fill_connection (NMAWs *ws, NMConnection *connection)
 {
-	NMAWsLEAP *sec = (NMAWsLEAP *) parent;
+	NMAWsLeap *self = NMA_WS_LEAP (ws);
 	NMSettingWirelessSecurity *s_wireless_sec;
 	NMSettingSecretFlags secret_flags;
-	GtkWidget *widget, *passwd_entry;
 	const char *leap_password = NULL, *leap_username = NULL;
 
 	/* Blow away the old security setting by adding a clear one */
 	s_wireless_sec = (NMSettingWirelessSecurity *) nm_setting_wireless_security_new ();
 	nm_connection_add_setting (connection, (NMSetting *) s_wireless_sec);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_username_entry"));
-	leap_username = gtk_editable_get_text (GTK_EDITABLE (widget));
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_password_entry"));
-	passwd_entry = widget;
-	leap_password = gtk_editable_get_text (GTK_EDITABLE (widget));
+	leap_username = gtk_editable_get_text (GTK_EDITABLE (self->leap_username_entry));
+	leap_password = gtk_editable_get_text (GTK_EDITABLE (self->leap_password_entry));
 
 	g_object_set (s_wireless_sec,
 	              NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "ieee8021x",
@@ -113,48 +124,96 @@ fill_connection (NMAWs *parent, NMConnection *connection)
 	              NULL);
 
 	/* Save LEAP_PASSWORD_FLAGS to the connection */
-	secret_flags = nma_utils_menu_to_secret_flags (passwd_entry);
-	nm_setting_set_secret_flags (NM_SETTING (s_wireless_sec), sec->password_flags_name,
+	secret_flags = nma_utils_menu_to_secret_flags (self->leap_password_entry);
+	nm_setting_set_secret_flags (NM_SETTING (s_wireless_sec), NM_SETTING_WIRELESS_SECURITY_LEAP_PASSWORD,
 	                             secret_flags, NULL);
 
 	/* Update secret flags and popup when editing the connection */
-	if (sec->editing_connection)
-		nma_utils_update_password_storage (passwd_entry, secret_flags,
-		                                   NM_SETTING (s_wireless_sec), sec->password_flags_name);
+	if (!self->secrets_only) {
+		nma_utils_update_password_storage (self->leap_password_entry, secret_flags,
+		                                   NM_SETTING (s_wireless_sec),
+		                                   NM_SETTING_WIRELESS_SECURITY_LEAP_PASSWORD);
+	}
 }
 
 static void
-update_secrets (NMAWs *parent, NMConnection *connection)
+update_secrets (NMAWs *ws, NMConnection *connection)
 {
-	helper_fill_secret_entry (connection,
-	                          parent->builder,
-	                          "leap_password_entry",
-	                          NM_TYPE_SETTING_WIRELESS_SECURITY,
-	                          (HelperSecretFunc) nm_setting_wireless_security_get_leap_password);
+	NMAWsLeap *self = NMA_WS_LEAP (ws);
+
+	nma_ws_helper_fill_secret_entry (connection,
+	                                 GTK_EDITABLE (self->leap_password_entry),
+	                                 NM_TYPE_SETTING_WIRELESS_SECURITY,
+	                                 (HelperSecretFunc) nm_setting_wireless_security_get_leap_password);
 }
 
-NMAWsLEAP *
-nma_ws_leap_new (NMConnection *connection, gboolean secrets_only)
+static void
+get_property (GObject *object,
+              guint prop_id,
+              GValue *value,
+              GParamSpec *pspec)
 {
-	NMAWs *parent;
-	NMAWsLEAP *sec;
-	GtkWidget *widget;
+	NMAWsLeap *self = NMA_WS_LEAP (object);
+
+	switch (prop_id) {
+	case PROP_CONNECTION:
+		g_value_set_object (value, self->connection);
+		break;
+	case PROP_SECRETS_ONLY:
+		g_value_set_boolean (value, self->secrets_only);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
+	}
+}
+
+static void
+set_property (GObject *object,
+              guint prop_id,
+              const GValue *value,
+              GParamSpec *pspec)
+{
+	NMAWsLeap *self = NMA_WS_LEAP (object);
+
+	switch (prop_id) {
+	case PROP_CONNECTION:
+		self->connection = g_value_dup_object (value);
+		break;
+	case PROP_SECRETS_ONLY:
+		self->secrets_only = g_value_get_boolean (value);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
+	}
+}
+
+static void
+nma_ws_leap_init (NMAWsLeap *self)
+{
+	gtk_widget_init_template (GTK_WIDGET (self));
+}
+
+static void
+nma_ws_interface_init (NMAWsInterface *iface)
+{
+	iface->validate = validate;
+	iface->add_to_size_group = add_to_size_group;
+	iface->fill_connection = fill_connection;
+	iface->update_secrets = update_secrets;
+	iface->adhoc_compatible = FALSE;
+	iface->hotspot_compatible = FALSE;
+}
+
+static void
+constructed (GObject *object)
+{
+	NMAWsLeap *self = NMA_WS_LEAP (object);
 	NMSettingWirelessSecurity *wsec = NULL;
 
-	parent = nma_ws_init (sizeof (NMAWsLEAP),
-	                      validate,
-	                      add_to_size_group,
-	                      fill_connection,
-	                      update_secrets,
-	                      NULL,
-	                      "/org/gnome/libnma/nma-ws-leap.ui",
-	                      "leap_notebook",
-	                      "leap_username_entry");
-	if (!parent)
-		return NULL;
-
-	if (connection) {
-		wsec = nm_connection_get_setting_wireless_security (connection);
+	if (self->connection) {
+		wsec = nm_connection_get_setting_wireless_security (self->connection);
 		if (wsec) {
 			const char *auth_alg;
 
@@ -165,41 +224,70 @@ nma_ws_leap_new (NMConnection *connection, gboolean secrets_only)
 		}
 	}
 
-	parent->adhoc_compatible = FALSE;
-	parent->hotspot_compatible = FALSE;
-	sec = (NMAWsLEAP *) parent;
-	sec->editing_connection = secrets_only ? FALSE : TRUE;
-	sec->password_flags_name = NM_SETTING_WIRELESS_SECURITY_LEAP_PASSWORD;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_password_entry"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  sec);
-
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
-	nma_utils_setup_password_storage (widget, 0, (NMSetting *) wsec, sec->password_flags_name,
-	                                  FALSE, secrets_only);
+	nma_utils_setup_password_storage (self->leap_password_entry, 0, (NMSetting *) wsec,
+	                                  NM_SETTING_WIRELESS_SECURITY_LEAP_PASSWORD,
+	                                  FALSE, self->secrets_only);
 
-	if (wsec)
-		update_secrets (NMA_WS (sec), connection);
+	if (wsec) {
+		update_secrets (NMA_WS (self), self->connection);
+		gtk_editable_set_text (GTK_EDITABLE (self->leap_username_entry),
+		                       nm_setting_wireless_security_get_leap_username (wsec));
+	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "leap_username_entry"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  sec);
-	if (wsec)
-		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_wireless_security_get_leap_username (wsec));
+	if (self->secrets_only) {
+		gtk_widget_hide (self->leap_username_label);
+		gtk_widget_hide (self->leap_username_entry);
+	}
 
-	if (secrets_only)
-		gtk_widget_hide (widget);
+	gtk_widget_grab_focus (self->leap_password_entry);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_leap"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) show_toggled_cb,
-	                  sec);
+	G_OBJECT_CLASS (nma_ws_leap_parent_class)->constructed (object);
+}
 
-	return sec;
+NMAWsLeap *
+nma_ws_leap_new (NMConnection *connection, gboolean secrets_only)
+{
+	return g_object_new (NMA_TYPE_WS_LEAP,
+	                     "connection", connection,
+	                     "secrets-only", secrets_only,
+	                     NULL);
+}
+
+static void
+dispose (GObject *object)
+{
+	NMAWsLeap *self = NMA_WS_LEAP (object);
+
+	g_clear_object (&self->connection);
+}
+
+static void
+nma_ws_leap_class_init (NMAWsLeapClass *klass)
+{
+	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+	object_class->get_property = get_property;
+	object_class->set_property = set_property;
+	object_class->constructed = constructed;
+	object_class->dispose = dispose;
+
+	g_object_class_override_property (object_class,
+	                                  PROP_CONNECTION, "connection");
+
+	g_object_class_override_property (object_class,
+	                                  PROP_SECRETS_ONLY, "secrets-only");
+
+        gtk_widget_class_set_template_from_resource (widget_class,
+                                                     "/org/gnome/libnma/nma-ws-leap.ui");
+
+	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_username_entry);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_password_entry);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_username_label);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_password_label);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, show_checkbutton_leap);
+
+	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
+	gtk_widget_class_bind_template_callback (widget_class, show_toggled_cb);
 }

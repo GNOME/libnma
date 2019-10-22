@@ -13,25 +13,25 @@
 
 #include "nma-eap.h"
 #include "nma-ws.h"
+#include "nma-ws-private.h"
 #include "utils.h"
-#include "helpers.h"
 
 #define I_NAME_COLUMN   0
 #define I_METHOD_COLUMN 1
 
-struct _NMAEapFAST {
+struct _NMAEapFast {
 	NMAEap parent;
 
 	const char *password_flags_name;
 	GtkSizeGroup *size_group;
-	NMAWs *sec_parent;
+	NMAWs8021x *ws_8021x;
 	gboolean is_editor;
 };
 
 static void
 destroy (NMAEap *parent)
 {
-	NMAEapFAST *method = (NMAEapFAST *) parent;
+	NMAEapFast *method = (NMAEapFast *) parent;
 
 	if (method->size_group)
 		g_object_unref (method->size_group);
@@ -75,7 +75,7 @@ validate (NMAEap *parent, GError **error)
 static void
 add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 {
-	NMAEapFAST *method = (NMAEapFAST *) parent;
+	NMAEapFast *method = (NMAEapFast *) parent;
 	GtkWidget *widget;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -180,7 +180,7 @@ static void
 inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
-	NMAEapFAST *method = (NMAEapFAST *) parent;
+	NMAEapFast *method = (NMAEapFast *) parent;
 	GtkWidget *vbox;
 	NMAEap *eap = NULL;
 	GList *elt, *children;
@@ -212,11 +212,11 @@ inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 
 	nma_eap_unref (eap);
 
-	nma_ws_changed_cb (combo, method->sec_parent);
+	nma_ws_changed_cb (combo, method->ws_8021x);
 }
 
 static GtkWidget *
-inner_auth_combo_init (NMAEapFAST *method,
+inner_auth_combo_init (NMAEapFast *method,
                        NMConnection *connection,
                        NMSetting8021x *s_8021x,
                        gboolean secrets_only)
@@ -246,7 +246,7 @@ inner_auth_combo_init (NMAEapFAST *method,
 	if (secrets_only)
 		simple_flags |= NMA_EAP_SIMPLE_FLAG_SECRETS_ONLY;
 
-	em_gtc = nma_eap_simple_new (method->sec_parent,
+	em_gtc = nma_eap_simple_new (method->ws_8021x,
 	                                connection,
 	                                NMA_EAP_SIMPLE_TYPE_GTC,
 	                                simple_flags,
@@ -262,7 +262,7 @@ inner_auth_combo_init (NMAEapFAST *method,
 	if (phase2_auth && !strcasecmp (phase2_auth, "gtc"))
 		active = 0;
 
-	em_mschap_v2 = nma_eap_simple_new (method->sec_parent,
+	em_mschap_v2 = nma_eap_simple_new (method->ws_8021x,
 	                                      connection,
 	                                      NMA_EAP_SIMPLE_TYPE_MSCHAP_V2,
 	                                      simple_flags,
@@ -304,7 +304,7 @@ static void
 pac_toggled_cb (GtkWidget *widget, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
-	NMAEapFAST *method = (NMAEapFAST *) parent;
+	NMAEapFast *method = (NMAEapFast *) parent;
 	gboolean enabled = FALSE;
 	GtkWidget *provision_combo;
 
@@ -315,24 +315,24 @@ pac_toggled_cb (GtkWidget *widget, gpointer user_data)
 
 	gtk_widget_set_sensitive (provision_combo, enabled);
 
-	nma_ws_changed_cb (widget, method->sec_parent);
+	nma_ws_changed_cb (widget, method->ws_8021x);
 }
 
-NMAEapFAST *
-nma_eap_fast_new (NMAWs *ws_parent,
+NMAEapFast *
+nma_eap_fast_new (NMAWs8021x *ws_8021x,
                   NMConnection *connection,
                   gboolean is_editor,
                   gboolean secrets_only)
 {
 	NMAEap *parent;
-	NMAEapFAST *method;
+	NMAEapFast *method;
 	GtkWidget *widget;
 	GtkFileFilter *filter;
 	NMSetting8021x *s_8021x = NULL;
 	const char *filename;
 	gboolean provisioning_enabled = TRUE;
 
-	parent = nma_eap_init (sizeof (NMAEapFAST),
+	parent = nma_eap_init (sizeof (NMAEapFast),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
@@ -345,9 +345,9 @@ nma_eap_fast_new (NMAWs *ws_parent,
 	if (!parent)
 		return NULL;
 
-	method = (NMAEapFAST *) parent;
+	method = (NMAEapFast *) parent;
 	method->password_flags_name = NM_SETTING_802_1X_PASSWORD;
-	method->sec_parent = ws_parent;
+	method->ws_8021x = ws_8021x;
 	method->is_editor = is_editor;
 
 	if (connection)
@@ -375,7 +375,7 @@ nma_eap_fast_new (NMAWs *ws_parent,
 	gtk_widget_set_sensitive (widget, provisioning_enabled);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), provisioning_enabled);
@@ -386,7 +386,7 @@ nma_eap_fast_new (NMAWs *ws_parent,
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
 	g_assert (widget);
@@ -395,7 +395,7 @@ nma_eap_fast_new (NMAWs *ws_parent,
 	                                   _("Choose a PAC file"));
 	g_signal_connect (G_OBJECT (widget), "selection-changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	filter = gtk_file_filter_new ();
 	gtk_file_filter_add_pattern (filter, "*.pac");

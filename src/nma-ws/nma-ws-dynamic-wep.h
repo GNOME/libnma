@@ -5,13 +5,22 @@
  * Copyright 2007 - 2019 Red Hat, Inc.
  */
 
-#ifndef WS_DYNAMIC_WEP_H
-#define WS_DYNAMIC_WEP_H
+#ifndef NMA_WS_DYNAMIC_WEP_H
+#define NMA_WS_DYNAMIC_WEP_H
 
-typedef struct _NMAWsDynamicWEP NMAWsDynamicWEP;
+typedef struct _NMAWsDynamicWep NMAWsDynamicWep;
 
-NMAWsDynamicWEP *nma_ws_dynamic_wep_new (NMConnection *connection,
+#define NMA_TYPE_WS_DYNAMIC_WEP            (nma_ws_dynamic_wep_get_type ())
+#define NMA_WS_DYNAMIC_WEP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsDynamicWep))
+#define NMA_WS_DYNAMIC_WEP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_SAE, NMAWsDynamicWepClass))
+#define NMA_IS_WS_DYNAMIC_WEP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_WS_SAE))
+#define NMA_IS_WS_DYNAMIC_WEP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_WS_SAE))
+#define NMA_WS_DYNAMIC_WEP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_WS_SAE, NMAWsDynamicWepClass))
+
+GType nma_ws_dynamic_wep_get_type (void);
+
+NMAWsDynamicWep *nma_ws_dynamic_wep_new (NMConnection *connection,
                                          gboolean is_editor,
                                          gboolean secrets_only);
 
-#endif /* WS_DYNAMIC_WEP_H */
+#endif /* NMA_WS_DYNAMIC_WEP_H */

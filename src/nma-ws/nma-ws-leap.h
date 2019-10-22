@@ -5,11 +5,20 @@
  * Copyright 2007 - 2019 Red Hat, Inc.
  */
 
-#ifndef WS_LEAP_H
-#define WS_LEAP_H
+#ifndef NMA_WS_LEAP_H
+#define NMA_WS_LEAP_H
 
-typedef struct _NMAWsLEAP NMAWsLEAP;
+typedef struct _NMAWsLeap NMAWsLeap;
 
-NMAWsLEAP *nma_ws_leap_new (NMConnection *connection, gboolean secrets_only);
+#define NMA_TYPE_WS_LEAP            (nma_ws_leap_get_type ())
+#define NMA_WS_LEAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_LEAP, NMAWsLeap))
+#define NMA_WS_LEAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_LEAP, NMAWsLeapClass))
+#define NMA_IS_WS_LEAP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_WS_LEAP))
+#define NMA_IS_WS_LEAP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_WS_LEAP))
+#define NMA_WS_LEAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_WS_LEAP, NMAWsLeapClass))
 
-#endif /* WS_LEAP_H */
+GType nma_ws_leap_get_type (void);
+
+NMAWsLeap *nma_ws_leap_new (NMConnection *connection, gboolean secrets_only);
+
+#endif /* NMA_WS_LEAP_H */

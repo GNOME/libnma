@@ -4,116 +4,67 @@
  *
  * Copyright 2007 - 2019 Red Hat, Inc.
  */
-
 #include "nm-default.h"
-
-#include <ctype.h>
-#include <string.h>
+#include "nma-private.h"
 
 #include "nma-ws.h"
-#include "nma-eap.h"
+#include "nma-ws-private.h"
+#include "nma-ws-802-1x.h"
+#include "nma-ws-802-1x-private.h"
+#include "nma-ws-wpa-eap.h"
 
-struct _NMAWsWPAEAP {
-	NMAWs parent;
+typedef struct {
+	NMAWs8021xClass parent;
+} NMAWsWpaEapClass;
 
-	GtkSizeGroup *size_group;
+struct _NMAWsWpaEap {
+	NMAWs8021x parent;
 };
 
+static void nma_ws_interface_init (NMAWsInterface *iface);
+
+G_DEFINE_TYPE_WITH_CODE (NMAWsWpaEap, nma_ws_wpa_eap, NMA_TYPE_WS_802_1X,
+                         G_IMPLEMENT_INTERFACE (NMA_TYPE_WS, nma_ws_interface_init))
 
 static void
-destroy (NMAWs *parent)
-{
-	NMAWsWPAEAP *sec = (NMAWsWPAEAP *) parent;
-
-	if (sec->size_group)
-		g_object_unref (sec->size_group);
-}
-
-static gboolean
-validate (NMAWs *parent, GError **error)
-{
-	return nma_ws_802_1x_validate (parent, "wpa_eap_auth_combo", error);
-}
-
-static void
-add_to_size_group (NMAWs *parent, GtkSizeGroup *group)
-{
-	NMAWsWPAEAP *sec = (NMAWsWPAEAP *) parent;
-
-	if (sec->size_group)
-		g_object_unref (sec->size_group);
-	sec->size_group = g_object_ref (group);
-
-	nma_ws_802_1x_add_to_size_group (parent,
-	                                 sec->size_group,
-	                                 "wpa_eap_auth_label",
-	                                 "wpa_eap_auth_combo");
-}
-
-static void
-fill_connection (NMAWs *parent, NMConnection *connection)
+fill_connection (NMAWs *ws, NMConnection *connection)
 {
 	NMSettingWirelessSecurity *s_wireless_sec;
 
-	nma_ws_802_1x_fill_connection (parent, "wpa_eap_auth_combo", connection);
+	nma_ws_802_1x_fill_connection (ws, connection);
 
 	s_wireless_sec = nm_connection_get_setting_wireless_security (connection);
-	g_assert (s_wireless_sec);
+	g_return_if_fail (s_wireless_sec);
 
 	g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "wpa-eap", NULL);
 }
 
 static void
-auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
+nma_ws_wpa_eap_init (NMAWsWpaEap *self)
 {
-	NMAWs *parent = NMA_WS (user_data);
-	NMAWsWPAEAP *sec = (NMAWsWPAEAP *) parent;
-
-	nma_ws_802_1x_auth_combo_changed (combo,
-	                                  parent,
-	                                  "wpa_nma_eap_vbox",
-	                                  sec->size_group);
 }
 
 static void
-update_secrets (NMAWs *parent, NMConnection *connection)
+nma_ws_interface_init (NMAWsInterface *iface)
 {
-	nma_ws_802_1x_update_secrets (parent, "wpa_eap_auth_combo", connection);
+	iface->fill_connection = fill_connection;
 }
 
-NMAWsWPAEAP *
+NMAWsWpaEap *
 nma_ws_wpa_eap_new (NMConnection *connection,
-                    gboolean is_editor,
-                    gboolean secrets_only,
-                    const char *const*secrets_hints)
+                        gboolean is_editor,
+                        gboolean secrets_only,
+                        const char *const*secrets_hints)
 {
-	NMAWs *parent;
-	GtkWidget *widget;
+	return g_object_new (NMA_TYPE_WS_WPA_EAP,
+	                     "connection", connection,
+	                     "secrets-only", secrets_only,
+	                     "is-editor", is_editor,
+	                     "secrets-hints", secrets_hints,
+	                     NULL);
+}
 
-	parent = nma_ws_init (sizeof (NMAWsWPAEAP),
-	                      validate,
-	                      add_to_size_group,
-	                      fill_connection,
-	                      update_secrets,
-	                      destroy,
-	                      "/org/gnome/libnma/nma-ws-wpa-eap.ui",
-	                      "wpa_eap_notebook",
-	                      NULL);
-	if (!parent)
-		return NULL;
-
-	parent->adhoc_compatible = FALSE;
-	parent->hotspot_compatible = FALSE;
-
-	widget = nma_ws_802_1x_auth_combo_init (parent,
-	                                        "wpa_eap_auth_combo",
-	                                        "wpa_eap_auth_label",
-	                                        (GCallback) auth_combo_changed_cb,
-	                                        connection,
-	                                        is_editor,
-	                                        secrets_only,
-	                                        secrets_hints);
-	auth_combo_changed_cb (widget, parent);
-
-	return (NMAWsWPAEAP *) parent;
+static void
+nma_ws_wpa_eap_class_init (NMAWsWpaEapClass *klass)
+{
 }

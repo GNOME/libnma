@@ -114,22 +114,47 @@ libnma_1_8_22 {
 } libnma_1_8_12;
 
 libnma_1_8_28 {
-	nma_eap_get_type;
-	nma_eap_method_ca_cert_ignore_load;
-	nma_eap_method_ca_cert_ignore_save;
-	nma_ws_802_1x_fill_connection;
 	nma_ws_add_to_size_group;
-	nma_ws_adhoc_compatible;
-	nma_ws_dynamic_wep_new;
 	nma_ws_fill_connection;
 	nma_ws_get_type;
+	nma_ws_validate;
+
+	nma_eap_get_type;
+	nma_ws_802_1x_get_type;
+
+
+/*
+	nma_ws_802_1x_fill_connection;
+	nma_ws_adhoc_compatible;
+
+	nma_eap_method_ca_cert_ignore_load;
+	nma_eap_method_ca_cert_ignore_save;
+
+	// obsolete
 	nma_ws_get_widget;
-	nma_ws_leap_new;
-	nma_ws_sae_new;
 	nma_ws_set_changed_notify;
 	nma_ws_unref;
-	nma_ws_validate;
+
+	// constructors
+	nma_ws_dynamic_wep_new;
+	nma_ws_leap_new;
+	nma_ws_sae_new;
 	nma_ws_wep_key_new;
 	nma_ws_wpa_eap_new;
 	nma_ws_wpa_psk_new;
+*/
+
+	nma_ws_sae_get_type;
+	nma_ws_leap_get_type;
+	nma_ws_wpa_psk_get_type;
+	nma_ws_wep_key_get_type;
+	nma_ws_dynamic_wep_get_type;
+	nma_ws_wpa_eap_get_type;
+
+
+	/* dialog only */
+/*
+	nma_ws_update_secrets;
+*/
+
 } libnma_1_8_22;

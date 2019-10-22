@@ -8,11 +8,11 @@
 #ifndef NMA_EAP_TLS_H
 #define NMA_EAP_TLS_H
 
-#include "nma-ws.h"
+#include "nma-ws-802-1x.h"
 
-typedef struct _NMAEapTLS NMAEapTLS;
+typedef struct _NMAEapTls NMAEapTls;
 
-NMAEapTLS *nma_eap_tls_new (NMAWs *ws_parent,
+NMAEapTls *nma_eap_tls_new (NMAWs8021x *ws_8021x,
                             NMConnection *connection,
                             gboolean phase2,
                             gboolean secrets_only);

@@ -10,236 +10,119 @@
 #include <string.h>
 
 #include "nma-ws.h"
+#include "nma-ws-private.h"
 #include "nma-eap.h"
 #include "utils.h"
 
-G_DEFINE_BOXED_TYPE (NMAWs, nma_ws, nma_ws_ref, nma_ws_unref)
-
-GtkWidget *
-nma_ws_get_widget (NMAWs *sec)
-{
-	g_return_val_if_fail (sec != NULL, NULL);
-
-	return sec->ui_widget;
-}
-
-void
-nma_ws_set_changed_notify (NMAWs *sec,
-                           NMAWsChangedFunc func,
-                           gpointer user_data)
-{
-	g_return_if_fail (sec != NULL);
-
-	sec->changed_notify = func;
-	sec->changed_notify_data = user_data;
-}
+G_DEFINE_INTERFACE (NMAWs, nma_ws, G_TYPE_OBJECT)
 
 void
 nma_ws_changed_cb (GtkWidget *ignored, gpointer user_data)
 {
-	NMAWs *sec = NMA_WS (user_data);
-
-	if (sec->changed_notify)
-		(*(sec->changed_notify)) (sec, sec->changed_notify_data);
+	g_signal_emit_by_name (user_data, "ws-changed");
 }
 
 gboolean
-nma_ws_validate (NMAWs *sec, GError **error)
+nma_ws_validate (NMAWs *self, GError **error)
 {
+	NMAWsInterface *iface;
 	gboolean result;
 
-	g_return_val_if_fail (sec != NULL, FALSE);
+	g_return_val_if_fail (self != NULL, FALSE);
 	g_return_val_if_fail (!error || !*error, FALSE);
 
-	g_assert (sec->validate);
-	result = (*(sec->validate)) (sec, error);
+	iface = NMA_WS_GET_INTERFACE (self);
+	g_return_val_if_fail (iface->validate, FALSE);
+	result = (*(iface->validate)) (self, error);
 	if (!result && error && !*error)
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("Unknown error validating 802.1X security"));
 	return result;
 }
 
 void
-nma_ws_add_to_size_group (NMAWs *sec, GtkSizeGroup *group)
+nma_ws_add_to_size_group (NMAWs *self, GtkSizeGroup *group)
 {
-	g_return_if_fail (sec != NULL);
+	NMAWsInterface *iface;
+
+	g_return_if_fail (self != NULL);
 	g_return_if_fail (group != NULL);
 
-	g_assert (sec->add_to_size_group);
-	return (*(sec->add_to_size_group)) (sec, group);
+	iface = NMA_WS_GET_INTERFACE (self);
+	g_return_if_fail (iface->add_to_size_group);
+	return (*(iface->add_to_size_group)) (self, group);
 }
 
 void
-nma_ws_fill_connection (NMAWs *sec,
+nma_ws_fill_connection (NMAWs *self,
                         NMConnection *connection)
 {
-	g_return_if_fail (sec != NULL);
+	NMAWsInterface *iface;
+
+	g_return_if_fail (self != NULL);
 	g_return_if_fail (connection != NULL);
 
-	g_assert (sec->fill_connection);
-	return (*(sec->fill_connection)) (sec, connection);
+	iface = NMA_WS_GET_INTERFACE (self);
+	g_return_if_fail (iface->fill_connection);
+	return (*(iface->fill_connection)) (self, connection);
 }
 
 void
-nma_ws_update_secrets (NMAWs *sec, NMConnection *connection)
+nma_ws_update_secrets (NMAWs *self, NMConnection *connection)
 {
-	g_return_if_fail (sec != NULL);
+	NMAWsInterface *iface;
+
+	g_return_if_fail (self != NULL);
 	g_return_if_fail (connection != NULL);
 
-	if (sec->update_secrets)
-		sec->update_secrets (sec, connection);
-}
-
-NMAWs *
-nma_ws_ref (NMAWs *sec)
-{
-	g_return_val_if_fail (sec != NULL, NULL);
-	g_return_val_if_fail (sec->refcount > 0, NULL);
-
-	sec->refcount++;
-	return sec;
+	iface = NMA_WS_GET_INTERFACE (self);
+	if (iface->update_secrets)
+		iface->update_secrets (self, connection);
 }
 
 void
-nma_ws_unref (NMAWs *sec)
+nma_ws_default_init (NMAWsInterface *iface)
 {
-	g_return_if_fail (sec != NULL);
-	g_return_if_fail (sec->refcount > 0);
+	GType iface_type = G_TYPE_FROM_INTERFACE (iface);
 
-	sec->refcount--;
-	if (sec->refcount == 0) {
-		if (sec->destroy)
-			sec->destroy (sec);
+	g_signal_new ("ws-changed",
+	              iface_type,
+	              G_SIGNAL_RUN_FIRST,
+	              0, NULL, NULL,
+	              g_cclosure_marshal_VOID__VOID,
+	              G_TYPE_NONE, 0);
 
-		g_free (sec->username);
-		if (sec->password) {
-			memset (sec->password, 0, strlen (sec->password));
-			g_free (sec->password);
-		}
+	iface->adhoc_compatible = TRUE;
+	iface->hotspot_compatible = TRUE;
 
-		if (sec->builder)
-			g_object_unref (sec->builder);
-		if (sec->ui_widget)
-			g_object_unref (sec->ui_widget);
-		g_slice_free1 (sec->obj_size, sec);
-	}
-}
+	g_object_interface_install_property (iface,
+		g_param_spec_object ("connection", "", "",
+		                     NM_TYPE_CONNECTION,
+		                       G_PARAM_READWRITE
+		                     | G_PARAM_CONSTRUCT
+		                     | G_PARAM_STATIC_STRINGS));
 
-NMAWs *
-nma_ws_init (gsize obj_size,
-             NMAWsValidateFunc validate,
-             NMAWsAddToSizeGroupFunc add_to_size_group,
-             NMAWsFillConnectionFunc fill_connection,
-             NMAWsUpdateSecretsFunc update_secrets,
-             NMAWsDestroyFunc destroy,
-             const char *ui_resource,
-             const char *ui_widget_name,
-             const char *default_field)
-{
-	NMAWs *sec;
-	GError *error = NULL;
-
-	g_return_val_if_fail (obj_size > 0, NULL);
-	g_return_val_if_fail (ui_resource != NULL, NULL);
-	g_return_val_if_fail (ui_widget_name != NULL, NULL);
-
-	sec = g_slice_alloc0 (obj_size);
-	g_assert (sec);
-
-	sec->refcount = 1;
-	sec->obj_size = obj_size;
-
-	sec->validate = validate;
-	sec->add_to_size_group = add_to_size_group;
-	sec->fill_connection = fill_connection;
-	sec->update_secrets = update_secrets;
-	sec->default_field = default_field;
-
-	sec->builder = gtk_builder_new ();
-	if (!gtk_builder_add_from_resource (sec->builder, ui_resource, &error)) {
-		g_warning ("Couldn't load UI builder resource %s: %s",
-		           ui_resource, error->message);
-		g_error_free (error);
-		nma_ws_unref (sec);
-		return NULL;
-	}
-
-	sec->ui_widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, ui_widget_name));
-	if (!sec->ui_widget) {
-		g_warning ("Couldn't load UI widget '%s' from UI file %s",
-		           ui_widget_name, ui_resource);
-		nma_ws_unref (sec);
-		return NULL;
-	}
-	g_object_ref_sink (sec->ui_widget);
-
-	sec->destroy = destroy;
-	sec->adhoc_compatible = TRUE;
-	sec->hotspot_compatible = TRUE;
-
-	return sec;
+	g_object_interface_install_property (iface,
+		g_param_spec_boolean ("secrets-only", "", "",
+		                      FALSE,
+		                        G_PARAM_READWRITE
+		                      | G_PARAM_CONSTRUCT
+		                      | G_PARAM_STATIC_STRINGS));
 }
 
 gboolean
-nma_ws_adhoc_compatible (NMAWs *sec)
+nma_ws_adhoc_compatible (NMAWs *self)
 {
-	g_return_val_if_fail (sec != NULL, FALSE);
+	g_return_val_if_fail (self != NULL, FALSE);
 
-	return sec->adhoc_compatible;
+	return NMA_WS_GET_INTERFACE (self)->adhoc_compatible;
 }
 
 gboolean
-nma_ws_hotspot_compatible (NMAWs *sec)
+nma_ws_hotspot_compatible (NMAWs *self)
 {
-	g_return_val_if_fail (sec != NULL, FALSE);
+	g_return_val_if_fail (self != NULL, FALSE);
 
-	return sec->hotspot_compatible;
-}
-
-void
-nma_ws_set_userpass (NMAWs *sec,
-                     const char *user,
-                     const char *password,
-                     gboolean always_ask,
-                     gboolean show_password)
-{
-	g_free (sec->username);
-	sec->username = g_strdup (user);
-
-	if (sec->password) {
-		memset (sec->password, 0, strlen (sec->password));
-		g_free (sec->password);
-	}
-	sec->password = g_strdup (password);
-
-	if (always_ask != (gboolean) -1)
-		sec->always_ask = always_ask;
-	sec->show_password = show_password;
-}
-
-void
-nma_ws_set_userpass_802_1x (NMAWs *sec,
-                            NMConnection *connection)
-{
-	const char *user = NULL, *password = NULL;
-	gboolean always_ask = FALSE, show_password = FALSE;
-	NMSetting8021x  *setting;
-	NMSettingSecretFlags flags;
-
-	if (!connection)
-		goto set;
-
-	setting = nm_connection_get_setting_802_1x (connection);
-	if (!setting)
-		goto set;
-
-	user = nm_setting_802_1x_get_identity (setting);
-	password = nm_setting_802_1x_get_password (setting);
-
-	if (nm_setting_get_secret_flags (NM_SETTING (setting), NM_SETTING_802_1X_PASSWORD, &flags, NULL))
-		always_ask = !!(flags & NM_SETTING_SECRET_FLAG_NOT_SAVED);
-
-set:
-	nma_ws_set_userpass (sec, user, password, always_ask, show_password);
+	return NMA_WS_GET_INTERFACE (self)->hotspot_compatible;
 }
 
 void
@@ -250,344 +133,9 @@ nma_ws_clear_ciphers (NMConnection *connection)
 	g_return_if_fail (connection != NULL);
 
 	s_wireless_sec = nm_connection_get_setting_wireless_security (connection);
-	g_assert (s_wireless_sec);
+	g_return_if_fail (s_wireless_sec);
 
 	nm_setting_wireless_security_clear_protos (s_wireless_sec);
 	nm_setting_wireless_security_clear_pairwise (s_wireless_sec);
 	nm_setting_wireless_security_clear_groups (s_wireless_sec);
-}
-
-void
-nma_ws_802_1x_add_to_size_group (NMAWs *sec,
-                                 GtkSizeGroup *size_group,
-                                 const char *label_name,
-                                 const char *combo_name)
-{
-	GtkWidget *widget;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	NMAEap *eap;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, label_name));
-	g_assert (widget);
-	gtk_size_group_add_widget (size_group, widget);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_name));
-	g_assert (widget);
-
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter);
-	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
-	g_assert (eap);
-	nma_eap_add_to_size_group (eap, size_group);
-	nma_eap_unref (eap);
-}
-
-gboolean
-nma_ws_802_1x_validate (NMAWs *sec, const char *combo_name, GError **error)
-{
-	GtkWidget *widget;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	NMAEap *eap = NULL;
-	gboolean valid = FALSE;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_name));
-	g_assert (widget);
-
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter);
-	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
-	g_assert (eap);
-	valid = nma_eap_validate (eap, error);
-	nma_eap_unref (eap);
-	return valid;
-}
-
-void
-nma_ws_802_1x_auth_combo_changed (GtkWidget *combo,
-                                  NMAWs *sec,
-                                  const char *vbox_name,
-                                  GtkSizeGroup *size_group)
-{
-	GtkWidget *vbox;
-	NMAEap *eap = NULL;
-	GList *elt, *children;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	GtkWidget *eap_widget;
-	GtkWidget *eap_default_widget = NULL;
-
-	vbox = GTK_WIDGET (gtk_builder_get_object (sec->builder, vbox_name));
-	g_assert (vbox);
-
-	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
-
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
-	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter);
-	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
-	g_assert (eap);
-
-	eap_widget = nma_eap_get_widget (eap);
-	g_assert (eap_widget);
-	gtk_widget_unparent (eap_widget);
-
-	if (size_group)
-		nma_eap_add_to_size_group (eap, size_group);
-	gtk_container_add (GTK_CONTAINER (vbox), eap_widget);
-
-	/* Refocus the EAP method's default widget */
-	if (eap->default_field) {
-		eap_default_widget = GTK_WIDGET (gtk_builder_get_object (eap->builder, eap->default_field));
-		if (eap_default_widget)
-			gtk_widget_grab_focus (eap_default_widget);
-	}
-
-	nma_eap_unref (eap);
-
-	nma_ws_changed_cb (combo, NMA_WS (sec));
-}
-
-GtkWidget *
-nma_ws_802_1x_auth_combo_init (NMAWs *sec,
-                               const char *combo_name,
-                               const char *combo_label,
-                               GCallback auth_combo_changed_cb,
-                               NMConnection *connection,
-                               gboolean is_editor,
-                               gboolean secrets_only,
-                               const char *const*secrets_hints)
-{
-	GtkWidget *combo, *widget;
-	GtkListStore *auth_model;
-	GtkTreeIter iter;
-	NMAEapSimple *em_md5;
-	NMAEapTLS *em_tls;
-	NMAEapLEAP *em_leap;
-	NMAEapSimple *em_pwd;
-	NMAEapFAST *em_fast;
-	NMAEapTTLS *em_ttls;
-	NMAEapPEAP *em_peap;
-	const char *default_method = NULL, *ctype = NULL;
-	int active = -1, item = 0;
-	gboolean wired = FALSE;
-	NMAEapSimpleFlags simple_flags = NMA_EAP_SIMPLE_FLAG_NONE;
-
-	/* Grab the default EAP method out of the security object */
-	if (connection) {
-		NMSettingConnection *s_con;
-		NMSetting8021x *s_8021x;
-
-		s_con = nm_connection_get_setting_connection (connection);
-		if (s_con)
-			ctype = nm_setting_connection_get_connection_type (s_con);
-		if (   (g_strcmp0 (ctype, NM_SETTING_WIRED_SETTING_NAME) == 0)
-		    || nm_connection_get_setting_wired (connection))
-			wired = TRUE;
-
-		s_8021x = nm_connection_get_setting_802_1x (connection);
-		if (s_8021x && nm_setting_802_1x_get_num_eap_methods (s_8021x))
-			default_method = nm_setting_802_1x_get_eap_method (s_8021x, 0);
-	}
-
-	/* initialize NMAWs userpass from connection (clear if no connection) */
-	nma_ws_set_userpass_802_1x (sec, connection);
-
-	auth_model = gtk_list_store_new (2, G_TYPE_STRING, nma_eap_get_type ());
-
-	if (is_editor)
-		simple_flags |= NMA_EAP_SIMPLE_FLAG_IS_EDITOR;
-	if (secrets_only)
-		simple_flags |= NMA_EAP_SIMPLE_FLAG_SECRETS_ONLY;
-
-	if (wired) {
-		em_md5 = nma_eap_simple_new (sec, connection, NMA_EAP_SIMPLE_TYPE_MD5, simple_flags, NULL);
-		gtk_list_store_append (auth_model, &iter);
-		gtk_list_store_set (auth_model, &iter,
-		                    AUTH_NAME_COLUMN, _("MD5"),
-		                    AUTH_METHOD_COLUMN, em_md5,
-		                    -1);
-		nma_eap_unref (NMA_EAP (em_md5));
-		if (default_method && (active < 0) && !strcmp (default_method, "md5"))
-			active = item;
-		item++;
-	}
-
-	em_tls = nma_eap_tls_new (sec, connection, FALSE, secrets_only);
-	gtk_list_store_append (auth_model, &iter);
-	gtk_list_store_set (auth_model, &iter,
-	                    AUTH_NAME_COLUMN, _("TLS"),
-	                    AUTH_METHOD_COLUMN, em_tls,
-	                    -1);
-	nma_eap_unref (NMA_EAP (em_tls));
-	if (default_method && (active < 0) && !strcmp (default_method, "tls"))
-		active = item;
-	item++;
-
-	if (!wired) {
-		em_leap = nma_eap_leap_new (sec, connection, secrets_only);
-		gtk_list_store_append (auth_model, &iter);
-		gtk_list_store_set (auth_model, &iter,
-		                    AUTH_NAME_COLUMN, _("LEAP"),
-		                    AUTH_METHOD_COLUMN, em_leap,
-		                    -1);
-		nma_eap_unref (NMA_EAP (em_leap));
-		if (default_method && (active < 0) && !strcmp (default_method, "leap"))
-			active = item;
-		item++;
-	}
-
-	em_pwd = nma_eap_simple_new (sec, connection, NMA_EAP_SIMPLE_TYPE_PWD, simple_flags, NULL);
-	gtk_list_store_append (auth_model, &iter);
-	gtk_list_store_set (auth_model, &iter,
-	                    AUTH_NAME_COLUMN, _("PWD"),
-	                    AUTH_METHOD_COLUMN, em_pwd,
-	                    -1);
-	nma_eap_unref (NMA_EAP (em_pwd));
-	if (default_method && (active < 0) && !strcmp (default_method, "pwd"))
-		active = item;
-	item++;
-
-	em_fast = nma_eap_fast_new (sec, connection, is_editor, secrets_only);
-	gtk_list_store_append (auth_model, &iter);
-	gtk_list_store_set (auth_model, &iter,
-	                    AUTH_NAME_COLUMN, _("FAST"),
-	                    AUTH_METHOD_COLUMN, em_fast,
-	                    -1);
-	nma_eap_unref (NMA_EAP (em_fast));
-	if (default_method && (active < 0) && !strcmp (default_method, "fast"))
-		active = item;
-	item++;
-
-	em_ttls = nma_eap_ttls_new (sec, connection, is_editor, secrets_only);
-	gtk_list_store_append (auth_model, &iter);
-	gtk_list_store_set (auth_model, &iter,
-	                    AUTH_NAME_COLUMN, _("Tunneled TLS"),
-	                    AUTH_METHOD_COLUMN, em_ttls,
-	                    -1);
-	nma_eap_unref (NMA_EAP (em_ttls));
-	if (default_method && (active < 0) && !strcmp (default_method, "ttls"))
-		active = item;
-	item++;
-
-	em_peap = nma_eap_peap_new (sec, connection, is_editor, secrets_only);
-	gtk_list_store_append (auth_model, &iter);
-	gtk_list_store_set (auth_model, &iter,
-	                    AUTH_NAME_COLUMN, _("Protected EAP (PEAP)"),
-	                    AUTH_METHOD_COLUMN, em_peap,
-	                    -1);
-	nma_eap_unref (NMA_EAP (em_peap));
-	if (default_method && (active < 0) && !strcmp (default_method, "peap"))
-		active = item;
-	item++;
-
-	if (secrets_hints && secrets_hints[0]) {
-		NMAEapSimple *em_hints;
-
-		em_hints = nma_eap_simple_new (sec, connection, NMA_EAP_SIMPLE_TYPE_UNKNOWN,
-		                                  simple_flags, secrets_hints);
-		gtk_list_store_append (auth_model, &iter);
-		gtk_list_store_set (auth_model, &iter,
-		                    AUTH_NAME_COLUMN, _("Unknown"),
-		                    AUTH_METHOD_COLUMN, em_hints,
-		                    -1);
-		nma_eap_unref (NMA_EAP (em_hints));
-		active = item;
-		item++;
-	} else if (default_method && !strcmp (default_method, "external")) {
-		NMAEapSimple *em_extern;
-		const char *empty_hints[] = { NULL };
-
-		em_extern = nma_eap_simple_new (sec, connection, NMA_EAP_SIMPLE_TYPE_UNKNOWN,
-		                                   simple_flags, empty_hints);
-		gtk_list_store_append (auth_model, &iter);
-		gtk_list_store_set (auth_model, &iter,
-		                    AUTH_NAME_COLUMN, _("Externally configured"),
-		                    AUTH_METHOD_COLUMN, em_extern,
-		                    -1);
-		nma_eap_unref (NMA_EAP (em_extern));
-			active = item;
-		item++;
-	}
-
-	combo = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_name));
-	g_assert (combo);
-
-	gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (auth_model));
-	g_object_unref (G_OBJECT (auth_model));
-	gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active < 0 ? 0 : (guint32) active);
-
-	g_signal_connect (G_OBJECT (combo), "changed", auth_combo_changed_cb, sec);
-
-	if (secrets_only) {
-		gtk_widget_hide (combo);
-		widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_label));
-		gtk_widget_hide (widget);
-	}
-
-	return combo;
-}
-
-void
-nma_ws_802_1x_fill_connection (NMAWs *sec,
-                               const char *combo_name,
-                               NMConnection *connection)
-{
-	GtkWidget *widget;
-	NMSettingWirelessSecurity *s_wireless_sec;
-	NMSetting8021x *s_8021x;
-	NMAEap *eap = NULL;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-
-	/* Get the NMAEap object */
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_name));
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter);
-	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
-	g_assert (eap);
-
-	/* Blow away the old wireless security setting by adding a clear one */
-	s_wireless_sec = (NMSettingWirelessSecurity *) nm_setting_wireless_security_new ();
-	nm_connection_add_setting (connection, (NMSetting *) s_wireless_sec);
-
-	/* Blow away the old 802.1x setting by adding a clear one */
-	s_8021x = (NMSetting8021x *) nm_setting_802_1x_new ();
-	nm_connection_add_setting (connection, (NMSetting *) s_8021x);
-
-	nma_eap_fill_connection (eap, connection);
-	nma_eap_unref (eap);
-}
-
-void
-nma_ws_802_1x_update_secrets (NMAWs *sec,
-                              const char *combo_name,
-                              NMConnection *connection)
-{
-	GtkWidget *widget;
-	NMAEap *eap = NULL;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-
-	g_return_if_fail (sec != NULL);
-	g_return_if_fail (combo_name != NULL);
-	g_return_if_fail (connection != NULL);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, combo_name));
-	g_return_if_fail (widget != NULL);
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-
-	/* Let each EAP method try to update its secrets */
-	if (gtk_tree_model_get_iter_first (model, &iter)) {
-		do {
-			gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
-			if (eap) {
-				nma_eap_update_secrets (eap, connection);
-				nma_eap_unref (eap);
-			}
-		} while (gtk_tree_model_iter_next (model, &iter));
-	}
 }

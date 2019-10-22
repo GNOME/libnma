@@ -10,75 +10,87 @@
 #include <string.h>
 
 #include "nma-ws.h"
-#include "helpers.h"
+#include "nma-ws-private.h"
+#include "nma-ws-sae.h"
+#include "nma-ws-helpers.h"
 #include "nma-ui-utils.h"
 #include "utils.h"
 
-#define WPA_PMK_LEN 32
+typedef struct {
+	GtkGridClass parent;
+} NMAWsSaeClass;
 
-struct _NMAWsSAE {
-	NMAWs parent;
+struct _NMAWsSae {
+	GtkGrid parent;
 
-	gboolean editing_connection;
-	const char *password_flags_name;
+	GtkWidget *psk_entry;
+	GtkWidget *sae_label;
+	GtkWidget *sae_type_combo;
+	GtkWidget *sae_type_label;
+	GtkWidget *show_checkbutton_sae;
+
+	NMConnection *connection;
+	gboolean secrets_only;
+};
+
+static void nma_ws_interface_init (NMAWsInterface *iface);
+
+G_DEFINE_TYPE_WITH_CODE (NMAWsSae, nma_ws_sae, GTK_TYPE_GRID,
+                         G_IMPLEMENT_INTERFACE (NMA_TYPE_WS, nma_ws_interface_init))
+
+enum {
+	PROP_0,
+	PROP_CONNECTION,
+	PROP_SECRETS_ONLY,
+	PROP_LAST
 };
 
 static void
-show_toggled_cb (GtkCheckButton *button, NMAWs *sec)
+show_toggled_cb (GtkCheckButton *button, gpointer user_data)
 {
-	GtkWidget *widget;
+	NMAWsSae *self = NMA_WS_SAE (user_data);
 	gboolean visible;
 
-	widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, "psk_entry"));
-	g_assert (widget);
-
 	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
+	gtk_entry_set_visibility (GTK_ENTRY (self->psk_entry), visible);
 }
 
 static gboolean
-validate (NMAWs *parent, GError **error)
+validate (NMAWs *ws, GError **error)
 {
-	GtkWidget *entry;
+	NMAWsSae *self = NMA_WS_SAE (ws);
 	NMSettingSecretFlags secret_flags;
 	const char *key;
 
-	entry = GTK_WIDGET (gtk_builder_get_object (parent->builder, "psk_entry"));
-	g_assert (entry);
-
-	secret_flags = nma_utils_menu_to_secret_flags (entry);
-	key = gtk_editable_get_text (GTK_EDITABLE (entry));
+	secret_flags = nma_utils_menu_to_secret_flags (self->psk_entry);
+	key = gtk_editable_get_text (GTK_EDITABLE (self->psk_entry));
 
         if (   secret_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED
             || secret_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED) {
 		/* All good. */
 	} else if (key == NULL || key[0] == '\0') {
-		widget_set_error (entry);
+		widget_set_error (self->psk_entry);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing password"));
 		return FALSE;
 	}
-	widget_unset_error (entry);
+	widget_unset_error (self->psk_entry);
 
 	return TRUE;
 }
 
 static void
-add_to_size_group (NMAWs *parent, GtkSizeGroup *group)
+add_to_size_group (NMAWs *ws, GtkSizeGroup *group)
 {
-	GtkWidget *widget;
+	NMAWsSae *self = NMA_WS_SAE (ws);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "sae_type_label"));
-	gtk_size_group_add_widget (group, widget);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "sae_label"));
-	gtk_size_group_add_widget (group, widget);
+	gtk_size_group_add_widget (group, self->sae_type_label);
+	gtk_size_group_add_widget (group, self->sae_label);
 }
 
 static void
-fill_connection (NMAWs *parent, NMConnection *connection)
+fill_connection (NMAWs *ws, NMConnection *connection)
 {
-	NMAWsSAE *sae = (NMAWsSAE *) parent;
-	GtkWidget *widget, *passwd_entry;
+	NMAWsSae *self = NMA_WS_SAE (ws);
 	const char *key;
 	NMSettingWireless *s_wireless;
 	NMSettingWirelessSecurity *s_wireless_sec;
@@ -87,7 +99,7 @@ fill_connection (NMAWs *parent, NMConnection *connection)
 	gboolean is_adhoc = FALSE;
 
 	s_wireless = nm_connection_get_setting_wireless (connection);
-	g_assert (s_wireless);
+	g_return_if_fail (s_wireless);
 
 	mode = nm_setting_wireless_get_mode (s_wireless);
 	if (mode && !strcmp (mode, "adhoc"))
@@ -97,20 +109,20 @@ fill_connection (NMAWs *parent, NMConnection *connection)
 	s_wireless_sec = (NMSettingWirelessSecurity *) nm_setting_wireless_security_new ();
 	nm_connection_add_setting (connection, (NMSetting *) s_wireless_sec);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "psk_entry"));
-	passwd_entry = widget;
-	key = gtk_editable_get_text (GTK_EDITABLE (widget));
+	key = gtk_editable_get_text (GTK_EDITABLE (self->psk_entry));
 	g_object_set (s_wireless_sec, NM_SETTING_WIRELESS_SECURITY_PSK, key, NULL);
 
 	/* Save PSK_FLAGS to the connection */
-	secret_flags = nma_utils_menu_to_secret_flags (passwd_entry);
+	secret_flags = nma_utils_menu_to_secret_flags (self->psk_entry);
 	nm_setting_set_secret_flags (NM_SETTING (s_wireless_sec), NM_SETTING_WIRELESS_SECURITY_PSK,
 	                             secret_flags, NULL);
 
 	/* Update secret flags and popup when editing the connection */
-	if (sae->editing_connection)
-		nma_utils_update_password_storage (passwd_entry, secret_flags,
-		                                   NM_SETTING (s_wireless_sec), sae->password_flags_name);
+	if (!self->secrets_only) {
+		nma_utils_update_password_storage (self->psk_entry, secret_flags,
+		                                   NM_SETTING (s_wireless_sec),
+		                                   NM_SETTING_WIRELESS_SECURITY_PSK);
+	}
 
 	nma_ws_clear_ciphers (connection);
 	if (is_adhoc) {
@@ -129,74 +141,145 @@ fill_connection (NMAWs *parent, NMConnection *connection)
 }
 
 static void
-update_secrets (NMAWs *parent, NMConnection *connection)
+update_secrets (NMAWs *ws, NMConnection *connection)
 {
-	helper_fill_secret_entry (connection,
-	                          parent->builder,
-	                          "psk_entry",
-	                          NM_TYPE_SETTING_WIRELESS_SECURITY,
-	                          (HelperSecretFunc) nm_setting_wireless_security_get_psk);
+	NMAWsSae *self = NMA_WS_SAE (ws);
+
+	nma_ws_helper_fill_secret_entry (connection,
+	                                 GTK_EDITABLE (self->psk_entry),
+	                                 NM_TYPE_SETTING_WIRELESS_SECURITY,
+	                                 (HelperSecretFunc) nm_setting_wireless_security_get_psk);
 }
 
-NMAWsSAE *
-nma_ws_sae_new (NMConnection *connection, gboolean secrets_only)
+static void
+get_property (GObject *object,
+              guint prop_id,
+              GValue *value,
+              GParamSpec *pspec)
 {
-	NMAWs *parent;
-	NMAWsSAE *sec;
+	NMAWsSae *self = NMA_WS_SAE (object);
+
+	switch (prop_id) {
+	case PROP_CONNECTION:
+		g_value_set_object (value, self->connection);
+		break;
+	case PROP_SECRETS_ONLY:
+		g_value_set_boolean (value, self->secrets_only);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
+	}
+}
+
+static void
+set_property (GObject *object,
+              guint prop_id,
+              const GValue *value,
+              GParamSpec *pspec)
+{
+	NMAWsSae *self = NMA_WS_SAE (object);
+
+	switch (prop_id) {
+	case PROP_CONNECTION:
+		self->connection = g_value_dup_object (value);
+		break;
+	case PROP_SECRETS_ONLY:
+		self->secrets_only = g_value_get_boolean (value);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+		break;
+	}
+}
+
+static void
+nma_ws_sae_init (NMAWsSae *self)
+{
+	gtk_widget_init_template (GTK_WIDGET (self));
+}
+
+static void
+nma_ws_interface_init (NMAWsInterface *iface)
+{
+	iface->validate = validate;
+	iface->add_to_size_group = add_to_size_group;
+	iface->fill_connection = fill_connection;
+	iface->update_secrets = update_secrets;
+	iface->adhoc_compatible = TRUE;
+	iface->hotspot_compatible = TRUE;
+}
+
+static void
+constructed (GObject *object)
+{
+	NMAWsSae *self = NMA_WS_SAE (object);
 	NMSetting *setting = NULL;
-	GtkWidget *widget;
-
-	parent = nma_ws_init (sizeof (NMAWsSAE),
-	                      validate,
-	                      add_to_size_group,
-	                      fill_connection,
-	                      update_secrets,
-	                      NULL,
-	                      "/org/gnome/libnma/nma-ws-sae.ui",
-	                      "sae_notebook",
-	                      "psk_entry");
-	if (!parent)
-		return NULL;
-
-	parent->adhoc_compatible = TRUE;
-	sec = (NMAWsSAE *) parent;
-	sec->editing_connection = secrets_only ? FALSE : TRUE;
-	sec->password_flags_name = NM_SETTING_WIRELESS_SECURITY_PSK;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "psk_entry"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  sec);
-	gtk_editable_set_width_chars (GTK_EDITABLE (widget), 28);
 
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
-	if (connection)
-		setting = (NMSetting *) nm_connection_get_setting_wireless_security (connection);
-	nma_utils_setup_password_storage (widget, 0, setting, sec->password_flags_name,
-	                                  FALSE, secrets_only);
+	if (self->connection)
+		setting = (NMSetting *) nm_connection_get_setting_wireless_security (self->connection);
+	nma_utils_setup_password_storage (self->psk_entry, 0, setting, NM_SETTING_WIRELESS_SECURITY_PSK,
+	                                  FALSE, self->secrets_only);
 
 	/* Fill secrets, if any */
-	if (connection)
-		update_secrets (NMA_WS (sec), connection);
+	if (self->connection)
+		update_secrets (NMA_WS (self), self->connection);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_sae"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) show_toggled_cb,
-	                  sec);
+	gtk_widget_grab_focus (self->psk_entry);
 
 	/* Hide WPA/RSN for now since this can be autodetected by NM and the
 	 * supplicant when connecting to the AP.
 	 */
+	gtk_widget_hide (self->sae_type_combo);
+	gtk_widget_hide (self->sae_type_label);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "sae_type_combo"));
-	g_assert (widget);
-	gtk_widget_hide (widget);
+	G_OBJECT_CLASS (nma_ws_sae_parent_class)->constructed (object);
+}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "sae_type_label"));
-	g_assert (widget);
-	gtk_widget_hide (widget);
+NMAWsSae *
+nma_ws_sae_new (NMConnection *connection, gboolean secrets_only)
+{
+	return g_object_new (NMA_TYPE_WS_SAE,
+	                     "connection", connection,
+	                     "secrets-only", secrets_only,
+	                     NULL);
+}
 
-	return sec;
+static void
+dispose (GObject *object)
+{
+	NMAWsSae *self = NMA_WS_SAE (object);
+
+	g_clear_object (&self->connection);
+}
+
+static void
+nma_ws_sae_class_init (NMAWsSaeClass *klass)
+{
+	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+	object_class->get_property = get_property;
+	object_class->set_property = set_property;
+	object_class->constructed = constructed;
+	object_class->dispose = dispose;
+
+	g_object_class_override_property (object_class,
+	                                  PROP_CONNECTION, "connection");
+
+	g_object_class_override_property (object_class,
+	                                  PROP_SECRETS_ONLY, "secrets-only");
+
+        gtk_widget_class_set_template_from_resource (widget_class,
+                                                     "/org/gnome/libnma/nma-ws-sae.ui");
+
+	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, psk_entry);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_label);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_combo);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_label);
+	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, show_checkbutton_sae);
+
+	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
+	gtk_widget_class_bind_template_callback (widget_class, show_toggled_cb);
 }

@@ -13,18 +13,19 @@
 
 #include "nma-eap.h"
 #include "nma-ws.h"
+#include "nma-ws-private.h"
 #include "nma-cert-chooser.h"
 #include "utils.h"
 
 #define I_NAME_COLUMN   0
 #define I_METHOD_COLUMN 1
 
-struct _NMAEapPEAP {
+struct _NMAEapPeap {
 	NMAEap parent;
 
 	const char *password_flags_name;
 	GtkSizeGroup *size_group;
-	NMAWs *sec_parent;
+	NMAWs8021x *ws_8021x;
 	gboolean is_editor;
 	GtkWidget *ca_cert_chooser;
 };
@@ -32,7 +33,7 @@ struct _NMAEapPEAP {
 static void
 destroy (NMAEap *parent)
 {
-	NMAEapPEAP *method = (NMAEapPEAP *) parent;
+	NMAEapPeap *method = (NMAEapPeap *) parent;
 
 	if (method->size_group)
 		g_object_unref (method->size_group);
@@ -41,7 +42,7 @@ destroy (NMAEap *parent)
 static gboolean
 validate (NMAEap *parent, GError **error)
 {
-	NMAEapPEAP *method = (NMAEapPEAP *) parent;
+	NMAEapPeap *method = (NMAEapPeap *) parent;
 	GtkWidget *widget;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -67,7 +68,7 @@ validate (NMAEap *parent, GError **error)
 static void
 ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 {
-	NMAEapPEAP *method = (NMAEapPEAP *) user_data;
+	NMAEapPeap *method = (NMAEapPeap *) user_data;
 
 	gtk_widget_set_sensitive (method->ca_cert_chooser,
 	                          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
@@ -76,7 +77,7 @@ ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 static void
 add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 {
-	NMAEapPEAP *method = (NMAEapPEAP *) parent;
+	NMAEapPeap *method = (NMAEapPeap *) parent;
 	GtkWidget *widget;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -118,7 +119,7 @@ add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 static void
 fill_connection (NMAEap *parent, NMConnection *connection)
 {
-	NMAEapPEAP *method = (NMAEapPEAP *) parent;
+	NMAEapPeap *method = (NMAEapPeap *) parent;
 	NMSetting8021x *s_8021x;
 	NMSetting8021xCKFormat format = NM_SETTING_802_1X_CK_FORMAT_UNKNOWN;
 	GtkWidget *widget;
@@ -203,7 +204,7 @@ static void
 inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
-	NMAEapPEAP *method = (NMAEapPEAP *) parent;
+	NMAEapPeap *method = (NMAEapPeap *) parent;
 	GtkWidget *vbox;
 	NMAEap *eap = NULL;
 	GList *elt, *children;
@@ -234,11 +235,11 @@ inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 
 	nma_eap_unref (eap);
 
-	nma_ws_changed_cb (combo, method->sec_parent);
+	nma_ws_changed_cb (combo, method->ws_8021x);
 }
 
 static GtkWidget *
-inner_auth_combo_init (NMAEapPEAP *method,
+inner_auth_combo_init (NMAEapPeap *method,
                        NMConnection *connection,
                        NMSetting8021x *s_8021x,
                        gboolean secrets_only)
@@ -269,7 +270,7 @@ inner_auth_combo_init (NMAEapPEAP *method,
 	if (secrets_only)
 		simple_flags |= NMA_EAP_SIMPLE_FLAG_SECRETS_ONLY;
 
-	em_mschap_v2 = nma_eap_simple_new (method->sec_parent,
+	em_mschap_v2 = nma_eap_simple_new (method->ws_8021x,
 	                                   connection,
 	                                   NMA_EAP_SIMPLE_TYPE_MSCHAP_V2,
 	                                   simple_flags,
@@ -285,7 +286,7 @@ inner_auth_combo_init (NMAEapPEAP *method,
 	if (phase2_auth && !strcasecmp (phase2_auth, "mschapv2"))
 		active = 0;
 
-	em_md5 = nma_eap_simple_new (method->sec_parent,
+	em_md5 = nma_eap_simple_new (method->ws_8021x,
 	                             connection,
 	                             NMA_EAP_SIMPLE_TYPE_MD5,
 	                             simple_flags,
@@ -301,7 +302,7 @@ inner_auth_combo_init (NMAEapPEAP *method,
 	if (phase2_auth && !strcasecmp (phase2_auth, "md5"))
 		active = 1;
 
-	em_gtc = nma_eap_simple_new (method->sec_parent,
+	em_gtc = nma_eap_simple_new (method->ws_8021x,
 	                             connection,
 	                             NMA_EAP_SIMPLE_TYPE_GTC,
 	                             simple_flags,
@@ -339,19 +340,19 @@ update_secrets (NMAEap *parent, NMConnection *connection)
 	                                      I_METHOD_COLUMN);
 }
 
-NMAEapPEAP *
-nma_eap_peap_new (NMAWs *ws_parent,
+NMAEapPeap *
+nma_eap_peap_new (NMAWs8021x *ws_8021x,
                   NMConnection *connection,
                   gboolean is_editor,
                   gboolean secrets_only)
 {
 	NMAEap *parent;
-	NMAEapPEAP *method;
+	NMAEapPeap *method;
 	GtkWidget *widget;
 	NMSetting8021x *s_8021x = NULL;
 	gboolean ca_not_required = FALSE;
 
-	parent = nma_eap_init (sizeof (NMAEapPEAP),
+	parent = nma_eap_init (sizeof (NMAEapPeap),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
@@ -364,9 +365,9 @@ nma_eap_peap_new (NMAWs *ws_parent,
 	if (!parent)
 		return NULL;
 
-	method = (NMAEapPEAP *) parent;
+	method = (NMAEapPeap *) parent;
 	method->password_flags_name = NM_SETTING_802_1X_PASSWORD;
-	method->sec_parent = ws_parent;
+	method->ws_8021x = ws_8021x;
 	method->is_editor = is_editor;
 
 	if (connection)
@@ -388,7 +389,7 @@ nma_eap_peap_new (NMAWs *ws_parent,
 	g_signal_connect (method->ca_cert_chooser,
 	                  "changed",
 	                  G_CALLBACK (nma_ws_changed_cb),
-	                  ws_parent);
+	                  ws_8021x);
 
 	nma_eap_setup_cert_chooser (NMA_CERT_CHOOSER (method->ca_cert_chooser), s_8021x,
 	                            nm_setting_802_1x_get_ca_cert_scheme,
@@ -421,7 +422,7 @@ nma_eap_peap_new (NMAWs *ws_parent,
 	                  parent);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ca_not_required);
 
 	widget = inner_auth_combo_init (method, connection, s_8021x, secrets_only);
@@ -444,21 +445,21 @@ nma_eap_peap_new (NMAWs *ws_parent,
 	}
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_domain_entry"));
 	if (s_8021x && nm_setting_802_1x_get_domain_suffix_match (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	if (secrets_only) {
 		widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_anon_identity_label"));

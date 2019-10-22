@@ -10,9 +10,9 @@
 
 #include "nma-ws.h"
 
-typedef struct _NMAEapLEAP NMAEapLEAP;
+typedef struct _NMAEapLeap NMAEapLeap;
 
-NMAEapLEAP *nma_eap_leap_new (NMAWs *ws_parent,
+NMAEapLeap *nma_eap_leap_new (NMAWs8021x *ws_8021x,
                               NMConnection *connection,
                               gboolean secrets_only);
 

@@ -16,7 +16,6 @@
 #include "nma-eap.h"
 #include "nm-utils.h"
 #include "utils.h"
-#include "helpers.h"
 
 G_DEFINE_BOXED_TYPE (NMAEap, nma_eap, nma_eap_ref, nma_eap_unref)
 

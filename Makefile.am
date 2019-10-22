@@ -292,13 +292,6 @@ libnma_h_pub = \
 	src/nma-ws/nma-ws-wep-key.h \
 	src/nma-ws/nma-ws-wpa-eap.h \
 	src/nma-ws/nma-ws-wpa-psk.h \
-	src/nma-ws/nma-eap-fast.h \
-	src/nma-ws/nma-eap.h \
-	src/nma-ws/nma-eap-leap.h \
-	src/nma-ws/nma-eap-peap.h \
-	src/nma-ws/nma-eap-simple.h \
-	src/nma-ws/nma-eap-tls.h \
-	src/nma-ws/nma-eap-ttls.h \
 	src/nma-ws/nma-ws.h
 
 libnma_c_real = \
@@ -314,7 +307,11 @@ libnma_c_real = \
 	src/nma-bar-code.c \
 	\
 	src/nma-ws/nma-ws.h \
+	src/nma-ws/nma-ws-private.h \
 	src/nma-ws/nma-ws.c \
+	src/nma-ws/nma-ws-802-1x.h \
+	src/nma-ws/nma-ws-802-1x-private.h \
+	src/nma-ws/nma-ws-802-1x.c \
 	src/nma-ws/nma-ws-sae.h \
 	src/nma-ws/nma-ws-sae.c \
 	src/nma-ws/nma-ws-wep-key.h \
@@ -340,7 +337,9 @@ libnma_c_real = \
 	src/nma-ws/nma-eap-peap.h \
 	src/nma-ws/nma-eap-peap.c \
 	src/nma-ws/nma-eap-simple.h \
-	src/nma-ws/nma-eap-simple.c
+	src/nma-ws/nma-eap-simple.c \
+	src/nma-ws/nma-ws-helpers.h \
+	src/nma-ws/nma-ws-helpers.c
 
 EXTRA_DIST += \
 	src/qrcodegen.c \
@@ -836,11 +835,10 @@ EXTRA_DIST += \
 	src/nma-ws/nma-eap-simple.ui \
 	src/nma-ws/nma-eap-tls.ui \
 	src/nma-ws/nma-eap-ttls.ui \
-	src/nma-ws/nma-ws-dynamic-wep.ui \
+	src/nma-ws/nma-ws-802-1x.ui \
 	src/nma-ws/nma-ws-leap.ui \
 	src/nma-ws/nma-ws-sae.ui \
 	src/nma-ws/nma-ws-wep-key.ui \
-	src/nma-ws/nma-ws-wpa-eap.ui \
 	src/nma-ws/nma-ws-wpa-psk.ui \
 	src/nma-ws/meson.build
 

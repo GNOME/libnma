@@ -14,12 +14,12 @@
 
 #include "nma-eap.h"
 #include "nma-ws.h"
-#include "helpers.h"
+#include "nma-ws-private.h"
 #include "nma-ui-utils.h"
 #include "nma-cert-chooser.h"
 #include "utils.h"
 
-struct _NMAEapTLS {
+struct _NMAEapTls {
 	NMAEap parent;
 
 	const char *ca_cert_password_flags_name;
@@ -35,7 +35,7 @@ struct _NMAEapTLS {
 static gboolean
 validate (NMAEap *parent, GError **error)
 {
-	NMAEapTLS *method = (NMAEapTLS *) parent;
+	NMAEapTls *method = (NMAEapTls *) parent;
 	GtkWidget *widget;
 	const char *identity;
 
@@ -63,7 +63,7 @@ validate (NMAEap *parent, GError **error)
 static void
 ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 {
-	NMAEapTLS *method = (NMAEapTLS *) user_data;
+	NMAEapTls *method = (NMAEapTls *) user_data;
 
 	gtk_widget_set_sensitive (method->ca_cert_chooser,
 	                          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
@@ -72,7 +72,7 @@ ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 static void
 add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 {
-	NMAEapTLS *method = (NMAEapTLS *) parent;
+	NMAEapTls *method = (NMAEapTls *) parent;
 	GtkWidget *widget;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_label"));
@@ -90,7 +90,7 @@ add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 static void
 fill_connection (NMAEap *parent, NMConnection *connection)
 {
-	NMAEapTLS *method = (NMAEapTLS *) parent;
+	NMAEapTls *method = (NMAEapTls *) parent;
 	NMSetting8021xCKFormat format = NM_SETTING_802_1X_CK_FORMAT_UNKNOWN;
 	NMSetting8021x *s_8021x;
 	NMSettingSecretFlags secret_flags;
@@ -318,7 +318,7 @@ client_cert_fixup_pkcs12 (NMACertChooser *cert_chooser, gpointer user_data)
 static void
 update_secrets (NMAEap *parent, NMConnection *connection)
 {
-	NMAEapTLS *method = (NMAEapTLS *) parent;
+	NMAEapTls *method = (NMAEapTls *) parent;
 
 	nma_eap_setup_cert_chooser (NMA_CERT_CHOOSER (method->client_cert_chooser),
 	                            nm_connection_get_setting_802_1x (connection),
@@ -332,19 +332,19 @@ update_secrets (NMAEap *parent, NMConnection *connection)
 	                            parent->phase2 ? nm_setting_802_1x_get_phase2_private_key_password : nm_setting_802_1x_get_private_key_password);
 }
 
-NMAEapTLS *
-nma_eap_tls_new (NMAWs *ws_parent,
+NMAEapTls *
+nma_eap_tls_new (NMAWs8021x *ws_8021x,
                  NMConnection *connection,
                  gboolean phase2,
                  gboolean secrets_only)
 {
-	NMAEapTLS *method;
+	NMAEapTls *method;
 	NMAEap *parent;
 	GtkWidget *widget;
 	NMSetting8021x *s_8021x = NULL;
 	gboolean ca_not_required = FALSE;
 
-	parent = nma_eap_init (sizeof (NMAEapTLS),
+	parent = nma_eap_init (sizeof (NMAEapTls),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
@@ -357,7 +357,7 @@ nma_eap_tls_new (NMAWs *ws_parent,
 	if (!parent)
 		return NULL;
 
-	method = (NMAEapTLS *) parent;
+	method = (NMAEapTls *) parent;
 	method->ca_cert_password_flags_name = phase2
 	                                      ? NM_SETTING_802_1X_PHASE2_CA_CERT_PASSWORD
 	                                      : NM_SETTING_802_1X_CA_CERT_PASSWORD;
@@ -379,13 +379,13 @@ nma_eap_tls_new (NMAWs *ws_parent,
 	                  parent);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 	if (s_8021x && nm_setting_802_1x_get_identity (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_identity (s_8021x));
 
@@ -393,7 +393,7 @@ nma_eap_tls_new (NMAWs *ws_parent,
 	g_assert (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 	if (phase2) {
 		if (s_8021x && nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x))
 			gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x));
@@ -418,7 +418,7 @@ nma_eap_tls_new (NMAWs *ws_parent,
 	g_signal_connect (method->ca_cert_chooser,
 	                  "changed",
 	                  G_CALLBACK (nma_ws_changed_cb),
-	                  ws_parent);
+	                  ws_8021x);
 
 	nma_eap_setup_cert_chooser (NMA_CERT_CHOOSER (method->ca_cert_chooser), s_8021x,
 	                            phase2 ? nm_setting_802_1x_get_phase2_ca_cert_scheme : nm_setting_802_1x_get_ca_cert_scheme,
@@ -463,11 +463,11 @@ nma_eap_tls_new (NMAWs *ws_parent,
 	g_signal_connect (method->client_cert_chooser,
 	                  "changed",
 	                  G_CALLBACK (client_cert_fixup_pkcs12),
-	                  ws_parent);
+	                  ws_8021x);
 	g_signal_connect (method->client_cert_chooser,
 	                  "changed",
 	                  G_CALLBACK (nma_ws_changed_cb),
-	                  ws_parent);
+	                  ws_8021x);
 
 	nma_eap_setup_cert_chooser (NMA_CERT_CHOOSER (method->client_cert_chooser), s_8021x,
 	                            phase2 ? nm_setting_802_1x_get_phase2_client_cert_scheme : nm_setting_802_1x_get_client_cert_scheme,

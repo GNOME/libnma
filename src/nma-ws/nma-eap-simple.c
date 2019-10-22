@@ -13,14 +13,17 @@
 
 #include "nma-eap.h"
 #include "nma-ws.h"
-#include "helpers.h"
+#include "nma-ws-private.h"
+#include "nma-ws-helpers.h"
+#include "nma-ws-802-1x.h"
+#include "nma-ws-802-1x-private.h"
 #include "nma-ui-utils.h"
 #include "utils.h"
 
 struct _NMAEapSimple {
 	NMAEap parent;
 
-	NMAWs *ws_parent;
+	NMAWs8021x *ws_8021x;
 
 	const char *password_flags_name;
 	NMAEapSimpleType type;
@@ -237,22 +240,20 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 static void
 update_secrets (NMAEap *parent, NMConnection *connection)
 {
-	helper_fill_secret_entry (connection,
-	                          parent->builder,
-	                          "eap_simple_password_entry",
-	                          NM_TYPE_SETTING_802_1X,
-	                          (HelperSecretFunc) nm_setting_802_1x_get_password);
-	helper_fill_secret_entry (connection,
-	                          parent->builder,
-	                          "eap_simple_pkey_passphrase_entry",
-	                          NM_TYPE_SETTING_802_1X,
-	                          (HelperSecretFunc) nm_setting_802_1x_get_private_key_password);
+	nma_ws_helper_fill_secret_entry (connection,
+	                                 GTK_EDITABLE (gtk_builder_get_object (parent->builder, "eap_simple_password_entry")),
+	                                 NM_TYPE_SETTING_802_1X,
+	                                 (HelperSecretFunc) nm_setting_802_1x_get_password);
+	nma_ws_helper_fill_secret_entry (connection,
+	                                 GTK_EDITABLE (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_entry")),
+	                                 NM_TYPE_SETTING_802_1X,
+	                                 (HelperSecretFunc) nm_setting_802_1x_get_private_key_password);
 }
 
 static gboolean
 stuff_changed (NMAEapSimple *method)
 {
-	nma_ws_changed_cb (NULL, method->ws_parent);
+	nma_ws_changed_cb (NULL, method->ws_8021x);
 	method->idle_func_id = 0;
 	return FALSE;
 }
@@ -281,25 +282,26 @@ password_storage_changed (GObject *entry,
 }
 
 /* Set the UI fields for user, password, always_ask and show_password to the
- * values as provided by method->ws_parent. */
+ * values as provided by method->ws_8021x. */
 static void
 set_userpass_ui (NMAEapSimple *method)
 {
-	if (method->ws_parent->username) {
+	if (method->ws_8021x->username) {
 		gtk_editable_set_text (GTK_EDITABLE (method->username_entry),
-		                       method->ws_parent->username);
+		                       method->ws_8021x->username);
 	} else {
 		gtk_editable_set_text (GTK_EDITABLE (method->username_entry), "");
 	}
 
-	if (method->ws_parent->password && !method->ws_parent->always_ask) {
+	if (method->ws_8021x->password && !method->ws_8021x->always_ask) {
 		gtk_editable_set_text (GTK_EDITABLE (method->password_entry),
-		                                     method->ws_parent->password);
+		                                     method->ws_8021x->password);
 	} else {
 		gtk_editable_set_text (GTK_EDITABLE (method->password_entry), "");
 	}
 
-	gtk_toggle_button_set_active (method->show_password, method->ws_parent->show_password);
+	gtk_toggle_button_set_active (method->show_password, method->ws_8021x->show_password);
+
 	password_storage_changed (NULL, NULL, method);
 }
 
@@ -312,7 +314,7 @@ widgets_realized (GtkWidget *widget, NMAEapSimple *method)
 static void
 widgets_unrealized (GtkWidget *widget, NMAEapSimple *method)
 {
-	nma_ws_set_userpass (method->ws_parent,
+	nma_ws_802_1x_set_userpass (method->ws_8021x,
 	                     gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
 	                     gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
 	                     always_ask_selected (method->password_entry),
@@ -329,11 +331,11 @@ destroy (NMAEap *parent)
 	g_assert (widget);
 	g_signal_handlers_disconnect_by_data (widget, method);
 
-	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_parent);
-	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_parent);
+	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_8021x);
+	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->password_entry, method);
 	g_signal_handlers_disconnect_by_data (method->show_password, method);
-	g_signal_handlers_disconnect_by_data (method->pkey_passphrase_entry, method->ws_parent);
+	g_signal_handlers_disconnect_by_data (method->pkey_passphrase_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->show_pkey_passphrase, method);
 
 	nm_clear_g_source (&method->idle_func_id);
@@ -347,7 +349,7 @@ hide_row (GtkWidget **widgets, size_t num)
 }
 
 NMAEapSimple *
-nma_eap_simple_new (NMAWs *ws_parent,
+nma_eap_simple_new (NMAWs8021x *ws_8021x,
                     NMConnection *connection,
                     NMAEapSimpleType type,
                     NMAEapSimpleFlags flags,
@@ -374,7 +376,7 @@ nma_eap_simple_new (NMAWs *ws_parent,
 
 	method = (NMAEapSimple *) parent;
 	method->password_flags_name = NM_SETTING_802_1X_PASSWORD;
-	method->ws_parent = ws_parent;
+	method->ws_8021x = ws_8021x;
 	method->flags = flags;
 	method->type = type;
 	g_assert (type < NMA_EAP_SIMPLE_TYPE_LAST);
@@ -410,7 +412,7 @@ nma_eap_simple_new (NMAWs *ws_parent,
 	method->username_entry = GTK_ENTRY (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	if (   (method->flags & NMA_EAP_SIMPLE_FLAG_SECRETS_ONLY)
 	    && !method->username_requested)
@@ -421,7 +423,7 @@ nma_eap_simple_new (NMAWs *ws_parent,
 	method->password_entry = GTK_ENTRY (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
 	if (connection)
@@ -445,7 +447,7 @@ nma_eap_simple_new (NMAWs *ws_parent,
 	method->pkey_passphrase_entry = GTK_ENTRY (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
-	                  ws_parent);
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_show_pkey_passphrase_checkbutton"));
 	g_assert (widget);
@@ -471,7 +473,7 @@ nma_eap_simple_new (NMAWs *ws_parent,
 	if (!method->pkey_passphrase_requested)
 		hide_row (widget_row, 3);
 
-	/* Initialize the UI fields with the security settings from method->ws_parent.
+	/* Initialize the UI fields with the security settings from method->ws_8021x.
 	 * This will be done again when the widget gets realized. It must be done here as well,
 	 * because the outer dialog will ask to 'validate' the connection before the security tab
 	 * is shown/realized (to enable the 'Apply' button).

@@ -3,14 +3,20 @@
  * Copyright 2007 - 2019 Red Hat, Inc.
  */
 
-#ifndef WS_SAE_H
-#define WS_SAE_H
+#ifndef NMA_WS_SAE_H
+#define NMA_WS_SAE_H
 
-/* For compatibility with NetworkManager-1.20 and earlier. */
-#define NMU_SEC_SAE 9
+typedef struct _NMAWsSae NMAWsSae;
 
-typedef struct _NMAWsSAE NMAWsSAE;
+#define NMA_TYPE_WS_SAE            (nma_ws_sae_get_type ())
+#define NMA_WS_SAE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsSae))
+#define NMA_WS_SAE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_SAE, NMAWsSaeClass))
+#define NMA_IS_WS_SAE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NMA_TYPE_WS_SAE))
+#define NMA_IS_WS_SAE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NMA_TYPE_WS_SAE))
+#define NMA_WS_SAE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NMA_TYPE_WS_SAE, NMAWsSaeClass))
 
-NMAWsSAE *nma_ws_sae_new (NMConnection *connection, gboolean secrets_only);
+GType nma_ws_sae_get_type (void);
 
-#endif /* WS_SAE_H */
+NMAWsSae *nma_ws_sae_new (NMConnection *connection, gboolean secrets_only);
+
+#endif /* NMA_WS_SAE_H */
