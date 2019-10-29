@@ -15,7 +15,6 @@ version_header = configure_file(
 )
 
 subdir('utils')
-subdir('wireless-security')
 subdir('nma-ws')
 
 cert_chooser_headers = files('nma-cert-chooser.h')
@@ -70,7 +69,6 @@ incs = [
   top_inc,
   shared_inc,
   src_inc,
-  wireless_security_inc,
   nma_ws_inc,
 ]
 
@@ -113,7 +111,6 @@ libnma = shared_library(
   c_args: cflags,
   link_args: '-Wl,--version-script,' + symbol_map,
   link_depends: symbol_map,
-  link_whole: libwireless_security_libnm,
   install: true,
   install_dir: nma_libdir
 )
@@ -133,7 +130,6 @@ if enable_libnma_gtk4
     c_args: cflags,
     link_args: '-Wl,--version-script,' + symbol_map,
     link_depends: symbol_map,
-    link_whole: libwireless_security_libnma_gtk4,
     install: true,
     install_dir: nma_libdir
   )

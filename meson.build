@@ -313,8 +313,6 @@ if enable_gtk_doc
     'nma-private.h',
     'nma-version.h',
     'nma-eap.h',
-    'eap-method.h',
-    'wireless-security.h',
   ]
 
   private_sources = [
