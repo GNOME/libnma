@@ -11,10 +11,6 @@
 
 #include "nma-cert-chooser-private.h"
 
-#if !LIBNM_BUILD
-#define NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PATH "file://"
-#endif
-
 /**
  * SECTION:nma-cert-chooser
  * @title: NMACertChooser
@@ -73,10 +69,8 @@ value_with_scheme_to_uri (const gchar *value, NMSetting8021xCKScheme scheme)
 	switch (scheme) {
 	case NM_SETTING_802_1X_CK_SCHEME_PATH:
 		return g_strdup_printf (NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PATH "%s", value);
-#if LIBNM_BUILD
 	case NM_SETTING_802_1X_CK_SCHEME_PKCS11:
 		return g_strdup (value);
-#endif
 	default:
 		g_return_val_if_reached (NULL);
 	}
@@ -95,12 +89,10 @@ uri_to_value_with_scheme (const gchar *uri, NMSetting8021xCKScheme *scheme)
 		return g_uri_unescape_string (uri + NM_STRLEN (NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PATH), NULL);
 	}
 
-#if LIBNM_BUILD
 	if (g_str_has_prefix (uri, NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PKCS11)) {
 		NM_SET_OUT (scheme, NM_SETTING_802_1X_CK_SCHEME_PKCS11);
 		return g_strdup (uri);
 	}
-#endif
 
 	g_return_val_if_reached (NULL);
 }
@@ -597,7 +589,7 @@ constructor (GType type, guint n_construct_properties, GObjectConstructParam *co
 			flags |= g_value_get_uint (construct_properties[i].value);
 	}
 	priv->vtable = &nma_cert_chooser_vtable_file;
-#if LIBNM_BUILD && (GTK_CHECK_VERSION(3,90,0) ? WITH_GCR_GTK4 : WITH_GCR)
+#if GTK_CHECK_VERSION(3,90,0) ? WITH_GCR_GTK4 : WITH_GCR
 	if ((flags & NMA_CERT_CHOOSER_FLAG_PEM) == 0)
 		priv->vtable = &nma_cert_chooser_vtable_pkcs11;
 #endif

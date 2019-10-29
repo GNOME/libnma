@@ -11,11 +11,7 @@
 #include "nma-private.h"
 #include "nma-cert-chooser-private.h"
 #include "utils.h"
-#ifdef LIBNM_BUILD
 #include "nma-ui-utils.h"
-#else
-#include "nm-ui-utils.h"
-#endif
 
 #define NMA_FILE_CERT_CHOOSER_GET_PRIVATE(self) (&(_NM_GET_PRIVATE (self, NMACertChooser, NMA_IS_CERT_CHOOSER)->_sub.file))
 

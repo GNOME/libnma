@@ -136,7 +136,7 @@ struct _NMACertChooserVtable {
 };
 
 extern const NMACertChooserVtable nma_cert_chooser_vtable_file;
-#if LIBNM_BUILD && WITH_GCR
+#if WITH_GCR
 extern const NMACertChooserVtable nma_cert_chooser_vtable_pkcs11;
 #endif
 
