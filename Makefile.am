@@ -275,6 +275,7 @@ src_libnma_la_CFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
 	"-I$(srcdir)/shared" \
 	"-I$(srcdir)/src/utils" \
+	"-I$(srcdir)/src/nma-ws" \
 	"-I$(srcdir)/src" \
 	-Isrc \
 	$(GTK3_CFLAGS) \

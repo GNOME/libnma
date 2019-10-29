@@ -15,8 +15,17 @@
 #include <NetworkManager.h>
 
 #include "nma-wifi-dialog.h"
-#include "wireless-security.h"
-#include "eap-method.h"
+#include "nma-ws.h"
+#include "nma-ws-wep-key.h"
+#include "nma-ws-leap.h"
+#include "nma-ws-dynamic-wep.h"
+#include "nma-ws-wpa-psk.h"
+#include "nma-ws-wpa-eap.h"
+#include "nma-ws-sae.h"
+#include "nma-eap.h"
+
+/* For compatibility with NetworkManager-1.20 and earlier. */
+#define NMU_SEC_SAE 9
 
 G_DEFINE_TYPE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG)
 
@@ -134,82 +143,6 @@ size_group_add_permanent (GtkSizeGroup *group,
 	gtk_size_group_add_widget (group, widget);
 }
 
-static void
-security_combo_changed (GtkWidget *combo,
-                        gpointer user_data)
-{
-	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
-	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
-	GtkWidget *vbox, *sec_widget, *def_widget;
-	GList *elt, *children;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	WirelessSecurity *sec = NULL;
-
-	vbox = GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_vbox"));
-	g_assert (vbox);
-
-	size_group_clear (priv->group);
-
-	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
-	g_list_free (children);
-
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
-	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)) {
-		g_warning ("%s: no active security combo box item.", __func__);
-		return;
-	}
-
-	gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sec, -1);
-	if (!sec) {
-		/* Revalidate dialog if the user picked "None" so the OK button
-		 * gets enabled if there's already a valid SSID.
-		 */
-		ssid_entry_changed (NULL, self);
-		return;
-	}
-
-	sec_widget = wireless_security_get_widget (sec);
-	g_assert (sec_widget);
-	gtk_widget_unparent (sec_widget);
-
-	size_group_add_permanent (priv->group, priv->builder);
-	wireless_security_add_to_size_group (sec, priv->group);
-
-	gtk_container_add (GTK_CONTAINER (vbox), sec_widget);
-
-	/* Re-validate */
-	wireless_security_changed_cb (NULL, sec);
-
-	/* Set focus to the security method's default widget, but only if the
-	 * network name entry should not be focused.
-	 */
-	if (!priv->network_name_focus && sec->default_field) {
-		def_widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, sec->default_field));
-		if (def_widget)
-			gtk_widget_grab_focus (def_widget);
-	}
-
-	wireless_security_unref (sec);
-}
-
-static void
-security_combo_changed_manually (GtkWidget *combo,
-                                 gpointer user_data)
-{
-	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
-	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
-
-	/* Flag that the combo was changed manually to allow focus to move
-	 * to the security method's default widget instead of the network name.
-	 */
-	priv->network_name_focus = FALSE;
-	security_combo_changed (combo, user_data);
-}
-
 static GBytes *
 validate_dialog_ssid (NMAWifiDialog *self)
 {
@@ -230,7 +163,7 @@ validate_dialog_ssid (NMAWifiDialog *self)
 }
 
 static void
-stuff_changed_cb (WirelessSecurity *sec, gpointer user_data)
+stuff_changed_cb (NMAWs *ws, gpointer user_data)
 {
 	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
 	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
@@ -239,17 +172,17 @@ stuff_changed_cb (WirelessSecurity *sec, gpointer user_data)
 	gboolean valid = FALSE;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	WirelessSecurity *sel_sec = NULL;
+	NMAWs *sel_ws = NULL;
 	gs_free_error GError *error = NULL;
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->sec_combo));
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->sec_combo), &iter))
-		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sel_sec, -1);
+		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sel_ws, -1);
 
-	if (sel_sec)
-		wireless_security_unref (sel_sec);
+	if (sel_ws)
+		g_object_unref (sel_ws);
 
-	if (sel_sec != sec)
+	if (sel_ws != ws)
 		return;
 
 	if (priv->connection) {
@@ -263,7 +196,7 @@ stuff_changed_cb (WirelessSecurity *sec, gpointer user_data)
 	}
 
 	if (ssid) {
-		valid = wireless_security_validate (sec, &error);
+		valid = nma_ws_validate (ws, &error);
 		if (free_ssid)
 			g_bytes_unref (ssid);
 	}
@@ -279,12 +212,88 @@ stuff_changed_cb (WirelessSecurity *sec, gpointer user_data)
 }
 
 static void
+security_combo_changed (GtkWidget *combo,
+                        gpointer user_data)
+{
+	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
+	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
+	GtkWidget *vbox; // *def_widget;
+	GList *elt, *children;
+	GtkTreeIter iter;
+	GtkTreeModel *model;
+	NMAWs *ws = NULL;
+
+	vbox = GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_vbox"));
+	g_assert (vbox);
+
+	size_group_clear (priv->group);
+
+	/* Remove any previous wireless security widgets */
+	children = gtk_container_get_children (GTK_CONTAINER (vbox));
+	for (elt = children; elt; elt = g_list_next (elt))
+		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
+	g_list_free (children);
+
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
+	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)) {
+		g_warning ("%s: no active security combo box item.", __func__);
+		return;
+	}
+
+	gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
+	if (!ws) {
+		/* Revalidate dialog if the user picked "None" so the OK button
+		 * gets enabled if there's already a valid SSID.
+		 */
+		ssid_entry_changed (NULL, self);
+		return;
+	}
+
+	gtk_widget_unparent (GTK_WIDGET (ws));
+
+	size_group_add_permanent (priv->group, priv->builder);
+	nma_ws_add_to_size_group (ws, priv->group);
+
+	gtk_container_add (GTK_CONTAINER (vbox), GTK_WIDGET (ws));
+
+	/* Re-validate */
+	stuff_changed_cb (ws, self);
+
+#if 0
+	/* Set focus to the security method's default widget, but only if the
+	 * network name entry should not be focused.
+	 */
+	if (!priv->network_name_focus && sec->default_field) {
+		def_widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, sec->default_field));
+		if (def_widget)
+			gtk_widget_grab_focus (def_widget);
+	}
+#endif
+
+	g_object_unref (ws);
+}
+
+static void
+security_combo_changed_manually (GtkWidget *combo,
+                                 gpointer user_data)
+{
+	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
+	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
+
+	/* Flag that the combo was changed manually to allow focus to move
+	 * to the security method's default widget instead of the network name.
+	 */
+	priv->network_name_focus = FALSE;
+	security_combo_changed (combo, user_data);
+}
+
+static void
 ssid_entry_changed (GtkWidget *entry, gpointer user_data)
 {
 	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
 	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
 	GtkTreeIter iter;
-	WirelessSecurity *sec = NULL;
+	NMAWs *ws = NULL;
 	GtkTreeModel *model;
 	gboolean valid = FALSE;
 	GBytes *ssid;
@@ -303,11 +312,11 @@ ssid_entry_changed (GtkWidget *entry, gpointer user_data)
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->sec_combo));
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->sec_combo), &iter))
-		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sec, -1);
+		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
 
-	if (sec) {
-		valid = wireless_security_validate (sec, &error);
-		wireless_security_unref (sec);
+	if (ws) {
+		valid = nma_ws_validate (ws, &error);
+		g_object_unref (ws);
 	} else {
 		valid = TRUE;
 	}
@@ -351,7 +360,7 @@ connection_combo_changed (GtkWidget *combo,
 	                    C_NEW_COLUMN, &is_new, -1);
 
 	if (priv->connection)
-		eap_method_ca_cert_ignore_load (priv->connection);
+		nma_eap_ca_cert_ignore_load (priv->connection);
 
 	if (!security_combo_init (self, priv->secrets_only, NULL, NULL)) {
 		g_warning ("Couldn't change Wi-Fi security combo box.");
@@ -722,15 +731,18 @@ get_default_type_for_security (NMSettingWirelessSecurity *sec,
 
 static void
 add_security_item (NMAWifiDialog *self,
-                   WirelessSecurity *sec,
+                   NMAWs *ws,
                    GtkListStore *model,
                    GtkTreeIter *iter,
                    const char *text)
 {
-	wireless_security_set_changed_notify (sec, stuff_changed_cb, self);
+	g_signal_connect (ws, "ws-changed", G_CALLBACK (stuff_changed_cb), self);
 	gtk_list_store_append (model, iter);
-	gtk_list_store_set (model, iter, S_NAME_COLUMN, text, S_SEC_COLUMN, sec, -1);
-	wireless_security_unref (sec);
+	gtk_list_store_set (model, iter,
+	                    S_NAME_COLUMN, text,
+	                    S_SEC_COLUMN, g_object_ref_sink (ws),
+	                    -1);
+	g_object_unref (ws);
 }
 
 static void
@@ -806,12 +818,12 @@ get_secrets_cb (GObject *object,
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->sec_combo));
 	if (gtk_tree_model_get_iter_first (model, &iter)) {
 		do {
-			WirelessSecurity *sec = NULL;
+			NMAWs *ws = NULL;
 
-			gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sec, -1);
-			if (sec) {
-				wireless_security_update_secrets (sec, priv->connection);
-				wireless_security_unref (sec);
+			gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
+			if (ws) {
+				nma_ws_update_secrets (ws, priv->connection);
+				g_object_unref (ws);
 			}
 		} while (gtk_tree_model_iter_next (model, &iter));
 	}
@@ -915,7 +927,7 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 		wep_type = NM_WEP_KEY_TYPE_PASSPHRASE;
 	}
 
-	sec_model = gtk_list_store_new (2, G_TYPE_STRING, WIRELESS_TYPE_SECURITY);
+	sec_model = gtk_list_store_new (2, G_TYPE_STRING, NMA_TYPE_WS);
 
 	if (security_valid (NMU_SEC_NONE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
 		gtk_list_store_append (sec_model, &iter);
@@ -932,25 +944,21 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 	 */
 	if (   security_valid (NMU_SEC_STATIC_WEP, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)
 	    && ((!ap_wpa && !ap_rsn) || !(dev_caps & (NM_WIFI_DEVICE_CAP_WPA | NM_WIFI_DEVICE_CAP_RSN)))) {
-		WirelessSecurityWEPKey *ws_wep;
+		NMAWsWepKey *ws_wep;
 
-		ws_wep = ws_wep_key_new (priv->connection, NM_WEP_KEY_TYPE_KEY, mode == NM_802_11_MODE_ADHOC, secrets_only);
-		if (ws_wep) {
-			add_security_item (self, WIRELESS_SECURITY (ws_wep), sec_model,
-			                   &iter, _("WEP 40/128-bit Key (Hex or ASCII)"));
-			if ((active < 0) && (default_type == NMU_SEC_STATIC_WEP) && (wep_type == NM_WEP_KEY_TYPE_KEY))
-				active = item;
-			item++;
-		}
+		ws_wep = nma_ws_wep_key_new (priv->connection, NM_WEP_KEY_TYPE_KEY, mode == NM_802_11_MODE_ADHOC, secrets_only);
+		add_security_item (self, NMA_WS (ws_wep), sec_model,
+		                   &iter, _("WEP 40/128-bit Key (Hex or ASCII)"));
+		if ((active < 0) && (default_type == NMU_SEC_STATIC_WEP) && (wep_type == NM_WEP_KEY_TYPE_KEY))
+			active = item;
+		item++;
 
-		ws_wep = ws_wep_key_new (priv->connection, NM_WEP_KEY_TYPE_PASSPHRASE, mode == NM_802_11_MODE_ADHOC, secrets_only);
-		if (ws_wep) {
-			add_security_item (self, WIRELESS_SECURITY (ws_wep), sec_model,
-			                   &iter, _("WEP 128-bit Passphrase"));
-			if ((active < 0) && (default_type == NMU_SEC_STATIC_WEP) && (wep_type == NM_WEP_KEY_TYPE_PASSPHRASE))
-				active = item;
-			item++;
-		}
+		ws_wep = nma_ws_wep_key_new (priv->connection, NM_WEP_KEY_TYPE_PASSPHRASE, mode == NM_802_11_MODE_ADHOC, secrets_only);
+		add_security_item (self, NMA_WS (ws_wep), sec_model,
+		                   &iter, _("WEP 128-bit Passphrase"));
+		if ((active < 0) && (default_type == NMU_SEC_STATIC_WEP) && (wep_type == NM_WEP_KEY_TYPE_PASSPHRASE))
+			active = item;
+		item++;
 	}
 
 	/* Don't show LEAP if both the AP and the device are capable of WPA,
@@ -958,74 +966,64 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 	 */
 	if (   security_valid (NMU_SEC_LEAP, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)
 	    && ((!ap_wpa && !ap_rsn) || !(dev_caps & (NM_WIFI_DEVICE_CAP_WPA | NM_WIFI_DEVICE_CAP_RSN)))) {
-		WirelessSecurityLEAP *ws_leap;
+		NMAWsLeap *ws_leap;
 
-		ws_leap = ws_leap_new (priv->connection, secrets_only);
-		if (ws_leap) {
-			add_security_item (self, WIRELESS_SECURITY (ws_leap), sec_model,
-			                   &iter, _("LEAP"));
-			if ((active < 0) && (default_type == NMU_SEC_LEAP))
-				active = item;
-			item++;
-		}
+		ws_leap = nma_ws_leap_new (priv->connection, secrets_only);
+		add_security_item (self, NMA_WS (ws_leap), sec_model,
+		                   &iter, _("LEAP"));
+		if ((active < 0) && (default_type == NMU_SEC_LEAP))
+			active = item;
+		item++;
 	}
 
 	if (security_valid (NMU_SEC_DYNAMIC_WEP, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
-		WirelessSecurityDynamicWEP *ws_dynamic_wep;
+		NMAWsDynamicWep *ws_dynamic_wep;
 
-		ws_dynamic_wep = ws_dynamic_wep_new (priv->connection, FALSE, secrets_only);
-		if (ws_dynamic_wep) {
-			add_security_item (self, WIRELESS_SECURITY (ws_dynamic_wep), sec_model,
-			                   &iter, _("Dynamic WEP (802.1x)"));
-			if ((active < 0) && (default_type == NMU_SEC_DYNAMIC_WEP))
-				active = item;
-			item++;
-		}
+		ws_dynamic_wep = nma_ws_dynamic_wep_new (priv->connection, FALSE, secrets_only);
+		add_security_item (self, NMA_WS (ws_dynamic_wep), sec_model,
+		                   &iter, _("Dynamic WEP (802.1x)"));
+		if ((active < 0) && (default_type == NMU_SEC_DYNAMIC_WEP))
+			active = item;
+		item++;
 	}
 
 	if (   security_valid (NMU_SEC_WPA_PSK, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)
 	    || security_valid (NMU_SEC_WPA2_PSK, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
-		WirelessSecurityWPAPSK *ws_wpa_psk;
+		NMAWsWpaPsk *ws_wpa_psk;
 
-		ws_wpa_psk = ws_wpa_psk_new (priv->connection, secrets_only);
-		if (ws_wpa_psk) {
-			add_security_item (self, WIRELESS_SECURITY (ws_wpa_psk), sec_model,
-			                   &iter, _("WPA & WPA2 Personal"));
-			if ((active < 0) && ((default_type == NMU_SEC_WPA_PSK) || (default_type == NMU_SEC_WPA2_PSK)))
-				active = item;
-			item++;
-		}
+		ws_wpa_psk = nma_ws_wpa_psk_new (priv->connection, secrets_only);
+		add_security_item (self, NMA_WS (ws_wpa_psk), sec_model,
+		                   &iter, _("WPA & WPA2 Personal"));
+		if ((active < 0) && ((default_type == NMU_SEC_WPA_PSK) || (default_type == NMU_SEC_WPA2_PSK)))
+			active = item;
+		item++;
 	}
 
 	if (   security_valid (NMU_SEC_WPA_ENTERPRISE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)
 	    || security_valid (NMU_SEC_WPA2_ENTERPRISE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
-		WirelessSecurityWPAEAP *ws_wpa_eap;
+		NMAWsWpaEap *ws_wpa_eap;
 		const char *const*hints = NULL;
 
 		if (secrets_setting_name && !strcmp (secrets_setting_name, NM_SETTING_802_1X_SETTING_NAME))
 			hints = secrets_hints;
 
-		ws_wpa_eap = ws_wpa_eap_new (priv->connection, FALSE, secrets_only, hints);
-		if (ws_wpa_eap) {
-			add_security_item (self, WIRELESS_SECURITY (ws_wpa_eap), sec_model,
-			                   &iter, _("WPA & WPA2 Enterprise"));
-			if ((active < 0) && ((default_type == NMU_SEC_WPA_ENTERPRISE) || (default_type == NMU_SEC_WPA2_ENTERPRISE)))
-				active = item;
-			item++;
-		}
+		ws_wpa_eap = nma_ws_wpa_eap_new (priv->connection, FALSE, secrets_only, hints);
+		add_security_item (self, NMA_WS (ws_wpa_eap), sec_model,
+		                   &iter, _("WPA & WPA2 Enterprise"));
+		if ((active < 0) && ((default_type == NMU_SEC_WPA_ENTERPRISE) || (default_type == NMU_SEC_WPA2_ENTERPRISE)))
+			active = item;
+		item++;
 	}
 
 	if (security_valid (NMU_SEC_SAE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
-		WirelessSecuritySAE *ws_sae;
+		NMAWsSae *ws_sae;
 
-		ws_sae = ws_sae_new (priv->connection, secrets_only);
-		if (ws_sae) {
-			add_security_item (self, WIRELESS_SECURITY (ws_sae), sec_model,
-			                   &iter, _("WPA3 Personal"));
-			if (active < 0 && default_type == NMU_SEC_SAE)
-				active = item;
-			item++;
-		}
+		ws_sae = nma_ws_sae_new (priv->connection, secrets_only);
+		add_security_item (self, NMA_WS (ws_sae), sec_model,
+		                   &iter, _("WPA3 Personal"));
+		if (active < 0 && default_type == NMU_SEC_SAE)
+			active = item;
+		item++;
 	}
 
 	gtk_combo_box_set_model (GTK_COMBO_BOX (priv->sec_combo), GTK_TREE_MODEL (sec_model));
@@ -1245,7 +1243,7 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
 	NMAWifiDialogPrivate *priv;
 	GtkWidget *combo;
 	GtkTreeModel *model;
-	WirelessSecurity *sec = NULL;
+	NMAWs *ws = NULL;
 	GtkTreeIter iter;
 	NMConnection *connection;
 	NMSettingWireless *s_wireless;
@@ -1298,14 +1296,14 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
 	/* Fill security */
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->sec_combo));
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->sec_combo), &iter))
-		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &sec, -1);
-	if (sec) {
-		wireless_security_fill_connection (sec, connection);
-		wireless_security_unref (sec);
+		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
+	if (ws) {
+		nma_ws_fill_connection (ws, connection);
+		g_object_unref (ws);
 	}
 
 	/* Save new CA cert ignore values to GSettings */
-	eap_method_ca_cert_ignore_save (connection);
+	nma_eap_ca_cert_ignore_save (connection);
 
 	/* Fill device */
 	if (device) {
@@ -1348,7 +1346,7 @@ internal_new_dialog (NMClient *client,
 		priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
 		/* Handle CA cert ignore stuff */
-		eap_method_ca_cert_ignore_load (connection);
+		nma_eap_ca_cert_ignore_load (connection);
 
 		if (!internal_init (self, connection, device, secrets_only, secrets_setting_name, secrets_hints)) {
 			g_warning ("Couldn't create Wi-Fi security dialog.");
