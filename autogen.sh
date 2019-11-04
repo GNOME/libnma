@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME=nm-applet
+PKG_NAME=libnma
 
 (test -f $srcdir/configure.ac \
   && test -f $srcdir/src/nma-version.h.in) || {
