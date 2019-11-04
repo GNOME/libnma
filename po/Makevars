@@ -1,4 +1,4 @@
-DOMAIN = nm-applet
+DOMAIN = libnma
 
 subdir = po
 top_builddir = ..
