@@ -794,6 +794,7 @@ EXTRA_DIST += \
 	NEWS \
 	linker-script-binary.ver \
 	CONTRIBUTING \
+	COPYING.LGPL \
 	autogen.sh \
 	meson.build \
 	meson_options.txt \
