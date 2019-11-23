@@ -12,10 +12,12 @@
 
 #include <stdlib.h>
 
+#ifdef GDK_WINDOWING_X11
 #if GTK_CHECK_VERSION(3,90,0)
 #include <gdk/x11/gdkx.h>
 #else
 #include <gdk/gdkx.h>
+#endif
 #endif
 
 #include <NetworkManager.h>
@@ -1459,6 +1461,7 @@ nma_mobile_wizard_init (NMAMobileWizard *self)
 	gtk_widget_init_template (GTK_WIDGET (self));
 	gtk_widget_realize (GTK_WIDGET (self));
 
+#ifdef GDK_WINDOWING_X11
 	if (GDK_IS_X11_DISPLAY (gtk_widget_get_display (GTK_WIDGET (self)))) {
 #if GTK_CHECK_VERSION(3,90,0)
 		GdkSurface *surface = gtk_widget_get_surface (GTK_WIDGET (self));
@@ -1468,6 +1471,7 @@ nma_mobile_wizard_init (NMAMobileWizard *self)
 		gdk_window_set_skip_taskbar_hint (gdk_window, TRUE);
 #endif
 	}
+#endif
 }
 
 /**
