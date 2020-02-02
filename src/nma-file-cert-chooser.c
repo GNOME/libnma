@@ -48,9 +48,12 @@ set_key_uri (NMACertChooser *cert_chooser, const gchar *uri)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
-	if (uri)
+	if (uri) {
 		gtk_file_chooser_set_uri (GTK_FILE_CHOOSER (priv->key_button), uri);
-}
+	} else {
+		gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER( priv->key_button));
+	}
+ }
 
 static gchar *
 get_key_uri (NMACertChooser *cert_chooser)
@@ -65,8 +68,11 @@ set_cert_uri (NMACertChooser *cert_chooser, const gchar *uri)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
-	if (uri)
+	if (uri) {
 		gtk_file_chooser_set_uri (GTK_FILE_CHOOSER (priv->cert_button), uri);
+	} else {
+		gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER( priv->cert_button ));
+	}
 }
 
 static gchar *
@@ -197,10 +203,17 @@ static void
 cert_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
+	gboolean enabled;
+	gs_free char *key = NULL;
+	gs_free char *cert = NULL;
+
+	cert = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (priv->cert_button));
 
 	if (gtk_widget_get_visible (priv->key_button)) {
-		gtk_widget_set_sensitive (priv->key_button, TRUE);
-		gtk_widget_set_sensitive (priv->key_button_label, TRUE);
+		key = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (priv->key_button));
+		enabled = (key != NULL || cert != NULL);
+		gtk_widget_set_sensitive (priv->key_button, enabled);
+		gtk_widget_set_sensitive (priv->key_button_label, enabled);
 	}
 	g_signal_emit_by_name (user_data, "changed");
 }
@@ -209,9 +222,15 @@ static void
 key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
+	gs_free char *key = NULL;
 
-	gtk_widget_set_sensitive (priv->key_password, TRUE);
-	gtk_widget_set_sensitive (priv->key_password_label, TRUE);
+	key = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (priv->key_button));
+	gtk_widget_set_sensitive (priv->key_password, key != NULL);
+	gtk_widget_set_sensitive (priv->key_password_label, key != NULL);
+	if (!key) {
+		gtk_entry_set_text (GTK_ENTRY (priv->key_password), "");
+		widget_unset_error (priv->key_password);
+	}
 	g_signal_emit_by_name (user_data, "changed");
 }
 
