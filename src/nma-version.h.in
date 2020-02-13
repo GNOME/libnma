@@ -118,4 +118,10 @@
 # define NMA_AVAILABLE_IN_1_8_22
 #endif
 
+#if NMA_VERSION_MAX_ALLOWED < NMA_VERSION_1_8_28
+# define NMA_AVAILABLE_IN_1_8_28            G_UNAVAILABLE(1.8,28)
+#else
+# define NMA_AVAILABLE_IN_1_8_28
+#endif
+
 #endif  /* NMA_VERSION_H */
