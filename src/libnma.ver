@@ -112,3 +112,8 @@ libnma_1_8_22 {
 	nma_bar_code_widget_get_type;
 	nma_bar_code_widget_new;
 } libnma_1_8_12;
+
+libnma_1_8_28 {
+	nma_cert_chooser_clear_cert;
+	nma_cert_chooser_clear_key;
+} libnma_1_8_22;

@@ -91,12 +91,14 @@ struct _NMACertChooserVtable {
 	void                 (*set_cert_uri)                 (NMACertChooser *cert_chooser,
 	                                                      const gchar *uri);
 	gchar               *(*get_cert_uri)                 (NMACertChooser *cert_chooser);
+	void                 (*clear_cert)                   (NMACertChooser *cert_chooser);
 	void                 (*set_cert_password)            (NMACertChooser *cert_chooser,
 	                                                      const gchar *password);
 	const gchar         *(*get_cert_password)            (NMACertChooser *cert_chooser);
 	void                 (*set_key_uri)                  (NMACertChooser *cert_chooser,
 	                                                      const gchar *uri);
 	gchar               *(*get_key_uri)                  (NMACertChooser *cert_chooser);
+	void                 (*clear_key)                    (NMACertChooser *cert_chooser);
 	void                 (*set_key_password)             (NMACertChooser *cert_chooser,
 	                                                      const gchar *password);
 	const gchar         *(*get_key_password)             (NMACertChooser *cert_chooser);
