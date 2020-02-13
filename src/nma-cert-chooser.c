@@ -150,6 +150,7 @@ nma_cert_chooser_set_cert (NMACertChooser *cert_chooser,
 		nma_cert_chooser_clear_cert (cert_chooser);
 		return;
 	}
+
 	uri = value_with_scheme_to_uri (value, scheme);
 	nma_cert_chooser_set_cert_uri (cert_chooser, uri);
 }
@@ -255,6 +256,7 @@ nma_cert_chooser_clear_cert (NMACertChooser *cert_chooser)
 	const NMACertChooserVtable *vtable;
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
+
 	vtable = NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser);
 	if (vtable->clear_cert)
 		vtable->clear_cert (cert_chooser);
@@ -327,7 +329,8 @@ nma_cert_chooser_set_key (NMACertChooser *cert_chooser,
 	if (!value) {
 		nma_cert_chooser_clear_key (cert_chooser);
 		return;
-    }
+	}
+
 	uri = value_with_scheme_to_uri (value, scheme);
 	nma_cert_chooser_set_key_uri (cert_chooser, uri);
 }

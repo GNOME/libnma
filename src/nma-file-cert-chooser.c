@@ -213,31 +213,31 @@ static void
 cert_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
-	gboolean sensitive = FALSE;
-	gboolean is_pkcs12 = FALSE;
-	gs_free char *cert = NULL;
-	gs_free char *key = NULL;
 
 	if (gtk_widget_get_visible (priv->key_button)) {
+		gboolean sensitive = FALSE;
+		gs_free char *cert = NULL;
+
 		cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
 		if (cert && *cert) {
-			is_pkcs12 = nm_utils_file_is_pkcs12 (cert);
-			if (is_pkcs12) {
+			if (nm_utils_file_is_pkcs12 (cert)) {
+				gs_free char *key = NULL;
+
 				key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
-				if (!key || !nm_streq0(cert, key)) {
+				if (!nm_streq0 (cert, key))
 					gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->key_button), cert);
-				}
 			}
 			else {
 				gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
 				sensitive = TRUE;
 			}
-		} else {
+		} else
 			gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
-		}
+
 		gtk_widget_set_sensitive (priv->key_button, sensitive);
 		gtk_widget_set_sensitive (priv->key_button_label, sensitive);
 	}
+
 	g_signal_emit_by_name (user_data, "changed");
 }
 
@@ -246,18 +246,16 @@ key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
 	gboolean sensitive = FALSE;
-	gboolean is_pkcs12 = FALSE;
 	gs_free char *key = NULL;
-	gs_free char *cert = NULL;
 
 	key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
 	if (key && *key) {
-		is_pkcs12 = nm_utils_file_is_pkcs12 (key);
-		if (is_pkcs12) {
+		if (nm_utils_file_is_pkcs12 (key)) {
+			gs_free char *cert = NULL;
+
 			cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
-			if (!cert || !nm_streq0(cert, key)) {
+			if (!nm_streq0 (cert, key))
 				gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->cert_button), key);
-			}
 			gtk_widget_set_sensitive (priv->key_button, FALSE);
 			gtk_widget_set_sensitive (priv->key_button_label, FALSE);
 		}
@@ -266,7 +264,7 @@ key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 	gtk_entry_set_text (GTK_ENTRY (priv->key_password), "");
 	gtk_widget_set_sensitive (priv->key_password, sensitive);
 	gtk_widget_set_sensitive (priv->key_password_label, sensitive);
-	widget_unset_error(priv->key_password);
+	widget_unset_error (priv->key_password);
 	g_signal_emit_by_name (user_data, "changed");
 }
 
