@@ -61,12 +61,28 @@ get_key_uri (NMACertChooser *cert_chooser)
 }
 
 static void
+clear_key (NMACertChooser *cert_chooser)
+{
+	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+
+	gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+}
+
+static void
 set_cert_uri (NMACertChooser *cert_chooser, const gchar *uri)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	if (uri)
 		gtk_file_chooser_set_uri (GTK_FILE_CHOOSER (priv->cert_button), uri);
+}
+
+static void
+clear_cert (NMACertChooser *cert_chooser)
+{
+	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+
+	gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->cert_button));
 }
 
 static gchar *
@@ -199,9 +215,29 @@ cert_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
 
 	if (gtk_widget_get_visible (priv->key_button)) {
-		gtk_widget_set_sensitive (priv->key_button, TRUE);
-		gtk_widget_set_sensitive (priv->key_button_label, TRUE);
+		gboolean sensitive = FALSE;
+		gs_free char *cert = NULL;
+
+		cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
+		if (cert && *cert) {
+			if (nm_utils_file_is_pkcs12 (cert)) {
+				gs_free char *key = NULL;
+
+				key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
+				if (!nm_streq0 (cert, key))
+					gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->key_button), cert);
+			}
+			else {
+				gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+				sensitive = TRUE;
+			}
+		} else
+			gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+
+		gtk_widget_set_sensitive (priv->key_button, sensitive);
+		gtk_widget_set_sensitive (priv->key_button_label, sensitive);
 	}
+
 	g_signal_emit_by_name (user_data, "changed");
 }
 
@@ -209,9 +245,26 @@ static void
 key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 {
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
+	gboolean sensitive = FALSE;
+	gs_free char *key = NULL;
 
-	gtk_widget_set_sensitive (priv->key_password, TRUE);
-	gtk_widget_set_sensitive (priv->key_password_label, TRUE);
+	key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
+	if (key && *key) {
+		if (nm_utils_file_is_pkcs12 (key)) {
+			gs_free char *cert = NULL;
+
+			cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
+			if (!nm_streq0 (cert, key))
+				gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->cert_button), key);
+			gtk_widget_set_sensitive (priv->key_button, FALSE);
+			gtk_widget_set_sensitive (priv->key_button_label, FALSE);
+		}
+		sensitive = TRUE;
+	}
+	gtk_entry_set_text (GTK_ENTRY (priv->key_password), "");
+	gtk_widget_set_sensitive (priv->key_password, sensitive);
+	gtk_widget_set_sensitive (priv->key_password_label, sensitive);
+	widget_unset_error (priv->key_password);
 	g_signal_emit_by_name (user_data, "changed");
 }
 
@@ -385,8 +438,10 @@ const NMACertChooserVtable nma_cert_chooser_vtable_file = {
 
 	.set_cert_uri = set_cert_uri,
 	.get_cert_uri = get_cert_uri,
+	.clear_cert   = clear_cert,
 	.set_key_uri = set_key_uri,
 	.get_key_uri = get_key_uri,
+	.clear_key   = clear_key,
 	.set_key_password = set_key_password,
 	.get_key_password = get_key_password,
 

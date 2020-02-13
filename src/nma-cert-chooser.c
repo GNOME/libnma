@@ -53,6 +53,12 @@ G_DEFINE_TYPE (NMACertChooser, nma_cert_chooser, GTK_TYPE_GRID)
 #define NMA_CERT_CHOOSER_GET_PRIVATE(self) _NM_GET_PRIVATE (self, NMACertChooser, NMA_IS_CERT_CHOOSER)
 #define NMA_CERT_CHOOSER_GET_VTABLE(o) (NMA_CERT_CHOOSER_GET_PRIVATE (o)->vtable)
 
+/*****************************************************************************/
+
+static void _chooser_clear_cert (NMACertChooser *cert_chooser);
+
+/*****************************************************************************/
+
 static gboolean
 accu_validation_error (GSignalInvocationHint *ihint,
                        GValue *return_accu,
@@ -120,6 +126,10 @@ nma_cert_chooser_set_cert_uri (NMACertChooser *cert_chooser,
 {
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
+	if (!uri) {
+		_chooser_clear_cert (cert_chooser);
+		return;
+	}
 	NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser)->set_cert_uri (cert_chooser, uri);
 }
 
@@ -142,8 +152,10 @@ nma_cert_chooser_set_cert (NMACertChooser *cert_chooser,
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
-	if (!value)
+	if (!value) {
+		_chooser_clear_cert (cert_chooser);
 		return;
+	}
 
 	uri = value_with_scheme_to_uri (value, scheme);
 	nma_cert_chooser_set_cert_uri (cert_chooser, uri);
@@ -236,6 +248,32 @@ nma_cert_chooser_get_cert_password (NMACertChooser *cert_chooser)
 	return vtable->get_cert_password (cert_chooser);
 }
 
+static void
+_chooser_clear_cert (NMACertChooser *cert_chooser)
+{
+	const NMACertChooserVtable *vtable;
+
+	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
+
+	vtable = NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser);
+	if (vtable->clear_cert)
+		vtable->clear_cert (cert_chooser);
+}
+
+
+static void
+_chooser_clear_key (NMACertChooser *cert_chooser)
+{
+	const NMACertChooserVtable *vtable;
+
+	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
+
+	vtable = NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser);
+	if (vtable->clear_key)
+		vtable->clear_key (cert_chooser);
+	nma_cert_chooser_set_cert_password (cert_chooser, "");
+}
+
 /**
  * nma_cert_chooser_set_key_uri:
  * @cert_chooser: certificate chooser button instance
@@ -251,7 +289,12 @@ nma_cert_chooser_set_key_uri (NMACertChooser *cert_chooser,
 {
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
-	return NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser)->set_key_uri (cert_chooser, uri);
+	if (!uri) {
+		_chooser_clear_key (cert_chooser);
+		return;
+	}
+
+	NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser)->set_key_uri (cert_chooser, uri);
 }
 
 /**
@@ -273,8 +316,10 @@ nma_cert_chooser_set_key (NMACertChooser *cert_chooser,
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
-	if (!value)
+	if (!value) {
+		_chooser_clear_key (cert_chooser);
 		return;
+	}
 
 	uri = value_with_scheme_to_uri (value, scheme);
 	nma_cert_chooser_set_key_uri (cert_chooser, uri);
