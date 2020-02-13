@@ -99,12 +99,6 @@ void                 nma_cert_chooser_set_key_password             (NMACertChoos
 NMA_AVAILABLE_IN_1_8
 const gchar         *nma_cert_chooser_get_key_password             (NMACertChooser *cert_chooser);
 
-NMA_AVAILABLE_IN_1_8_28
-void                 nma_cert_chooser_clear_cert                   (NMACertChooser *cert_chooser);
-
-NMA_AVAILABLE_IN_1_8_28
-void                 nma_cert_chooser_clear_key                    (NMACertChooser *cert_chooser);
-
 NMA_AVAILABLE_IN_1_8
 GtkWidget           *nma_cert_chooser_new                          (const gchar *title,
                                                                     NMACertChooserFlags flags);

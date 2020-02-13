@@ -53,6 +53,12 @@ G_DEFINE_TYPE (NMACertChooser, nma_cert_chooser, GTK_TYPE_GRID)
 #define NMA_CERT_CHOOSER_GET_PRIVATE(self) _NM_GET_PRIVATE (self, NMACertChooser, NMA_IS_CERT_CHOOSER)
 #define NMA_CERT_CHOOSER_GET_VTABLE(o) (NMA_CERT_CHOOSER_GET_PRIVATE (o)->vtable)
 
+/*****************************************************************************/
+
+static void _chooser_clear_cert (NMACertChooser *cert_chooser);
+
+/*****************************************************************************/
+
 static gboolean
 accu_validation_error (GSignalInvocationHint *ihint,
                        GValue *return_accu,
@@ -121,7 +127,7 @@ nma_cert_chooser_set_cert_uri (NMACertChooser *cert_chooser,
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
 	if (!uri) {
-		nma_cert_chooser_clear_cert (cert_chooser);
+		_chooser_clear_cert (cert_chooser);
 		return;
 	}
 	NMA_CERT_CHOOSER_GET_VTABLE (cert_chooser)->set_cert_uri (cert_chooser, uri);
@@ -147,7 +153,7 @@ nma_cert_chooser_set_cert (NMACertChooser *cert_chooser,
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
 	if (!value) {
-		nma_cert_chooser_clear_cert (cert_chooser);
+		_chooser_clear_cert (cert_chooser);
 		return;
 	}
 
@@ -242,16 +248,8 @@ nma_cert_chooser_get_cert_password (NMACertChooser *cert_chooser)
 	return vtable->get_cert_password (cert_chooser);
 }
 
-/**
- * nma_cert_chooser_clear_cert:
- * @cert_chooser: certificate chooser button instance
- *
- * Clear the certificate for the chooser button
- *
- * Since: 1.8.28
- */
-void
-nma_cert_chooser_clear_cert (NMACertChooser *cert_chooser)
+static void
+_chooser_clear_cert (NMACertChooser *cert_chooser)
 {
 	const NMACertChooserVtable *vtable;
 
@@ -263,16 +261,8 @@ nma_cert_chooser_clear_cert (NMACertChooser *cert_chooser)
 }
 
 
-/**
- * nma_cert_chooser_clear_key:
- * @cert_chooser: certificate chooser button instance
- *
- * Clear the key for the chooser button
- *
- * Since: 1.8.28
- */
-void
-nma_cert_chooser_clear_key (NMACertChooser *cert_chooser)
+static void
+_chooser_clear_key (NMACertChooser *cert_chooser)
 {
 	const NMACertChooserVtable *vtable;
 
@@ -300,7 +290,7 @@ nma_cert_chooser_set_key_uri (NMACertChooser *cert_chooser,
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
 	if (!uri) {
-		nma_cert_chooser_clear_key (cert_chooser);
+		_chooser_clear_key (cert_chooser);
 		return;
 	}
 
@@ -327,7 +317,7 @@ nma_cert_chooser_set_key (NMACertChooser *cert_chooser,
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
 	if (!value) {
-		nma_cert_chooser_clear_key (cert_chooser);
+		_chooser_clear_key (cert_chooser);
 		return;
 	}
 
