@@ -189,22 +189,23 @@ libnma_c_real = \
 	src/nma-bar-code-widget.c \
 	src/nma-bar-code.c \
 	\
-	src/nma-ws/nma-eap.c \
 	src/nma-ws/nma-eap-fast.c \
 	src/nma-ws/nma-eap-leap.c \
 	src/nma-ws/nma-eap-peap.c \
 	src/nma-ws/nma-eap-simple.c \
 	src/nma-ws/nma-eap-tls.c \
 	src/nma-ws/nma-eap-ttls.c \
+	src/nma-ws/nma-eap.c \
 	src/nma-ws/nma-ws-802-1x.c \
-	src/nma-ws/nma-ws.c \
 	src/nma-ws/nma-ws-dynamic-wep.c \
 	src/nma-ws/nma-ws-helpers.c \
 	src/nma-ws/nma-ws-leap.c \
 	src/nma-ws/nma-ws-sae.c \
 	src/nma-ws/nma-ws-wep-key.c \
 	src/nma-ws/nma-ws-wpa-eap.c \
-	src/nma-ws/nma-ws-wpa-psk.c
+	src/nma-ws/nma-ws-wpa-psk.c \
+	src/nma-ws/nma-ws.c \
+	$(NULL)
 
 EXTRA_DIST += \
 	src/qrcodegen.c \
@@ -213,16 +214,17 @@ EXTRA_DIST += \
 libnma_h_priv_real = \
 	src/nma-cert-chooser-private.h \
 	src/nma-private.h \
-	src/nma-ws/nma-ws-private.h \
-	src/nma-ws/nma-ws-802-1x-private.h \
-	src/nma-ws/nma-eap.h \
-	src/nma-ws/nma-eap-tls.h \
-	src/nma-ws/nma-eap-leap.h \
 	src/nma-ws/nma-eap-fast.h \
-	src/nma-ws/nma-eap-ttls.h \
+	src/nma-ws/nma-eap-leap.h \
 	src/nma-ws/nma-eap-peap.h \
 	src/nma-ws/nma-eap-simple.h \
-	src/nma-ws/nma-ws-helpers.h
+	src/nma-ws/nma-eap-tls.h \
+	src/nma-ws/nma-eap-ttls.h \
+	src/nma-ws/nma-eap.h \
+	src/nma-ws/nma-ws-802-1x-private.h \
+	src/nma-ws/nma-ws-helpers.h \
+	src/nma-ws/nma-ws-private.h \
+	$(NULL)
 
 libnma_h_priv_gcr = \
 	src/nma-pkcs11-token-login-dialog.h \
@@ -706,6 +708,7 @@ EXTRA_DIST += \
 	src/meson.build \
 	src/tests/meson.build \
 	\
+	src/nma-ws/meson.build \
 	src/nma-ws/nma-eap-fast.ui \
 	src/nma-ws/nma-eap-leap.ui \
 	src/nma-ws/nma-eap-peap.ui \
@@ -717,7 +720,7 @@ EXTRA_DIST += \
 	src/nma-ws/nma-ws-sae.ui \
 	src/nma-ws/nma-ws-wep-key.ui \
 	src/nma-ws/nma-ws-wpa-psk.ui \
-	src/nma-ws/meson.build
+	$(NULL)
 
 ###############################################################################
 

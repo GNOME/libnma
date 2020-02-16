@@ -1,7 +1,7 @@
-=======================================================
+=======================================
 libnma-1.8.28
-Overview of changes since network-manager-applet-1.8.26
-=======================================================
+Overview of changes since libnma-1.8.26
+=======================================
 
 * Turned the wireless-security library to a public API
 
