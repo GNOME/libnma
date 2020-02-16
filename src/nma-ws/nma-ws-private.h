@@ -8,7 +8,7 @@
 #ifndef NMA_WS_PRIVATE_H
 #define NMA_WS_PRIVATE_H
 
-typedef struct {
+struct _NMAWsInterface {
 	GTypeInterface parent;
 
 	void (*add_to_size_group) (NMAWs *self, GtkSizeGroup *group);
@@ -18,7 +18,7 @@ typedef struct {
 
 	gboolean adhoc_compatible;
 	gboolean hotspot_compatible;
-} NMAWsInterface;
+};
 
 void nma_ws_changed_cb (GtkWidget *entry, gpointer user_data);
 

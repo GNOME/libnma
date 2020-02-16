@@ -16,10 +16,6 @@
 #include "nma-ui-utils.h"
 #include "utils.h"
 
-typedef struct {
-	GtkGridClass parent;
-} NMAWsSaeClass;
-
 struct _NMAWsSae {
 	GtkGrid parent;
 
@@ -31,6 +27,10 @@ struct _NMAWsSae {
 
 	NMConnection *connection;
 	gboolean secrets_only;
+};
+
+struct _NMAWsSaeClass {
+	GtkGridClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);

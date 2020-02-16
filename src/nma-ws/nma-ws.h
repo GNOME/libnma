@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWs NMAWs;
+typedef struct _NMAWsInterface NMAWsInterface;
 
 #define NMA_TYPE_WS                (nma_ws_get_type ())
 #define NMA_WS(obj)                (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS, NMAWs))

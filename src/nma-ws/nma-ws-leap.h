@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsLeap NMAWsLeap;
+typedef struct _NMAWsLeapClass NMAWsLeapClass;
 
 #define NMA_TYPE_WS_LEAP            (nma_ws_leap_get_type ())
 #define NMA_WS_LEAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_LEAP, NMAWsLeap))

@@ -13,12 +13,12 @@
 #include "nma-ws-802-1x-private.h"
 #include "nma-ws-wpa-eap.h"
 
-typedef struct {
-	NMAWs8021xClass parent;
-} NMAWsWpaEapClass;
-
 struct _NMAWsWpaEap {
 	NMAWs8021x parent;
+};
+
+struct _NMAWsWpaEapClass {
+	NMAWs8021xClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);

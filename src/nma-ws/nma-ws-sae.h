@@ -11,6 +11,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsSae NMAWsSae;
+typedef struct _NMAWsSaeClass NMAWsSaeClass;
 
 #define NMA_TYPE_WS_SAE            (nma_ws_sae_get_type ())
 #define NMA_WS_SAE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsSae))

@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsWpaPsk NMAWsWpaPsk;
+typedef struct _NMAWsWpaPskClass NMAWsWpaPskClass;
 
 #define NMA_TYPE_WS_WPA_PSK            (nma_ws_wpa_psk_get_type ())
 #define NMA_WS_WPA_PSK(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_WPA_PSK, NMAWsWpaPsk))

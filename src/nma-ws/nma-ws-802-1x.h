@@ -10,8 +10,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _NMAWs8021xClass NMAWs8021xClass;
 typedef struct _NMAWs8021x NMAWs8021x;
+typedef struct _NMAWs8021xClass NMAWs8021xClass;
 
 #define NMA_TYPE_WS_802_1X            (nma_ws_802_1x_get_type ())
 #define NMA_WS_802_1X(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_802_1X, NMAWs8021x))

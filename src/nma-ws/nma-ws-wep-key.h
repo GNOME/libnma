@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsWepKey NMAWsWepKey;
+typedef struct _NMAWsWepKeyClass NMAWsWepKeyClass;
 
 #define NMA_TYPE_WS_WEP_KEY            (nma_ws_wep_key_get_type ())
 #define NMA_WS_WEP_KEY(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_WEP_KEY, NMAWsWepKey))

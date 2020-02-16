@@ -20,10 +20,6 @@
 
 #define WPA_PMK_LEN 32
 
-typedef struct {
-	GtkGridClass parent;
-} NMAWsWpaPskClass;
-
 struct _NMAWsWpaPsk {
 	GtkGrid parent;
 
@@ -35,6 +31,10 @@ struct _NMAWsWpaPsk {
 
 	NMConnection *connection;
 	gboolean secrets_only;
+};
+
+struct _NMAWsWpaPskClass {
+	GtkGridClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);

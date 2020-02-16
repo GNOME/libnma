@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsDynamicWep NMAWsDynamicWep;
+typedef struct _NMAWsDynamicWepClass NMAWsDynamicWepClass;
 
 #define NMA_TYPE_WS_DYNAMIC_WEP            (nma_ws_dynamic_wep_get_type ())
 #define NMA_WS_DYNAMIC_WEP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsDynamicWep))

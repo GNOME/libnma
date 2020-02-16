@@ -18,10 +18,6 @@
 #include "nma-ui-utils.h"
 #include "utils.h"
 
-typedef struct {
-	GtkGridClass parent;
-} NMAWsLeapClass;
-
 struct _NMAWsLeap {
 	GtkGrid parent;
 
@@ -33,6 +29,10 @@ struct _NMAWsLeap {
 
 	NMConnection *connection;
 	gboolean secrets_only;
+};
+
+struct _NMAWsLeapClass {
+	GtkGridClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);

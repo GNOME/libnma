@@ -13,6 +13,7 @@
 G_BEGIN_DECLS
 
 typedef struct _NMAWsWpaEap NMAWsWpaEap;
+typedef struct _NMAWsWpaEapClass NMAWsWpaEapClass;
 
 #define NMA_TYPE_WS_WPA_EAP            (nma_ws_wpa_eap_get_type ())
 #define NMA_WS_WPA_EAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsWpaEap))

@@ -16,10 +16,6 @@
 #include "nma-ui-utils.h"
 #include "utils.h"
 
-typedef struct {
-	GtkGridClass parent;
-} NMAWsWepKeyClass;
-
 struct _NMAWsWepKey {
 	GtkGrid parent;
 
@@ -38,6 +34,10 @@ struct _NMAWsWepKey {
 
 	char keys[4][65];
 	guint8 cur_index;
+};
+
+struct _NMAWsWepKeyClass {
+	GtkGridClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);

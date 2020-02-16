@@ -13,12 +13,12 @@
 #include "nma-ws-802-1x-private.h"
 #include "nma-ws-dynamic-wep.h"
 
-typedef struct {
-	NMAWs8021xClass parent;
-} NMAWsDynamicWepClass;
-
 struct _NMAWsDynamicWep {
 	NMAWs8021x parent;
+};
+
+struct _NMAWsDynamicWepClass {
+	NMAWs8021xClass parent;
 };
 
 static void nma_ws_interface_init (NMAWsInterface *iface);
