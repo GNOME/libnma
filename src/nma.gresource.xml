@@ -7,5 +7,16 @@
 		<file preprocess="xml-stripblanks">nma-mobile-wizard.ui</file>
 		<file preprocess="xml-stripblanks">nma-vpn-password-dialog.ui</file>
 		<file preprocess="xml-stripblanks">nma-bar-code-widget.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-ws-802-1x.ui">nma-ws/nma-ws-802-1x.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-ws-leap.ui">nma-ws/nma-ws-leap.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-ws-sae.ui">nma-ws/nma-ws-sae.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-ws-wep-key.ui">nma-ws/nma-ws-wep-key.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-ws-wpa-psk.ui">nma-ws/nma-ws-wpa-psk.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-fast.ui">nma-ws/nma-eap-fast.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-leap.ui">nma-ws/nma-eap-leap.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-peap.ui">nma-ws/nma-eap-peap.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-simple.ui">nma-ws/nma-eap-simple.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-tls.ui">nma-ws/nma-eap-tls.ui</file>
+                <file preprocess="xml-stripblanks" alias="nma-eap-ttls.ui">nma-ws/nma-eap-ttls.ui</file>
 	</gresource>
 </gresources>
