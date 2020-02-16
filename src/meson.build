@@ -25,8 +25,11 @@ cert_chooser_sources = files(
 )
 
 resource_data = files(
+  'nma-bar-code-widget.ui',
+  'nma-mobile-wizard.ui',
   'nma-pkcs11-cert-chooser-dialog.ui',
   'nma-pkcs11-token-login-dialog.ui',
+  'nma-vpn-password-dialog.ui',
   'wifi.ui'
 )
 

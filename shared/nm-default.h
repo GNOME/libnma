@@ -54,13 +54,6 @@
 
 /*****************************************************************************/
 
-#if !((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY)
-#define LIBNM_BUILD 1
-#else
-#define LIBNM_BUILD 0
-#endif
-
-
 #if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB) || ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_LIB_LEGACY)
 #include <glib/gi18n-lib.h>
 #else
