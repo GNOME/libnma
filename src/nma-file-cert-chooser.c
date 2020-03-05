@@ -257,7 +257,7 @@ key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 		}
 		sensitive = TRUE;
 	}
-	gtk_entry_set_text (GTK_ENTRY (priv->key_password), "");
+	gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
 	gtk_widget_set_sensitive (priv->key_password, sensitive);
 	gtk_widget_set_sensitive (priv->key_password_label, sensitive);
 	widget_unset_error (priv->key_password);
