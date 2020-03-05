@@ -256,10 +256,10 @@ AC_DEFINE_UNQUOTED(NM_MORE_ASSERTS, $more_asserts, [Define if more asserts are e
 
 AC_CONFIG_FILES([
 Makefile
-src/nma-version.h
-src/libnma.pc
-src/libnma-gtk4.pc
 po/Makefile.in
+src/libnma-gtk4.pc
+src/libnma.pc
+src/nma-version.h
 ])
 AC_OUTPUT
 
