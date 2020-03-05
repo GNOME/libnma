@@ -256,6 +256,7 @@ AC_DEFINE_UNQUOTED(NM_MORE_ASSERTS, $more_asserts, [Define if more asserts are e
 
 AC_CONFIG_FILES([
 Makefile
+org.gnome.nm-applet.gschema.xml
 po/Makefile.in
 src/libnma-gtk4.pc
 src/libnma.pc

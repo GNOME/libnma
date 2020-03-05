@@ -779,6 +779,9 @@ MKDB_OPTIONS = --ignore-files "$(IGNORE_HFILES) $(mkdb_ignore_c_files)"
 
 ###############################################################################
 
+gsettings_SCHEMAS = org.gnome.nm-applet.gschema.xml
+@GSETTINGS_RULES@
+
 check_PROGRAMS += $(check_programs)
 
 check-local: $(check_local)

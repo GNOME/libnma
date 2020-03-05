@@ -1,5 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+org.gnome.nm-applet.gschema.xml.in
 shared/nm-utils/nm-shared-utils.c
 src/nma-bar-code-widget.c
 src/nma-bar-code-widget.ui
