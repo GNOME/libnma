@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2019-11-04 13:46+0100\n"
+"POT-Creation-Date: 2020-03-06 11:41+0100\n"
 "PO-Revision-Date: 2017-11-07 06:45+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -23,6 +23,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 4.3.2\n"
+
+#: org.gnome.nm-applet.gschema.xml.in:6
+msgid "Disable connected notifications"
+msgstr "停止已連線的通知"
+
+#: org.gnome.nm-applet.gschema.xml.in:7
+msgid "Set this to true to disable notifications when connecting to a network."
+msgstr "將這設為 True，以停用網路連線時的通知。"
+
+#: org.gnome.nm-applet.gschema.xml.in:11
+msgid "Disable disconnected notifications"
+msgstr "停止已離線的通知"
+
+#: org.gnome.nm-applet.gschema.xml.in:12
+msgid ""
+"Set this to true to disable notifications when disconnecting from a network."
+msgstr "將這設為 True，以停用網路離線時的通知。"
+
+#: org.gnome.nm-applet.gschema.xml.in:16
+msgid "Disable VPN notifications"
+msgstr "停用 VPN 的通知"
+
+#: org.gnome.nm-applet.gschema.xml.in:17
+msgid ""
+"Set this to true to disable notifications when connecting to or "
+"disconnecting from a VPN."
+msgstr "將這設為 True，以停用 VPN 線或離線時的通知。"
+
+#: org.gnome.nm-applet.gschema.xml.in:21
+msgid "Suppress networks available notifications"
+msgstr "停止可用網路的通知"
+
+#: org.gnome.nm-applet.gschema.xml.in:22
+msgid ""
+"Set this to true to disable notifications when Wi-Fi networks are available."
+msgstr "將這設為 True，以停用有 Wi-Fi 無線網路可用時的通知。"
+
+#: org.gnome.nm-applet.gschema.xml.in:26
+msgid "Stamp"
+msgstr "戳記"
+
+#: org.gnome.nm-applet.gschema.xml.in:27
+msgid "Used to determine whether settings should be migrated to a new version."
+msgstr "用來決定設定是不是要轉移到新版本上。"
+
+#: org.gnome.nm-applet.gschema.xml.in:31
+#, fuzzy
+msgid "Disable WiFi Create"
+msgstr "禁止建立 Wi-Fi"
+
+#: org.gnome.nm-applet.gschema.xml.in:32
+msgid ""
+"Set to true to disable creation of adhoc networks when using the applet."
+msgstr "將這設為 True，以停用使用面板程式建立 Ad hoc 網路。"
+
+#: org.gnome.nm-applet.gschema.xml.in:36
+msgid "Show the applet in notification area"
+msgstr "在通知區域顯示面板程式"
+
+#: org.gnome.nm-applet.gschema.xml.in:37
+msgid "Set to FALSE to disable displaying the applet in the notification area."
+msgstr "設定為 FALSE 來停用在通知區域示顯示面板程式的功能。"
+
+#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+msgid "Ignore CA certificate"
+msgstr "忽略 CA 憑證"
+
+#: org.gnome.nm-applet.gschema.xml.in:44
+msgid ""
+"Set this to true to disable warnings about CA certificates in EAP "
+"authentication."
+msgstr "將這設為 True，以停用在 EAP 認證中關於 CA 證書的警告。"
+
+#: org.gnome.nm-applet.gschema.xml.in:49
+msgid ""
+"Set this to true to disable warnings about CA certificates in phase 2 of EAP "
+"authentication."
+msgstr "將這設為 True，以停用在 EAP 認證第二階段中關於 CA 證書的警告。"
 
 #: shared/nm-utils/nm-shared-utils.c:793
 #, c-format
@@ -70,44 +148,73 @@ msgstr "密碼："
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-file-cert-chooser.c:101 src/nma-pkcs11-cert-chooser.c:139
+#: src/nma-cert-chooser-button.c:153
+msgid "(None)"
+msgstr "（無）"
+
+#: src/nma-cert-chooser-button.c:161
+#, c-format
+msgid "Key in %s"
+msgstr "鍵入 %s"
+
+#: src/nma-cert-chooser-button.c:162
+#, fuzzy, c-format
+msgid "Certificate in %s"
+msgstr "C_A 憑證："
+
+#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
+msgid "(Unknown)"
+msgstr "（不明）"
+
+#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+msgid "Select"
+msgstr "選擇"
+
+#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+msgid "Cancel"
+msgstr "取消"
+
+#: src/nma-cert-chooser-button.c:460
+msgid "Select from file…"
+msgstr "從文件中選擇..."
+
+#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
 #, fuzzy
 msgid "No certificate set"
 msgstr "不需要 CA 憑證(_R)"
 
-#: src/nma-file-cert-chooser.c:119 src/nma-pkcs11-cert-chooser.c:163
+#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
 msgid "No key set"
 msgstr "沒有按鍵設置"
 
-#: src/nma-file-cert-chooser.c:239 src/nma-pkcs11-cert-chooser.c:369
+#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
 #, fuzzy, c-format
 msgid "Choose a key for %s Certificate"
 msgstr "選擇 CA 憑證"
 
-#: src/nma-file-cert-chooser.c:243 src/nma-pkcs11-cert-chooser.c:373
+#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
 #, fuzzy, c-format
 msgid "%s private _key"
 msgstr "私密金鑰(_K)："
 
-#: src/nma-file-cert-chooser.c:247 src/nma-pkcs11-cert-chooser.c:377
+#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
 #, fuzzy, c-format
 msgid "%s key _password"
 msgstr "私密金鑰密碼(_P)："
 
-#: src/nma-file-cert-chooser.c:251
+#: src/nma-file-cert-chooser.c:300
 #, fuzzy, c-format
 msgid "Choose %s Certificate"
 msgstr "選擇 CA 憑證"
 
-#: src/nma-file-cert-chooser.c:255 src/nma-pkcs11-cert-chooser.c:385
+#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
 #, fuzzy, c-format
 msgid "%s _certificate"
 msgstr "使用者憑證(_U)："
 
-#: src/nma-file-cert-chooser.c:340 src/wireless-security/eap-method-leap.ui:60
-#: src/wireless-security/eap-method-simple.ui:77
-#: src/wireless-security/ws-leap.ui:60 src/wireless-security/ws-sae.ui:60
-#: src/wireless-security/ws-wpa-psk.ui:60
+#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
+#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
+#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
 msgid "Sho_w password"
 msgstr "顯示密碼(_W)"
 
@@ -119,36 +226,36 @@ msgstr "預設"
 msgid "My country is not listed"
 msgstr "我的國家並沒有列出來"
 
-#: src/nma-mobile-wizard.c:139
+#: src/nma-mobile-wizard.c:141
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:142
+#: src/nma-mobile-wizard.c:144
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:247 src/nma-mobile-wizard.c:279
+#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
 msgid "Unlisted"
 msgstr "未列出的"
 
-#: src/nma-mobile-wizard.c:479
+#: src/nma-mobile-wizard.c:481
 #, fuzzy
 msgid "My plan is not listed…"
 msgstr "我的方案沒有列出…"
 
-#: src/nma-mobile-wizard.c:651
+#: src/nma-mobile-wizard.c:653
 msgid "Provider"
 msgstr "供應商"
 
-#: src/nma-mobile-wizard.c:1023
+#: src/nma-mobile-wizard.c:1025
 msgid "Installed GSM device"
 msgstr "已安裝的 GSM 裝置"
 
-#: src/nma-mobile-wizard.c:1026
+#: src/nma-mobile-wizard.c:1028
 msgid "Installed CDMA device"
 msgstr "已安裝的 CDMA 裝置"
 
-#: src/nma-mobile-wizard.c:1231
+#: src/nma-mobile-wizard.c:1233
 msgid "Any device"
 msgstr "任何裝置"
 
@@ -276,50 +383,6 @@ msgstr ""
 msgid "Confirm Mobile Broadband Settings"
 msgstr "確認行動寬頻設定"
 
-#: src/nma-cert-chooser-button.c:153
-msgid "(None)"
-msgstr "（無）"
-
-#: src/nma-cert-chooser-button.c:161
-#, c-format
-msgid "Key in %s"
-msgstr "鍵入 %s"
-
-#: src/nma-cert-chooser-button.c:162
-#, fuzzy, c-format
-msgid "Certificate in %s"
-msgstr "C_A 憑證："
-
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-msgid "(Unknown)"
-msgstr "（不明）"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
-msgid "Select"
-msgstr "選擇"
-
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
-msgid "Cancel"
-msgstr "取消"
-
-#: src/nma-cert-chooser-button.c:460
-msgid "Select from file…"
-msgstr "從文件中選擇..."
-
-#: src/nma-pkcs11-cert-chooser.c:381
-#, fuzzy, c-format
-msgid "Choose a %s Certificate"
-msgstr "選擇 CA 憑證"
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, fuzzy, c-format
-msgid "%s certificate _password"
-msgstr "使用者憑證(_U)："
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "顯示密碼(_W)"
-
 #: src/nma-pkcs11-cert-chooser-dialog.c:241
 msgid "Error logging in: "
 msgstr "登錄時出錯： "
@@ -342,13 +405,27 @@ msgstr "名稱"
 msgid "Issued By"
 msgstr "由...發出"
 
+#: src/nma-pkcs11-cert-chooser.c:381
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "選擇 CA 憑證"
+
+#: src/nma-pkcs11-cert-chooser.c:389
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "使用者憑證(_U)："
+
+#: src/nma-pkcs11-cert-chooser.c:441
+msgid "Sho_w passwords"
+msgstr "顯示密碼(_W)"
+
 #: src/nma-pkcs11-token-login-dialog.c:132
 #, c-format
 msgid "Enter %s PIN"
 msgstr "輸入 %s 銷"
 
 #: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1115
+#: src/nma-wifi-dialog.c:1107
 msgid "_Cancel"
 msgstr "取消 (_C)"
 
@@ -400,96 +477,431 @@ msgstr "第二密碼(_S)："
 msgid "_Password:"
 msgstr "密碼(_P)："
 
-#: src/nma-wifi-dialog.c:114
+#: src/nma-wifi-dialog.c:117
 #, fuzzy
 msgid "Click to connect"
 msgstr "斷線"
 
-#: src/nma-wifi-dialog.c:445
+#: src/nma-wifi-dialog.c:448
 msgid "New…"
 msgstr "新…"
 
-#: src/nma-wifi-dialog.c:923
+#: src/nma-wifi-dialog.c:929
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "沒有"
 
-#: src/nma-wifi-dialog.c:940
+#: src/nma-wifi-dialog.c:945
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-位元 金鑰 (Hex 或 ASCII)"
 
-#: src/nma-wifi-dialog.c:949
+#: src/nma-wifi-dialog.c:952
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-位元 密語"
 
-#: src/nma-wifi-dialog.c:966 src/wireless-security/wireless-security.c:435
+#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:979
+#: src/nma-wifi-dialog.c:978
 msgid "Dynamic WEP (802.1x)"
 msgstr "動態 WEP（802.1x）"
 
-#: src/nma-wifi-dialog.c:993
+#: src/nma-wifi-dialog.c:990
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 個人版"
 
-#: src/nma-wifi-dialog.c:1011
+#: src/nma-wifi-dialog.c:1006
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 企業版"
 
-#: src/nma-wifi-dialog.c:1024
+#: src/nma-wifi-dialog.c:1017
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 個人版"
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1111
 msgid "C_reate"
 msgstr "建立(_R)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1113
 msgid "C_onnect"
 msgstr "連線(_O)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1191
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "需要密碼或是加密金鑰來存取 Wi-Fi 網路「%s」。"
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1193
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Wi-Fi 網路連線需要驗證"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1195
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi 網路連線需要驗證"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1200
 msgid "Create New Wi-Fi Network"
 msgstr "建立新的 Wi-Fi 網路"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1202
 msgid "New Wi-Fi network"
 msgstr "新的 Wi-Fi 網路"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1203
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "輸入您要建立的 Wi-Fi 網路的名稱。"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1205
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "連接到隱藏的 Wi-Fi 網路"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1207
 msgid "Hidden Wi-Fi network"
 msgstr "隱藏的 Wi-Fi 網路"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1208
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
 msgstr "輸入您要連接的隱藏 Wi-Fi 網路的名稱與安全性詳細資料。"
+
+#: src/nma-ws/nma-eap-fast.c:59
+msgid "missing EAP-FAST PAC file"
+msgstr "缺少EAP-FAST PAC文件"
+
+#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
+#: src/nma-ws/nma-eap-ttls.c:366
+msgid "GTC"
+msgstr "GTC"
+
+#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
+#: src/nma-ws/nma-eap-ttls.c:300
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: src/nma-ws/nma-eap-fast.c:395
+#, fuzzy
+msgid "Choose a PAC file"
+msgstr "選擇一個 PAC 檔案…"
+
+#: src/nma-ws/nma-eap-fast.c:402
+msgid "PAC files (*.pac)"
+msgstr "PAC 檔案 (*.pac)"
+
+#: src/nma-ws/nma-eap-fast.c:406
+msgid "All files"
+msgstr "所有檔案"
+
+#: src/nma-ws/nma-eap-fast.ui:23
+msgid "Anonymous"
+msgstr "匿名"
+
+#: src/nma-ws/nma-eap-fast.ui:26
+msgid "Authenticated"
+msgstr "已驗證"
+
+#: src/nma-ws/nma-eap-fast.ui:29
+msgid "Both"
+msgstr "兩者"
+
+#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-ttls.ui:113
+#, fuzzy
+msgid "Anony_mous identity"
+msgstr "匿名識別(_M)："
+
+#: src/nma-ws/nma-eap-fast.ui:68
+#, fuzzy
+msgid "PAC _file"
+msgstr "PAC 檔案(_F)："
+
+#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-ttls.ui:71
+#, fuzzy
+msgid "_Inner authentication"
+msgstr "內部驗證(_I)："
+
+#: src/nma-ws/nma-eap-fast.ui:136
+msgid "Allow automatic PAC pro_visioning"
+msgstr "允許自動供應 PAC (_V)"
+
+#: src/nma-ws/nma-eap-leap.c:55
+msgid "missing EAP-LEAP username"
+msgstr "缺少EAP-LEAP用戶名"
+
+#: src/nma-ws/nma-eap-leap.c:64
+msgid "missing EAP-LEAP password"
+msgstr "缺少EAP-LEAP密碼"
+
+#: src/nma-ws/nma-eap-leap.ui:15 src/nma-ws/nma-eap-simple.ui:15
+#: src/nma-ws/nma-ws-leap.ui:15
+#, fuzzy
+msgid "_Username"
+msgstr "使用者名稱(_U)："
+
+#: src/nma-ws/nma-eap-leap.ui:29 src/nma-ws/nma-eap-simple.ui:29
+#: src/nma-ws/nma-ws-leap.ui:29 src/nma-ws/nma-ws-sae.ui:14
+#: src/nma-ws/nma-ws-wpa-psk.ui:14
+#, fuzzy
+msgid "_Password"
+msgstr "密碼(_P)："
+
+#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
+#: src/nma-ws/nma-ws-802-1x.c:346
+msgid "MD5"
+msgstr "MD5"
+
+#: src/nma-ws/nma-eap-peap.ui:23
+msgid "Automatic"
+msgstr "自動"
+
+#: src/nma-ws/nma-eap-peap.ui:26
+msgid "Version 0"
+msgstr "版本 0"
+
+#: src/nma-ws/nma-eap-peap.ui:29
+msgid "Version 1"
+msgstr "版本 1"
+
+#: src/nma-ws/nma-eap-peap.ui:66 src/nma-ws/nma-eap-tls.ui:38
+#: src/nma-ws/nma-eap-ttls.ui:83
+msgid "No CA certificate is _required"
+msgstr "不需要 CA 憑證(_R)"
+
+#: src/nma-ws/nma-eap-peap.ui:83
+#, fuzzy
+msgid "PEAP _version"
+msgstr "PEAP 版本(_V)："
+
+#: src/nma-ws/nma-eap-peap.ui:162 src/nma-ws/nma-eap-tls.ui:56
+#: src/nma-ws/nma-eap-ttls.ui:127
+msgid "Suffix of the server certificate name."
+msgstr "服務器證書名稱的後綴。"
+
+#: src/nma-ws/nma-eap-peap.ui:163 src/nma-ws/nma-eap-tls.ui:57
+#: src/nma-ws/nma-eap-ttls.ui:128
+msgid "_Domain"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.c:79
+msgid "missing EAP username"
+msgstr "缺少EAP用戶名"
+
+#: src/nma-ws/nma-eap-simple.c:95
+msgid "missing EAP password"
+msgstr "缺少EAP密碼"
+
+#: src/nma-ws/nma-eap-simple.c:109
+msgid "missing EAP client Private Key passphrase"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.ui:97
+#, fuzzy
+msgid "P_rivate Key Passphrase"
+msgstr "WEP 128-位元 密語"
+
+#: src/nma-ws/nma-eap-simple.ui:122
+#, fuzzy
+msgid "Sh_ow passphrase"
+msgstr "顯示密碼(_O)"
+
+#: src/nma-ws/nma-eap-tls.c:47
+msgid "missing EAP-TLS identity"
+msgstr "缺少EAP-TLS身份"
+
+#: src/nma-ws/nma-eap-tls.c:234
+#, fuzzy
+msgid "no user certificate selected"
+msgstr "不需要 CA 憑證(_R)"
+
+#: src/nma-ws/nma-eap-tls.c:239
+msgid "selected user certificate file does not exist"
+msgstr "選定的用戶證書文件不存在"
+
+#: src/nma-ws/nma-eap-tls.c:259
+msgid "no key selected"
+msgstr "沒有選擇密鑰"
+
+#: src/nma-ws/nma-eap-tls.c:264
+msgid "selected key file does not exist"
+msgstr "選定的密鑰文件不存在"
+
+#: src/nma-ws/nma-eap-tls.ui:14
+#, fuzzy
+msgid "I_dentity"
+msgstr "識別(_D)："
+
+#: src/nma-ws/nma-eap-ttls.c:268
+msgid "PAP"
+msgstr "PAP"
+
+#: src/nma-ws/nma-eap-ttls.c:284
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: src/nma-ws/nma-eap-ttls.c:317
+#, fuzzy
+msgid "MSCHAPv2 (no EAP)"
+msgstr "MSCHAPv2"
+
+#: src/nma-ws/nma-eap-ttls.c:334
+msgid "CHAP"
+msgstr "CHAP"
+
+#: src/nma-ws/nma-eap.c:40
+msgid "undefined error in 802.1X security (wpa-eap)"
+msgstr "802.1X安全性中的未定義錯誤（wpa-eap）"
+
+#: src/nma-ws/nma-eap.c:348
+#, fuzzy
+msgid "no CA certificate selected"
+msgstr "不需要 CA 憑證(_R)"
+
+#: src/nma-ws/nma-eap.c:353
+msgid "selected CA certificate file does not exist"
+msgstr "選定的CA證書文件不存在"
+
+#: src/nma-ws/nma-ws-802-1x.c:358
+msgid "TLS"
+msgstr "TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:382
+msgid "PWD"
+msgstr "PWD"
+
+#: src/nma-ws/nma-ws-802-1x.c:393
+msgid "FAST"
+msgstr "快"
+
+#: src/nma-ws/nma-ws-802-1x.c:404
+msgid "Tunneled TLS"
+msgstr "穿隧式 TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:415
+msgid "Protected EAP (PEAP)"
+msgstr "保護式 EAP (PEAP)"
+
+#: src/nma-ws/nma-ws-802-1x.c:430
+msgid "Unknown"
+msgstr "不明"
+
+#: src/nma-ws/nma-ws-802-1x.c:444
+msgid "Externally configured"
+msgstr ""
+
+#: src/nma-ws/nma-ws-802-1x.ui:25 src/nma-ws/nma-ws-wep-key.ui:95
+#, fuzzy
+msgid "Au_thentication"
+msgstr "驗證(_E)："
+
+#: src/nma-ws/nma-ws-leap.c:71
+msgid "missing leap-username"
+msgstr "缺少leap-username"
+
+#: src/nma-ws/nma-ws-leap.c:87
+msgid "missing leap-password"
+msgstr "缺少飛躍密碼"
+
+#: src/nma-ws/nma-ws-sae.c:73
+#, fuzzy
+msgid "missing password"
+msgstr "缺少EAP密碼"
+
+#: src/nma-ws/nma-ws-sae.ui:44 src/nma-ws/nma-ws-wpa-psk.ui:43
+#, fuzzy
+msgid "_Type"
+msgstr "類型(_T)："
+
+#: src/nma-ws/nma-ws-wep-key.c:110
+msgid "missing wep-key"
+msgstr "缺少wep-key"
+
+#: src/nma-ws/nma-ws-wep-key.c:117
+#, c-format
+msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
+msgstr "無效的wep-key：密鑰長度為 %zu 必須只包含十六進制數字"
+
+#: src/nma-ws/nma-ws-wep-key.c:125
+#, c-format
+msgid ""
+"invalid wep-key: key with a length of %zu must contain only ascii characters"
+msgstr "無效的wep-key：密鑰長度為 %zu 必須只包含ascii字符"
+
+#: src/nma-ws/nma-ws-wep-key.c:131
+#, c-format
+msgid ""
+"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
+"(ascii) or 10/26 (hex)"
+msgstr ""
+"無效的wep-key：錯誤的密鑰長度 %zu。密鑰長度必須為5/13（ascii）或10/26（hex）"
+
+#: src/nma-ws/nma-ws-wep-key.c:138
+msgid "invalid wep-key: passphrase must be non-empty"
+msgstr "無效的wep-key：passphrase必須是非空的"
+
+#: src/nma-ws/nma-ws-wep-key.c:140
+msgid "invalid wep-key: passphrase must be shorter than 64 characters"
+msgstr "無效的wep-key：passphrase必須短於64個字符"
+
+#: src/nma-ws/nma-ws-wep-key.ui:12
+msgid "Open System"
+msgstr "開放系統"
+
+#: src/nma-ws/nma-ws-wep-key.ui:15
+msgid "Shared Key"
+msgstr "共享金鑰"
+
+#: src/nma-ws/nma-ws-wep-key.ui:26
+msgid "1 (Default)"
+msgstr "1 (預設值)"
+
+#: src/nma-ws/nma-ws-wep-key.ui:48
+#, fuzzy
+msgid "_Key"
+msgstr "金鑰(_K)："
+
+#: src/nma-ws/nma-ws-wep-key.ui:77
+msgid "Sho_w key"
+msgstr "顯示金鑰(_W)"
+
+#: src/nma-ws/nma-ws-wep-key.ui:128
+#, fuzzy
+msgid "WEP inde_x"
+msgstr "WEP 索引(_X)："
+
+#: src/nma-ws/nma-ws-wpa-psk.c:80
+#, c-format
+msgid ""
+"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
+"digits"
+msgstr ""
+"無效的wpa-psk：無效的密鑰長度 %zu。必須是[8,63]個字節或64個十六進制數字"
+
+#: src/nma-ws/nma-ws-wpa-psk.c:87
+msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
+msgstr "無效的wpa-psk：無法將64字節的密鑰解釋為十六進制"
+
+#: src/nma-ws/nma-ws.c:38
+msgid "Unknown error validating 802.1X security"
+msgstr "驗證802.1X安全性的未知錯誤"
+
+#. The %s is a mobile provider name, eg "T-Mobile"
+#: src/utils/utils.c:161
+#, c-format
+msgid "%s connection"
+msgstr "%s 連線"
+
+#: src/utils/utils.c:535
+#, fuzzy
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "DER 或 PEM 憑證 (*.der, *.pem, *.crt, *.cer)"
+
+#: src/utils/utils.c:547
+msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
+msgstr "DER、PEM 或是 PKCS#12 私人金鑰 (*.der, *.pem, *.p12, *.key)"
 
 #: src/wifi.ui:97
 #, fuzzy
@@ -511,353 +923,6 @@ msgstr "連線(_N)："
 msgid "Wi-Fi _adapter"
 msgstr "Wi-Fi 介面卡(_A)："
 
-#. The %s is a mobile provider name, eg "T-Mobile"
-#: src/utils/utils.c:170
-#, c-format
-msgid "%s connection"
-msgstr "%s 連線"
-
-#: src/utils/utils.c:544
-#, fuzzy
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "DER 或 PEM 憑證 (*.der, *.pem, *.crt, *.cer)"
-
-#: src/utils/utils.c:556
-msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
-msgstr "DER、PEM 或是 PKCS#12 私人金鑰 (*.der, *.pem, *.p12, *.key)"
-
-#: src/wireless-security/eap-method.c:43
-msgid "undefined error in 802.1X security (wpa-eap)"
-msgstr "802.1X安全性中的未定義錯誤（wpa-eap）"
-
-#: src/wireless-security/eap-method.c:351
-#, fuzzy
-msgid "no CA certificate selected"
-msgstr "不需要 CA 憑證(_R)"
-
-#: src/wireless-security/eap-method.c:356
-msgid "selected CA certificate file does not exist"
-msgstr "選定的CA證書文件不存在"
-
-#: src/wireless-security/eap-method-fast.c:59
-msgid "missing EAP-FAST PAC file"
-msgstr "缺少EAP-FAST PAC文件"
-
-#: src/wireless-security/eap-method-fast.c:256
-#: src/wireless-security/eap-method-peap.c:319
-#: src/wireless-security/eap-method-ttls.c:373
-msgid "GTC"
-msgstr "GTC"
-
-#: src/wireless-security/eap-method-fast.c:272
-#: src/wireless-security/eap-method-peap.c:287
-#: src/wireless-security/eap-method-ttls.c:307
-msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
-
-#: src/wireless-security/eap-method-fast.c:395
-#, fuzzy
-msgid "Choose a PAC file"
-msgstr "選擇一個 PAC 檔案…"
-
-#: src/wireless-security/eap-method-fast.c:402
-msgid "PAC files (*.pac)"
-msgstr "PAC 檔案 (*.pac)"
-
-#: src/wireless-security/eap-method-fast.c:406
-msgid "All files"
-msgstr "所有檔案"
-
-#: src/wireless-security/eap-method-fast.ui:23
-msgid "Anonymous"
-msgstr "匿名"
-
-#: src/wireless-security/eap-method-fast.ui:26
-msgid "Authenticated"
-msgstr "已驗證"
-
-#: src/wireless-security/eap-method-fast.ui:29
-msgid "Both"
-msgstr "兩者"
-
-#: src/wireless-security/eap-method-fast.ui:48
-#: src/wireless-security/eap-method-peap.ui:48
-#: src/wireless-security/eap-method-ttls.ui:119
-#, fuzzy
-msgid "Anony_mous identity"
-msgstr "匿名識別(_M)："
-
-#: src/wireless-security/eap-method-fast.ui:74
-#, fuzzy
-msgid "PAC _file"
-msgstr "PAC 檔案(_F)："
-
-#: src/wireless-security/eap-method-fast.ui:113
-#: src/wireless-security/eap-method-peap.ui:121
-#: src/wireless-security/eap-method-ttls.ui:77
-#, fuzzy
-msgid "_Inner authentication"
-msgstr "內部驗證(_I)："
-
-#: src/wireless-security/eap-method-fast.ui:142
-msgid "Allow automatic PAC pro_visioning"
-msgstr "允許自動供應 PAC (_V)"
-
-#: src/wireless-security/eap-method-leap.c:53
-msgid "missing EAP-LEAP username"
-msgstr "缺少EAP-LEAP用戶名"
-
-#: src/wireless-security/eap-method-leap.c:62
-msgid "missing EAP-LEAP password"
-msgstr "缺少EAP-LEAP密碼"
-
-#: src/wireless-security/eap-method-leap.ui:21
-#: src/wireless-security/eap-method-simple.ui:21
-#: src/wireless-security/ws-leap.ui:21
-#, fuzzy
-msgid "_Username"
-msgstr "使用者名稱(_U)："
-
-#: src/wireless-security/eap-method-leap.ui:35
-#: src/wireless-security/eap-method-simple.ui:35
-#: src/wireless-security/ws-leap.ui:35 src/wireless-security/ws-sae.ui:20
-#: src/wireless-security/ws-wpa-psk.ui:20
-#, fuzzy
-msgid "_Password"
-msgstr "密碼(_P)："
-
-#: src/wireless-security/eap-method-peap.c:303
-#: src/wireless-security/eap-method-ttls.c:357
-#: src/wireless-security/wireless-security.c:411
-msgid "MD5"
-msgstr "MD5"
-
-#: src/wireless-security/eap-method-peap.ui:23
-msgid "Automatic"
-msgstr "自動"
-
-#: src/wireless-security/eap-method-peap.ui:26
-msgid "Version 0"
-msgstr "版本 0"
-
-#: src/wireless-security/eap-method-peap.ui:29
-msgid "Version 1"
-msgstr "版本 1"
-
-#: src/wireless-security/eap-method-peap.ui:72
-#: src/wireless-security/eap-method-tls.ui:44
-#: src/wireless-security/eap-method-ttls.ui:89
-msgid "No CA certificate is _required"
-msgstr "不需要 CA 憑證(_R)"
-
-#: src/wireless-security/eap-method-peap.ui:89
-#, fuzzy
-msgid "PEAP _version"
-msgstr "PEAP 版本(_V)："
-
-#: src/wireless-security/eap-method-peap.ui:168
-#: src/wireless-security/eap-method-tls.ui:62
-#: src/wireless-security/eap-method-ttls.ui:133
-msgid "Suffix of the server certificate name."
-msgstr "服務器證書名稱的後綴。"
-
-#: src/wireless-security/eap-method-peap.ui:169
-#: src/wireless-security/eap-method-tls.ui:63
-#: src/wireless-security/eap-method-ttls.ui:134
-msgid "_Domain"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.c:77
-msgid "missing EAP username"
-msgstr "缺少EAP用戶名"
-
-#: src/wireless-security/eap-method-simple.c:93
-msgid "missing EAP password"
-msgstr "缺少EAP密碼"
-
-#: src/wireless-security/eap-method-simple.c:107
-msgid "missing EAP client Private Key passphrase"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.ui:103
-#, fuzzy
-msgid "P_rivate Key Passphrase"
-msgstr "WEP 128-位元 密語"
-
-#: src/wireless-security/eap-method-simple.ui:128
-#, fuzzy
-msgid "Sh_ow passphrase"
-msgstr "顯示密碼(_O)"
-
-#: src/wireless-security/eap-method-tls.c:51
-msgid "missing EAP-TLS identity"
-msgstr "缺少EAP-TLS身份"
-
-#: src/wireless-security/eap-method-tls.c:243
-#, fuzzy
-msgid "no user certificate selected"
-msgstr "不需要 CA 憑證(_R)"
-
-#: src/wireless-security/eap-method-tls.c:248
-msgid "selected user certificate file does not exist"
-msgstr "選定的用戶證書文件不存在"
-
-#: src/wireless-security/eap-method-tls.c:268
-msgid "no key selected"
-msgstr "沒有選擇密鑰"
-
-#: src/wireless-security/eap-method-tls.c:273
-msgid "selected key file does not exist"
-msgstr "選定的密鑰文件不存在"
-
-#: src/wireless-security/eap-method-tls.ui:20
-#, fuzzy
-msgid "I_dentity"
-msgstr "識別(_D)："
-
-#: src/wireless-security/eap-method-ttls.c:275
-msgid "PAP"
-msgstr "PAP"
-
-#: src/wireless-security/eap-method-ttls.c:291
-msgid "MSCHAP"
-msgstr "MSCHAP"
-
-#: src/wireless-security/eap-method-ttls.c:324
-#, fuzzy
-msgid "MSCHAPv2 (no EAP)"
-msgstr "MSCHAPv2"
-
-#: src/wireless-security/eap-method-ttls.c:341
-msgid "CHAP"
-msgstr "CHAP"
-
-#: src/wireless-security/wireless-security.c:58
-msgid "Unknown error validating 802.1X security"
-msgstr "驗證802.1X安全性的未知錯誤"
-
-#: src/wireless-security/wireless-security.c:423
-msgid "TLS"
-msgstr "TLS"
-
-#: src/wireless-security/wireless-security.c:447
-msgid "PWD"
-msgstr "PWD"
-
-#: src/wireless-security/wireless-security.c:458
-msgid "FAST"
-msgstr "快"
-
-#: src/wireless-security/wireless-security.c:469
-msgid "Tunneled TLS"
-msgstr "穿隧式 TLS"
-
-#: src/wireless-security/wireless-security.c:480
-msgid "Protected EAP (PEAP)"
-msgstr "保護式 EAP (PEAP)"
-
-#: src/wireless-security/wireless-security.c:495
-msgid "Unknown"
-msgstr "不明"
-
-#: src/wireless-security/wireless-security.c:509
-msgid "Externally configured"
-msgstr ""
-
-#: src/wireless-security/ws-dynamic-wep.ui:31
-#: src/wireless-security/ws-wep-key.ui:97
-#: src/wireless-security/ws-wpa-eap.ui:31
-#, fuzzy
-msgid "Au_thentication"
-msgstr "驗證(_E)："
-
-#: src/wireless-security/ws-leap.c:51
-msgid "missing leap-username"
-msgstr "缺少leap-username"
-
-#: src/wireless-security/ws-leap.c:69
-msgid "missing leap-password"
-msgstr "缺少飛躍密碼"
-
-#: src/wireless-security/ws-sae.c:57
-#, fuzzy
-msgid "missing password"
-msgstr "缺少EAP密碼"
-
-#: src/wireless-security/ws-sae.ui:48 src/wireless-security/ws-wpa-psk.ui:48
-#, fuzzy
-msgid "_Type"
-msgstr "類型(_T)："
-
-#: src/wireless-security/ws-wep-key.c:100
-msgid "missing wep-key"
-msgstr "缺少wep-key"
-
-#: src/wireless-security/ws-wep-key.c:107
-#, c-format
-msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
-msgstr "無效的wep-key：密鑰長度為 %zu 必須只包含十六進制數字"
-
-#: src/wireless-security/ws-wep-key.c:115
-#, c-format
-msgid ""
-"invalid wep-key: key with a length of %zu must contain only ascii characters"
-msgstr "無效的wep-key：密鑰長度為 %zu 必須只包含ascii字符"
-
-#: src/wireless-security/ws-wep-key.c:121
-#, c-format
-msgid ""
-"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
-"(ascii) or 10/26 (hex)"
-msgstr ""
-"無效的wep-key：錯誤的密鑰長度 %zu。密鑰長度必須為5/13（ascii）或10/26（hex）"
-
-#: src/wireless-security/ws-wep-key.c:128
-msgid "invalid wep-key: passphrase must be non-empty"
-msgstr "無效的wep-key：passphrase必須是非空的"
-
-#: src/wireless-security/ws-wep-key.c:130
-msgid "invalid wep-key: passphrase must be shorter than 64 characters"
-msgstr "無效的wep-key：passphrase必須短於64個字符"
-
-#: src/wireless-security/ws-wep-key.ui:12
-msgid "Open System"
-msgstr "開放系統"
-
-#: src/wireless-security/ws-wep-key.ui:15
-msgid "Shared Key"
-msgstr "共享金鑰"
-
-#: src/wireless-security/ws-wep-key.ui:26
-msgid "1 (Default)"
-msgstr "1 (預設值)"
-
-#: src/wireless-security/ws-wep-key.ui:54
-#, fuzzy
-msgid "_Key"
-msgstr "金鑰(_K)："
-
-#: src/wireless-security/ws-wep-key.ui:80
-msgid "Sho_w key"
-msgstr "顯示金鑰(_W)"
-
-#: src/wireless-security/ws-wep-key.ui:129
-#, fuzzy
-msgid "WEP inde_x"
-msgstr "WEP 索引(_X)："
-
-#: src/wireless-security/ws-wpa-psk.c:63
-#, c-format
-msgid ""
-"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
-"digits"
-msgstr ""
-"無效的wpa-psk：無效的密鑰長度 %zu。必須是[8,63]個字節或64個十六進制數字"
-
-#: src/wireless-security/ws-wpa-psk.c:70
-msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
-msgstr "無效的wpa-psk：無法將64字節的密鑰解釋為十六進制"
-
 #~ msgid "Manage your network connections"
 #~ msgstr "管理您的網路連線"
 
@@ -867,72 +932,6 @@ msgstr "無效的wpa-psk：無法將64字節的密鑰解釋為十六進制"
 
 #~ msgid "Manage and change your network connection settings"
 #~ msgstr "管理與變更您的連線設定值"
-
-#~ msgid "Disable connected notifications"
-#~ msgstr "停止已連線的通知"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to a network."
-#~ msgstr "將這設為 True，以停用網路連線時的通知。"
-
-#~ msgid "Disable disconnected notifications"
-#~ msgstr "停止已離線的通知"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when disconnecting from a "
-#~ "network."
-#~ msgstr "將這設為 True，以停用網路離線時的通知。"
-
-#~ msgid "Disable VPN notifications"
-#~ msgstr "停用 VPN 的通知"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to or "
-#~ "disconnecting from a VPN."
-#~ msgstr "將這設為 True，以停用 VPN 線或離線時的通知。"
-
-#~ msgid "Suppress networks available notifications"
-#~ msgstr "停止可用網路的通知"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when Wi-Fi networks are "
-#~ "available."
-#~ msgstr "將這設為 True，以停用有 Wi-Fi 無線網路可用時的通知。"
-
-#~ msgid "Stamp"
-#~ msgstr "戳記"
-
-#~ msgid ""
-#~ "Used to determine whether settings should be migrated to a new version."
-#~ msgstr "用來決定設定是不是要轉移到新版本上。"
-
-#, fuzzy
-#~ msgid "Disable WiFi Create"
-#~ msgstr "禁止建立 Wi-Fi"
-
-#~ msgid ""
-#~ "Set to true to disable creation of adhoc networks when using the applet."
-#~ msgstr "將這設為 True，以停用使用面板程式建立 Ad hoc 網路。"
-
-#~ msgid "Show the applet in notification area"
-#~ msgstr "在通知區域顯示面板程式"
-
-#~ msgid ""
-#~ "Set to FALSE to disable displaying the applet in the notification area."
-#~ msgstr "設定為 FALSE 來停用在通知區域示顯示面板程式的功能。"
-
-#~ msgid "Ignore CA certificate"
-#~ msgstr "忽略 CA 憑證"
-
-#~ msgid ""
-#~ "Set this to true to disable warnings about CA certificates in EAP "
-#~ "authentication."
-#~ msgstr "將這設為 True，以停用在 EAP 認證中關於 CA 證書的警告。"
-
-#~ msgid ""
-#~ "Set this to true to disable warnings about CA certificates in phase 2 of "
-#~ "EAP authentication."
-#~ msgstr "將這設為 True，以停用在 EAP 認證第二階段中關於 CA 證書的警告。"
 
 # Tag: title
 #~ msgid "NetworkManager"

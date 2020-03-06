@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2019-11-04 13:46+0100\n"
+"POT-Creation-Date: 2020-03-06 11:41+0100\n"
 "PO-Revision-Date: 2014-12-02 05:10-0500\n"
 "Last-Translator: Shankar <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -19,6 +19,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.5.1\n"
+
+#: org.gnome.nm-applet.gschema.xml.in:6
+msgid "Disable connected notifications"
+msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#: org.gnome.nm-applet.gschema.xml.in:7
+#, fuzzy
+msgid "Set this to true to disable notifications when connecting to a network."
+msgstr ""
+"ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+"ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:11
+msgid "Disable disconnected notifications"
+msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕಲಾದ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#: org.gnome.nm-applet.gschema.xml.in:12
+#, fuzzy
+msgid ""
+"Set this to true to disable notifications when disconnecting from a network."
+msgstr ""
+"ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+"ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:16
+#, fuzzy
+msgid "Disable VPN notifications"
+msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#: org.gnome.nm-applet.gschema.xml.in:17
+#, fuzzy
+msgid ""
+"Set this to true to disable notifications when connecting to or "
+"disconnecting from a VPN."
+msgstr ""
+"ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+"ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:21
+msgid "Suppress networks available notifications"
+msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿವೆ ಎಂಬ ಸೂಚನೆಗಳನ್ನು ತಡೆಹಿಡಿ"
+
+#: org.gnome.nm-applet.gschema.xml.in:22
+#, fuzzy
+msgid ""
+"Set this to true to disable notifications when Wi-Fi networks are available."
+msgstr ""
+"ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿರುವುದನ್ನು ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:26
+msgid "Stamp"
+msgstr "ಮುದ್ರೆ"
+
+#: org.gnome.nm-applet.gschema.xml.in:27
+msgid "Used to determine whether settings should be migrated to a new version."
+msgstr "ಸಿದ್ಧತೆಗಳನ್ನು ಹೊಸ ಆವೃತ್ತಿಗೆ ವರ್ಗಾಯಿಸಬೇಕೆ ಎಂದು ನಿರ್ಧರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ"
+
+#: org.gnome.nm-applet.gschema.xml.in:31
+#, fuzzy
+msgid "Disable WiFi Create"
+msgstr "Wi-Fi ನಿರ್ಮಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#: org.gnome.nm-applet.gschema.xml.in:32
+#, fuzzy
+msgid ""
+"Set to true to disable creation of adhoc networks when using the applet."
+msgstr ""
+"ಆಪ್ಲೆಟ್‌ ಅನ್ನು ಬಳಸುವಾಗ ಒಂದು ತಾತ್ಕಾಲಿಕ ಜಾಲಬಂಧವನ್ನು ರಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು "
+"TRUE ಗೆ ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:36
+msgid "Show the applet in notification area"
+msgstr ""
+
+#: org.gnome.nm-applet.gschema.xml.in:37
+msgid "Set to FALSE to disable displaying the applet in the notification area."
+msgstr ""
+
+#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#, fuzzy
+msgid "Ignore CA certificate"
+msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
+
+#: org.gnome.nm-applet.gschema.xml.in:44
+#, fuzzy
+msgid ""
+"Set this to true to disable warnings about CA certificates in EAP "
+"authentication."
+msgstr ""
+"ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+"ಬದಲಾಯಿಸಿ."
+
+#: org.gnome.nm-applet.gschema.xml.in:49
+#, fuzzy
+msgid ""
+"Set this to true to disable warnings about CA certificates in phase 2 of EAP "
+"authentication."
+msgstr ""
+"ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+"ಬದಲಾಯಿಸಿ."
 
 #: shared/nm-utils/nm-shared-utils.c:793
 #, c-format
@@ -67,44 +167,75 @@ msgstr "ಗುಪ್ತಪದ:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-file-cert-chooser.c:101 src/nma-pkcs11-cert-chooser.c:139
+#: src/nma-cert-chooser-button.c:153
+#, fuzzy
+msgid "(None)"
+msgstr "(ಯಾವುದೂ ಇಲ್ಲ)"
+
+#: src/nma-cert-chooser-button.c:161
+#, c-format
+msgid "Key in %s"
+msgstr ""
+
+#: src/nma-cert-chooser-button.c:162
+#, fuzzy, c-format
+msgid "Certificate in %s"
+msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
+
+#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
+#, fuzzy
+msgid "(Unknown)"
+msgstr "ಅಜ್ಞಾತ"
+
+#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+msgid "Select"
+msgstr ""
+
+#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+msgid "Cancel"
+msgstr ""
+
+#: src/nma-cert-chooser-button.c:460
+msgid "Select from file…"
+msgstr ""
+
+#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
 #, fuzzy
 msgid "No certificate set"
 msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
 
-#: src/nma-file-cert-chooser.c:119 src/nma-pkcs11-cert-chooser.c:163
+#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
 msgid "No key set"
 msgstr ""
 
-#: src/nma-file-cert-chooser.c:239 src/nma-pkcs11-cert-chooser.c:369
+#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
 #, fuzzy, c-format
 msgid "Choose a key for %s Certificate"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
 
-#: src/nma-file-cert-chooser.c:243 src/nma-pkcs11-cert-chooser.c:373
+#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
 #, fuzzy, c-format
 msgid "%s private _key"
 msgstr "ಖಾಸಗಿ ಕೀಲಿ(_k):"
 
-#: src/nma-file-cert-chooser.c:247 src/nma-pkcs11-cert-chooser.c:377
+#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
 #, fuzzy, c-format
 msgid "%s key _password"
 msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ(_P):"
 
-#: src/nma-file-cert-chooser.c:251
+#: src/nma-file-cert-chooser.c:300
 #, fuzzy, c-format
 msgid "Choose %s Certificate"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
 
-#: src/nma-file-cert-chooser.c:255 src/nma-pkcs11-cert-chooser.c:385
+#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
 #, fuzzy, c-format
 msgid "%s _certificate"
 msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
 
-#: src/nma-file-cert-chooser.c:340 src/wireless-security/eap-method-leap.ui:60
-#: src/wireless-security/eap-method-simple.ui:77
-#: src/wireless-security/ws-leap.ui:60 src/wireless-security/ws-sae.ui:60
-#: src/wireless-security/ws-wpa-psk.ui:60
+#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
+#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
+#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
 msgid "Sho_w password"
 msgstr "ಗುಪ್ತಪದವನ್ನು ತೋರಿಸು(_w)"
 
@@ -116,36 +247,36 @@ msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
 msgid "My country is not listed"
 msgstr "ನನ್ನ ದೇಶವನ್ನು ಪಟ್ಟಿ ಮಾಡಲಾಗಿಲ್ಲ"
 
-#: src/nma-mobile-wizard.c:139
+#: src/nma-mobile-wizard.c:141
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:142
+#: src/nma-mobile-wizard.c:144
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:247 src/nma-mobile-wizard.c:279
+#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
 msgid "Unlisted"
 msgstr "ಪಟ್ಟಿ ಮಾಡದೆ ಇರುವ"
 
-#: src/nma-mobile-wizard.c:479
+#: src/nma-mobile-wizard.c:481
 #, fuzzy
 msgid "My plan is not listed…"
 msgstr "ನನ್ನ ಯೋಜನೆ(ಪ್ಲಾನ್) ಅನ್ನು ಪಟ್ಟಿ ಮಾಡಲಾಗಿಲ್ಲ..."
 
-#: src/nma-mobile-wizard.c:651
+#: src/nma-mobile-wizard.c:653
 msgid "Provider"
 msgstr "ಒದಗಿಸುವವರು"
 
-#: src/nma-mobile-wizard.c:1023
+#: src/nma-mobile-wizard.c:1025
 msgid "Installed GSM device"
 msgstr "ಅನುಸ್ಥಾಪಿಸಲಾದ GSM ಸಾಧನ"
 
-#: src/nma-mobile-wizard.c:1026
+#: src/nma-mobile-wizard.c:1028
 msgid "Installed CDMA device"
 msgstr "ಅನುಸ್ಥಾಪಿಸಲಾದ CDMA ಸಾಧನ"
 
-#: src/nma-mobile-wizard.c:1231
+#: src/nma-mobile-wizard.c:1233
 msgid "Any device"
 msgstr "ಯಾವುದೆ ಸಾಧನ"
 
@@ -282,52 +413,6 @@ msgstr ""
 msgid "Confirm Mobile Broadband Settings"
 msgstr "ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಿದ್ಧತೆಗಳನ್ನು ಖಚಿತಪಡಿಸಿ"
 
-#: src/nma-cert-chooser-button.c:153
-#, fuzzy
-msgid "(None)"
-msgstr "(ಯಾವುದೂ ಇಲ್ಲ)"
-
-#: src/nma-cert-chooser-button.c:161
-#, c-format
-msgid "Key in %s"
-msgstr ""
-
-#: src/nma-cert-chooser-button.c:162
-#, fuzzy, c-format
-msgid "Certificate in %s"
-msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
-
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-#, fuzzy
-msgid "(Unknown)"
-msgstr "ಅಜ್ಞಾತ"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
-msgid "Select"
-msgstr ""
-
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
-msgid "Cancel"
-msgstr ""
-
-#: src/nma-cert-chooser-button.c:460
-msgid "Select from file…"
-msgstr ""
-
-#: src/nma-pkcs11-cert-chooser.c:381
-#, fuzzy, c-format
-msgid "Choose a %s Certificate"
-msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, fuzzy, c-format
-msgid "%s certificate _password"
-msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
-
 #: src/nma-pkcs11-cert-chooser-dialog.c:241
 msgid "Error logging in: "
 msgstr ""
@@ -350,13 +435,27 @@ msgstr "ಹೆಸರು"
 msgid "Issued By"
 msgstr ""
 
+#: src/nma-pkcs11-cert-chooser.c:381
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#: src/nma-pkcs11-cert-chooser.c:389
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
+
+#: src/nma-pkcs11-cert-chooser.c:441
+msgid "Sho_w passwords"
+msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
+
 #: src/nma-pkcs11-token-login-dialog.c:132
 #, c-format
 msgid "Enter %s PIN"
 msgstr ""
 
 #: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1115
+#: src/nma-wifi-dialog.c:1107
 msgid "_Cancel"
 msgstr ""
 
@@ -409,60 +508,60 @@ msgstr "ಗುಪ್ತಪದ(_P):"
 msgid "_Password:"
 msgstr "ಗುಪ್ತಪದ(_P):"
 
-#: src/nma-wifi-dialog.c:114
+#: src/nma-wifi-dialog.c:117
 #, fuzzy
 msgid "Click to connect"
 msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕು"
 
-#: src/nma-wifi-dialog.c:445
+#: src/nma-wifi-dialog.c:448
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:923
+#: src/nma-wifi-dialog.c:929
 #, fuzzy
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "ಯಾವುದೂ ಇಲ್ಲ"
 
-#: src/nma-wifi-dialog.c:940
+#: src/nma-wifi-dialog.c:945
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-ಬಿಟ್ ಕೀಲಿ (ಹೆಕ್ಸ್ ಅಥವ ASCII)"
 
-#: src/nma-wifi-dialog.c:949
+#: src/nma-wifi-dialog.c:952
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit ಗುಪ್ತವಾಕ್ಯ"
 
-#: src/nma-wifi-dialog.c:966 src/wireless-security/wireless-security.c:435
+#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:979
+#: src/nma-wifi-dialog.c:978
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "ಡೈನಮಿಕ್ WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:993
+#: src/nma-wifi-dialog.c:990
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 ವೈಯಕ್ತಿಕ"
 
-#: src/nma-wifi-dialog.c:1011
+#: src/nma-wifi-dialog.c:1006
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 ಎಂಟರ್ಪ್ರೈಸ್"
 
-#: src/nma-wifi-dialog.c:1024
+#: src/nma-wifi-dialog.c:1017
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 ವೈಯಕ್ತಿಕ"
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1111
 msgid "C_reate"
 msgstr "ರಚಿಸು(_r)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1113
 msgid "C_onnect"
 msgstr "ಸಂಪರ್ಕ ಜೋಡಿಸು(_o)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1191
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -470,48 +569,396 @@ msgstr ""
 "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ '%s' ಅನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳಲು ಗುಪ್ತಪದ ಅಥವ ಗೂಢಲಿಪೀಕರಣ ಕೀಲಿಯ "
 "ಅಗತ್ಯವಿರುತ್ತದೆ."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1193
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1195
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಕ್ಕಾಗಿ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1200
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "ಹೊಸ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧವನ್ನು ರಚಿಸಿ"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1202
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "ಹೊಸ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1203
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "ನೀವು ನಿರ್ಮಿಸಲು ಬಯಸುವ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧದ ಹೆಸರನ್ನು ನಮೂದಿಸಿ."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1205
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "ಅಡಗಿಸಲಾದ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1207
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "ಅಡಗಿಸಲಾದ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1208
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
 msgstr ""
 "ನೀವು ಸಂಪರ್ಕ ಹೊಂದಲು ಬಯಸುವ ಅಡಗಿಸಲಾದ ವೈರ್ಲೆಸ್ ಸಂಪರ್ಕದ ಸುರಕ್ಷತಾ ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ."
+
+#: src/nma-ws/nma-eap-fast.c:59
+msgid "missing EAP-FAST PAC file"
+msgstr ""
+
+#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
+#: src/nma-ws/nma-eap-ttls.c:366
+msgid "GTC"
+msgstr "GTC"
+
+#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
+#: src/nma-ws/nma-eap-ttls.c:300
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: src/nma-ws/nma-eap-fast.c:395
+#, fuzzy
+msgid "Choose a PAC file"
+msgstr "ಒಂದು PAC ಕಡತವನ್ನು ಆರಿಸು..."
+
+#: src/nma-ws/nma-eap-fast.c:402
+msgid "PAC files (*.pac)"
+msgstr "PAC ಕಡತಗಳು (*.pac)"
+
+#: src/nma-ws/nma-eap-fast.c:406
+msgid "All files"
+msgstr "ಎಲ್ಲಾ ಕಡತಗಳು"
+
+#: src/nma-ws/nma-eap-fast.ui:23
+#, fuzzy
+msgid "Anonymous"
+msgstr "ಅನಾಮಧೇಯ ಗುರುತು(_m):"
+
+#: src/nma-ws/nma-eap-fast.ui:26
+#, fuzzy
+msgid "Authenticated"
+msgstr "ದೃಢೀಕರಣ(_A):"
+
+#: src/nma-ws/nma-eap-fast.ui:29
+msgid "Both"
+msgstr ""
+
+#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-ttls.ui:113
+#, fuzzy
+msgid "Anony_mous identity"
+msgstr "ಅನಾಮಧೇಯ ಗುರುತು(_m):"
+
+#: src/nma-ws/nma-eap-fast.ui:68
+#, fuzzy
+msgid "PAC _file"
+msgstr "_PAC ಕಡತ:"
+
+#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-ttls.ui:71
+#, fuzzy
+msgid "_Inner authentication"
+msgstr "ಆಂತರಿಕ ದೃಢೀಕರಣ(_n):"
+
+#: src/nma-ws/nma-eap-fast.ui:136
+#, fuzzy
+msgid "Allow automatic PAC pro_visioning"
+msgstr "ಸ್ವಯಂಚಾಲಿತ P_AC ಪ್ರಾವಿಶನಿಂಗ್ ಅನ್ನು ಅನುಮತಿಸು"
+
+#: src/nma-ws/nma-eap-leap.c:55
+msgid "missing EAP-LEAP username"
+msgstr ""
+
+#: src/nma-ws/nma-eap-leap.c:64
+msgid "missing EAP-LEAP password"
+msgstr ""
+
+#: src/nma-ws/nma-eap-leap.ui:15 src/nma-ws/nma-eap-simple.ui:15
+#: src/nma-ws/nma-ws-leap.ui:15
+#, fuzzy
+msgid "_Username"
+msgstr "ಬಳಕೆದಾರಹೆಸರು(_U):"
+
+#: src/nma-ws/nma-eap-leap.ui:29 src/nma-ws/nma-eap-simple.ui:29
+#: src/nma-ws/nma-ws-leap.ui:29 src/nma-ws/nma-ws-sae.ui:14
+#: src/nma-ws/nma-ws-wpa-psk.ui:14
+#, fuzzy
+msgid "_Password"
+msgstr "ಗುಪ್ತಪದ(_P):"
+
+#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
+#: src/nma-ws/nma-ws-802-1x.c:346
+msgid "MD5"
+msgstr "MD5"
+
+#: src/nma-ws/nma-eap-peap.ui:23
+msgid "Automatic"
+msgstr "ಸ್ವಯಂಚಾಲಿತ"
+
+#: src/nma-ws/nma-eap-peap.ui:26
+msgid "Version 0"
+msgstr ""
+
+#: src/nma-ws/nma-eap-peap.ui:29
+msgid "Version 1"
+msgstr ""
+
+#: src/nma-ws/nma-eap-peap.ui:66 src/nma-ws/nma-eap-tls.ui:38
+#: src/nma-ws/nma-eap-ttls.ui:83
+msgid "No CA certificate is _required"
+msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ"
+
+#: src/nma-ws/nma-eap-peap.ui:83
+#, fuzzy
+msgid "PEAP _version"
+msgstr "_PEAP ಆವೃತ್ತಿ:"
+
+#: src/nma-ws/nma-eap-peap.ui:162 src/nma-ws/nma-eap-tls.ui:56
+#: src/nma-ws/nma-eap-ttls.ui:127
+msgid "Suffix of the server certificate name."
+msgstr ""
+
+#: src/nma-ws/nma-eap-peap.ui:163 src/nma-ws/nma-eap-tls.ui:57
+#: src/nma-ws/nma-eap-ttls.ui:128
+msgid "_Domain"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.c:79
+msgid "missing EAP username"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.c:95
+msgid "missing EAP password"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.c:109
+msgid "missing EAP client Private Key passphrase"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.ui:97
+#, fuzzy
+msgid "P_rivate Key Passphrase"
+msgstr "WEP 128-bit ಗುಪ್ತವಾಕ್ಯ"
+
+#: src/nma-ws/nma-eap-simple.ui:122
+#, fuzzy
+msgid "Sh_ow passphrase"
+msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
+
+#: src/nma-ws/nma-eap-tls.c:47
+msgid "missing EAP-TLS identity"
+msgstr ""
+
+#: src/nma-ws/nma-eap-tls.c:234
+#, fuzzy
+msgid "no user certificate selected"
+msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
+
+#: src/nma-ws/nma-eap-tls.c:239
+msgid "selected user certificate file does not exist"
+msgstr ""
+
+#: src/nma-ws/nma-eap-tls.c:259
+msgid "no key selected"
+msgstr ""
+
+#: src/nma-ws/nma-eap-tls.c:264
+msgid "selected key file does not exist"
+msgstr ""
+
+#: src/nma-ws/nma-eap-tls.ui:14
+#, fuzzy
+msgid "I_dentity"
+msgstr "ಗುರುತು(_d):"
+
+#: src/nma-ws/nma-eap-ttls.c:268
+msgid "PAP"
+msgstr "PAP"
+
+#: src/nma-ws/nma-eap-ttls.c:284
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: src/nma-ws/nma-eap-ttls.c:317
+#, fuzzy
+msgid "MSCHAPv2 (no EAP)"
+msgstr "MSCHAPv2"
+
+#: src/nma-ws/nma-eap-ttls.c:334
+msgid "CHAP"
+msgstr "CHAP"
+
+#: src/nma-ws/nma-eap.c:40
+msgid "undefined error in 802.1X security (wpa-eap)"
+msgstr ""
+
+#: src/nma-ws/nma-eap.c:348
+#, fuzzy
+msgid "no CA certificate selected"
+msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
+
+#: src/nma-ws/nma-eap.c:353
+msgid "selected CA certificate file does not exist"
+msgstr ""
+
+#: src/nma-ws/nma-ws-802-1x.c:358
+msgid "TLS"
+msgstr "TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:382
+msgid "PWD"
+msgstr ""
+
+#: src/nma-ws/nma-ws-802-1x.c:393
+msgid "FAST"
+msgstr "FAST"
+
+#: src/nma-ws/nma-ws-802-1x.c:404
+msgid "Tunneled TLS"
+msgstr "ಟನಲ್‌ ಮಾಡಲಾದ TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:415
+msgid "Protected EAP (PEAP)"
+msgstr "ಸಂರಕ್ಷಿತ EAP (PEAP)"
+
+#: src/nma-ws/nma-ws-802-1x.c:430
+msgid "Unknown"
+msgstr "ಅಜ್ಞಾತ"
+
+#: src/nma-ws/nma-ws-802-1x.c:444
+msgid "Externally configured"
+msgstr ""
+
+#: src/nma-ws/nma-ws-802-1x.ui:25 src/nma-ws/nma-ws-wep-key.ui:95
+#, fuzzy
+msgid "Au_thentication"
+msgstr "ದೃಢೀಕರಣ(_A):"
+
+#: src/nma-ws/nma-ws-leap.c:71
+msgid "missing leap-username"
+msgstr ""
+
+#: src/nma-ws/nma-ws-leap.c:87
+msgid "missing leap-password"
+msgstr ""
+
+#: src/nma-ws/nma-ws-sae.c:73
+#, fuzzy
+msgid "missing password"
+msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ(_P):"
+
+#: src/nma-ws/nma-ws-sae.ui:44 src/nma-ws/nma-ws-wpa-psk.ui:43
+#, fuzzy
+msgid "_Type"
+msgstr "ಬಗೆ(_T):"
+
+#: src/nma-ws/nma-ws-wep-key.c:110
+msgid "missing wep-key"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.c:117
+#, c-format
+msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.c:125
+#, c-format
+msgid ""
+"invalid wep-key: key with a length of %zu must contain only ascii characters"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.c:131
+#, c-format
+msgid ""
+"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
+"(ascii) or 10/26 (hex)"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.c:138
+msgid "invalid wep-key: passphrase must be non-empty"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.c:140
+msgid "invalid wep-key: passphrase must be shorter than 64 characters"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wep-key.ui:12
+#, fuzzy
+msgid "Open System"
+msgstr ""
+"ಮುಕ್ತ ವ್ಯವಸ್ಥೆ\n"
+"ಹಂಚಲಾದ ಕೀಲಿ"
+
+#: src/nma-ws/nma-ws-wep-key.ui:15
+#, fuzzy
+msgid "Shared Key"
+msgstr ""
+"ಮುಕ್ತ ವ್ಯವಸ್ಥೆ\n"
+"ಹಂಚಲಾದ ಕೀಲಿ"
+
+#: src/nma-ws/nma-ws-wep-key.ui:26
+#, fuzzy
+msgid "1 (Default)"
+msgstr ""
+"1 (ಪೂರ್ವನಿಯೋಜಿತ)\n"
+"2\n"
+"3\n"
+"4"
+
+#: src/nma-ws/nma-ws-wep-key.ui:48
+#, fuzzy
+msgid "_Key"
+msgstr "ಕೀಲಿ(_K):"
+
+#: src/nma-ws/nma-ws-wep-key.ui:77
+msgid "Sho_w key"
+msgstr "ಕೀಲಿಯನ್ನು ತೋರಿಸು(_w)"
+
+#: src/nma-ws/nma-ws-wep-key.ui:128
+#, fuzzy
+msgid "WEP inde_x"
+msgstr "WEP ಸೂಚಿ(_x):"
+
+#: src/nma-ws/nma-ws-wpa-psk.c:80
+#, c-format
+msgid ""
+"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
+"digits"
+msgstr ""
+
+#: src/nma-ws/nma-ws-wpa-psk.c:87
+msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
+msgstr ""
+
+#: src/nma-ws/nma-ws.c:38
+msgid "Unknown error validating 802.1X security"
+msgstr ""
+
+#. The %s is a mobile provider name, eg "T-Mobile"
+#: src/utils/utils.c:161
+#, fuzzy, c-format
+msgid "%s connection"
+msgstr "DSL ಸಂಪರ್ಕ %d"
+
+#: src/utils/utils.c:535
+#, fuzzy
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "DER ಅಥವ PEM ಪ್ರಮಾಣಪತ್ರಗಳು (*.der, *.pem, *.crt, *.cer)"
+
+#: src/utils/utils.c:547
+#, fuzzy
+msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
+msgstr "DER, PEM, ಅಥವ PKCS#12 ಖಾಸಗಿ ಕೀಲಿಗಳು (*.der, *.pem, *.p12)"
 
 #: src/wifi.ui:97
 #, fuzzy
@@ -533,366 +980,6 @@ msgstr "ಸಂಪರ್ಕ(_n):"
 msgid "Wi-Fi _adapter"
 msgstr "ವೈರ್ಲೆಸ್ ಅಡಾಪ್ಟರ್(_a):"
 
-#. The %s is a mobile provider name, eg "T-Mobile"
-#: src/utils/utils.c:170
-#, fuzzy, c-format
-msgid "%s connection"
-msgstr "DSL ಸಂಪರ್ಕ %d"
-
-#: src/utils/utils.c:544
-#, fuzzy
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "DER ಅಥವ PEM ಪ್ರಮಾಣಪತ್ರಗಳು (*.der, *.pem, *.crt, *.cer)"
-
-#: src/utils/utils.c:556
-#, fuzzy
-msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
-msgstr "DER, PEM, ಅಥವ PKCS#12 ಖಾಸಗಿ ಕೀಲಿಗಳು (*.der, *.pem, *.p12)"
-
-#: src/wireless-security/eap-method.c:43
-msgid "undefined error in 802.1X security (wpa-eap)"
-msgstr ""
-
-#: src/wireless-security/eap-method.c:351
-#, fuzzy
-msgid "no CA certificate selected"
-msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
-
-#: src/wireless-security/eap-method.c:356
-msgid "selected CA certificate file does not exist"
-msgstr ""
-
-#: src/wireless-security/eap-method-fast.c:59
-msgid "missing EAP-FAST PAC file"
-msgstr ""
-
-#: src/wireless-security/eap-method-fast.c:256
-#: src/wireless-security/eap-method-peap.c:319
-#: src/wireless-security/eap-method-ttls.c:373
-msgid "GTC"
-msgstr "GTC"
-
-#: src/wireless-security/eap-method-fast.c:272
-#: src/wireless-security/eap-method-peap.c:287
-#: src/wireless-security/eap-method-ttls.c:307
-msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
-
-#: src/wireless-security/eap-method-fast.c:395
-#, fuzzy
-msgid "Choose a PAC file"
-msgstr "ಒಂದು PAC ಕಡತವನ್ನು ಆರಿಸು..."
-
-#: src/wireless-security/eap-method-fast.c:402
-msgid "PAC files (*.pac)"
-msgstr "PAC ಕಡತಗಳು (*.pac)"
-
-#: src/wireless-security/eap-method-fast.c:406
-msgid "All files"
-msgstr "ಎಲ್ಲಾ ಕಡತಗಳು"
-
-#: src/wireless-security/eap-method-fast.ui:23
-#, fuzzy
-msgid "Anonymous"
-msgstr "ಅನಾಮಧೇಯ ಗುರುತು(_m):"
-
-#: src/wireless-security/eap-method-fast.ui:26
-#, fuzzy
-msgid "Authenticated"
-msgstr "ದೃಢೀಕರಣ(_A):"
-
-#: src/wireless-security/eap-method-fast.ui:29
-msgid "Both"
-msgstr ""
-
-#: src/wireless-security/eap-method-fast.ui:48
-#: src/wireless-security/eap-method-peap.ui:48
-#: src/wireless-security/eap-method-ttls.ui:119
-#, fuzzy
-msgid "Anony_mous identity"
-msgstr "ಅನಾಮಧೇಯ ಗುರುತು(_m):"
-
-#: src/wireless-security/eap-method-fast.ui:74
-#, fuzzy
-msgid "PAC _file"
-msgstr "_PAC ಕಡತ:"
-
-#: src/wireless-security/eap-method-fast.ui:113
-#: src/wireless-security/eap-method-peap.ui:121
-#: src/wireless-security/eap-method-ttls.ui:77
-#, fuzzy
-msgid "_Inner authentication"
-msgstr "ಆಂತರಿಕ ದೃಢೀಕರಣ(_n):"
-
-#: src/wireless-security/eap-method-fast.ui:142
-#, fuzzy
-msgid "Allow automatic PAC pro_visioning"
-msgstr "ಸ್ವಯಂಚಾಲಿತ P_AC ಪ್ರಾವಿಶನಿಂಗ್ ಅನ್ನು ಅನುಮತಿಸು"
-
-#: src/wireless-security/eap-method-leap.c:53
-msgid "missing EAP-LEAP username"
-msgstr ""
-
-#: src/wireless-security/eap-method-leap.c:62
-msgid "missing EAP-LEAP password"
-msgstr ""
-
-#: src/wireless-security/eap-method-leap.ui:21
-#: src/wireless-security/eap-method-simple.ui:21
-#: src/wireless-security/ws-leap.ui:21
-#, fuzzy
-msgid "_Username"
-msgstr "ಬಳಕೆದಾರಹೆಸರು(_U):"
-
-#: src/wireless-security/eap-method-leap.ui:35
-#: src/wireless-security/eap-method-simple.ui:35
-#: src/wireless-security/ws-leap.ui:35 src/wireless-security/ws-sae.ui:20
-#: src/wireless-security/ws-wpa-psk.ui:20
-#, fuzzy
-msgid "_Password"
-msgstr "ಗುಪ್ತಪದ(_P):"
-
-#: src/wireless-security/eap-method-peap.c:303
-#: src/wireless-security/eap-method-ttls.c:357
-#: src/wireless-security/wireless-security.c:411
-msgid "MD5"
-msgstr "MD5"
-
-#: src/wireless-security/eap-method-peap.ui:23
-msgid "Automatic"
-msgstr "ಸ್ವಯಂಚಾಲಿತ"
-
-#: src/wireless-security/eap-method-peap.ui:26
-msgid "Version 0"
-msgstr ""
-
-#: src/wireless-security/eap-method-peap.ui:29
-msgid "Version 1"
-msgstr ""
-
-#: src/wireless-security/eap-method-peap.ui:72
-#: src/wireless-security/eap-method-tls.ui:44
-#: src/wireless-security/eap-method-ttls.ui:89
-msgid "No CA certificate is _required"
-msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ"
-
-#: src/wireless-security/eap-method-peap.ui:89
-#, fuzzy
-msgid "PEAP _version"
-msgstr "_PEAP ಆವೃತ್ತಿ:"
-
-#: src/wireless-security/eap-method-peap.ui:168
-#: src/wireless-security/eap-method-tls.ui:62
-#: src/wireless-security/eap-method-ttls.ui:133
-msgid "Suffix of the server certificate name."
-msgstr ""
-
-#: src/wireless-security/eap-method-peap.ui:169
-#: src/wireless-security/eap-method-tls.ui:63
-#: src/wireless-security/eap-method-ttls.ui:134
-msgid "_Domain"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.c:77
-msgid "missing EAP username"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.c:93
-msgid "missing EAP password"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.c:107
-msgid "missing EAP client Private Key passphrase"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.ui:103
-#, fuzzy
-msgid "P_rivate Key Passphrase"
-msgstr "WEP 128-bit ಗುಪ್ತವಾಕ್ಯ"
-
-#: src/wireless-security/eap-method-simple.ui:128
-#, fuzzy
-msgid "Sh_ow passphrase"
-msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
-
-#: src/wireless-security/eap-method-tls.c:51
-msgid "missing EAP-TLS identity"
-msgstr ""
-
-#: src/wireless-security/eap-method-tls.c:243
-#, fuzzy
-msgid "no user certificate selected"
-msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
-
-#: src/wireless-security/eap-method-tls.c:248
-msgid "selected user certificate file does not exist"
-msgstr ""
-
-#: src/wireless-security/eap-method-tls.c:268
-msgid "no key selected"
-msgstr ""
-
-#: src/wireless-security/eap-method-tls.c:273
-msgid "selected key file does not exist"
-msgstr ""
-
-#: src/wireless-security/eap-method-tls.ui:20
-#, fuzzy
-msgid "I_dentity"
-msgstr "ಗುರುತು(_d):"
-
-#: src/wireless-security/eap-method-ttls.c:275
-msgid "PAP"
-msgstr "PAP"
-
-#: src/wireless-security/eap-method-ttls.c:291
-msgid "MSCHAP"
-msgstr "MSCHAP"
-
-#: src/wireless-security/eap-method-ttls.c:324
-#, fuzzy
-msgid "MSCHAPv2 (no EAP)"
-msgstr "MSCHAPv2"
-
-#: src/wireless-security/eap-method-ttls.c:341
-msgid "CHAP"
-msgstr "CHAP"
-
-#: src/wireless-security/wireless-security.c:58
-msgid "Unknown error validating 802.1X security"
-msgstr ""
-
-#: src/wireless-security/wireless-security.c:423
-msgid "TLS"
-msgstr "TLS"
-
-#: src/wireless-security/wireless-security.c:447
-msgid "PWD"
-msgstr ""
-
-#: src/wireless-security/wireless-security.c:458
-msgid "FAST"
-msgstr "FAST"
-
-#: src/wireless-security/wireless-security.c:469
-msgid "Tunneled TLS"
-msgstr "ಟನಲ್‌ ಮಾಡಲಾದ TLS"
-
-#: src/wireless-security/wireless-security.c:480
-msgid "Protected EAP (PEAP)"
-msgstr "ಸಂರಕ್ಷಿತ EAP (PEAP)"
-
-#: src/wireless-security/wireless-security.c:495
-msgid "Unknown"
-msgstr "ಅಜ್ಞಾತ"
-
-#: src/wireless-security/wireless-security.c:509
-msgid "Externally configured"
-msgstr ""
-
-#: src/wireless-security/ws-dynamic-wep.ui:31
-#: src/wireless-security/ws-wep-key.ui:97
-#: src/wireless-security/ws-wpa-eap.ui:31
-#, fuzzy
-msgid "Au_thentication"
-msgstr "ದೃಢೀಕರಣ(_A):"
-
-#: src/wireless-security/ws-leap.c:51
-msgid "missing leap-username"
-msgstr ""
-
-#: src/wireless-security/ws-leap.c:69
-msgid "missing leap-password"
-msgstr ""
-
-#: src/wireless-security/ws-sae.c:57
-#, fuzzy
-msgid "missing password"
-msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ(_P):"
-
-#: src/wireless-security/ws-sae.ui:48 src/wireless-security/ws-wpa-psk.ui:48
-#, fuzzy
-msgid "_Type"
-msgstr "ಬಗೆ(_T):"
-
-#: src/wireless-security/ws-wep-key.c:100
-msgid "missing wep-key"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.c:107
-#, c-format
-msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.c:115
-#, c-format
-msgid ""
-"invalid wep-key: key with a length of %zu must contain only ascii characters"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.c:121
-#, c-format
-msgid ""
-"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
-"(ascii) or 10/26 (hex)"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.c:128
-msgid "invalid wep-key: passphrase must be non-empty"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.c:130
-msgid "invalid wep-key: passphrase must be shorter than 64 characters"
-msgstr ""
-
-#: src/wireless-security/ws-wep-key.ui:12
-#, fuzzy
-msgid "Open System"
-msgstr ""
-"ಮುಕ್ತ ವ್ಯವಸ್ಥೆ\n"
-"ಹಂಚಲಾದ ಕೀಲಿ"
-
-#: src/wireless-security/ws-wep-key.ui:15
-#, fuzzy
-msgid "Shared Key"
-msgstr ""
-"ಮುಕ್ತ ವ್ಯವಸ್ಥೆ\n"
-"ಹಂಚಲಾದ ಕೀಲಿ"
-
-#: src/wireless-security/ws-wep-key.ui:26
-#, fuzzy
-msgid "1 (Default)"
-msgstr ""
-"1 (ಪೂರ್ವನಿಯೋಜಿತ)\n"
-"2\n"
-"3\n"
-"4"
-
-#: src/wireless-security/ws-wep-key.ui:54
-#, fuzzy
-msgid "_Key"
-msgstr "ಕೀಲಿ(_K):"
-
-#: src/wireless-security/ws-wep-key.ui:80
-msgid "Sho_w key"
-msgstr "ಕೀಲಿಯನ್ನು ತೋರಿಸು(_w)"
-
-#: src/wireless-security/ws-wep-key.ui:129
-#, fuzzy
-msgid "WEP inde_x"
-msgstr "WEP ಸೂಚಿ(_x):"
-
-#: src/wireless-security/ws-wpa-psk.c:63
-#, c-format
-msgid ""
-"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
-"digits"
-msgstr ""
-
-#: src/wireless-security/ws-wpa-psk.c:70
-msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
-msgstr ""
-
 #, fuzzy
 #~ msgid "Manage your network connections"
 #~ msgstr "ನಿಮ್ಮ ಜಾಲಬಂಧ ಸಂಪರ್ಕಗಳನ್ನು ನಿಯಂತ್ರಿಸಿ"
@@ -903,72 +990,6 @@ msgstr ""
 
 #~ msgid "Manage and change your network connection settings"
 #~ msgstr "ನಿಮ್ಮ ಜಾಲಬಂಧ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ ಹಾಗು ಬದಲಾಯಿಸಿ"
-
-#~ msgid "Disable connected notifications"
-#~ msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to a network."
-#~ msgstr ""
-#~ "ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-#~ "ಬದಲಾಯಿಸಿ."
-
-#~ msgid "Disable disconnected notifications"
-#~ msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕಲಾದ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set this to true to disable notifications when disconnecting from a "
-#~ "network."
-#~ msgstr ""
-#~ "ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-#~ "ಬದಲಾಯಿಸಿ."
-
-#, fuzzy
-#~ msgid "Disable VPN notifications"
-#~ msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to or "
-#~ "disconnecting from a VPN."
-#~ msgstr ""
-#~ "ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-#~ "ಬದಲಾಯಿಸಿ."
-
-#~ msgid "Suppress networks available notifications"
-#~ msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿವೆ ಎಂಬ ಸೂಚನೆಗಳನ್ನು ತಡೆಹಿಡಿ"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set this to true to disable notifications when Wi-Fi networks are "
-#~ "available."
-#~ msgstr ""
-#~ "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿರುವುದನ್ನು ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE "
-#~ "ಬದಲಾಯಿಸಿ."
-
-#~ msgid "Stamp"
-#~ msgstr "ಮುದ್ರೆ"
-
-#~ msgid ""
-#~ "Used to determine whether settings should be migrated to a new version."
-#~ msgstr "ಸಿದ್ಧತೆಗಳನ್ನು ಹೊಸ ಆವೃತ್ತಿಗೆ ವರ್ಗಾಯಿಸಬೇಕೆ ಎಂದು ನಿರ್ಧರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ"
-
-#, fuzzy
-#~ msgid "Disable WiFi Create"
-#~ msgstr "Wi-Fi ನಿರ್ಮಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set to true to disable creation of adhoc networks when using the applet."
-#~ msgstr ""
-#~ "ಆಪ್ಲೆಟ್‌ ಅನ್ನು ಬಳಸುವಾಗ ಒಂದು ತಾತ್ಕಾಲಿಕ ಜಾಲಬಂಧವನ್ನು ರಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು "
-#~ "TRUE ಗೆ ಬದಲಾಯಿಸಿ."
-
-#, fuzzy
-#~ msgid "Ignore CA certificate"
-#~ msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
 
 #, fuzzy
 #~ msgid "NetworkManager"

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2019-11-04 13:46+0100\n"
+"POT-Creation-Date: 2020-03-06 11:41+0100\n"
 "PO-Revision-Date: 2018-08-25 23:06+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
@@ -33,6 +33,102 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.1.1\n"
+
+#: org.gnome.nm-applet.gschema.xml.in:6
+msgid "Disable connected notifications"
+msgstr "Benachrichtigungen über neue Verbindung abschalten"
+
+#: org.gnome.nm-applet.gschema.xml.in:7
+msgid "Set this to true to disable notifications when connecting to a network."
+msgstr ""
+"Legt fest, ob Benachrichtigungen über Verbindungen mit einem Netzwerk "
+"abgeschaltet werden."
+
+#: org.gnome.nm-applet.gschema.xml.in:11
+msgid "Disable disconnected notifications"
+msgstr "Benachrichtigungen über Verbindungstrennung abschalten"
+
+#: org.gnome.nm-applet.gschema.xml.in:12
+msgid ""
+"Set this to true to disable notifications when disconnecting from a network."
+msgstr ""
+"Legt fest, ob Benachrichtigungen über die Verbindungstrennung von einem "
+"Netzwerk abgeschaltet werden."
+
+#: org.gnome.nm-applet.gschema.xml.in:16
+msgid "Disable VPN notifications"
+msgstr "VPN-Benachrichtigungen abschalten"
+
+#: org.gnome.nm-applet.gschema.xml.in:17
+msgid ""
+"Set this to true to disable notifications when connecting to or "
+"disconnecting from a VPN."
+msgstr ""
+"Legt fest, ob Benachrichtigungen über die Verbindungstrennung von einem VPN-"
+"Netzwerk abgeschaltet werden."
+
+#: org.gnome.nm-applet.gschema.xml.in:21
+msgid "Suppress networks available notifications"
+msgstr "Benachrichtigung über neue Funknetzwerke unterdrücken"
+
+#: org.gnome.nm-applet.gschema.xml.in:22
+msgid ""
+"Set this to true to disable notifications when Wi-Fi networks are available."
+msgstr ""
+"Legt fest, ob Benachrichtigungen über neue Funknetzwerke abgeschaltet werden."
+
+# ?
+#: org.gnome.nm-applet.gschema.xml.in:26
+msgid "Stamp"
+msgstr "Einstellungen übernehmen"
+
+#: org.gnome.nm-applet.gschema.xml.in:27
+msgid "Used to determine whether settings should be migrated to a new version."
+msgstr ""
+"Legt fest, ob die Einstellungen in eine neue Version übernommen werden "
+"sollen."
+
+#: org.gnome.nm-applet.gschema.xml.in:31
+#, fuzzy
+msgid "Disable WiFi Create"
+msgstr "Das Erstellen von Wi-Fi-Netzen ausschalten"
+
+#: org.gnome.nm-applet.gschema.xml.in:32
+msgid ""
+"Set to true to disable creation of adhoc networks when using the applet."
+msgstr ""
+"Legt fest, ob die Erstellung von Adhoc-Netzwerken mit dem Applet "
+"abgeschaltet ist."
+
+#: org.gnome.nm-applet.gschema.xml.in:36
+msgid "Show the applet in notification area"
+msgstr "Applet im Benachrichtigungsbereich anzeigen"
+
+#: org.gnome.nm-applet.gschema.xml.in:37
+msgid "Set to FALSE to disable displaying the applet in the notification area."
+msgstr ""
+"Wählen Sie FALSCH, um die Anzeige des Applets im Benachrichtigungsbereich zu "
+"deaktivieren."
+
+#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+msgid "Ignore CA certificate"
+msgstr "CA-Zertifikat ignorieren"
+
+#: org.gnome.nm-applet.gschema.xml.in:44
+msgid ""
+"Set this to true to disable warnings about CA certificates in EAP "
+"authentication."
+msgstr ""
+"Legt fest, ob Warnungen zu CA-Zertifikaten in der EAP-Authentifizierung "
+"abgeschaltet werden."
+
+#: org.gnome.nm-applet.gschema.xml.in:49
+msgid ""
+"Set this to true to disable warnings about CA certificates in phase 2 of EAP "
+"authentication."
+msgstr ""
+"Legt fest, ob Warnungen zu CA-Zertifikaten in Phase 2 der EAP-"
+"Authentifizierung abgeschaltet werden."
 
 #: shared/nm-utils/nm-shared-utils.c:793
 #, c-format
@@ -87,43 +183,72 @@ msgstr "Passwort:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-file-cert-chooser.c:101 src/nma-pkcs11-cert-chooser.c:139
+#: src/nma-cert-chooser-button.c:153
+msgid "(None)"
+msgstr "(keine)"
+
+#: src/nma-cert-chooser-button.c:161
+#, c-format
+msgid "Key in %s"
+msgstr "Schlüssel in %s"
+
+#: src/nma-cert-chooser-button.c:162
+#, c-format
+msgid "Certificate in %s"
+msgstr "Zertifikat in %s"
+
+#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
+msgid "(Unknown)"
+msgstr "(Unbekannt)"
+
+#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+msgid "Select"
+msgstr "Auswählen"
+
+#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/nma-cert-chooser-button.c:460
+msgid "Select from file…"
+msgstr "Aus _Datei auswählen …"
+
+#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
 msgid "No certificate set"
 msgstr "Kein Zertifikat festgelegt"
 
-#: src/nma-file-cert-chooser.c:119 src/nma-pkcs11-cert-chooser.c:163
+#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
 msgid "No key set"
 msgstr "Kein Schlüssel gesetzt"
 
-#: src/nma-file-cert-chooser.c:239 src/nma-pkcs11-cert-chooser.c:369
+#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
 #, c-format
 msgid "Choose a key for %s Certificate"
 msgstr "Wählen Sie einen Schlüssel für das %s-Zertifikat"
 
-#: src/nma-file-cert-chooser.c:243 src/nma-pkcs11-cert-chooser.c:373
+#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
 #, c-format
 msgid "%s private _key"
 msgstr "Geheimer %s-_Schlüssel"
 
-#: src/nma-file-cert-chooser.c:247 src/nma-pkcs11-cert-chooser.c:377
+#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
 #, c-format
 msgid "%s key _password"
 msgstr "_Passwort des %s-Schlüssels"
 
-#: src/nma-file-cert-chooser.c:251
+#: src/nma-file-cert-chooser.c:300
 #, c-format
 msgid "Choose %s Certificate"
 msgstr "Wählen Sie das %s-Zertifikat"
 
-#: src/nma-file-cert-chooser.c:255 src/nma-pkcs11-cert-chooser.c:385
+#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
 #, c-format
 msgid "%s _certificate"
 msgstr "%s-_Zertifikat"
 
-#: src/nma-file-cert-chooser.c:340 src/wireless-security/eap-method-leap.ui:60
-#: src/wireless-security/eap-method-simple.ui:77
-#: src/wireless-security/ws-leap.ui:60 src/wireless-security/ws-sae.ui:60
-#: src/wireless-security/ws-wpa-psk.ui:60
+#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
+#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
+#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
 msgid "Sho_w password"
 msgstr "Passwort _anzeigen"
 
@@ -135,35 +260,35 @@ msgstr "Vorgabe"
 msgid "My country is not listed"
 msgstr "Mein Land ist nicht aufgelistet"
 
-#: src/nma-mobile-wizard.c:139
+#: src/nma-mobile-wizard.c:141
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:142
+#: src/nma-mobile-wizard.c:144
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:247 src/nma-mobile-wizard.c:279
+#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
 msgid "Unlisted"
 msgstr "Nicht aufgelistet"
 
-#: src/nma-mobile-wizard.c:479
+#: src/nma-mobile-wizard.c:481
 msgid "My plan is not listed…"
 msgstr "Mein Abrechnungsmodus ist nicht aufgelistet …"
 
-#: src/nma-mobile-wizard.c:651
+#: src/nma-mobile-wizard.c:653
 msgid "Provider"
 msgstr "Dienstanbieter"
 
-#: src/nma-mobile-wizard.c:1023
+#: src/nma-mobile-wizard.c:1025
 msgid "Installed GSM device"
 msgstr "Installiertes GSM-Gerät"
 
-#: src/nma-mobile-wizard.c:1026
+#: src/nma-mobile-wizard.c:1028
 msgid "Installed CDMA device"
 msgstr "Installiertes CDMA-Gerät"
 
-#: src/nma-mobile-wizard.c:1231
+#: src/nma-mobile-wizard.c:1233
 msgid "Any device"
 msgstr "Irgendein Gerät"
 
@@ -300,50 +425,6 @@ msgstr ""
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Mobile Breitbandeinstellungen bestätigen"
 
-#: src/nma-cert-chooser-button.c:153
-msgid "(None)"
-msgstr "(keine)"
-
-#: src/nma-cert-chooser-button.c:161
-#, c-format
-msgid "Key in %s"
-msgstr "Schlüssel in %s"
-
-#: src/nma-cert-chooser-button.c:162
-#, c-format
-msgid "Certificate in %s"
-msgstr "Zertifikat in %s"
-
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-msgid "(Unknown)"
-msgstr "(Unbekannt)"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
-msgid "Select"
-msgstr "Auswählen"
-
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: src/nma-cert-chooser-button.c:460
-msgid "Select from file…"
-msgstr "Aus _Datei auswählen …"
-
-#: src/nma-pkcs11-cert-chooser.c:381
-#, c-format
-msgid "Choose a %s Certificate"
-msgstr "Wählen Sie ein %s-Zertifikat"
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, c-format
-msgid "%s certificate _password"
-msgstr "_Passwort des %s-Zertifikats"
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "Pass_wörter anzeigen"
-
 #: src/nma-pkcs11-cert-chooser-dialog.c:241
 msgid "Error logging in: "
 msgstr "Fehler beim Anmelden: "
@@ -364,13 +445,27 @@ msgstr "Name"
 msgid "Issued By"
 msgstr "Ausgestellt von"
 
+#: src/nma-pkcs11-cert-chooser.c:381
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Wählen Sie ein %s-Zertifikat"
+
+#: src/nma-pkcs11-cert-chooser.c:389
+#, c-format
+msgid "%s certificate _password"
+msgstr "_Passwort des %s-Zertifikats"
+
+#: src/nma-pkcs11-cert-chooser.c:441
+msgid "Sho_w passwords"
+msgstr "Pass_wörter anzeigen"
+
 #: src/nma-pkcs11-token-login-dialog.c:132
 #, c-format
 msgid "Enter %s PIN"
 msgstr "Geben Sie die PIN %s ein"
 
 #: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1115
+#: src/nma-wifi-dialog.c:1107
 msgid "_Cancel"
 msgstr "A_bbrechen"
 
@@ -418,57 +513,57 @@ msgstr "_Sekundäres Passwort:"
 msgid "_Password:"
 msgstr "_Passwort:"
 
-#: src/nma-wifi-dialog.c:114
+#: src/nma-wifi-dialog.c:117
 msgid "Click to connect"
 msgstr "Klicken Sie zum Verbinden"
 
-#: src/nma-wifi-dialog.c:445
+#: src/nma-wifi-dialog.c:448
 msgid "New…"
 msgstr "Neu …"
 
-#: src/nma-wifi-dialog.c:923
+#: src/nma-wifi-dialog.c:929
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Keine"
 
-#: src/nma-wifi-dialog.c:940
+#: src/nma-wifi-dialog.c:945
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit-Schlüssel (Hexadezimal oder ASCII)"
 
-#: src/nma-wifi-dialog.c:949
+#: src/nma-wifi-dialog.c:952
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit-Passphrase"
 
-#: src/nma-wifi-dialog.c:966 src/wireless-security/wireless-security.c:435
+#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:979
+#: src/nma-wifi-dialog.c:978
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dynamisches WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:993
+#: src/nma-wifi-dialog.c:990
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1011
+#: src/nma-wifi-dialog.c:1006
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1024
+#: src/nma-wifi-dialog.c:1017
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1111
 msgid "C_reate"
 msgstr "E_rzeugen"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1113
 msgid "C_onnect"
 msgstr "_Verbinden"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1191
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -476,42 +571,369 @@ msgstr ""
 "Es werden Passwörter oder Schlüssel für die Verschlüsselung benötigt, um "
 "sich mit dem Funknetzwerk »%s« zu verbinden."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1193
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Legitimierung für Funknetzwerk wird benötigt"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1195
 msgid "Authentication required by Wi-Fi network"
 msgstr "Legitimierung für Funknetzwerk wird benötigt"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1200
 msgid "Create New Wi-Fi Network"
 msgstr "Neues Funknetzwerk erstellen"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1202
 msgid "New Wi-Fi network"
 msgstr "Neues Funknetzwerk"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1203
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr ""
 "Bitte geben Sie den Namen des Funknetzwerks ein, das Sie erstellen möchten."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1205
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Mit einem verborgenen Funknetzwerk verbinden"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1207
 msgid "Hidden Wi-Fi network"
 msgstr "Verborgenes Funknetzwerk"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1208
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
 msgstr ""
 "Bitte geben Sie den Namen und die Sicherheitseinstellungen des verborgenen "
 "Funknetzwerks ein, mit dem Sie sich verbinden möchten."
+
+#: src/nma-ws/nma-eap-fast.c:59
+msgid "missing EAP-FAST PAC file"
+msgstr "EAP-FAST PAC-Datei fehlt"
+
+#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
+#: src/nma-ws/nma-eap-ttls.c:366
+msgid "GTC"
+msgstr "GTC"
+
+#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
+#: src/nma-ws/nma-eap-ttls.c:300
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: src/nma-ws/nma-eap-fast.c:395
+msgid "Choose a PAC file"
+msgstr "PAC-Datei wählen"
+
+#: src/nma-ws/nma-eap-fast.c:402
+msgid "PAC files (*.pac)"
+msgstr "PAC-Dateien (*.pac)"
+
+#: src/nma-ws/nma-eap-fast.c:406
+msgid "All files"
+msgstr "Alle Dateien"
+
+#: src/nma-ws/nma-eap-fast.ui:23
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: src/nma-ws/nma-eap-fast.ui:26
+msgid "Authenticated"
+msgstr "Legitimiert"
+
+#: src/nma-ws/nma-eap-fast.ui:29
+msgid "Both"
+msgstr "Beide"
+
+#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-ttls.ui:113
+msgid "Anony_mous identity"
+msgstr "Anony_me Identität"
+
+#: src/nma-ws/nma-eap-fast.ui:68
+msgid "PAC _file"
+msgstr "_PAC-Datei"
+
+#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-ttls.ui:71
+msgid "_Inner authentication"
+msgstr "I_nnere Legitimierung"
+
+#: src/nma-ws/nma-eap-fast.ui:136
+msgid "Allow automatic PAC pro_visioning"
+msgstr "_Automatische PAC-Bereitstellung erlauben"
+
+#: src/nma-ws/nma-eap-leap.c:55
+msgid "missing EAP-LEAP username"
+msgstr "EAP-LEAP-Benutzername fehlt"
+
+#: src/nma-ws/nma-eap-leap.c:64
+msgid "missing EAP-LEAP password"
+msgstr "EAP-LEAP-Passwort fehlt"
+
+#: src/nma-ws/nma-eap-leap.ui:15 src/nma-ws/nma-eap-simple.ui:15
+#: src/nma-ws/nma-ws-leap.ui:15
+msgid "_Username"
+msgstr "_Benutzername"
+
+#: src/nma-ws/nma-eap-leap.ui:29 src/nma-ws/nma-eap-simple.ui:29
+#: src/nma-ws/nma-ws-leap.ui:29 src/nma-ws/nma-ws-sae.ui:14
+#: src/nma-ws/nma-ws-wpa-psk.ui:14
+msgid "_Password"
+msgstr "_Passwort"
+
+#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
+#: src/nma-ws/nma-ws-802-1x.c:346
+msgid "MD5"
+msgstr "MD5"
+
+#: src/nma-ws/nma-eap-peap.ui:23
+msgid "Automatic"
+msgstr "Automatisch"
+
+#: src/nma-ws/nma-eap-peap.ui:26
+msgid "Version 0"
+msgstr "Version 0"
+
+#: src/nma-ws/nma-eap-peap.ui:29
+msgid "Version 1"
+msgstr "Version 1"
+
+#: src/nma-ws/nma-eap-peap.ui:66 src/nma-ws/nma-eap-tls.ui:38
+#: src/nma-ws/nma-eap-ttls.ui:83
+msgid "No CA certificate is _required"
+msgstr "CA-Zertifikat igno_rieren"
+
+#: src/nma-ws/nma-eap-peap.ui:83
+msgid "PEAP _version"
+msgstr "_PEAP-Version"
+
+#: src/nma-ws/nma-eap-peap.ui:162 src/nma-ws/nma-eap-tls.ui:56
+#: src/nma-ws/nma-eap-ttls.ui:127
+msgid "Suffix of the server certificate name."
+msgstr "Suffix des Namens des Serverzertifikats."
+
+#: src/nma-ws/nma-eap-peap.ui:163 src/nma-ws/nma-eap-tls.ui:57
+#: src/nma-ws/nma-eap-ttls.ui:128
+msgid "_Domain"
+msgstr "_Domäne"
+
+#: src/nma-ws/nma-eap-simple.c:79
+msgid "missing EAP username"
+msgstr "EAP-Benutzername fehlt"
+
+#: src/nma-ws/nma-eap-simple.c:95
+msgid "missing EAP password"
+msgstr "EAP-Passwort fehlt"
+
+#: src/nma-ws/nma-eap-simple.c:109
+msgid "missing EAP client Private Key passphrase"
+msgstr ""
+
+#: src/nma-ws/nma-eap-simple.ui:97
+#, fuzzy
+msgid "P_rivate Key Passphrase"
+msgstr "WEP 128-bit-Passphrase"
+
+#: src/nma-ws/nma-eap-simple.ui:122
+#, fuzzy
+msgid "Sh_ow passphrase"
+msgstr "Passwörter _zeigen"
+
+#: src/nma-ws/nma-eap-tls.c:47
+msgid "missing EAP-TLS identity"
+msgstr "EAP-TLS-Identität fehlt"
+
+#: src/nma-ws/nma-eap-tls.c:234
+msgid "no user certificate selected"
+msgstr "Kein Benutzerzertifikat gewählt"
+
+#: src/nma-ws/nma-eap-tls.c:239
+msgid "selected user certificate file does not exist"
+msgstr "Die gewählte Datei mit dem Benutzerzertifikat ist nicht vorhanden"
+
+#: src/nma-ws/nma-eap-tls.c:259
+msgid "no key selected"
+msgstr "kein Schlüssel ausgewählt"
+
+#: src/nma-ws/nma-eap-tls.c:264
+msgid "selected key file does not exist"
+msgstr "Die gewählte Schlüsseldatei ist nicht vorhanden"
+
+#: src/nma-ws/nma-eap-tls.ui:14
+msgid "I_dentity"
+msgstr "_Identität"
+
+#: src/nma-ws/nma-eap-ttls.c:268
+msgid "PAP"
+msgstr "PAP"
+
+#: src/nma-ws/nma-eap-ttls.c:284
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: src/nma-ws/nma-eap-ttls.c:317
+msgid "MSCHAPv2 (no EAP)"
+msgstr "MSCHAPv2 (kein EAP)"
+
+#: src/nma-ws/nma-eap-ttls.c:334
+msgid "CHAP"
+msgstr "CHAP"
+
+#: src/nma-ws/nma-eap.c:40
+msgid "undefined error in 802.1X security (wpa-eap)"
+msgstr "Nicht definierter Fehler in der 802.1X-Sicherheit (wpa-eap)"
+
+#: src/nma-ws/nma-eap.c:348
+msgid "no CA certificate selected"
+msgstr "Kein CA-Zertifikat gewählt"
+
+#: src/nma-ws/nma-eap.c:353
+msgid "selected CA certificate file does not exist"
+msgstr "Die gewählte Datei mit dem CA-Zertifikat ist nicht vorhanden"
+
+#: src/nma-ws/nma-ws-802-1x.c:358
+msgid "TLS"
+msgstr "TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:382
+msgid "PWD"
+msgstr "PWD"
+
+#: src/nma-ws/nma-ws-802-1x.c:393
+msgid "FAST"
+msgstr "FAST"
+
+#: src/nma-ws/nma-ws-802-1x.c:404
+msgid "Tunneled TLS"
+msgstr "Getunneltes TLS"
+
+#: src/nma-ws/nma-ws-802-1x.c:415
+msgid "Protected EAP (PEAP)"
+msgstr "Geschütztes EAP (PEAP)"
+
+#: src/nma-ws/nma-ws-802-1x.c:430
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: src/nma-ws/nma-ws-802-1x.c:444
+msgid "Externally configured"
+msgstr ""
+
+#: src/nma-ws/nma-ws-802-1x.ui:25 src/nma-ws/nma-ws-wep-key.ui:95
+msgid "Au_thentication"
+msgstr "_Legitimierung"
+
+#: src/nma-ws/nma-ws-leap.c:71
+msgid "missing leap-username"
+msgstr "LEAP-Benutzername fehlt"
+
+#: src/nma-ws/nma-ws-leap.c:87
+msgid "missing leap-password"
+msgstr "LEAP-Passwort fehlt"
+
+#: src/nma-ws/nma-ws-sae.c:73
+#, fuzzy
+msgid "missing password"
+msgstr "EAP-Passwort fehlt"
+
+#: src/nma-ws/nma-ws-sae.ui:44 src/nma-ws/nma-ws-wpa-psk.ui:43
+msgid "_Type"
+msgstr "_Typ"
+
+#: src/nma-ws/nma-ws-wep-key.c:110
+msgid "missing wep-key"
+msgstr "WEP-Schlüssel fehlt"
+
+#: src/nma-ws/nma-ws-wep-key.c:117
+#, c-format
+msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
+msgstr ""
+"Ungültiger WEP-Schlüssel: Schlüssel der Länge %zu darf nur hexadezimale "
+"Stellen enthalten"
+
+#: src/nma-ws/nma-ws-wep-key.c:125
+#, c-format
+msgid ""
+"invalid wep-key: key with a length of %zu must contain only ascii characters"
+msgstr ""
+"Ungültiger WEP-Schlüssel: Schlüssel der Länge %zu darf nur ASCII-Zeichen "
+"enthalten"
+
+#: src/nma-ws/nma-ws-wep-key.c:131
+#, c-format
+msgid ""
+"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
+"(ascii) or 10/26 (hex)"
+msgstr ""
+"Ungültiger WEP-Schlüssel: Falsche Schlüssellänge %zu. Ein Schlüssel muss "
+"entweder die Länge 5/13 (ASCII) oder 10/26 (hexadezimal) haben"
+
+#: src/nma-ws/nma-ws-wep-key.c:138
+msgid "invalid wep-key: passphrase must be non-empty"
+msgstr "Ungültiger WEP-Schlüssel: Passphrase darf nicht leer sein"
+
+#: src/nma-ws/nma-ws-wep-key.c:140
+msgid "invalid wep-key: passphrase must be shorter than 64 characters"
+msgstr "Ungültiger WEP-Schlüssel: Passphrase muss kürzer als 64 Zeichen sein"
+
+#: src/nma-ws/nma-ws-wep-key.ui:12
+msgid "Open System"
+msgstr "Offenes System"
+
+#: src/nma-ws/nma-ws-wep-key.ui:15
+msgid "Shared Key"
+msgstr "Gemeinsamer Schlüssel"
+
+#: src/nma-ws/nma-ws-wep-key.ui:26
+msgid "1 (Default)"
+msgstr "1 (Vorgabe)"
+
+#: src/nma-ws/nma-ws-wep-key.ui:48
+msgid "_Key"
+msgstr "_Schlüssel"
+
+#: src/nma-ws/nma-ws-wep-key.ui:77
+msgid "Sho_w key"
+msgstr "Schlüssel an_zeigen"
+
+#: src/nma-ws/nma-ws-wep-key.ui:128
+msgid "WEP inde_x"
+msgstr "WEP-Inde_x"
+
+#: src/nma-ws/nma-ws-wpa-psk.c:80
+#, c-format
+msgid ""
+"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
+"digits"
+msgstr ""
+"Ungültiger WPA-PSK: Schlüssellänge %zu ist unzulässig. Muss [8,63] Bytes "
+"oder 64 hexadezimale Stellen haben"
+
+#: src/nma-ws/nma-ws-wpa-psk.c:87
+msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
+msgstr ""
+"Ungültiger WPA-PSK: Schlüssel kann nicht als 64-Byte-hexadezimal "
+"interpretiert werden"
+
+#: src/nma-ws/nma-ws.c:38
+msgid "Unknown error validating 802.1X security"
+msgstr "Unbekannter Fehler beim Überprüfen der 802.1X-Sicherheit"
+
+#. The %s is a mobile provider name, eg "T-Mobile"
+#: src/utils/utils.c:161
+#, c-format
+msgid "%s connection"
+msgstr "Verbindung mit %s"
+
+#: src/utils/utils.c:535
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
+
+#: src/utils/utils.c:547
+msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
+msgstr "DER-, PEM-, oder PKCS#12-Privatschlüssel (*.der, *.pem, *.p12, *.key)"
 
 #: src/wifi.ui:97
 msgid "Wi-Fi _security"
@@ -529,345 +951,6 @@ msgstr "_Verbindung"
 msgid "Wi-Fi _adapter"
 msgstr "WLAN-_Adapter"
 
-#. The %s is a mobile provider name, eg "T-Mobile"
-#: src/utils/utils.c:170
-#, c-format
-msgid "%s connection"
-msgstr "Verbindung mit %s"
-
-#: src/utils/utils.c:544
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
-
-#: src/utils/utils.c:556
-msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
-msgstr "DER-, PEM-, oder PKCS#12-Privatschlüssel (*.der, *.pem, *.p12, *.key)"
-
-#: src/wireless-security/eap-method.c:43
-msgid "undefined error in 802.1X security (wpa-eap)"
-msgstr "Nicht definierter Fehler in der 802.1X-Sicherheit (wpa-eap)"
-
-#: src/wireless-security/eap-method.c:351
-msgid "no CA certificate selected"
-msgstr "Kein CA-Zertifikat gewählt"
-
-#: src/wireless-security/eap-method.c:356
-msgid "selected CA certificate file does not exist"
-msgstr "Die gewählte Datei mit dem CA-Zertifikat ist nicht vorhanden"
-
-#: src/wireless-security/eap-method-fast.c:59
-msgid "missing EAP-FAST PAC file"
-msgstr "EAP-FAST PAC-Datei fehlt"
-
-#: src/wireless-security/eap-method-fast.c:256
-#: src/wireless-security/eap-method-peap.c:319
-#: src/wireless-security/eap-method-ttls.c:373
-msgid "GTC"
-msgstr "GTC"
-
-#: src/wireless-security/eap-method-fast.c:272
-#: src/wireless-security/eap-method-peap.c:287
-#: src/wireless-security/eap-method-ttls.c:307
-msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
-
-#: src/wireless-security/eap-method-fast.c:395
-msgid "Choose a PAC file"
-msgstr "PAC-Datei wählen"
-
-#: src/wireless-security/eap-method-fast.c:402
-msgid "PAC files (*.pac)"
-msgstr "PAC-Dateien (*.pac)"
-
-#: src/wireless-security/eap-method-fast.c:406
-msgid "All files"
-msgstr "Alle Dateien"
-
-#: src/wireless-security/eap-method-fast.ui:23
-msgid "Anonymous"
-msgstr "Anonym"
-
-#: src/wireless-security/eap-method-fast.ui:26
-msgid "Authenticated"
-msgstr "Legitimiert"
-
-#: src/wireless-security/eap-method-fast.ui:29
-msgid "Both"
-msgstr "Beide"
-
-#: src/wireless-security/eap-method-fast.ui:48
-#: src/wireless-security/eap-method-peap.ui:48
-#: src/wireless-security/eap-method-ttls.ui:119
-msgid "Anony_mous identity"
-msgstr "Anony_me Identität"
-
-#: src/wireless-security/eap-method-fast.ui:74
-msgid "PAC _file"
-msgstr "_PAC-Datei"
-
-#: src/wireless-security/eap-method-fast.ui:113
-#: src/wireless-security/eap-method-peap.ui:121
-#: src/wireless-security/eap-method-ttls.ui:77
-msgid "_Inner authentication"
-msgstr "I_nnere Legitimierung"
-
-#: src/wireless-security/eap-method-fast.ui:142
-msgid "Allow automatic PAC pro_visioning"
-msgstr "_Automatische PAC-Bereitstellung erlauben"
-
-#: src/wireless-security/eap-method-leap.c:53
-msgid "missing EAP-LEAP username"
-msgstr "EAP-LEAP-Benutzername fehlt"
-
-#: src/wireless-security/eap-method-leap.c:62
-msgid "missing EAP-LEAP password"
-msgstr "EAP-LEAP-Passwort fehlt"
-
-#: src/wireless-security/eap-method-leap.ui:21
-#: src/wireless-security/eap-method-simple.ui:21
-#: src/wireless-security/ws-leap.ui:21
-msgid "_Username"
-msgstr "_Benutzername"
-
-#: src/wireless-security/eap-method-leap.ui:35
-#: src/wireless-security/eap-method-simple.ui:35
-#: src/wireless-security/ws-leap.ui:35 src/wireless-security/ws-sae.ui:20
-#: src/wireless-security/ws-wpa-psk.ui:20
-msgid "_Password"
-msgstr "_Passwort"
-
-#: src/wireless-security/eap-method-peap.c:303
-#: src/wireless-security/eap-method-ttls.c:357
-#: src/wireless-security/wireless-security.c:411
-msgid "MD5"
-msgstr "MD5"
-
-#: src/wireless-security/eap-method-peap.ui:23
-msgid "Automatic"
-msgstr "Automatisch"
-
-#: src/wireless-security/eap-method-peap.ui:26
-msgid "Version 0"
-msgstr "Version 0"
-
-#: src/wireless-security/eap-method-peap.ui:29
-msgid "Version 1"
-msgstr "Version 1"
-
-#: src/wireless-security/eap-method-peap.ui:72
-#: src/wireless-security/eap-method-tls.ui:44
-#: src/wireless-security/eap-method-ttls.ui:89
-msgid "No CA certificate is _required"
-msgstr "CA-Zertifikat igno_rieren"
-
-#: src/wireless-security/eap-method-peap.ui:89
-msgid "PEAP _version"
-msgstr "_PEAP-Version"
-
-#: src/wireless-security/eap-method-peap.ui:168
-#: src/wireless-security/eap-method-tls.ui:62
-#: src/wireless-security/eap-method-ttls.ui:133
-msgid "Suffix of the server certificate name."
-msgstr "Suffix des Namens des Serverzertifikats."
-
-#: src/wireless-security/eap-method-peap.ui:169
-#: src/wireless-security/eap-method-tls.ui:63
-#: src/wireless-security/eap-method-ttls.ui:134
-msgid "_Domain"
-msgstr "_Domäne"
-
-#: src/wireless-security/eap-method-simple.c:77
-msgid "missing EAP username"
-msgstr "EAP-Benutzername fehlt"
-
-#: src/wireless-security/eap-method-simple.c:93
-msgid "missing EAP password"
-msgstr "EAP-Passwort fehlt"
-
-#: src/wireless-security/eap-method-simple.c:107
-msgid "missing EAP client Private Key passphrase"
-msgstr ""
-
-#: src/wireless-security/eap-method-simple.ui:103
-#, fuzzy
-msgid "P_rivate Key Passphrase"
-msgstr "WEP 128-bit-Passphrase"
-
-#: src/wireless-security/eap-method-simple.ui:128
-#, fuzzy
-msgid "Sh_ow passphrase"
-msgstr "Passwörter _zeigen"
-
-#: src/wireless-security/eap-method-tls.c:51
-msgid "missing EAP-TLS identity"
-msgstr "EAP-TLS-Identität fehlt"
-
-#: src/wireless-security/eap-method-tls.c:243
-msgid "no user certificate selected"
-msgstr "Kein Benutzerzertifikat gewählt"
-
-#: src/wireless-security/eap-method-tls.c:248
-msgid "selected user certificate file does not exist"
-msgstr "Die gewählte Datei mit dem Benutzerzertifikat ist nicht vorhanden"
-
-#: src/wireless-security/eap-method-tls.c:268
-msgid "no key selected"
-msgstr "kein Schlüssel ausgewählt"
-
-#: src/wireless-security/eap-method-tls.c:273
-msgid "selected key file does not exist"
-msgstr "Die gewählte Schlüsseldatei ist nicht vorhanden"
-
-#: src/wireless-security/eap-method-tls.ui:20
-msgid "I_dentity"
-msgstr "_Identität"
-
-#: src/wireless-security/eap-method-ttls.c:275
-msgid "PAP"
-msgstr "PAP"
-
-#: src/wireless-security/eap-method-ttls.c:291
-msgid "MSCHAP"
-msgstr "MSCHAP"
-
-#: src/wireless-security/eap-method-ttls.c:324
-msgid "MSCHAPv2 (no EAP)"
-msgstr "MSCHAPv2 (kein EAP)"
-
-#: src/wireless-security/eap-method-ttls.c:341
-msgid "CHAP"
-msgstr "CHAP"
-
-#: src/wireless-security/wireless-security.c:58
-msgid "Unknown error validating 802.1X security"
-msgstr "Unbekannter Fehler beim Überprüfen der 802.1X-Sicherheit"
-
-#: src/wireless-security/wireless-security.c:423
-msgid "TLS"
-msgstr "TLS"
-
-#: src/wireless-security/wireless-security.c:447
-msgid "PWD"
-msgstr "PWD"
-
-#: src/wireless-security/wireless-security.c:458
-msgid "FAST"
-msgstr "FAST"
-
-#: src/wireless-security/wireless-security.c:469
-msgid "Tunneled TLS"
-msgstr "Getunneltes TLS"
-
-#: src/wireless-security/wireless-security.c:480
-msgid "Protected EAP (PEAP)"
-msgstr "Geschütztes EAP (PEAP)"
-
-#: src/wireless-security/wireless-security.c:495
-msgid "Unknown"
-msgstr "Unbekannt"
-
-#: src/wireless-security/wireless-security.c:509
-msgid "Externally configured"
-msgstr ""
-
-#: src/wireless-security/ws-dynamic-wep.ui:31
-#: src/wireless-security/ws-wep-key.ui:97
-#: src/wireless-security/ws-wpa-eap.ui:31
-msgid "Au_thentication"
-msgstr "_Legitimierung"
-
-#: src/wireless-security/ws-leap.c:51
-msgid "missing leap-username"
-msgstr "LEAP-Benutzername fehlt"
-
-#: src/wireless-security/ws-leap.c:69
-msgid "missing leap-password"
-msgstr "LEAP-Passwort fehlt"
-
-#: src/wireless-security/ws-sae.c:57
-#, fuzzy
-msgid "missing password"
-msgstr "EAP-Passwort fehlt"
-
-#: src/wireless-security/ws-sae.ui:48 src/wireless-security/ws-wpa-psk.ui:48
-msgid "_Type"
-msgstr "_Typ"
-
-#: src/wireless-security/ws-wep-key.c:100
-msgid "missing wep-key"
-msgstr "WEP-Schlüssel fehlt"
-
-#: src/wireless-security/ws-wep-key.c:107
-#, c-format
-msgid "invalid wep-key: key with a length of %zu must contain only hex-digits"
-msgstr ""
-"Ungültiger WEP-Schlüssel: Schlüssel der Länge %zu darf nur hexadezimale "
-"Stellen enthalten"
-
-#: src/wireless-security/ws-wep-key.c:115
-#, c-format
-msgid ""
-"invalid wep-key: key with a length of %zu must contain only ascii characters"
-msgstr ""
-"Ungültiger WEP-Schlüssel: Schlüssel der Länge %zu darf nur ASCII-Zeichen "
-"enthalten"
-
-#: src/wireless-security/ws-wep-key.c:121
-#, c-format
-msgid ""
-"invalid wep-key: wrong key length %zu. A key must be either of length 5/13 "
-"(ascii) or 10/26 (hex)"
-msgstr ""
-"Ungültiger WEP-Schlüssel: Falsche Schlüssellänge %zu. Ein Schlüssel muss "
-"entweder die Länge 5/13 (ASCII) oder 10/26 (hexadezimal) haben"
-
-#: src/wireless-security/ws-wep-key.c:128
-msgid "invalid wep-key: passphrase must be non-empty"
-msgstr "Ungültiger WEP-Schlüssel: Passphrase darf nicht leer sein"
-
-#: src/wireless-security/ws-wep-key.c:130
-msgid "invalid wep-key: passphrase must be shorter than 64 characters"
-msgstr "Ungültiger WEP-Schlüssel: Passphrase muss kürzer als 64 Zeichen sein"
-
-#: src/wireless-security/ws-wep-key.ui:12
-msgid "Open System"
-msgstr "Offenes System"
-
-#: src/wireless-security/ws-wep-key.ui:15
-msgid "Shared Key"
-msgstr "Gemeinsamer Schlüssel"
-
-#: src/wireless-security/ws-wep-key.ui:26
-msgid "1 (Default)"
-msgstr "1 (Vorgabe)"
-
-#: src/wireless-security/ws-wep-key.ui:54
-msgid "_Key"
-msgstr "_Schlüssel"
-
-#: src/wireless-security/ws-wep-key.ui:80
-msgid "Sho_w key"
-msgstr "Schlüssel an_zeigen"
-
-#: src/wireless-security/ws-wep-key.ui:129
-msgid "WEP inde_x"
-msgstr "WEP-Inde_x"
-
-#: src/wireless-security/ws-wpa-psk.c:63
-#, c-format
-msgid ""
-"invalid wpa-psk: invalid key-length %zu. Must be [8,63] bytes or 64 hex "
-"digits"
-msgstr ""
-"Ungültiger WPA-PSK: Schlüssellänge %zu ist unzulässig. Muss [8,63] Bytes "
-"oder 64 hexadezimale Stellen haben"
-
-#: src/wireless-security/ws-wpa-psk.c:70
-msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
-msgstr ""
-"Ungültiger WPA-PSK: Schlüssel kann nicht als 64-Byte-hexadezimal "
-"interpretiert werden"
-
 #~ msgid "Manage your network connections"
 #~ msgstr "Verwaltung der Netzwerkverbindungen"
 
@@ -877,91 +960,6 @@ msgstr ""
 
 #~ msgid "Manage and change your network connection settings"
 #~ msgstr "Einstellungen für Verbindungen mit Netzwerken verwalten"
-
-#~ msgid "Disable connected notifications"
-#~ msgstr "Benachrichtigungen über neue Verbindung abschalten"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to a network."
-#~ msgstr ""
-#~ "Legt fest, ob Benachrichtigungen über Verbindungen mit einem Netzwerk "
-#~ "abgeschaltet werden."
-
-#~ msgid "Disable disconnected notifications"
-#~ msgstr "Benachrichtigungen über Verbindungstrennung abschalten"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when disconnecting from a "
-#~ "network."
-#~ msgstr ""
-#~ "Legt fest, ob Benachrichtigungen über die Verbindungstrennung von einem "
-#~ "Netzwerk abgeschaltet werden."
-
-#~ msgid "Disable VPN notifications"
-#~ msgstr "VPN-Benachrichtigungen abschalten"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when connecting to or "
-#~ "disconnecting from a VPN."
-#~ msgstr ""
-#~ "Legt fest, ob Benachrichtigungen über die Verbindungstrennung von einem "
-#~ "VPN-Netzwerk abgeschaltet werden."
-
-#~ msgid "Suppress networks available notifications"
-#~ msgstr "Benachrichtigung über neue Funknetzwerke unterdrücken"
-
-#~ msgid ""
-#~ "Set this to true to disable notifications when Wi-Fi networks are "
-#~ "available."
-#~ msgstr ""
-#~ "Legt fest, ob Benachrichtigungen über neue Funknetzwerke abgeschaltet "
-#~ "werden."
-
-# ?
-#~ msgid "Stamp"
-#~ msgstr "Einstellungen übernehmen"
-
-#~ msgid ""
-#~ "Used to determine whether settings should be migrated to a new version."
-#~ msgstr ""
-#~ "Legt fest, ob die Einstellungen in eine neue Version übernommen werden "
-#~ "sollen."
-
-#, fuzzy
-#~ msgid "Disable WiFi Create"
-#~ msgstr "Das Erstellen von Wi-Fi-Netzen ausschalten"
-
-#~ msgid ""
-#~ "Set to true to disable creation of adhoc networks when using the applet."
-#~ msgstr ""
-#~ "Legt fest, ob die Erstellung von Adhoc-Netzwerken mit dem Applet "
-#~ "abgeschaltet ist."
-
-#~ msgid "Show the applet in notification area"
-#~ msgstr "Applet im Benachrichtigungsbereich anzeigen"
-
-#~ msgid ""
-#~ "Set to FALSE to disable displaying the applet in the notification area."
-#~ msgstr ""
-#~ "Wählen Sie FALSCH, um die Anzeige des Applets im Benachrichtigungsbereich "
-#~ "zu deaktivieren."
-
-#~ msgid "Ignore CA certificate"
-#~ msgstr "CA-Zertifikat ignorieren"
-
-#~ msgid ""
-#~ "Set this to true to disable warnings about CA certificates in EAP "
-#~ "authentication."
-#~ msgstr ""
-#~ "Legt fest, ob Warnungen zu CA-Zertifikaten in der EAP-Authentifizierung "
-#~ "abgeschaltet werden."
-
-#~ msgid ""
-#~ "Set this to true to disable warnings about CA certificates in phase 2 of "
-#~ "EAP authentication."
-#~ msgstr ""
-#~ "Legt fest, ob Warnungen zu CA-Zertifikaten in Phase 2 der EAP-"
-#~ "Authentifizierung abgeschaltet werden."
 
 #~ msgid "NetworkManager"
 #~ msgstr "NetworkManager"
