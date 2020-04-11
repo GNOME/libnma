@@ -404,6 +404,8 @@ dispose (GObject *object)
 	NMAWsWepKey *self = NMA_WS_WEP_KEY (object);
 
 	g_clear_object (&self->connection);
+
+	G_OBJECT_CLASS (nma_ws_wep_key_parent_class)->dispose (object);
 }
 
 static void

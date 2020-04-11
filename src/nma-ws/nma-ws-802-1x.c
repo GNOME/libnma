@@ -482,6 +482,8 @@ dispose (GObject *object)
 	g_clear_pointer (&self->secrets_hints, g_strfreev);
 	g_clear_pointer (&self->username, g_free);
 	g_clear_pointer (&self->password, g_free);
+
+	G_OBJECT_CLASS (nma_ws_802_1x_parent_class)->dispose (object);
 }
 
 static void

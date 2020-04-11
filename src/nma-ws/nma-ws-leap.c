@@ -260,6 +260,8 @@ dispose (GObject *object)
 	NMAWsLeap *self = NMA_WS_LEAP (object);
 
 	g_clear_object (&self->connection);
+
+	G_OBJECT_CLASS (nma_ws_leap_parent_class)->dispose (object);
 }
 
 static void
