@@ -270,6 +270,8 @@ dispose (GObject *object)
 	NMAWsWpaPsk *self = NMA_WS_WPA_PSK (object);
 
 	g_clear_object (&self->connection);
+
+	G_OBJECT_CLASS (nma_ws_wpa_psk_parent_class)->dispose (object);
 }
 
 static void
