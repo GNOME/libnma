@@ -222,11 +222,8 @@ cert_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 				key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
 				if (!nm_streq0 (cert, key))
 					gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->key_button), cert);
-			}
-			else {
-				gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+			} else
 				sensitive = TRUE;
-			}
 		} else
 			gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
 
