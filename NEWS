@@ -1,4 +1,14 @@
 =======================================
+libnma-1.8.30
+Overview of changes since libnma-1.8.28
+=======================================
+
+* Properly dispose wireless security objects.
+* Don't clear the key when users set a non-pkcs12 certificate in the
+  certificate chooser UI.
+* Added missing VAPI macro file.
+
+=======================================
 libnma-1.8.28
 Overview of changes since libnma-1.8.26
 =======================================
