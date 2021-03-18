@@ -211,21 +211,28 @@ cert_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 	NMAFileCertChooserPrivate *priv = NMA_FILE_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
 
 	if (gtk_widget_get_visible (priv->key_button)) {
-		gboolean sensitive = FALSE;
+		gboolean sensitive = TRUE;
 		gs_free char *cert = NULL;
 
 		cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
 		if (cert && *cert) {
-			if (nm_utils_file_is_pkcs12 (cert)) {
-				gs_free char *key = NULL;
+			gs_free char *key = NULL;
 
-				key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
-				if (!nm_streq0 (cert, key))
+			key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
+			if (nm_utils_file_is_pkcs12 (cert)) {
+				if (!nm_streq0 (cert, key)) {
 					gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->key_button), cert);
-			} else
-				sensitive = TRUE;
-		} else
+					gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
+				}
+				sensitive = FALSE;
+			} else if (nm_utils_file_is_pkcs12 (key)) {
+				gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+				gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
+			}
+		} else {
 			gtk_file_chooser_unselect_all (GTK_FILE_CHOOSER (priv->key_button));
+			sensitive = FALSE;
+		}
 
 		gtk_widget_set_sensitive (priv->key_button, sensitive);
 		gtk_widget_set_sensitive (priv->key_button_label, sensitive);
@@ -243,18 +250,27 @@ key_changed_cb (GtkFileChooserButton *file_chooser_button, gpointer user_data)
 
 	key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->key_button));
 	if (key && *key) {
+		gboolean encrypted = FALSE;
 		if (nm_utils_file_is_pkcs12 (key)) {
 			gs_free char *cert = NULL;
 
 			cert = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (priv->cert_button));
-			if (!nm_streq0 (cert, key))
+			if (!nm_streq0 (cert, key)) {
 				gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (priv->cert_button), key);
+				gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
+			}
 			gtk_widget_set_sensitive (priv->key_button, FALSE);
 			gtk_widget_set_sensitive (priv->key_button_label, FALSE);
+			sensitive = TRUE;
+		} else if (nm_utils_file_is_private_key (key, &encrypted)) {
+			sensitive = encrypted;
+			if (!encrypted) {
+				gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
+			}
+		} else {
+			gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
 		}
-		sensitive = TRUE;
 	}
-	gtk_editable_set_text (GTK_EDITABLE (priv->key_password), "");
 	gtk_widget_set_sensitive (priv->key_password, sensitive);
 	gtk_widget_set_sensitive (priv->key_password_label, sensitive);
 	widget_unset_error (priv->key_password);
