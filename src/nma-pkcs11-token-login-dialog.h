@@ -20,7 +20,7 @@ typedef struct {
 } NMAPkcs11TokenLoginDialog;
 
 typedef struct {
-        GtkDialog parent;
+        GtkDialogClass parent;
 } NMAPkcs11TokenLoginDialogClass;
 
 #define NMA_TYPE_PKCS11_TOKEN_LOGIN_DIALOG            (nma_pkcs11_token_login_dialog_get_type ())
