@@ -1,4 +1,13 @@
 =======================================
+libnma-1.8.32
+Overview of changes since libnma-1.8.30
+=======================================
+
+* Fix crash in PKCS11 login dialog.
+* Fix clearing password when restoring a valid configuration
+  to be displayed to a user.
+
+=======================================
 libnma-1.8.30
 Overview of changes since libnma-1.8.28
 =======================================
