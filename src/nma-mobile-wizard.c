@@ -4,7 +4,7 @@
  * Dan Williams <dcbw@redhat.com>
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * (C) Copyright 2008 - 2018 Red Hat, Inc.
+ * Copyright (C) 2008 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -47,16 +47,17 @@ static NMAMobileAccessMethod *get_selected_method (NMAMobileWizard *self, gboole
 #include "nm-default.h"
 
 struct _NMAMobileWizard {
-        GtkAssistant parent;
+        GObject parent;
 };
 
 struct _NMAMobileWizardClass {
-        GtkAssistantClass parent;
+        GObjectClass parent;
 };
 
 typedef struct {
 	NMAMobileWizardCallback callback;
 	gpointer user_data;
+	GtkAssistant *assistant;
 	NMAMobileProvidersDatabase *mobile_providers_database;
 	NMAMobileFamily family;
 	gboolean initial_family;
@@ -116,7 +117,7 @@ typedef struct {
                                           NMA_TYPE_MOBILE_WIZARD, \
                                           NMAMobileWizardPrivate))
 
-G_DEFINE_TYPE_WITH_CODE (NMAMobileWizard, nma_mobile_wizard, GTK_TYPE_ASSISTANT,
+G_DEFINE_TYPE_WITH_CODE (NMAMobileWizard, nma_mobile_wizard, G_TYPE_OBJECT,
                          G_ADD_PRIVATE (NMAMobileWizard))
 
 static void
@@ -337,19 +338,18 @@ static void
 plan_update_complete (NMAMobileWizard *self)
 {
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
-	GtkAssistant *assistant = GTK_ASSISTANT (self);
 	gboolean is_manual = FALSE;
 	NMAMobileAccessMethod *method;
 
 	method = get_selected_method (self, &is_manual);
 	if (method) {
-		gtk_assistant_set_page_complete (assistant, priv->plan_page, TRUE);
+		gtk_assistant_set_page_complete (priv->assistant, priv->plan_page, TRUE);
 		nma_mobile_access_method_unref (method);
 	} else {
 		const char *manual_apn;
 
 		manual_apn = gtk_editable_get_text (priv->plan_apn_entry);
-		gtk_assistant_set_page_complete (assistant, priv->plan_page,
+		gtk_assistant_set_page_complete (priv->assistant, priv->plan_page,
 		                                 (manual_apn && strlen (manual_apn)));
 	}
 }
@@ -550,7 +550,6 @@ static void
 providers_update_complete (NMAMobileWizard *self)
 {
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
-	GtkAssistant *assistant = GTK_ASSISTANT (self);
 	gboolean use_view;
 
 	use_view = gtk_toggle_button_get_active (priv->providers_view_radio);
@@ -558,11 +557,11 @@ providers_update_complete (NMAMobileWizard *self)
 		NMAMobileProvider *provider;
 
 		provider = get_selected_provider (self);
-		gtk_assistant_set_page_complete (assistant, priv->providers_page, !!provider);
+		gtk_assistant_set_page_complete (priv->assistant, priv->providers_page, !!provider);
 		if (provider)
 			nma_mobile_provider_unref (provider);
 	} else {
-		gtk_assistant_set_page_complete (assistant, priv->providers_page, TRUE);
+		gtk_assistant_set_page_complete (priv->assistant, priv->providers_page, TRUE);
 	}
 }
 
@@ -571,11 +570,11 @@ providers_update_continue (NMAMobileWizard *self)
 {
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 
-	gtk_assistant_set_page_complete (GTK_ASSISTANT (self),
+	gtk_assistant_set_page_complete (priv->assistant,
 	                                 priv->providers_page,
 	                                 TRUE);
 
-	gtk_assistant_next_page (GTK_ASSISTANT (self));
+	gtk_assistant_next_page (priv->assistant);
 }
 
 static gboolean
@@ -863,7 +862,7 @@ country_update_complete (NMAMobileWizard *self)
 	selection = gtk_tree_view_get_selection (priv->country_view);
 	g_assert (selection);
 
-	gtk_assistant_set_page_complete (GTK_ASSISTANT (self),
+	gtk_assistant_set_page_complete (priv->assistant,
 	                                 priv->country_page,
 	                                 gtk_tree_selection_get_selected (selection, NULL, NULL));
 }
@@ -873,11 +872,11 @@ country_update_continue (NMAMobileWizard *self)
 {
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 
-	gtk_assistant_set_page_complete (GTK_ASSISTANT (self),
+	gtk_assistant_set_page_complete (priv->assistant,
 	                                 priv->country_page,
 	                                 TRUE);
 
-	gtk_assistant_next_page (GTK_ASSISTANT (self));
+	gtk_assistant_next_page (priv->assistant);
 }
 
 static gint
@@ -1402,72 +1401,76 @@ static void
 nma_mobile_wizard_class_init (NMAMobileWizardClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	object_class->finalize = finalize;
 
 	g_type_ensure (NM_TYPE_DEVICE);
-	gtk_widget_class_set_template_from_resource (widget_class,
-	                                             "/org/gnome/libnma/nma-mobile-wizard.ui");
-
-
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, dev_combo);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, dev_combo_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, country_page);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, country_view);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, providers_page);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, providers_view_radio);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, providers_view);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, provider_unlisted_radio);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, provider_unlisted_type_combo);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, plan_page);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, plan_combo);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, plan_apn_entry);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_page);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_provider);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_plan_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_apn);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_plan);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_device_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_connect_after_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, confirm_device);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, provider_name_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, plan_name_label);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, apn_label);
-
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, dev_store);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, country_store);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, country_sort);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, providers_store);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, providers_sort);
-	gtk_widget_class_bind_template_child_private (widget_class, NMAMobileWizard, plan_store);
-
-	gtk_widget_class_bind_template_callback (widget_class, assistant_closed);
-	gtk_widget_class_bind_template_callback (widget_class, assistant_cancel);
-	gtk_widget_class_bind_template_callback (widget_class, assistant_prepare);
-	gtk_widget_class_bind_template_callback (widget_class, intro_combo_changed);
-	gtk_widget_class_bind_template_callback (widget_class, country_update_continue);
-	gtk_widget_class_bind_template_callback (widget_class, providers_radio_toggled);
-	gtk_widget_class_bind_template_callback (widget_class, providers_update_complete);
-	gtk_widget_class_bind_template_callback (widget_class, providers_update_continue);
-	gtk_widget_class_bind_template_callback (widget_class, plan_combo_changed);
-	gtk_widget_class_bind_template_callback (widget_class, plan_update_complete);
-	gtk_widget_class_bind_template_callback (widget_class, apn_filter_cb);
 }
 
 static void
 nma_mobile_wizard_init (NMAMobileWizard *self)
 {
-	gtk_widget_init_template (GTK_WIDGET (self));
-	gtk_widget_realize (GTK_WIDGET (self));
+	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
+	GtkBuilder *builder;
+
+	builder = gtk_builder_new_from_resource ("/org/gnome/libnma/nma-mobile-wizard.ui");
+	priv->assistant = GTK_ASSISTANT (gtk_builder_get_object (builder, "assistant"));
+
+	priv->dev_combo = GTK_COMBO_BOX (gtk_builder_get_object (builder, "dev_combo"));
+	priv->dev_combo_label = GTK_LABEL (gtk_builder_get_object (builder, "dev_combo_label"));
+	priv->country_page = GTK_WIDGET (gtk_builder_get_object (builder, "country_page"));
+	priv->country_view = GTK_TREE_VIEW (gtk_builder_get_object (builder, "country_view"));
+	priv->providers_page = GTK_WIDGET (gtk_builder_get_object (builder, "providers_page"));
+	priv->providers_view_radio = GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "providers_view_radio"));
+	priv->providers_view = GTK_TREE_VIEW (gtk_builder_get_object (builder, "providers_view"));
+	priv->provider_unlisted_radio = GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "provider_unlisted_radio"));
+	priv->provider_unlisted_type_combo = GTK_COMBO_BOX (gtk_builder_get_object (builder, "provider_unlisted_type_combo"));
+	priv->plan_page = GTK_WIDGET (gtk_builder_get_object (builder, "plan_page"));
+	priv->plan_combo = GTK_COMBO_BOX (gtk_builder_get_object (builder, "plan_combo"));
+	priv->plan_apn_entry = GTK_EDITABLE (gtk_builder_get_object (builder, "plan_apn_entry"));
+	priv->confirm_page = GTK_WIDGET (gtk_builder_get_object (builder, "confirm_page"));
+	priv->confirm_provider = GTK_LABEL (gtk_builder_get_object (builder, "confirm_provider"));
+	priv->confirm_plan_label = GTK_LABEL (gtk_builder_get_object (builder, "confirm_plan_label"));
+	priv->confirm_apn = GTK_LABEL (gtk_builder_get_object (builder, "confirm_apn"));
+	priv->confirm_plan = GTK_LABEL (gtk_builder_get_object (builder, "confirm_plan"));
+	priv->confirm_device_label = GTK_LABEL (gtk_builder_get_object (builder, "confirm_device_label"));
+	priv->confirm_connect_after_label = GTK_WIDGET (gtk_builder_get_object (builder, "confirm_connect_after_label"));
+	priv->confirm_device = GTK_LABEL (gtk_builder_get_object (builder, "confirm_device"));
+	priv->provider_name_label = GTK_LABEL (gtk_builder_get_object (builder, "provider_name_label"));
+	priv->plan_name_label = GTK_LABEL (gtk_builder_get_object (builder, "plan_name_label"));
+	priv->apn_label = GTK_LABEL (gtk_builder_get_object (builder, "apn_label"));
+
+	priv->dev_store = GTK_TREE_STORE (gtk_builder_get_object (builder, "dev_store"));
+	priv->country_store = GTK_TREE_STORE (gtk_builder_get_object (builder, "country_store"));
+	priv->country_sort = GTK_TREE_MODEL_SORT (gtk_builder_get_object (builder, "country_sort"));
+	priv->providers_store = GTK_TREE_STORE (gtk_builder_get_object (builder, "providers_store"));
+	priv->providers_sort = GTK_TREE_MODEL (gtk_builder_get_object (builder, "providers_sort"));
+	priv->plan_store = GTK_TREE_STORE (gtk_builder_get_object (builder, "plan_store"));
+
+	g_signal_connect (priv->assistant, "cancel", (GCallback) assistant_cancel, self);
+	g_signal_connect (priv->assistant, "close", (GCallback) assistant_closed, self);
+	g_signal_connect (priv->assistant, "prepare", (GCallback) assistant_prepare, self);
+	g_signal_connect_swapped (priv->dev_combo, "changed", (GCallback) intro_combo_changed, self);
+	g_signal_connect_swapped (priv->country_view, "row-activated", (GCallback) country_update_continue, self);
+
+	g_signal_connect (priv->providers_view_radio, "toggled", (GCallback) providers_radio_toggled, self);
+	g_signal_connect_swapped (priv->providers_view, "row-activated", (GCallback) providers_update_continue, self);
+
+	g_signal_connect_swapped (priv->plan_combo, "changed", (GCallback) plan_combo_changed, self);
+	g_signal_connect_swapped (priv->plan_apn_entry, "changed", (GCallback) plan_update_complete, self);
+	g_signal_connect (priv->plan_apn_entry, "insert-text", (GCallback) apn_filter_cb, self);
+
+	g_object_unref (builder);
+
+	gtk_widget_realize (GTK_WIDGET (priv->assistant));
 
 #ifdef GDK_WINDOWING_X11
-	if (GDK_IS_X11_DISPLAY (gtk_widget_get_display (GTK_WIDGET (self)))) {
+	if (GDK_IS_X11_DISPLAY (gtk_widget_get_display (GTK_WIDGET (priv->assistant)))) {
 #if GTK_CHECK_VERSION(3,90,0)
-		GdkSurface *surface = gtk_widget_get_surface (GTK_WIDGET (self));
+		GdkSurface *surface = gtk_widget_get_surface (GTK_WIDGET (priv->assistant));
 		gdk_x11_surface_set_skip_taskbar_hint (surface, TRUE);
 #else
-		GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (self));
+		GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (priv->assistant));
 		gdk_window_set_skip_taskbar_hint (gdk_window, TRUE);
 #endif
 	}
@@ -1530,7 +1533,7 @@ nma_mobile_wizard_new (GtkWindow *parent,
 		gtk_widget_show (GTK_WIDGET (priv->dev_combo));
 	}
 
-	gtk_assistant_set_forward_page_func (GTK_ASSISTANT (self),
+	gtk_assistant_set_forward_page_func (priv->assistant,
 	                                     forward_func, self, NULL);
 
 	intro_setup (self);
@@ -1540,9 +1543,9 @@ nma_mobile_wizard_new (GtkWindow *parent,
 	confirm_setup (self);
 
 	if (parent)
-		gtk_window_set_transient_for (GTK_WINDOW (self), parent);
+		gtk_window_set_transient_for (GTK_WINDOW (priv->assistant), parent);
 	if (window_group)
-		gtk_window_group_add_window (window_group, GTK_WINDOW (self));
+		gtk_window_group_add_window (window_group, GTK_WINDOW (priv->assistant));
 
 	return self;
 }
@@ -1550,15 +1553,15 @@ nma_mobile_wizard_new (GtkWindow *parent,
 void
 nma_mobile_wizard_present (NMAMobileWizard *self)
 {
-	g_return_if_fail (self != NULL);
+	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 
-	gtk_window_present (GTK_WINDOW (self));
+	gtk_window_present (GTK_WINDOW (priv->assistant));
 }
 
 void
 nma_mobile_wizard_destroy (NMAMobileWizard *self)
 {
-	g_return_if_fail (self != NULL);
+	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 
-	gtk_widget_destroy (GTK_WIDGET (self));
+	gtk_widget_destroy (GTK_WIDGET (priv->assistant));
 }
