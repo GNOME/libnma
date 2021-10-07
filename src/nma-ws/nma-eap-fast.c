@@ -26,6 +26,7 @@ struct _NMAEapFast {
 	GtkSizeGroup *size_group;
 	NMAWs8021x *ws_8021x;
 	gboolean is_editor;
+	GtkWidget *eap_widget;
 	char *pac_file_name;
 };
 
@@ -51,7 +52,7 @@ validate (NMAEap *parent, GError **error)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
 	g_assert (widget);
-	provisioning = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+	provisioning = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
 	g_assert (widget);
 	if (!provisioning && !method->pac_file_name) {
@@ -139,7 +140,7 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 	g_object_set (s_8021x, NM_SETTING_802_1X_PAC_FILE, method->pac_file_name, NULL);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
-	enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+	enabled = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
 
 	if (!enabled)
 		g_object_set (G_OBJECT (s_8021x), NM_SETTING_802_1X_PHASE1_FAST_PROVISIONING, "0", NULL);
@@ -178,34 +179,30 @@ inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
 	NMAEapFast *method = (NMAEapFast *) parent;
-	GtkWidget *vbox;
+	GtkBox *vbox;
 	NMAEap *eap = NULL;
-	GList *elt, *children;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	GtkWidget *eap_widget;
 
-	vbox = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_inner_auth_vbox"));
+	vbox = GTK_BOX (gtk_builder_get_object (parent->builder, "eap_fast_inner_auth_vbox"));
 	g_assert (vbox);
 
 	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
-	g_list_free (children);
+	if (method->eap_widget)
+		gtk_box_remove (vbox, method->eap_widget);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter);
 	gtk_tree_model_get (model, &iter, I_METHOD_COLUMN, &eap, -1);
 	g_assert (eap);
 
-	eap_widget = nma_eap_get_widget (eap);
-	g_assert (eap_widget);
-	gtk_widget_unparent (eap_widget);
+	method->eap_widget = nma_eap_get_widget (eap);
+	g_return_if_fail (method->eap_widget);
+	gtk_widget_unparent (method->eap_widget);
 
 	if (method->size_group)
 		nma_eap_add_to_size_group (eap, method->size_group);
-	gtk_container_add (GTK_CONTAINER (vbox), eap_widget);
+	gtk_box_append (vbox, method->eap_widget);
 
 	nma_eap_unref (eap);
 

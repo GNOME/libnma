@@ -2,7 +2,7 @@
 /*
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -28,6 +28,7 @@ struct _NMAEapPeap {
 	NMAWs8021x *ws_8021x;
 	gboolean is_editor;
 	GtkWidget *ca_cert_chooser;
+	GtkWidget *eap_widget;
 };
 
 static void
@@ -205,33 +206,30 @@ inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
 	NMAEapPeap *method = (NMAEapPeap *) parent;
-	GtkWidget *vbox;
+	GtkBox *vbox;
 	NMAEap *eap = NULL;
-	GList *elt, *children;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	GtkWidget *eap_widget;
 
-	vbox = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_inner_auth_vbox"));
-	g_assert (vbox);
+	vbox = GTK_BOX (gtk_builder_get_object (parent->builder, "eap_peap_inner_auth_vbox"));
+	g_return_if_fail (vbox);
 
 	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
+	if (method->eap_widget)
+		gtk_box_remove (vbox, method->eap_widget);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter);
 	gtk_tree_model_get (model, &iter, I_METHOD_COLUMN, &eap, -1);
 	g_assert (eap);
 
-	eap_widget = nma_eap_get_widget (eap);
-	g_assert (eap_widget);
-	gtk_widget_unparent (eap_widget);
+	method->eap_widget = nma_eap_get_widget (eap);
+	g_return_if_fail (method->eap_widget);
+	gtk_widget_unparent (method->eap_widget);
 
 	if (method->size_group)
 		nma_eap_add_to_size_group (eap, method->size_group);
-	gtk_container_add (GTK_CONTAINER (vbox), eap_widget);
+	gtk_box_append (vbox, method->eap_widget);
 
 	nma_eap_unref (eap);
 

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #ifndef NMA_WS_802_1X_PRIVATE_H
@@ -15,7 +15,8 @@ struct _NMAWs8021x {
 
 	GtkWidget *eap_auth_combo;
 	GtkWidget *eap_auth_label;
-	GtkWidget *eap_vbox;
+	GtkBox *eap_vbox;
+	GtkWidget *eap_widget;
 
 	NMConnection *connection;
 	gboolean secrets_only;

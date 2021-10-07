@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -113,27 +113,24 @@ auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 	NMAWs8021x *self = NMA_WS_802_1X (user_data);
 
 	NMAEap *eap = NULL;
-	GList *elt, *children;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	GtkWidget *eap_widget;
 	GtkWidget *eap_default_widget = NULL;
 
 	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (self->eap_vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (self->eap_vbox), GTK_WIDGET (elt->data));
+	if (self->eap_widget)
+		gtk_box_remove (self->eap_vbox, self->eap_widget);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter);
 	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
 	g_return_if_fail (eap);
 
-	eap_widget = nma_eap_get_widget (eap);
-	g_return_if_fail (eap_widget);
-	gtk_widget_unparent (eap_widget);
+	self->eap_widget = nma_eap_get_widget (eap);
+	g_return_if_fail (self->eap_widget);
+	gtk_widget_unparent (self->eap_widget);
 
-	gtk_container_add (GTK_CONTAINER (self->eap_vbox), eap_widget);
+	gtk_box_append (self->eap_vbox, self->eap_widget);
 
 	/* Refocus the EAP method's default widget */
 	if (eap->default_field) {
