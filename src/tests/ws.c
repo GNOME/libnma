@@ -11,11 +11,10 @@
 #include "nma-ws.h"
 
 static gboolean
-delete (GtkWidget *widget, GdkEvent *event, gpointer user_data)
+delete (GMainLoop *main_loop)
 {
-        gtk_main_quit ();
-
-        return FALSE;
+	g_main_loop_quit (main_loop);
+	return FALSE;
 }
 
 static void
@@ -38,6 +37,7 @@ ws_changed_cb (NMAWs *ws, gpointer user_data)
 int
 main (int argc, char *argv[])
 {
+	GMainLoop *loop;
 	GtkWidget *w;
 	GtkWidget *notebook;
 	NMConnection *connection = NULL;
@@ -50,11 +50,16 @@ main (int argc, char *argv[])
 	gtk_init ();
 	w = gtk_window_new ();
 	gtk_widget_show (w);
-	g_signal_connect (w, "delete-event", G_CALLBACK (delete), NULL);
+	loop = g_main_loop_new (NULL, TRUE);
+#if GTK_CHECK_VERSION(4,0,0)
+	g_signal_connect_swapped (w, "close-request", G_CALLBACK (delete), loop);
+#else
+	g_signal_connect_swapped (w, "delete-event", G_CALLBACK (delete), loop);
+#endif
 
 	notebook = gtk_notebook_new ();
 	gtk_widget_show (notebook);
-	gtk_container_add (GTK_CONTAINER (w), notebook);
+	gtk_window_set_child (GTK_WINDOW (w), notebook);
 
 	w = GTK_WIDGET (nma_ws_sae_new (connection, FALSE));
 	gtk_widget_show (w);
@@ -105,5 +110,6 @@ main (int argc, char *argv[])
 	g_signal_connect (w, "ws-changed", G_CALLBACK (ws_changed_cb), connection);
 	ws_changed_cb (NMA_WS (w), connection);
 
-	gtk_main ();
+	g_main_loop_run (loop);
+	g_main_loop_unref (loop);
 }
