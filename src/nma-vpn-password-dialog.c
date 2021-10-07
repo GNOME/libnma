@@ -56,7 +56,7 @@ show_passwords_toggled_cb (GtkWidget *widget, gpointer user_data)
 	NMAVpnPasswordDialogPrivate *priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
 
 	gtk_entry_set_visibility (GTK_ENTRY (priv->password_entry), visible);
 	gtk_entry_set_visibility (GTK_ENTRY (priv->password_entry_secondary), visible);

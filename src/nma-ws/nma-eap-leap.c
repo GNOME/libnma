@@ -2,7 +2,7 @@
 /*
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -30,15 +30,15 @@ struct _NMAEapLeap {
 	const char *password_flags_name;
 	GtkEntry *username_entry;
 	GtkEntry *password_entry;
-	GtkToggleButton *show_password;
+	GtkCheckButton *show_password;
 };
 
 static void
-show_toggled_cb (GtkToggleButton *button, NMAEapLeap *method)
+show_toggled_cb (GtkCheckButton *button, NMAEapLeap *method)
 {
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (button);
+	visible = gtk_check_button_get_active (button);
 	gtk_entry_set_visibility (method->password_entry, visible);
 }
 
@@ -144,7 +144,7 @@ set_userpass_ui (NMAEapLeap *method)
 		gtk_editable_set_text (GTK_EDITABLE (method->password_entry), "");
 	}
 
-	gtk_toggle_button_set_active (method->show_password, method->ws_8021x->show_password);
+	gtk_check_button_set_active (method->show_password, method->ws_8021x->show_password);
 }
 
 static void
@@ -160,7 +160,7 @@ widgets_unrealized (GtkWidget *widget, NMAEapLeap *method)
 	                     gtk_editable_get_text (GTK_EDITABLE (method->username_entry)),
 	                     gtk_editable_get_text (GTK_EDITABLE (method->password_entry)),
 	                     (gboolean) -1,
-	                     gtk_toggle_button_get_active (method->show_password));
+	                     gtk_check_button_get_active (method->show_password));
 }
 
 static void
@@ -240,7 +240,7 @@ nma_eap_leap_new (NMAWs8021x *ws_8021x,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_eapleap"));
 	g_assert (widget);
-	method->show_password = GTK_TOGGLE_BUTTON (widget);
+	method->show_password = GTK_CHECK_BUTTON (widget);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) show_toggled_cb,
 	                  parent);

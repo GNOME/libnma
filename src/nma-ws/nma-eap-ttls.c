@@ -73,7 +73,7 @@ ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 	NMAEapTtls *method = (NMAEapTtls *) user_data;
 
 	gtk_widget_set_sensitive (method->ca_cert_chooser,
-	                          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
+	                          !gtk_check_button_get_active (GTK_CHECK_BUTTON (button)));
 }
 
 static void
@@ -474,7 +474,7 @@ nma_eap_ttls_new (NMAWs8021x *ws_8021x,
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) nma_ws_changed_cb,
 	                  ws_8021x);
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ca_not_required);
+	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))

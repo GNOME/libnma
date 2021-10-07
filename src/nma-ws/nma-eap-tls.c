@@ -3,7 +3,7 @@
  * Dan Williams <dcbw@redhat.com>
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -66,7 +66,7 @@ ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 	NMAEapTls *method = (NMAEapTls *) user_data;
 
 	gtk_widget_set_sensitive (method->ca_cert_chooser,
-	                          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
+	                          !gtk_check_button_get_active (GTK_CHECK_BUTTON (button)));
 }
 
 static void
@@ -480,7 +480,7 @@ nma_eap_tls_new (NMAWs8021x *ws_8021x,
 	                            phase2 ? nm_setting_802_1x_get_phase2_private_key_password : nm_setting_802_1x_get_private_key_password);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_ca_cert_not_required_checkbox"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ca_not_required);
+	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	/* Create password-storage popup menus for password entries under their secondary icon */
 	nma_cert_chooser_setup_cert_password_storage (NMA_CERT_CHOOSER (method->ca_cert_chooser),

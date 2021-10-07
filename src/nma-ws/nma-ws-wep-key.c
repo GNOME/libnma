@@ -60,7 +60,7 @@ show_toggled_cb (GtkCheckButton *button, gpointer user_data)
 	NMAWsWepKey *self = NMA_WS_WEP_KEY (user_data);
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
 	gtk_entry_set_visibility (GTK_ENTRY (self->wep_key_entry), visible);
 }
 

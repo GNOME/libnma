@@ -3,10 +3,12 @@
  *
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * Copyright (C) 2016,2017 Red Hat, Inc.
+ * Copyright (C) 2016 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
+
 #include "nma-pkcs11-token-login-dialog.h"
 
 #include <gck/gck.h>
@@ -86,7 +88,7 @@ nma_pkcs11_token_login_dialog_get_remember_pin (NMAPkcs11TokenLoginDialog *self)
 {
 	NMAPkcs11TokenLoginDialogPrivate *priv = self->priv;
 
-	return gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->remember));
+	return gtk_check_button_get_active (GTK_CHECK_BUTTON (priv->remember));
 }
 
 static void

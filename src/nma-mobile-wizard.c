@@ -87,9 +87,9 @@ typedef struct {
 	GtkTreeStore *providers_store;
 	GtkTreeModel *providers_sort;
 	guint32 providers_focus_id;
-	GtkToggleButton *providers_view_radio;
+	GtkCheckButton *providers_view_radio;
 
-	GtkToggleButton *provider_unlisted_radio;
+	GtkCheckButton *provider_unlisted_radio;
 	GtkComboBox *provider_unlisted_type_combo;
 
 	gboolean provider_only_cdma;
@@ -533,7 +533,7 @@ get_selected_provider (NMAMobileWizard *self)
 	GtkTreeIter iter;
 	NMAMobileProvider *provider = NULL;
 
-	if (!gtk_toggle_button_get_active (priv->providers_view_radio))
+	if (!gtk_check_button_get_active (priv->providers_view_radio))
 		return NULL;
 
 	selection = gtk_tree_view_get_selection (priv->providers_view);
@@ -552,7 +552,7 @@ providers_update_complete (NMAMobileWizard *self)
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 	gboolean use_view;
 
-	use_view = gtk_toggle_button_get_active (priv->providers_view_radio);
+	use_view = gtk_check_button_get_active (priv->providers_view_radio);
 	if (use_view) {
 		NMAMobileProvider *provider;
 
@@ -600,13 +600,13 @@ focus_provider_unlisted_type_combo (gpointer user_data)
 }
 
 static void
-providers_radio_toggled (GtkToggleButton *button, gpointer user_data)
+providers_radio_toggled (GtkCheckButton *button, gpointer user_data)
 {
 	NMAMobileWizard *self = user_data;
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 	gboolean use_view;
 
-	use_view = gtk_toggle_button_get_active (priv->providers_view_radio);
+	use_view = gtk_check_button_get_active (priv->providers_view_radio);
 	if (use_view) {
 		if (!priv->providers_focus_id)
 			priv->providers_focus_id = g_idle_add (focus_providers_view, self);
@@ -742,10 +742,10 @@ providers_prepare (NMAMobileWizard *self)
 
 	if (gtk_tree_model_iter_n_children (GTK_TREE_MODEL (priv->providers_store), NULL) == 0) {
 		/* No providers to choose from. */
-		gtk_toggle_button_set_active (priv->provider_unlisted_radio, TRUE);
+		gtk_check_button_set_active (priv->provider_unlisted_radio, TRUE);
 		gtk_widget_set_sensitive (GTK_WIDGET (priv->providers_view_radio), FALSE);
 	} else {
-		gtk_toggle_button_set_active (priv->providers_view_radio, TRUE);
+		gtk_check_button_set_active (priv->providers_view_radio, TRUE);
 		gtk_widget_set_sensitive (GTK_WIDGET (priv->providers_view_radio), TRUE);
 	}
 
@@ -1312,7 +1312,7 @@ forward_func (gint current_page, gpointer user_data)
 		/* If the provider is unlisted, we can skip ahead of the user's
 		 * access technology is CDMA.
 		 */
-		if (gtk_toggle_button_get_active (priv->provider_unlisted_radio)) {
+		if (gtk_check_button_get_active (priv->provider_unlisted_radio)) {
 			if (family == NMA_MOBILE_FAMILY_UNKNOWN)
 				family = get_provider_unlisted_type (self);
 		} else {
@@ -1421,9 +1421,9 @@ nma_mobile_wizard_init (NMAMobileWizard *self)
 	priv->country_page = GTK_WIDGET (gtk_builder_get_object (builder, "country_page"));
 	priv->country_view = GTK_TREE_VIEW (gtk_builder_get_object (builder, "country_view"));
 	priv->providers_page = GTK_WIDGET (gtk_builder_get_object (builder, "providers_page"));
-	priv->providers_view_radio = GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "providers_view_radio"));
+	priv->providers_view_radio = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "providers_view_radio"));
 	priv->providers_view = GTK_TREE_VIEW (gtk_builder_get_object (builder, "providers_view"));
-	priv->provider_unlisted_radio = GTK_TOGGLE_BUTTON (gtk_builder_get_object (builder, "provider_unlisted_radio"));
+	priv->provider_unlisted_radio = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "provider_unlisted_radio"));
 	priv->provider_unlisted_type_combo = GTK_COMBO_BOX (gtk_builder_get_object (builder, "provider_unlisted_type_combo"));
 	priv->plan_page = GTK_WIDGET (gtk_builder_get_object (builder, "plan_page"));
 	priv->plan_combo = GTK_COMBO_BOX (gtk_builder_get_object (builder, "plan_combo"));

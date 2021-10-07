@@ -72,7 +72,7 @@ ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
 	NMAEapPeap *method = (NMAEapPeap *) user_data;
 
 	gtk_widget_set_sensitive (method->ca_cert_chooser,
-	                          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)));
+	                          !gtk_check_button_get_active (GTK_CHECK_BUTTON (button)));
 }
 
 static void
@@ -421,7 +421,7 @@ nma_eap_peap_new (NMAWs8021x *ws_8021x,
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) nma_ws_changed_cb,
 	                  ws_8021x);
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), ca_not_required);
+	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	widget = inner_auth_combo_init (method, connection, s_8021x, secrets_only);
 	inner_auth_combo_changed_cb (widget, (gpointer) method);
