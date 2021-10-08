@@ -161,7 +161,7 @@ nma_vpn_password_dialog_run_and_block (NMAVpnPasswordDialog *dialog)
 	g_return_val_if_fail (dialog != NULL, FALSE);
 	g_return_val_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog), FALSE);
 
-	button_clicked = gtk_dialog_run (GTK_DIALOG (dialog));
+	button_clicked = nma_gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_hide (GTK_WIDGET (dialog));
 
 	return button_clicked == GTK_RESPONSE_OK;

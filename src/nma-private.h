@@ -28,6 +28,7 @@
 typedef void GtkRoot;
 #endif
 
+int nma_gtk_dialog_run (GtkDialog *dialog);
 
 #define NMA_PRIVATE_H
 

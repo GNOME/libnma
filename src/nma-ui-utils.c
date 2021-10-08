@@ -407,5 +407,37 @@ nma_utils_update_password_storage (GtkWidget *passwd_entry,
 		change_password_storage_icon (passwd_entry, idx);
 	}
 }
-/*---------------------------------------------------------------------------*/
 
+typedef struct {
+	GMainLoop *loop;
+	int response_id;
+} NmaDialogData;
+
+static void
+nma_dialog_response (GtkDialog *dialog, int response_id, gpointer user_data)
+{
+	NmaDialogData *data = user_data;
+
+	data->response_id = response_id;
+	g_main_loop_quit (data->loop);
+}
+
+int
+nma_gtk_dialog_run (GtkDialog *dialog)
+{
+	NmaDialogData data;
+
+	data.loop = g_main_loop_new (NULL, FALSE);
+	g_signal_connect (dialog, "response", G_CALLBACK (nma_dialog_response), &data);
+
+	gtk_window_set_hide_on_close (GTK_WINDOW (dialog), TRUE);
+	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	gtk_window_present (GTK_WINDOW (dialog));
+
+	g_main_loop_run (data.loop);
+	g_main_loop_unref (data.loop);
+
+	gtk_widget_hide (GTK_WIDGET (dialog));
+
+	return data.response_id;
+}

@@ -203,7 +203,7 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 	                                             _("Select"), GTK_RESPONSE_ACCEPT,
 	                                             _("Cancel"), GTK_RESPONSE_CANCEL,
 	                                             NULL);
-	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (nma_gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
 		if (priv->uri)
 			g_free (priv->uri);
 		priv->uri = nma_pkcs11_cert_chooser_dialog_get_uri (NMA_PKCS11_CERT_CHOOSER_DIALOG (dialog));
@@ -242,7 +242,7 @@ select_from_file (NMACertChooserButton *button)
 	if (priv->uri)
 		gtk_file_chooser_set_uri (GTK_FILE_CHOOSER (dialog), priv->uri);
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
-	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (nma_gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
 		if (priv->uri)
 			g_free (priv->uri);
 		priv->uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (dialog));

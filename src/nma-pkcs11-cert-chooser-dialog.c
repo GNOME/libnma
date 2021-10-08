@@ -7,6 +7,8 @@
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
+
 #include "nma-pkcs11-cert-chooser-dialog.h"
 #include "nma-pkcs11-token-login-dialog.h"
 
@@ -339,7 +341,7 @@ login_clicked (GtkButton *button, gpointer user_data)
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (self));
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
 
-	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (nma_gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
 		priv->pin_length = nma_pkcs11_token_login_dialog_get_pin_length (NMA_PKCS11_TOKEN_LOGIN_DIALOG (dialog));
 		priv->pin_value = g_memdup (nma_pkcs11_token_login_dialog_get_pin_value (NMA_PKCS11_TOKEN_LOGIN_DIALOG (dialog)),
 		                            priv->pin_length + 1);
