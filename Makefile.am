@@ -185,6 +185,7 @@ libnma_c_real = \
 	src/nma-ui-utils.c \
 	src/init.c \
 	src/nma-cert-chooser.c \
+	src/nma-cert-chooser-button.c \
 	src/nma-file-cert-chooser.c \
 	src/nma-bar-code-widget.c \
 	src/nma-bar-code.c \
@@ -221,6 +222,7 @@ libnma_h_priv_real = \
 	src/nma-ws/nma-eap-tls.h \
 	src/nma-ws/nma-eap-ttls.h \
 	src/nma-ws/nma-eap.h \
+	src/nma-cert-chooser-button.h \
 	src/nma-ws/nma-ws-802-1x-private.h \
 	src/nma-ws/nma-ws-helpers.h \
 	src/nma-ws/nma-ws-private.h \
@@ -228,13 +230,11 @@ libnma_h_priv_real = \
 
 libnma_h_priv_gcr = \
 	src/nma-pkcs11-token-login-dialog.h \
-	src/nma-pkcs11-cert-chooser-dialog.h \
-	src/nma-cert-chooser-button.h
+	src/nma-pkcs11-cert-chooser-dialog.h
 
 libnma_c_gcr = \
 	src/nma-pkcs11-token-login-dialog.c \
 	src/nma-pkcs11-cert-chooser-dialog.c \
-	src/nma-cert-chooser-button.c \
 	src/nma-pkcs11-cert-chooser.c
 
 src_libnmadir = $(includedir)/libnma

@@ -58,6 +58,7 @@ gir_sources = [version_header] + cert_chooser_sources + nma_ws_sources + files(
   'init.c',
   'nma-bar-code-widget.c',
   'nma-bar-code.c',
+  'nma-cert-chooser-button.c',
   'nma-mobile-providers.c',
   'nma-mobile-wizard.c',
   'nma-ui-utils.c',
@@ -94,7 +95,6 @@ nma_deps = [ deps, gtk_dep ]
 nma_sources = [ gir_sources, built_sources ]
 if enable_gcr
   nma_sources += files(
-    'nma-cert-chooser-button.c',
     'nma-pkcs11-cert-chooser.c',
     'nma-pkcs11-cert-chooser-dialog.c',
     'nma-pkcs11-token-login-dialog.c'

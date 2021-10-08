@@ -15,6 +15,7 @@
  * NMACertChooserButtonFlags:
  * @NMA_CERT_CHOOSER_BUTTON_FLAG_NONE: defaults
  * @NMA_CERT_CHOOSER_BUTTON_FLAG_KEY: only allow choosing a key
+ * @NMA_CERT_CHOOSER_BUTTON_FLAG_PEM: only allow choosing a PEM-formatted file
  *
  * Unless NMA_CERT_CHOOSER_BUTTON_FLAG_KEY is chosen, the
  * choosers allow picking a certificate or a certificate with
@@ -23,14 +24,15 @@
 typedef enum {
 	NMA_CERT_CHOOSER_BUTTON_FLAG_NONE = 0,
 	NMA_CERT_CHOOSER_BUTTON_FLAG_KEY  = 1,
+	NMA_CERT_CHOOSER_BUTTON_FLAG_PEM  = 2,
 } NMACertChooserButtonFlags;
 
 typedef struct {
-	GtkComboBox parent;
+	GtkBox parent;
 } NMACertChooserButton;
 
 typedef struct {
-	GtkComboBoxClass parent;
+	GtkBoxClass parent;
 } NMACertChooserButtonClass;
 
 #define NMA_TYPE_CERT_CHOOSER_BUTTON            (nma_cert_chooser_button_get_type ())

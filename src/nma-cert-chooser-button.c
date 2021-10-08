@@ -10,10 +10,12 @@
 #include "nma-private.h"
 
 #include "nma-cert-chooser-button.h"
-#include "nma-pkcs11-cert-chooser-dialog.h"
 #include "utils.h"
 
+#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR
+#include "nma-pkcs11-cert-chooser-dialog.h"
 #include <gck/gck.h>
+#endif
 
 /**
  * SECTION:nma-cert-chooser-button
@@ -24,6 +26,11 @@
  * PKCS\#11 slots present in the system and allows choosing a certificate
  * from either of them or a file.
  */
+
+enum {
+	CHANGED,
+	LAST_SIGNAL,
+};
 
 enum {
 	COLUMN_LABEL,
@@ -37,14 +44,27 @@ typedef struct {
 	gchar *pin;
 	gboolean remember_pin;
 	NMACertChooserButtonFlags flags;
+
+	GtkWidget *cert_combo;
+	GtkWidget *button_label;
 } NMACertChooserButtonPrivate;
 
-G_DEFINE_TYPE (NMACertChooserButton, nma_cert_chooser_button, GTK_TYPE_COMBO_BOX);
+G_DEFINE_TYPE (NMACertChooserButton, nma_cert_chooser_button, GTK_TYPE_BOX);
+
+enum {
+	PROP_0,
+	PROP_FLAGS,
+	LAST_PROP
+};
 
 #define NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
                                                 NMA_TYPE_CERT_CHOOSER_BUTTON, \
                                                 NMACertChooserButtonPrivate))
 
+static void
+update_title (NMACertChooserButton *button);
+
+#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR
 static gboolean
 is_this_a_slot_nobody_loves (GckSlot *slot)
 {
@@ -73,6 +93,7 @@ static void
 modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 {
 	NMACertChooserButton *self = NMA_CERT_CHOOSER_BUTTON (user_data);
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
 	GList *slots;
 	GList *list_iter;
 	GError *error = NULL;
@@ -89,7 +110,7 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 		g_clear_error (&error);
 	}
 
-	model = GTK_LIST_STORE (gtk_combo_box_get_model (GTK_COMBO_BOX (self)));
+	model = GTK_LIST_STORE (gtk_combo_box_get_model (GTK_COMBO_BOX (priv->cert_combo)));
 
 	/* A separator. */
 	gtk_list_store_insert_with_values (model, &iter, 2,
@@ -136,52 +157,32 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 	gck_list_unref_free (modules);
 }
 
-static void
-update_title (NMACertChooserButton *button)
+static char *
+title_from_pkcs11 (NMACertChooserButton *button)
 {
 	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
-	GckUriData *data;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	gs_free char *label = NULL;
 	GError *error = NULL;
+	char *label = NULL;
+	GckUriData *data;
 
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (button));
-
-	if (!gtk_tree_model_get_iter_first (model, &iter))
-		g_return_if_reached ();
-
-	if (!priv->uri) {
-		label = g_strdup (_("(None)"));
-	} else if (g_str_has_prefix (priv->uri, "pkcs11:")) {
-		data = gck_uri_parse (priv->uri, GCK_URI_FOR_ANY, &error);
-		if (data) {
-			if (!gck_attributes_find_string (data->attributes, CKA_LABEL, &label)) {
-				if (data->token_info) {
-					g_free (label);
-					label = g_strdup_printf (  priv->flags & NMA_CERT_CHOOSER_BUTTON_FLAG_KEY
-					                         ? _("Key in %s")
-					                         : _("Certificate in %s"),
-					                         data->token_info->label);
-				}
+	data = gck_uri_parse (priv->uri, GCK_URI_FOR_ANY, &error);
+	if (data) {
+		if (!gck_attributes_find_string (data->attributes, CKA_LABEL, &label)) {
+			if (data->token_info) {
+				g_free (label);
+				label = g_strdup_printf (  priv->flags & NMA_CERT_CHOOSER_BUTTON_FLAG_KEY
+							 ? _("Key in %s")
+							 : _("Certificate in %s"),
+							 data->token_info->label);
 			}
-			gck_uri_data_free (data);
-		} else {
-			g_warning ("Bad URI '%s': %s\n", priv->uri, error->message);
-			g_error_free (error);
 		}
+		gck_uri_data_free (data);
 	} else {
-		label = priv->uri;
-		if (g_str_has_prefix (label, "file://"))
-			label += 7;
-		if (g_strrstr (label, "/"))
-			label = g_strrstr (label, "/") + 1;
-		label = g_strdup (label);
+		g_warning ("Bad URI '%s': %s\n", priv->uri, error->message);
+		g_error_free (error);
 	}
 
-	gtk_list_store_set (GTK_LIST_STORE (model), &iter,
-	                    COLUMN_LABEL, label ?: _("(Unknown)"),
-	                    -1);
+	return label;
 }
 
 static void
@@ -214,8 +215,87 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 		priv->pin = nma_pkcs11_cert_chooser_dialog_get_pin (NMA_PKCS11_CERT_CHOOSER_DIALOG (dialog));
 		priv->remember_pin = nma_pkcs11_cert_chooser_dialog_get_remember_pin (NMA_PKCS11_CERT_CHOOSER_DIALOG (dialog));
 		update_title (button);
+		g_signal_emit_by_name (button, "changed");
 	}
 	gtk_window_destroy (GTK_WINDOW (dialog));
+}
+
+static void
+initialize_gck_modules (NMACertChooserButton *button)
+{
+	gck_modules_initialize_registered_async (NULL, modules_initialized, button);
+}
+
+static int
+use_simple_button (NMACertChooserButtonFlags flags)
+{
+	return flags & NMA_CERT_CHOOSER_BUTTON_FLAG_PEM;
+}
+#else
+typedef void GckSlot;
+#define GCK_TYPE_SLOT G_TYPE_POINTER
+
+static char *
+title_from_pkcs11 (NMACertChooserButton *button)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+
+	g_warning ("PKCS#11 URI, but GCR/GCK support not built in.");
+	return g_strdup (priv->uri);
+}
+
+static void
+select_from_token (NMACertChooserButton *button, GckSlot *slot)
+{
+	g_assert_not_reached ();
+}
+
+static void
+initialize_gck_modules (NMACertChooserButton *button)
+{
+}
+
+static int
+use_simple_button (NMACertChooserButtonFlags flags)
+{
+	return TRUE;
+}
+#endif
+
+static void
+update_title (NMACertChooserButton *button)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	GtkTreeIter iter;
+	GtkTreeModel *model;
+	gs_free char *label = NULL;
+
+	if (!priv->uri) {
+		label = g_strdup (_("(None)"));
+	} else if (g_str_has_prefix (priv->uri, "pkcs11:")) {
+		label = title_from_pkcs11 (button);
+	} else {
+		label = priv->uri;
+		if (g_str_has_prefix (label, "file://"))
+			label += 7;
+		if (g_strrstr (label, "/"))
+			label = g_strrstr (label, "/") + 1;
+		label = g_strdup (label);
+	}
+
+	if (priv->cert_combo) {
+		model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->cert_combo));
+
+		if (!gtk_tree_model_get_iter_first (model, &iter))
+			g_return_if_reached ();
+
+		gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+		                    COLUMN_LABEL, label ?: _("(Unknown)"),
+		                    -1);
+	}
+
+	if (priv->button_label)
+		gtk_label_set_text (GTK_LABEL (priv->button_label), label);
 }
 
 static void
@@ -254,23 +334,15 @@ select_from_file (NMACertChooserButton *button)
 		}
 		priv->remember_pin = FALSE;
 		update_title (button);
+		g_signal_emit_by_name (button, "changed");
 	}
 	gtk_window_destroy (GTK_WINDOW (dialog));
 }
 
 static void
-dispose (GObject *object)
+changed (GtkComboBox *combo_box, gpointer user_data)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
-
-	nm_clear_g_free (&priv->title);
-	nm_clear_g_free (&priv->uri);
-	nm_clear_g_free (&priv->pin);
-}
-
-static void
-changed (GtkComboBox *combo_box)
-{
+	NMACertChooserButton *self = NMA_CERT_CHOOSER_BUTTON (user_data);
 	GtkTreeIter iter;
 	GtkTreeModel *model;
 	gchar *label;
@@ -287,31 +359,13 @@ changed (GtkComboBox *combo_box)
 	                    COLUMN_LABEL, &label,
 	                    COLUMN_SLOT, &slot, -1);
 	if (slot)
-		select_from_token (NMA_CERT_CHOOSER_BUTTON (combo_box), slot);
+		select_from_token (self, slot);
 	else
-		select_from_file (NMA_CERT_CHOOSER_BUTTON (combo_box));
+		select_from_file (self);
 
 	g_free (label);
 	g_clear_object (&slot);
 	gtk_combo_box_set_active (combo_box, 0);
-}
-
-static void
-nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
-{
-	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkComboBoxClass *combo_box_class = GTK_COMBO_BOX_CLASS (klass);
-
-	g_type_class_add_private (object_class, sizeof (NMACertChooserButtonPrivate));
-
-	object_class->dispose = dispose;
-	combo_box_class->changed = changed;
-}
-
-static void
-nma_cert_chooser_button_init (NMACertChooserButton *self)
-{
-	gck_modules_initialize_registered_async (NULL, modules_initialized, self);
 }
 
 static gboolean
@@ -327,6 +381,156 @@ row_separator (GtkTreeModel *model, GtkTreeIter *iter, gpointer data)
 	g_clear_object (&slot);
 
 	return FALSE;
+}
+
+static void
+create_cert_combo (NMACertChooserButton *self)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	GtkListStore *model;
+	GtkTreeIter iter;
+	GtkCellRenderer *cell;
+
+	model = gtk_list_store_new (2, G_TYPE_STRING, GCK_TYPE_SLOT);
+	priv->cert_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (model));
+	gtk_widget_set_hexpand (priv->cert_combo, TRUE);
+	gtk_widget_show (priv->cert_combo);
+	g_object_unref (model);
+
+	gtk_box_append (GTK_BOX (self), priv->cert_combo);
+
+	gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (priv->cert_combo), TRUE);
+	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (priv->cert_combo),
+	                                      row_separator,
+	                                      NULL,
+	                                      NULL);
+
+	/* The first entry with current object name. */
+	gtk_list_store_insert_with_values (model, &iter, 0,
+	                                   COLUMN_LABEL, NULL,
+	                                   COLUMN_SLOT, NULL, -1);
+
+	/* The separator and the last entry. The tokens will be added in between. */
+	gtk_list_store_insert_with_values (model, &iter, 1,
+	                                   COLUMN_LABEL, NULL,
+	                                   COLUMN_SLOT, NULL, -1);
+	gtk_list_store_insert_with_values (model, &iter, 2,
+	                                   COLUMN_LABEL, _("Select from file\342\200\246"),
+	                                   COLUMN_SLOT, NULL, -1);
+
+	cell = gtk_cell_renderer_text_new ();
+	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->cert_combo), cell, FALSE);
+	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (priv->cert_combo), cell, "text", 0);
+
+	g_signal_connect (priv->cert_combo, "changed", (GCallback) changed, self);
+
+	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->cert_combo), 0);
+	initialize_gck_modules (self);
+}
+
+static void
+create_file_button (NMACertChooserButton *self)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	GtkWidget *widget;
+	GtkWidget *box;
+
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (self), GTK_ORIENTATION_VERTICAL);
+	widget = gtk_button_new ();
+	gtk_widget_show (widget);
+	gtk_box_append (GTK_BOX (self), widget);
+	g_signal_connect_swapped (widget, "clicked", (GCallback) select_from_file, self);
+
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 1);
+	gtk_widget_show (box);
+	gtk_button_set_child (GTK_BUTTON (widget), box);
+
+	priv->button_label = gtk_label_new (NULL);
+	gtk_widget_show (priv->button_label);
+	g_object_set (priv->button_label, "xalign", (gfloat) 0, NULL);
+	gtk_widget_set_hexpand (priv->button_label, TRUE);
+	gtk_box_append (GTK_BOX (box), priv->button_label);
+
+	widget = gtk_image_new_from_icon_name ("document-open-symbolic");
+	gtk_widget_show (widget);
+	gtk_box_append (GTK_BOX (box), widget);
+}
+
+static void
+constructed (GObject *object)
+{
+	NMACertChooserButton *self = NMA_CERT_CHOOSER_BUTTON (object);
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+
+        G_OBJECT_CLASS (nma_cert_chooser_button_parent_class)->constructed (object);
+
+	if (use_simple_button (priv->flags))
+		create_file_button (self);
+	else
+		create_cert_combo (self);
+
+	update_title (self);
+}
+
+static void
+set_property (GObject *object, guint property_id, const GValue *value, GParamSpec *pspec)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
+
+	switch (property_id) {
+	case PROP_FLAGS:
+		priv->flags = g_value_get_uint (value);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+		break;
+	}
+}
+
+static void
+dispose (GObject *object)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
+
+	nm_clear_g_free (&priv->title);
+	nm_clear_g_free (&priv->uri);
+	nm_clear_g_free (&priv->pin);
+
+        G_OBJECT_CLASS (nma_cert_chooser_button_parent_class)->dispose (object);
+}
+
+static void
+nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
+{
+	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+	g_type_class_add_private (object_class, sizeof (NMACertChooserButtonPrivate));
+
+	object_class->constructed = constructed;
+	object_class->dispose = dispose;
+	object_class->set_property = set_property;
+
+	g_signal_new ("changed",
+	              G_OBJECT_CLASS_TYPE(object_class),
+	              G_SIGNAL_RUN_LAST,
+	              0, NULL, NULL,
+	              NULL,
+	              G_TYPE_NONE, 0);
+
+        g_object_class_install_property (object_class, PROP_FLAGS,
+		g_param_spec_uint ("flags", NULL, NULL,
+		                   NMA_CERT_CHOOSER_BUTTON_FLAG_NONE,
+		                     NMA_CERT_CHOOSER_BUTTON_FLAG_KEY
+		                   | NMA_CERT_CHOOSER_BUTTON_FLAG_PEM,
+		                   NMA_CERT_CHOOSER_BUTTON_FLAG_NONE,
+		                     G_PARAM_WRITABLE
+		                   | G_PARAM_CONSTRUCT_ONLY
+		                   | G_PARAM_STATIC_STRINGS));
+}
+
+static void
+nma_cert_chooser_button_init (NMACertChooserButton *self)
+{
 }
 
 /**
@@ -427,45 +631,5 @@ nma_cert_chooser_button_get_remember_pin (NMACertChooserButton *button)
 GtkWidget *
 nma_cert_chooser_button_new (NMACertChooserButtonFlags flags)
 {
-	GtkWidget *self;
-	GtkListStore *model;
-	GtkTreeIter iter;
-	GtkCellRenderer *cell;
-	NMACertChooserButtonPrivate *priv;
-
-	model = gtk_list_store_new (2, G_TYPE_STRING, GCK_TYPE_SLOT);
-	self = g_object_new (NMA_TYPE_CERT_CHOOSER_BUTTON,
-	                     "model", model,
-	                     "popup-fixed-width", TRUE,
-	                     NULL);
-	g_object_unref (model);
-
-	priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
-	priv->flags = flags;
-
-	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (self),
-	                                      row_separator,
-	                                      NULL,
-	                                      NULL);
-
-	/* The first entry with current object name. */
-	gtk_list_store_insert_with_values (model, &iter, 0,
-	                                   COLUMN_LABEL, NULL,
-	                                   COLUMN_SLOT, NULL, -1);
-	update_title (NMA_CERT_CHOOSER_BUTTON (self));
-
-	/* The separator and the last entry. The tokens will be added in between. */
-	gtk_list_store_insert_with_values (model, &iter, 1,
-	                                   COLUMN_LABEL, NULL,
-	                                   COLUMN_SLOT, NULL, -1);
-	gtk_list_store_insert_with_values (model, &iter, 2,
-	                                   COLUMN_LABEL, _("Select from file\342\200\246"),
-	                                   COLUMN_SLOT, NULL, -1);
-
-	cell = gtk_cell_renderer_text_new ();
-	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (self), cell, FALSE);
-	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (self), cell, "text", 0);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (self), 0);
-
-	return self;
+	return g_object_new (NMA_TYPE_CERT_CHOOSER_BUTTON, "flags", flags, NULL);
 }
