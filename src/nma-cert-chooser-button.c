@@ -304,6 +304,7 @@ select_from_file (NMACertChooserButton *button)
 	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
 	GtkRoot *toplevel;
 	GtkWidget *dialog;
+	GFile *file;
 
 	toplevel = gtk_widget_get_root (GTK_WIDGET (button));
 	if (toplevel && !GTK_IS_WINDOW (toplevel))
@@ -321,13 +322,20 @@ select_from_file (NMACertChooserButton *button)
 	else
 		gtk_file_chooser_set_filter (GTK_FILE_CHOOSER (dialog), utils_cert_filter ());
 
-	if (priv->uri)
-		gtk_file_chooser_set_uri (GTK_FILE_CHOOSER (dialog), priv->uri);
+	if (priv->uri) {
+		file = g_file_new_for_uri (priv->uri);
+		gtk_file_chooser_set_file (GTK_FILE_CHOOSER (dialog), file, NULL);
+		g_object_unref (file);
+	}
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
 	if (nma_gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
 		if (priv->uri)
 			g_free (priv->uri);
-		priv->uri = gtk_file_chooser_get_uri (GTK_FILE_CHOOSER (dialog));
+
+		file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (dialog));
+		priv->uri = g_file_get_uri (file);
+		g_object_unref (file);
+
 		if (priv->pin) {
 			g_free (priv->pin);
 			priv->pin = NULL;
