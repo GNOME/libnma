@@ -442,46 +442,23 @@ out:
 	return success;
 }
 
-static gboolean
-file_has_extension (const char *filename, const char *const*extensions)
+static void
+add_patterns_filter (GtkFileFilter *filter, const char *const patterns[])
 {
-	const char *p;
-	gs_free char *ext = NULL;
+	int i;
 
-	if (!filename)
-		return FALSE;
-
-	p = strrchr (filename, '.');
-	if (!p)
-		return FALSE;
-
-	ext = g_ascii_strdown (p, -1);
-	return g_strv_contains (extensions, ext);
-}
-
-static gboolean
-cert_filter (const GtkFileFilterInfo *filter_info, gpointer data)
-{
-	static const char *const extensions[] = { ".der", ".pem", ".crt", ".cer", ".p12", NULL };
-
-	return file_has_extension (filter_info->filename, extensions);
-}
-
-static gboolean
-privkey_filter (const GtkFileFilterInfo *filter_info, gpointer user_data)
-{
-	static const char *const extensions[] = { ".der", ".pem", ".p12", ".key", NULL };
-
-	return file_has_extension (filter_info->filename, extensions);
+	for (i = 0; patterns[i]; i++)
+		gtk_file_filter_add_pattern (filter, patterns[i]);
 }
 
 GtkFileFilter *
 utils_cert_filter (void)
 {
+	static const char *const patterns[] = { "*.der", "*.pem", "*.crt", "*.cer", "*.p12", NULL };
 	GtkFileFilter *filter;
 
 	filter = gtk_file_filter_new ();
-	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, cert_filter, NULL, NULL);
+	add_patterns_filter (filter, patterns);
 	gtk_file_filter_set_name (filter, _("PEM certificates (*.pem, *.crt, *.cer)"));
 
 	return filter;
@@ -490,10 +467,11 @@ utils_cert_filter (void)
 GtkFileFilter *
 utils_key_filter (void)
 {
+	static const char *const patterns[] = { "*.der", "*.pem", "*.p12", "*.key", NULL };
 	GtkFileFilter *filter;
 
 	filter = gtk_file_filter_new ();
-	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, privkey_filter, NULL, NULL);
+	add_patterns_filter (filter, patterns);
 	gtk_file_filter_set_name (filter, _("DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"));
 
 	return filter;
