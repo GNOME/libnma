@@ -186,7 +186,6 @@ libnma_c_real = \
 	src/init.c \
 	src/nma-cert-chooser.c \
 	src/nma-cert-chooser-button.c \
-	src/nma-file-cert-chooser.c \
 	src/nma-bar-code-widget.c \
 	src/nma-bar-code.c \
 	\
@@ -213,7 +212,6 @@ EXTRA_DIST += \
 	src/qrcodegen.h
 
 libnma_h_priv_real = \
-	src/nma-cert-chooser-private.h \
 	src/nma-private.h \
 	src/nma-ws/nma-eap-fast.h \
 	src/nma-ws/nma-eap-leap.h \
@@ -234,8 +232,7 @@ libnma_h_priv_gcr = \
 
 libnma_c_gcr = \
 	src/nma-pkcs11-token-login-dialog.c \
-	src/nma-pkcs11-cert-chooser-dialog.c \
-	src/nma-pkcs11-cert-chooser.c
+	src/nma-pkcs11-cert-chooser-dialog.c
 
 src_libnmadir = $(includedir)/libnma
 
@@ -760,7 +757,6 @@ CFILE_GLOB = $(top_srcdir)/src/*.c
 IGNORE_HFILES = \
 	nma-resources.h \
 	nma-version.h \
-	nma-cert-chooser-private.h \
 	nma-private.h \
 	nma-pkcs11-token-login-dialog.h \
 	nma-pkcs11-cert-chooser-dialog.h \
@@ -769,11 +765,9 @@ IGNORE_HFILES = \
 
 mkdb_ignore_c_files = \
 	nma-resources.c \
-	nma-file-cert-chooser.c \
 	nma-pkcs11-token-login-dialog.c \
 	nma-pkcs11-cert-chooser-dialog.c \
-	nma-cert-chooser-button.c \
-	nma-pkcs11-cert-chooser.c
+	nma-cert-chooser-button.c
 
 MKDB_OPTIONS = --ignore-files "$(IGNORE_HFILES) $(mkdb_ignore_c_files)"
 

@@ -5,13 +5,11 @@ shared/nm-utils/nm-shared-utils.c
 src/nma-bar-code-widget.c
 src/nma-bar-code-widget.ui
 src/nma-cert-chooser-button.c
-src/nma-file-cert-chooser.c
 src/nma-mobile-providers.c
 src/nma-mobile-wizard.c
 src/nma-mobile-wizard.ui
 src/nma-pkcs11-cert-chooser-dialog.c
 src/nma-pkcs11-cert-chooser-dialog.ui
-src/nma-pkcs11-cert-chooser.c
 src/nma-pkcs11-token-login-dialog.c
 src/nma-pkcs11-token-login-dialog.ui
 src/nma-ui-utils.c

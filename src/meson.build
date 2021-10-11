@@ -17,13 +17,6 @@ version_header = configure_file(
 subdir('utils')
 subdir('nma-ws')
 
-cert_chooser_headers = files('nma-cert-chooser.h')
-
-cert_chooser_sources = files(
-  'nma-cert-chooser.c',
-  'nma-file-cert-chooser.c'
-)
-
 resource_data = nma_ws_resource_data + files(
   'nma-bar-code-widget.ui',
   'nma-mobile-wizard.ui',
@@ -39,9 +32,10 @@ built_sources = gnome.compile_resources(
   dependencies: resource_data
 )
 
-gir_headers = cert_chooser_headers + nma_ws_headers + files(
+gir_headers = nma_ws_headers + files(
   'nma-bar-code-widget.h',
   'nma-bar-code.h',
+  'nma-cert-chooser.h',
   'nma-mobile-providers.h',
   'nma-mobile-wizard.h',
   'nma-ui-utils.h',
@@ -54,10 +48,11 @@ install_headers(
   subdir: 'libnma'
 )
 
-gir_sources = [version_header] + cert_chooser_sources + nma_ws_sources + files(
+gir_sources = [version_header] + nma_ws_sources + files(
   'init.c',
   'nma-bar-code-widget.c',
   'nma-bar-code.c',
+  'nma-cert-chooser.c',
   'nma-cert-chooser-button.c',
   'nma-mobile-providers.c',
   'nma-mobile-wizard.c',
@@ -95,7 +90,6 @@ nma_deps = [ deps, gtk_dep ]
 nma_sources = [ gir_sources, built_sources ]
 if enable_gcr
   nma_sources += files(
-    'nma-pkcs11-cert-chooser.c',
     'nma-pkcs11-cert-chooser-dialog.c',
     'nma-pkcs11-token-login-dialog.c'
   )

@@ -306,7 +306,6 @@ if enable_gtk_doc
 
   private_headers = [
     'nma-cert-chooser-button.h',
-    'nma-cert-chooser-private.h',
     'nma-pkcs11-cert-chooser-dialog.h',
     'nma-pkcs11-token-login-dialog.h',
     'nma-resources.h',
