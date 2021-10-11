@@ -2,7 +2,7 @@
 /*
  * EAP-FAST authentication method (RFC4851)
  *
- * Copyright 2012 - 2019 Red Hat, Inc.
+ * Copyright (C) 2012 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -26,6 +26,7 @@ struct _NMAEapFast {
 	GtkSizeGroup *size_group;
 	NMAWs8021x *ws_8021x;
 	gboolean is_editor;
+	char *pac_file_name;
 };
 
 static void
@@ -40,11 +41,11 @@ destroy (NMAEap *parent)
 static gboolean
 validate (NMAEap *parent, GError **error)
 {
+	NMAEapFast *method = (NMAEapFast *) parent;
 	GtkWidget *widget;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	NMAEap *eap = NULL;
-	const char *file;
 	gboolean provisioning;
 	gboolean valid = TRUE;
 
@@ -53,8 +54,7 @@ validate (NMAEap *parent, GError **error)
 	provisioning = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
 	g_assert (widget);
-	file = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
-	if (!provisioning && !file) {
+	if (!provisioning && !method->pac_file_name) {
 		widget_set_error (widget);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP-FAST PAC file"));
 		valid = FALSE;
@@ -115,10 +115,10 @@ add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 static void
 fill_connection (NMAEap *parent, NMConnection *connection)
 {
+	NMAEapFast *method = (NMAEapFast *) parent;
 	NMSetting8021x *s_8021x;
 	GtkWidget *widget;
 	const char *text;
-	char *filename;
 	NMAEap *eap = NULL;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -136,10 +136,7 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 	if (text && strlen (text))
 		g_object_set (s_8021x, NM_SETTING_802_1X_ANONYMOUS_IDENTITY, text, NULL);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
-	g_assert (widget);
-	filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
-	g_object_set (s_8021x, NM_SETTING_802_1X_PAC_FILE, filename, NULL);
+	g_object_set (s_8021x, NM_SETTING_802_1X_PAC_FILE, method->pac_file_name, NULL);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
 	enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
@@ -318,6 +315,58 @@ pac_toggled_cb (GtkWidget *widget, gpointer user_data)
 	nma_ws_changed_cb (widget, method->ws_8021x);
 }
 
+static void
+update_pac_chooser_button_label (NMAEap *parent, GtkWidget *chooser)
+{
+	NMAEapFast *method = (NMAEapFast *) parent;
+	GtkWidget *label;
+	char *basename;
+
+	label = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button_label"));
+	g_assert (label);
+
+	if (method->pac_file_name) {
+		basename = g_filename_display_basename (method->pac_file_name);
+		gtk_label_set_text (GTK_LABEL (label), basename);
+		g_free (basename);
+	} else {
+		gtk_label_set_text (GTK_LABEL (label), _("(None)"));
+	}
+}
+
+static void
+pac_chooser_clicked (GtkButton* self, gpointer user_data)
+{
+	NMAEap *parent = (NMAEap *) user_data;
+	NMAEapFast *method = (NMAEapFast *) parent;
+	GtkWidget *chooser;
+	GFile *file;
+	GtkRoot *toplevel;
+
+	toplevel = gtk_widget_get_root (GTK_WIDGET (self));
+	if (toplevel && !GTK_IS_WINDOW (toplevel))
+		toplevel = NULL;
+
+	chooser = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_chooser"));
+	g_assert (chooser);
+
+	gtk_window_set_transient_for (GTK_WINDOW (chooser), (GtkWindow *) toplevel);
+
+	if (nma_gtk_dialog_run (GTK_DIALOG (chooser)) == GTK_RESPONSE_ACCEPT) {
+		if (method->pac_file_name)
+			g_clear_pointer (&method->pac_file_name, g_free);
+
+		file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (chooser));
+		if (file) {
+			method->pac_file_name = g_file_get_path (file);
+			g_object_unref (file);
+		}
+
+		update_pac_chooser_button_label (parent, chooser);
+		nma_ws_changed_cb (NULL, method->ws_8021x);
+	}
+}
+
 NMAEapFast *
 nma_eap_fast_new (NMAWs8021x *ws_8021x,
                   NMConnection *connection,
@@ -329,7 +378,7 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 	GtkWidget *widget;
 	GtkFileFilter *filter;
 	NMSetting8021x *s_8021x = NULL;
-	const char *filename;
+	GFile *file;
 	gboolean provisioning_enabled = TRUE;
 
 	parent = nma_eap_init (sizeof (NMAEapFast),
@@ -390,12 +439,13 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
 	g_assert (widget);
-	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
-	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
-	                                   _("Choose a PAC file"));
-	g_signal_connect (G_OBJECT (widget), "selection-changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
+
+	g_signal_connect (G_OBJECT (widget), "clicked",
+	                  (GCallback) pac_chooser_clicked,
+	                  parent);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_chooser"));
+	g_assert (widget);
 
 	filter = gtk_file_filter_new ();
 	gtk_file_filter_add_pattern (filter, "*.pac");
@@ -407,10 +457,15 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget), filter);
 
 	if (connection && s_8021x) {
-		filename = nm_setting_802_1x_get_pac_file (s_8021x);
-		if (filename)
-			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), filename);
+		method->pac_file_name = g_strdup (nm_setting_802_1x_get_pac_file (s_8021x));
+		if (method->pac_file_name) {
+			file = g_file_new_for_path (method->pac_file_name);
+			gtk_file_chooser_set_file (GTK_FILE_CHOOSER (widget), file, NULL);
+			g_object_unref (file);
+		}
 	}
+
+	update_pac_chooser_button_label (parent, widget);
 
 	widget = inner_auth_combo_init (method, connection, s_8021x, secrets_only);
 	inner_auth_combo_changed_cb (widget, (gpointer) method);
