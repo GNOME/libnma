@@ -31,6 +31,9 @@ typedef struct {
 	GtkWidget *password_entry_secondary;
 	GtkWidget *password_entry_tertiary;
 	GtkWidget *show_passwords_checkbox;
+
+	GMainLoop *loop;
+	gint response_id;
 } NMAVpnPasswordDialogPrivate;
 
 G_DEFINE_TYPE_WITH_CODE (NMAVpnPasswordDialog, nma_vpn_password_dialog, GTK_TYPE_DIALOG,
@@ -48,6 +51,7 @@ static void nma_vpn_password_dialog_init       (NMAVpnPasswordDialog      *passw
 /* GtkDialog callbacks */
 static void dialog_show_callback (GtkWidget *widget, gpointer callback_data);
 static void dialog_close_callback (GtkWidget *widget, gpointer callback_data);
+static void dialog_response_callback (GtkWidget *widget, gint response_id, gpointer callback_data);
 
 static void
 show_passwords_toggled_cb (GtkWidget *widget, gpointer user_data)
@@ -91,6 +95,7 @@ nma_vpn_password_dialog_class_init (NMAVpnPasswordDialogClass *klass)
 
 	gtk_widget_class_bind_template_callback (widget_class, dialog_close_callback);
 	gtk_widget_class_bind_template_callback (widget_class, dialog_show_callback);
+	gtk_widget_class_bind_template_callback (widget_class, dialog_response_callback);
 	gtk_widget_class_bind_template_callback (widget_class, entry_activate_cb);
 	gtk_widget_class_bind_template_callback (widget_class, show_passwords_toggled_cb);
 }
@@ -129,6 +134,19 @@ dialog_close_callback (GtkWidget *widget, gpointer callback_data)
 	gtk_widget_hide (widget);
 }
 
+static void
+dialog_response_callback (GtkWidget *widget, gint response_id, gpointer callback_data)
+{
+	NMAVpnPasswordDialog *dialog = NMA_VPN_PASSWORD_DIALOG (callback_data);
+	NMAVpnPasswordDialogPrivate *priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
+
+	priv->response_id = response_id;
+	if (priv->loop == NULL)
+		return;
+	if (g_main_loop_is_running (priv->loop))
+		g_main_loop_quit (priv->loop);
+}
+
 /* Public NMAVpnPasswordDialog methods */
 GtkWidget *
 nma_vpn_password_dialog_new (const char *title,
@@ -138,7 +156,7 @@ nma_vpn_password_dialog_new (const char *title,
 	GtkWidget *dialog;
 	NMAVpnPasswordDialogPrivate *priv;
 
-	dialog = gtk_widget_new (NMA_VPN_TYPE_PASSWORD_DIALOG, "title", title, NULL);
+	dialog = g_object_new (NMA_VPN_TYPE_PASSWORD_DIALOG, "title", title, NULL);
 	if (!dialog)
 		return NULL;
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
