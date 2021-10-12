@@ -9,10 +9,11 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
- * Copyright 2019 Red Hat, Inc.
+ * Copyright (C) 2018 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <gtk/gtk.h>
 #include "nma-cert-chooser.h"
@@ -24,11 +25,7 @@ main (int argc, char *argv[])
 	GtkBox *content;
 	GtkWidget *widget;
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	dialog = gtk_dialog_new_with_buttons ("NMACertChooser test",
 	                                      NULL, GTK_DIALOG_MODAL,

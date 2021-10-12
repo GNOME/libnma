@@ -2,10 +2,12 @@
 /*
  * run-vpn - VPN plugin runner for testing
  *
- * (C) Copyright 2018 Lubomir Rintel
+ * Copyright (C) 2018 Lubomir Rintel
+ * Copyright (C) 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <NetworkManager.h>
 #include <gtk/gtk.h>
@@ -33,11 +35,7 @@ main (int argc, char *argv[])
 	GtkWidget *widget;
 	gs_free_error GError *error = NULL;
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	if (argc != 2) {
 		g_printerr ("Usage: %s libnm-vpn-plugin-<name>.so\n", argv[0]);
@@ -66,7 +64,7 @@ main (int argc, char *argv[])
 	}
 
 	main_loop = g_main_loop_new (NULL, FALSE);
-	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	window = gtk_window_new ();
 	gtk_widget_show (window);
 	g_signal_connect (G_OBJECT (window), "delete-event", G_CALLBACK (window_deleted), main_loop);
 
