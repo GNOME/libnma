@@ -3,7 +3,7 @@
  *
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2015 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #ifndef UTILS_H
@@ -23,12 +23,6 @@ char *utils_escape_notify_message (const char *src);
 
 char *utils_create_mobile_connection_id (const char *provider,
                                          const char *plan_name);
-
-void utils_show_error_dialog (const char *title,
-                              const char *text1,
-                              const char *text2,
-                              gboolean modal,
-                              GtkWindow *parent);
 
 #define NMA_ERROR (g_quark_from_static_string ("nma-error-quark"))
 

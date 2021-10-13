@@ -3,7 +3,7 @@
  *
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2015 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -160,44 +160,6 @@ utils_create_mobile_connection_id (const char *provider, const char *plan_name)
 	/* The %s is a mobile provider name, eg "T-Mobile" */
 	return g_strdup_printf (_("%s connection"), provider);
 }
-
-void
-utils_show_error_dialog (const char *title,
-                         const char *text1,
-                         const char *text2,
-                         gboolean modal,
-                         GtkWindow *parent)
-{
-	GtkWidget *err_dialog;
-
-	g_return_if_fail (text1 != NULL);
-
-	err_dialog = gtk_message_dialog_new (parent,
-	                                     GTK_DIALOG_DESTROY_WITH_PARENT,
-	                                     GTK_MESSAGE_ERROR,
-	                                     GTK_BUTTONS_CLOSE,
-	                                     "%s",
-	                                     text1);
-
-	gtk_window_set_position (GTK_WINDOW (err_dialog), GTK_WIN_POS_CENTER_ALWAYS);
-
-	if (text2)
-		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (err_dialog), "%s", text2);
-	if (title)
-		gtk_window_set_title (GTK_WINDOW (err_dialog), title);
-
-	if (modal) {
-		gtk_dialog_run (GTK_DIALOG (err_dialog));
-		gtk_widget_destroy (err_dialog);
-	} else {
-		g_signal_connect (err_dialog, "delete-event", G_CALLBACK (gtk_widget_destroy), NULL);
-		g_signal_connect (err_dialog, "response", G_CALLBACK (gtk_widget_destroy), NULL);
-
-		gtk_widget_show (err_dialog);
-		gtk_window_present (GTK_WINDOW (err_dialog));
-	}
-}
-
 
 gboolean
 utils_char_is_ascii_print (char character)
