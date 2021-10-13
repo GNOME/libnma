@@ -168,12 +168,6 @@ utils_char_is_ascii_print (char character)
 }
 
 gboolean
-utils_char_is_ascii_digit (char character)
-{
-	return g_ascii_isdigit (character);
-}
-
-gboolean
 utils_char_is_ascii_ip4_address (char character)
 {
 	return g_ascii_isdigit (character) || character == '.';

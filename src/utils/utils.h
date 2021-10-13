@@ -32,7 +32,6 @@ typedef enum  {
 
 
 gboolean utils_char_is_ascii_print (char character);
-gboolean utils_char_is_ascii_digit (char character);
 gboolean utils_char_is_ascii_ip4_address (char character);
 gboolean utils_char_is_ascii_ip6_address (char character);
 gboolean utils_char_is_ascii_apn (char character);
