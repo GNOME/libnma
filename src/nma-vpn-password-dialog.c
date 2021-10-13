@@ -11,7 +11,7 @@
  * Library General Public License for more details.
  *
  * Copyright (C) 1999, 2000 Eazel, Inc.
- * Copyright (C) 2011 - 2018 Red Hat, Inc.
+ * Copyright (C) 2011 - 2021 Red Hat, Inc.
  *
  * Authors: Ramiro Estrugo <ramiro@eazel.com>
  *          Dan Williams <dcbw@redhat.com>
@@ -64,6 +64,14 @@ show_passwords_toggled_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static void
+entry_activate_cb (GtkButton *button, gpointer user_data)
+{
+	GtkDialog *dialog = GTK_DIALOG (user_data);
+
+	gtk_dialog_response (dialog, GTK_RESPONSE_OK);
+}
+
+static void
 nma_vpn_password_dialog_class_init (NMAVpnPasswordDialogClass *klass)
 {
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -83,7 +91,7 @@ nma_vpn_password_dialog_class_init (NMAVpnPasswordDialogClass *klass)
 
 	gtk_widget_class_bind_template_callback (widget_class, dialog_close_callback);
 	gtk_widget_class_bind_template_callback (widget_class, dialog_show_callback);
-	gtk_widget_class_bind_template_callback (widget_class, nma_gtk_widget_activate_default);
+	gtk_widget_class_bind_template_callback (widget_class, entry_activate_cb);
 	gtk_widget_class_bind_template_callback (widget_class, show_passwords_toggled_cb);
 }
 
