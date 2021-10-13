@@ -188,11 +188,11 @@ static void
 select_from_token (NMACertChooserButton *button, GckSlot *slot)
 {
 	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
-	GtkWidget *toplevel;
+	GtkRoot *toplevel;
 	GtkWidget *dialog;
 
-	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (button));
-	if (!gtk_widget_is_toplevel (toplevel) || !GTK_IS_WINDOW (toplevel))
+	toplevel = gtk_widget_get_root (GTK_WIDGET (button));
+	if (toplevel && !GTK_IS_WINDOW (toplevel))
 		toplevel = NULL;
 
 	dialog = nma_pkcs11_cert_chooser_dialog_new (slot,
@@ -200,7 +200,7 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 	                                             ? CKO_PRIVATE_KEY
 	                                             : CKO_CERTIFICATE,
 	                                             priv->title,
-	                                             GTK_WINDOW (toplevel),
+	                                             (GtkWindow *) toplevel,
 	                                             GTK_FILE_CHOOSER_ACTION_OPEN | GTK_DIALOG_USE_HEADER_BAR,
 	                                             _("Select"), GTK_RESPONSE_ACCEPT,
 	                                             _("Cancel"), GTK_RESPONSE_CANCEL,
@@ -222,15 +222,15 @@ static void
 select_from_file (NMACertChooserButton *button)
 {
 	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
-	GtkWidget *toplevel;
+	GtkRoot *toplevel;
 	GtkWidget *dialog;
 
-	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (button));
-	if (!gtk_widget_is_toplevel (toplevel) || !GTK_IS_WINDOW (toplevel))
+	toplevel = gtk_widget_get_root (GTK_WIDGET (button));
+	if (toplevel && !GTK_IS_WINDOW (toplevel))
 		toplevel = NULL;
 
 	dialog = gtk_file_chooser_dialog_new (priv->title,
-	                                      GTK_WINDOW (toplevel),
+	                                      (GtkWindow *) toplevel,
 	                                      GTK_FILE_CHOOSER_ACTION_OPEN,
 	                                      _("Select"), GTK_RESPONSE_ACCEPT,
 	                                      _("Cancel"), GTK_RESPONSE_CANCEL,
