@@ -162,12 +162,6 @@ utils_create_mobile_connection_id (const char *provider, const char *plan_name)
 }
 
 gboolean
-utils_char_is_ascii_print (char character)
-{
-	return g_ascii_isprint (character);
-}
-
-gboolean
 utils_char_is_ascii_ip4_address (char character)
 {
 	return g_ascii_isdigit (character) || character == '.';

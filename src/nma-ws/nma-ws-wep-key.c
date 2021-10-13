@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -120,7 +120,7 @@ validate (NMAWs *ws, GError **error)
 			}
 		} else if ((strlen (key) == 5) || (strlen (key) == 13)) {
 			for (i = 0; i < strlen (key); i++) {
-				if (!utils_char_is_ascii_print (key[i])) {
+				if (!g_ascii_isprint (key[i])) {
 					widget_set_error (self->wep_key_entry);
 					g_set_error (error, NMA_ERROR, NMA_ERROR_GENERIC, _("invalid wep-key: key with a length of %zu must contain only ascii characters"), strlen (key));
 					return FALSE;
@@ -198,6 +198,12 @@ fill_connection (NMAWs *ws, NMConnection *connection)
 	}
 }
 
+static gboolean
+_ascii_isprint (char character)
+{
+       return g_ascii_isprint (character);
+}
+
 static void
 wep_entry_filter_cb (GtkEditable *editable,
                      char *text,
@@ -210,7 +216,7 @@ wep_entry_filter_cb (GtkEditable *editable,
 	if (self->key_type == NM_WEP_KEY_TYPE_KEY) {
 		utils_filter_editable_on_insert_text (editable,
 		                                      text, length, position, data,
-		                                      utils_char_is_ascii_print,
+		                                      _ascii_isprint,
 		                                      wep_entry_filter_cb);
 	}
 }
