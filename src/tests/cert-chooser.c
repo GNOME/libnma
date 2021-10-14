@@ -21,6 +21,7 @@
 int
 main (int argc, char *argv[])
 {
+	GMainLoop *loop;
 	GtkWidget *dialog;
 	GtkBox *content;
 	GtkWidget *widget;
@@ -97,5 +98,13 @@ main (int argc, char *argv[])
 	gtk_box_pack_start (content, widget, TRUE, TRUE, 6);
 #endif
 
-	gtk_dialog_run (GTK_DIALOG (dialog));
+	loop = g_main_loop_new (NULL, FALSE);
+	g_signal_connect_swapped (dialog, "response", G_CALLBACK (g_main_loop_quit), loop);
+
+	gtk_window_set_hide_on_close (GTK_WINDOW (dialog), TRUE);
+	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	gtk_window_present (GTK_WINDOW (dialog));
+
+	g_main_loop_run (loop);
+	g_main_loop_unref (loop);
 }

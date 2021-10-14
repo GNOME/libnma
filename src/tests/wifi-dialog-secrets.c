@@ -10,8 +10,13 @@
 #include <NetworkManager.h>
 #include "nma-wifi-dialog.h"
 
+typedef struct {
+	GMainLoop *loop;
+	NMConnection *connection;
+} ResponseData;
+
 static void
-response_cb (GtkDialog *obj, gint response, gpointer user_data)
+response_cb (GtkDialog *obj, gint response, ResponseData *data)
 {
 	NMAWifiDialog *dialog = NMA_WIFI_DIALOG (obj);
 
@@ -22,10 +27,9 @@ response_cb (GtkDialog *obj, gint response, gpointer user_data)
 		GHashTableIter iter, setting_iter;
 		const char *setting, *key;
 		NMConnection *connection = nma_wifi_dialog_get_connection (dialog, NULL, NULL);
-		NMConnection *orig = user_data;
 
 		g_print ("settings changed:\n");
-		nm_connection_diff (connection, orig, NM_SETTING_COMPARE_FLAG_EXACT, &diff);
+		nm_connection_diff (connection, data->connection, NM_SETTING_COMPARE_FLAG_EXACT, &diff);
 		if (!diff)
 			return;
 
@@ -38,14 +42,16 @@ response_cb (GtkDialog *obj, gint response, gpointer user_data)
 
 		g_hash_table_destroy (diff);
 	}
+
+	g_main_loop_quit (data->loop);
 }
 
 int
 main (int argc, char *argv[])
 {
+	ResponseData data;
 	GtkWidget *dialog;
 	NMClient *client = NULL;
-	NMConnection *connection = NULL;
 	GError *error = NULL;
 	gs_unref_bytes GBytes *ssid = g_bytes_new_static ("<Maj Vaj Faj>", 13);
 	const char *hints[] = {
@@ -58,40 +64,47 @@ main (int argc, char *argv[])
 	gtk_init ();
 
 	client = nm_client_new (NULL, NULL);
-	connection = nm_simple_connection_new ();
-	nm_connection_add_setting (connection,
+	data.connection = nm_simple_connection_new ();
+	nm_connection_add_setting (data.connection,
 		g_object_new (NM_TYPE_SETTING_CONNECTION,
 		              NM_SETTING_CONNECTION_ID, "<Maj Vaj Faj>",
 		              NULL));
-	nm_connection_add_setting (connection,
+	nm_connection_add_setting (data.connection,
 		g_object_new (NM_TYPE_SETTING_WIRELESS,
 		              NM_SETTING_WIRELESS_SSID, ssid,
 		              NULL));
-	nm_connection_add_setting (connection,
+	nm_connection_add_setting (data.connection,
 		g_object_new (NM_TYPE_SETTING_WIRELESS_SECURITY,
 		              NM_SETTING_WIRELESS_SECURITY_KEY_MGMT, "wpa-eap",
 		              NULL));
-	nm_connection_add_setting (connection,
+	nm_connection_add_setting (data.connection,
 		g_object_new (NM_TYPE_SETTING_802_1X,
 		              NM_SETTING_802_1X_EAP, (const char * const []){ "peap", NULL },
 		              NM_SETTING_802_1X_IDENTITY, "budulinek",
 		              NM_SETTING_802_1X_PHASE2_AUTH, "gtc",
 		              NULL));
 
-	if (!nm_connection_normalize (connection, NULL, NULL, &error)) {
-		nm_connection_dump (connection);
+	if (!nm_connection_normalize (data.connection, NULL, NULL, &error)) {
+		nm_connection_dump (data.connection);
 		g_printerr ("Error: %s\n", error->message);
 		g_error_free (error);
 		return 1;
 	}
 
+	data.loop = g_main_loop_new (NULL, FALSE);
 	dialog = nma_wifi_dialog_new_for_secrets (client,
-	                                          nm_simple_connection_new_clone (connection),
+	                                          nm_simple_connection_new_clone (data.connection),
 	                                          NM_SETTING_802_1X_SETTING_NAME,
 	                                          hints);
-	g_signal_connect (dialog, "response", G_CALLBACK (response_cb), connection);
-	gtk_dialog_run (GTK_DIALOG (dialog));
-	gtk_window_destroy (GTK_WINDOW (dialog));
+	g_signal_connect (dialog, "response", G_CALLBACK (response_cb), &data);
 
-	g_object_unref (connection);
+	gtk_window_set_hide_on_close (GTK_WINDOW (dialog), TRUE);
+	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	gtk_window_present (GTK_WINDOW (dialog));
+
+	g_main_loop_run (data.loop);
+	g_main_loop_unref (data.loop);
+
+	gtk_window_destroy (GTK_WINDOW (dialog));
+	g_object_unref (data.connection);
 }

@@ -12,6 +12,7 @@
 int
 main (int argc, char *argv[])
 {
+	GMainLoop *loop;
 	GtkWidget *dialog;
 	NMClient *client = NULL;
 	NMConnection *connection = NULL;
@@ -52,6 +53,16 @@ main (int argc, char *argv[])
 	}
 
 	dialog = nma_wifi_dialog_new (client, connection, device, ap, secrets_only);
-	gtk_dialog_run (GTK_DIALOG (dialog));
+
+	loop = g_main_loop_new (NULL, FALSE);
+	g_signal_connect_swapped (dialog, "response", G_CALLBACK (g_main_loop_quit), loop);
+
+	gtk_window_set_hide_on_close (GTK_WINDOW (dialog), TRUE);
+	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	gtk_window_present (GTK_WINDOW (dialog));
+
+	g_main_loop_run (loop);
+	g_main_loop_unref (loop);
+
 	gtk_window_destroy (GTK_WINDOW (dialog));
 }
