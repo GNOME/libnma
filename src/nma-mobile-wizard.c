@@ -1467,7 +1467,7 @@ nma_mobile_wizard_init (NMAMobileWizard *self)
 #ifdef GDK_WINDOWING_X11
 	if (GDK_IS_X11_DISPLAY (gtk_widget_get_display (GTK_WIDGET (priv->assistant)))) {
 #if GTK_CHECK_VERSION(3,90,0)
-		GdkSurface *surface = gtk_widget_get_surface (GTK_WIDGET (priv->assistant));
+		GdkSurface *surface = gtk_native_get_surface (GTK_NATIVE (priv->assistant));
 		gdk_x11_surface_set_skip_taskbar_hint (surface, TRUE);
 #else
 		GdkWindow *gdk_window = gtk_widget_get_window (GTK_WIDGET (priv->assistant));
