@@ -3,10 +3,12 @@
  *
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * Copyright (C) 2016,2017 Red Hat, Inc.
+ * Copyright (C) 2016 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
+
 #include "nma-cert-chooser-button.h"
 #include "nma-pkcs11-cert-chooser-dialog.h"
 #include "utils.h"
@@ -213,7 +215,7 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 		priv->remember_pin = nma_pkcs11_cert_chooser_dialog_get_remember_pin (NMA_PKCS11_CERT_CHOOSER_DIALOG (dialog));
 		update_title (button);
 	}
-	gtk_widget_destroy (dialog);
+	gtk_window_destroy (GTK_WINDOW (dialog));
 }
 
 static void
@@ -253,7 +255,7 @@ select_from_file (NMACertChooserButton *button)
 		priv->remember_pin = FALSE;
 		update_title (button);
 	}
-	gtk_widget_destroy (dialog);
+	gtk_window_destroy (GTK_WINDOW (dialog));
 }
 
 static void

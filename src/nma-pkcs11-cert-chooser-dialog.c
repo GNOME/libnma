@@ -3,7 +3,7 @@
  *
  * Lubomir Rintel <lkundrak@v3.sk>
  *
- * Copyright (C) 2016,2017 Red Hat, Inc.
+ * Copyright (C) 2016 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -349,7 +349,7 @@ login_clicked (GtkButton *button, gpointer user_data)
 		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, session_opened, self);
 	}
 
-	gtk_widget_destroy (dialog);
+	gtk_window_destroy (GTK_WINDOW (dialog));
 }
 
 static void

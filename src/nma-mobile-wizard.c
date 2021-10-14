@@ -1563,5 +1563,5 @@ nma_mobile_wizard_destroy (NMAMobileWizard *self)
 {
 	NMAMobileWizardPrivate *priv = NMA_MOBILE_WIZARD_GET_PRIVATE (self);
 
-	gtk_widget_destroy (GTK_WIDGET (priv->assistant));
+	gtk_window_destroy (GTK_WINDOW (priv->assistant));
 }

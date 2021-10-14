@@ -4,6 +4,7 @@
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <gtk/gtk.h>
 #include "nma-wifi-dialog.h"
@@ -20,11 +21,7 @@ main (int argc, char *argv[])
 	GError *error = NULL;
 	gs_unref_bytes GBytes *ssid = g_bytes_new_static ("<Maj Vaj Faj>", 13);
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	client = nm_client_new (NULL, NULL);
 	connection = nm_simple_connection_new ();
@@ -56,5 +53,5 @@ main (int argc, char *argv[])
 
 	dialog = nma_wifi_dialog_new (client, connection, device, ap, secrets_only);
 	gtk_dialog_run (GTK_DIALOG (dialog));
-	gtk_widget_destroy (dialog);
+	gtk_window_destroy (GTK_WINDOW (dialog));
 }

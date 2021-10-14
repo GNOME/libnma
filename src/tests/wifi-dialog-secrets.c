@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2018 Red Hat, Inc.
+ * Copyright (C) 2018 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <gtk/gtk.h>
 #include <NetworkManager.h>
@@ -54,11 +55,7 @@ main (int argc, char *argv[])
 		NULL
 	};
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	client = nm_client_new (NULL, NULL);
 	connection = nm_simple_connection_new ();
@@ -94,7 +91,7 @@ main (int argc, char *argv[])
 	                                          hints);
 	g_signal_connect (dialog, "response", G_CALLBACK (response_cb), connection);
 	gtk_dialog_run (GTK_DIALOG (dialog));
-	gtk_widget_destroy (dialog);
+	gtk_window_destroy (GTK_WINDOW (dialog));
 
 	g_object_unref (connection);
 }

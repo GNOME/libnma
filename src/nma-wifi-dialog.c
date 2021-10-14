@@ -1343,7 +1343,7 @@ internal_new_dialog (NMClient *client,
 
 		if (!internal_init (self, connection, device, secrets_only, secrets_setting_name, secrets_hints)) {
 			g_warning ("Couldn't create Wi-Fi security dialog.");
-			gtk_widget_destroy (GTK_WIDGET (self));
+			gtk_window_destroy (GTK_WINDOW (self));
 			self = NULL;
 		}
 	}
@@ -1453,7 +1453,7 @@ internal_new_operation (NMClient *client,
 
 	if (!internal_init (self, NULL, NULL, FALSE, NULL, NULL)) {
 		g_warning ("Couldn't create Wi-Fi security dialog.");
-		gtk_widget_destroy (GTK_WIDGET (self));
+		gtk_window_destroy (GTK_WINDOW (self));
 		return NULL;
 	}
 
