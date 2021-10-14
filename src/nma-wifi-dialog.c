@@ -520,7 +520,7 @@ connection_combo_init (NMAWifiDialog *self)
 	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (widget), renderer, TRUE);
 	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (widget), renderer,
 	                               "text", C_NAME_COLUMN);
-#if !GTK_CHECK_VERSION(3,96,0)
+#if !GTK_CHECK_VERSION(4,0,0)
 	gtk_combo_box_set_wrap_width (GTK_COMBO_BOX (widget), 1);
 #endif
 
@@ -1093,7 +1093,7 @@ internal_init (NMAWifiDialog *self,
 
 	gtk_window_set_icon_name (GTK_WINDOW (self), icon_name);
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "image1"));
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name);
 #else
 	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name, GTK_ICON_SIZE_DIALOG);
@@ -1111,7 +1111,7 @@ internal_init (NMAWifiDialog *self,
 		priv->ok_response_button = widget;
 	}
 
-#if !GTK_CHECK_VERSION(3,96,0)
+#if !GTK_CHECK_VERSION(4,0,0)
 	g_object_set (G_OBJECT (widget), "can-default", TRUE, NULL);
 	gtk_widget_grab_default (widget);
 #endif

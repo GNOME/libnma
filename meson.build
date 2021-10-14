@@ -74,12 +74,12 @@ endif
 
 enable_libnma_gtk4 = get_option('libnma_gtk4')
 if enable_libnma_gtk4
-  gtk4_ext_dep = dependency('gtk4', version: '>= 3.96')
+  gtk4_ext_dep = dependency('gtk4', version: '>= 4.0')
   gtk4_dep = declare_dependency(
     dependencies: gtk4_ext_dep,
     compile_args: [
-      '-DGTK_VERSION_MIN_REQUIRED=GTK_VERSION_3_96',
-      '-DGTK_VERSION_MAX_ALLOWED=GTK_VERSION_3_96'
+      '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_4_0',
+      '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_4_0'
     ]
   )
 endif

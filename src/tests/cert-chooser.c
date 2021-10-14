@@ -35,7 +35,7 @@ main (int argc, char *argv[])
 	content = GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog)));
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (content), GTK_ORIENTATION_VERTICAL);
 
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 	gtk_box_set_spacing (content, 6);
 #endif
 

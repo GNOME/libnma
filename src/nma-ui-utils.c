@@ -209,7 +209,7 @@ popup_menu_item_info_register (GtkWidget *item,
 static void
 icon_release_cb (GtkEntry *entry,
                  GtkEntryIconPosition position,
-#if !GTK_CHECK_VERSION(3,90,0)
+#if !GTK_CHECK_VERSION(4,0,0)
                  GdkEventButton *event,
 #endif
                  gpointer data)
@@ -217,7 +217,7 @@ icon_release_cb (GtkEntry *entry,
 	GtkMenu *menu = GTK_MENU (data);
 
 	if (position == GTK_ENTRY_ICON_SECONDARY) {
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 		gtk_widget_show (GTK_WIDGET (data));
 		gtk_menu_popup_at_pointer (menu, NULL);
 #else

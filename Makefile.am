@@ -141,7 +141,7 @@ src/libnma-gtk4/nma-resources.c: src/nma.gresource.xml $(shell $(GLIB_COMPILE_RE
 
 src/libnma-gtk4/%.ui: src/%.ui
 	@mkdir -p $(builddir)/src/libnma-gtk4 $(builddir)/src/libnma-gtk4/nma-ws
-	gtk4-builder-tool simplify --3to4 $< |awk '/^</ {xml=1} {if (xml) print; else print >"/dev/stderr"}' >$@
+	gtk4-builder-tool simplify --3to4 $< |grep -v can.default >$@
 
 CLEANFILES += \
 	$(libnma_h_priv_gen) \
