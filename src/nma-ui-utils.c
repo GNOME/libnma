@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2015 Red Hat, Inc.
+ * Copyright (C) 2015 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -204,16 +204,6 @@ popup_menu_item_info_register (GtkWidget *item,
 	                       G_CALLBACK (activate_menu_item_cb),
 	                       info,
 	                       (GClosureNotify) popup_menu_item_info_destroy, 0);
-}
-
-void
-nma_gtk_widget_activate_default (GtkWidget *widget)
-{
-#if GTK_CHECK_VERSION(3,90,0)
-	gtk_widget_activate_default (widget);
-#else
-	gtk_window_activate_default (GTK_WINDOW (widget));
-#endif
 }
 
 static void
