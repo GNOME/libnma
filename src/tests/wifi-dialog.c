@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: GPL-2.0+
 /*
- * Copyright 2018 Red Hat, Inc.
+ * Copyright (C) 2018 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <gtk/gtk.h>
 #include "nma-wifi-dialog.h"
@@ -11,6 +12,7 @@
 int
 main (int argc, char *argv[])
 {
+	GMainLoop *loop;
 	GtkWidget *dialog;
 	NMClient *client = NULL;
 	NMConnection *connection = NULL;
@@ -20,11 +22,7 @@ main (int argc, char *argv[])
 	GError *error = NULL;
 	gs_unref_bytes GBytes *ssid = g_bytes_new_static ("<Maj Vaj Faj>", 13);
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	client = nm_client_new (NULL, NULL);
 	connection = nm_simple_connection_new ();
@@ -55,6 +53,16 @@ main (int argc, char *argv[])
 	}
 
 	dialog = nma_wifi_dialog_new (client, connection, device, ap, secrets_only);
-	gtk_dialog_run (GTK_DIALOG (dialog));
-	gtk_widget_destroy (dialog);
+
+	loop = g_main_loop_new (NULL, FALSE);
+	g_signal_connect_swapped (dialog, "response", G_CALLBACK (g_main_loop_quit), loop);
+
+	gtk_window_set_hide_on_close (GTK_WINDOW (dialog), TRUE);
+	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	gtk_window_present (GTK_WINDOW (dialog));
+
+	g_main_loop_run (loop);
+	g_main_loop_unref (loop);
+
+	gtk_window_destroy (GTK_WINDOW (dialog));
 }

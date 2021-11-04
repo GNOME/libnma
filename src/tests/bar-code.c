@@ -9,7 +9,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
- * Copyright 2018, 2019 Red Hat, Inc.
+ * Copyright (C) 2018 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -23,11 +23,10 @@
 #include "nma-bar-code-widget.h"
 
 static gboolean
-delete (GtkWidget *widget, GdkEvent *event, gpointer user_data)
+delete (GMainLoop *main_loop)
 {
-        gtk_main_quit ();
-
-        return FALSE;
+	g_main_loop_quit (main_loop);
+	return FALSE;
 }
 
 static void
@@ -93,6 +92,7 @@ key_mgmt_changed (GtkComboBox *combo_box, gpointer user_data)
 int
 main (int argc, char *argv[])
 {
+	GMainLoop *loop;
 	GtkWidget *w, *pass;
 	GtkWidget *grid;
 	NMConnection *connection = NULL;
@@ -106,16 +106,18 @@ main (int argc, char *argv[])
 	nm_connection_add_setting (connection,
 	                           nm_setting_wireless_new ());
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
-	w = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	w = gtk_window_new ();
 	gtk_widget_show (w);
 	gtk_window_set_default_size (GTK_WINDOW (w), 800, 680);
-	g_signal_connect (w, "delete-event", G_CALLBACK (delete), NULL);
+
+	loop = g_main_loop_new (NULL, FALSE);
+#if GTK_CHECK_VERSION(4,0,0)
+	g_signal_connect_swapped (w, "close-request", G_CALLBACK (delete), loop);
+#else
+	g_signal_connect_swapped (w, "delete-event", G_CALLBACK (delete), loop);
+#endif
 
 	grid = gtk_grid_new ();
 	gtk_widget_show (grid);
@@ -127,7 +129,7 @@ main (int argc, char *argv[])
 	              "margin_top", 6,
 	              "margin_bottom", 6,
 	              NULL);
-	gtk_container_add (GTK_CONTAINER (w), grid);
+	gtk_window_set_child (GTK_WINDOW (w), grid);
 
 	w = gtk_label_new ("SSID");
 	gtk_widget_show (w);
@@ -174,5 +176,6 @@ main (int argc, char *argv[])
 	gtk_widget_set_hexpand (w, TRUE);
 	gtk_grid_attach (GTK_GRID (grid), w, 0, 3, 2, 1);
 
-	gtk_main ();
+	g_main_loop_run (loop);
+	g_main_loop_unref (loop);
 }

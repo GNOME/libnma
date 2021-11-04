@@ -3,7 +3,7 @@
  *
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2017 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -57,6 +57,8 @@ typedef struct {
 	guint revalidate_id;
 
 	GetSecretsInfo *secrets_info;
+
+	NMAWs *ws;
 } NMAWifiDialogPrivate;
 
 enum {
@@ -212,21 +214,17 @@ security_combo_changed (GtkWidget *combo,
 	NMAWifiDialog *self = NMA_WIFI_DIALOG (user_data);
 	NMAWifiDialogPrivate *priv = NMA_WIFI_DIALOG_GET_PRIVATE (self);
 	GtkWidget *vbox; // *def_widget;
-	GList *elt, *children;
 	GtkTreeIter iter;
 	GtkTreeModel *model;
-	NMAWs *ws = NULL;
 
 	vbox = GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_vbox"));
 	g_assert (vbox);
 
 	size_group_clear (priv->group);
 
-	/* Remove any previous wireless security widgets */
-	children = gtk_container_get_children (GTK_CONTAINER (vbox));
-	for (elt = children; elt; elt = g_list_next (elt))
-		gtk_container_remove (GTK_CONTAINER (vbox), GTK_WIDGET (elt->data));
-	g_list_free (children);
+	/* Remove the previous wireless security widget */
+	if (priv->ws)
+		gtk_box_remove (GTK_BOX (vbox), GTK_WIDGET (priv->ws));
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)) {
@@ -234,8 +232,8 @@ security_combo_changed (GtkWidget *combo,
 		return;
 	}
 
-	gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
-	if (!ws) {
+	gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &priv->ws, -1);
+	if (!priv->ws) {
 		/* Revalidate dialog if the user picked "None" so the OK button
 		 * gets enabled if there's already a valid SSID.
 		 */
@@ -243,15 +241,15 @@ security_combo_changed (GtkWidget *combo,
 		return;
 	}
 
-	gtk_widget_unparent (GTK_WIDGET (ws));
+	gtk_widget_unparent (GTK_WIDGET (priv->ws));
 
 	size_group_add_permanent (priv->group, priv->builder);
-	nma_ws_add_to_size_group (ws, priv->group);
+	nma_ws_add_to_size_group (priv->ws, priv->group);
 
-	gtk_container_add (GTK_CONTAINER (vbox), GTK_WIDGET (ws));
+	gtk_box_append (GTK_BOX (vbox), GTK_WIDGET (priv->ws));
 
 	/* Re-validate */
-	stuff_changed_cb (ws, self);
+	stuff_changed_cb (priv->ws, self);
 
 #if 0
 	/* Set focus to the security method's default widget, but only if the
@@ -264,7 +262,7 @@ security_combo_changed (GtkWidget *combo,
 	}
 #endif
 
-	g_object_unref (ws);
+	g_object_unref (priv->ws);
 }
 
 static void
@@ -522,7 +520,7 @@ connection_combo_init (NMAWifiDialog *self)
 	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (widget), renderer, TRUE);
 	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (widget), renderer,
 	                               "text", C_NAME_COLUMN);
-#if !GTK_CHECK_VERSION(3,96,0)
+#if !GTK_CHECK_VERSION(4,0,0)
 	gtk_combo_box_set_wrap_width (GTK_COMBO_BOX (widget), 1);
 #endif
 
@@ -1081,7 +1079,6 @@ internal_init (NMAWifiDialog *self,
 	char *label, *icon_name = "network-wireless";
 	gboolean security_combo_focus = FALSE;
 
-	gtk_window_set_position (GTK_WINDOW (self), GTK_WIN_POS_CENTER_ALWAYS);
 	gtk_window_set_default_size (GTK_WINDOW (self), 488, -1);
 	gtk_window_set_resizable (GTK_WINDOW (self), FALSE);
 
@@ -1096,7 +1093,7 @@ internal_init (NMAWifiDialog *self,
 
 	gtk_window_set_icon_name (GTK_WINDOW (self), icon_name);
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "image1"));
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name);
 #else
 	gtk_image_set_from_icon_name (GTK_IMAGE (widget), icon_name, GTK_ICON_SIZE_DIALOG);
@@ -1114,7 +1111,7 @@ internal_init (NMAWifiDialog *self,
 		priv->ok_response_button = widget;
 	}
 
-#if !GTK_CHECK_VERSION(3,96,0)
+#if !GTK_CHECK_VERSION(4,0,0)
 	g_object_set (G_OBJECT (widget), "can-default", TRUE, NULL);
 	gtk_widget_grab_default (widget);
 #endif
@@ -1125,7 +1122,7 @@ internal_init (NMAWifiDialog *self,
 		return FALSE;
 	}
 
-	gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (self))), widget);
+	gtk_box_append (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (self))), widget);
 
 	/* If given a valid connection, hide the SSID bits and connection combo */
 	if (specific_connection) {
@@ -1344,7 +1341,7 @@ internal_new_dialog (NMClient *client,
 
 		if (!internal_init (self, connection, device, secrets_only, secrets_setting_name, secrets_hints)) {
 			g_warning ("Couldn't create Wi-Fi security dialog.");
-			gtk_widget_destroy (GTK_WIDGET (self));
+			gtk_window_destroy (GTK_WINDOW (self));
 			self = NULL;
 		}
 	}
@@ -1454,7 +1451,7 @@ internal_new_operation (NMClient *client,
 
 	if (!internal_init (self, NULL, NULL, FALSE, NULL, NULL)) {
 		g_warning ("Couldn't create Wi-Fi security dialog.");
-		gtk_widget_destroy (GTK_WIDGET (self));
+		gtk_window_destroy (GTK_WINDOW (self));
 		return NULL;
 	}
 

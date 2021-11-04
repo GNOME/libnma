@@ -3,7 +3,7 @@
  *
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2015 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -161,56 +161,6 @@ utils_create_mobile_connection_id (const char *provider, const char *plan_name)
 	return g_strdup_printf (_("%s connection"), provider);
 }
 
-void
-utils_show_error_dialog (const char *title,
-                         const char *text1,
-                         const char *text2,
-                         gboolean modal,
-                         GtkWindow *parent)
-{
-	GtkWidget *err_dialog;
-
-	g_return_if_fail (text1 != NULL);
-
-	err_dialog = gtk_message_dialog_new (parent,
-	                                     GTK_DIALOG_DESTROY_WITH_PARENT,
-	                                     GTK_MESSAGE_ERROR,
-	                                     GTK_BUTTONS_CLOSE,
-	                                     "%s",
-	                                     text1);
-
-	gtk_window_set_position (GTK_WINDOW (err_dialog), GTK_WIN_POS_CENTER_ALWAYS);
-
-	if (text2)
-		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (err_dialog), "%s", text2);
-	if (title)
-		gtk_window_set_title (GTK_WINDOW (err_dialog), title);
-
-	if (modal) {
-		gtk_dialog_run (GTK_DIALOG (err_dialog));
-		gtk_widget_destroy (err_dialog);
-	} else {
-		g_signal_connect (err_dialog, "delete-event", G_CALLBACK (gtk_widget_destroy), NULL);
-		g_signal_connect (err_dialog, "response", G_CALLBACK (gtk_widget_destroy), NULL);
-
-		gtk_widget_show (err_dialog);
-		gtk_window_present (GTK_WINDOW (err_dialog));
-	}
-}
-
-
-gboolean
-utils_char_is_ascii_print (char character)
-{
-	return g_ascii_isprint (character);
-}
-
-gboolean
-utils_char_is_ascii_digit (char character)
-{
-	return g_ascii_isdigit (character);
-}
-
 gboolean
 utils_char_is_ascii_ip4_address (char character)
 {
@@ -309,14 +259,14 @@ utils_override_bg_color (GtkWidget *widget, GdkRGBA *rgba)
 	if (rgba) {
 		css = g_strdup_printf ("* { background-color: %s; background-image: none; }",
 		                       gdk_rgba_to_string (rgba));
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 		gtk_css_provider_load_from_data (provider, css, -1);
 #else
 		gtk_css_provider_load_from_data (provider, css, -1, NULL);
 #endif
 		g_free (css);
 	} else {
-#if GTK_CHECK_VERSION(3,90,0)
+#if GTK_CHECK_VERSION(4,0,0)
 		gtk_css_provider_load_from_data (provider, "", -1);
 #else
 		gtk_css_provider_load_from_data (provider, "", -1, NULL);
@@ -492,46 +442,23 @@ out:
 	return success;
 }
 
-static gboolean
-file_has_extension (const char *filename, const char *const*extensions)
+static void
+add_patterns_filter (GtkFileFilter *filter, const char *const patterns[])
 {
-	const char *p;
-	gs_free char *ext = NULL;
+	int i;
 
-	if (!filename)
-		return FALSE;
-
-	p = strrchr (filename, '.');
-	if (!p)
-		return FALSE;
-
-	ext = g_ascii_strdown (p, -1);
-	return g_strv_contains (extensions, ext);
-}
-
-static gboolean
-cert_filter (const GtkFileFilterInfo *filter_info, gpointer data)
-{
-	static const char *const extensions[] = { ".der", ".pem", ".crt", ".cer", ".p12", NULL };
-
-	return file_has_extension (filter_info->filename, extensions);
-}
-
-static gboolean
-privkey_filter (const GtkFileFilterInfo *filter_info, gpointer user_data)
-{
-	static const char *const extensions[] = { ".der", ".pem", ".p12", ".key", NULL };
-
-	return file_has_extension (filter_info->filename, extensions);
+	for (i = 0; patterns[i]; i++)
+		gtk_file_filter_add_pattern (filter, patterns[i]);
 }
 
 GtkFileFilter *
 utils_cert_filter (void)
 {
+	static const char *const patterns[] = { "*.der", "*.pem", "*.crt", "*.cer", "*.p12", NULL };
 	GtkFileFilter *filter;
 
 	filter = gtk_file_filter_new ();
-	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, cert_filter, NULL, NULL);
+	add_patterns_filter (filter, patterns);
 	gtk_file_filter_set_name (filter, _("PEM certificates (*.pem, *.crt, *.cer)"));
 
 	return filter;
@@ -540,10 +467,11 @@ utils_cert_filter (void)
 GtkFileFilter *
 utils_key_filter (void)
 {
+	static const char *const patterns[] = { "*.der", "*.pem", "*.p12", "*.key", NULL };
 	GtkFileFilter *filter;
 
 	filter = gtk_file_filter_new ();
-	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, privkey_filter, NULL, NULL);
+	add_patterns_filter (filter, patterns);
 	gtk_file_filter_set_name (filter, _("DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"));
 
 	return filter;

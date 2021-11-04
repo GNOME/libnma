@@ -2,23 +2,22 @@
 /*
  * run-vpn - VPN plugin runner for testing
  *
- * (C) Copyright 2018 Lubomir Rintel
+ * Copyright (C) 2018 Lubomir Rintel
+ * Copyright (C) 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
+#include "nma-private.h"
 
 #include <NetworkManager.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 
 static gboolean
-window_deleted (GtkWidget *widget,
-                GdkEvent *event,
-                gpointer user_data)
+window_deleted (GMainLoop *main_loop)
 {
-	GMainLoop *main_loop = user_data;
 	g_main_loop_quit (main_loop);
-	return TRUE;
+	return FALSE;
 }
 
 int
@@ -33,11 +32,7 @@ main (int argc, char *argv[])
 	GtkWidget *widget;
 	gs_free_error GError *error = NULL;
 
-#if GTK_CHECK_VERSION(3,90,0)
 	gtk_init ();
-#else
-	gtk_init (&argc, &argv);
-#endif
 
 	if (argc != 2) {
 		g_printerr ("Usage: %s libnm-vpn-plugin-<name>.so\n", argv[0]);
@@ -66,21 +61,26 @@ main (int argc, char *argv[])
 	}
 
 	main_loop = g_main_loop_new (NULL, FALSE);
-	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	window = gtk_window_new ();
 	gtk_widget_show (window);
-	g_signal_connect (G_OBJECT (window), "delete-event", G_CALLBACK (window_deleted), main_loop);
+
+#if GTK_CHECK_VERSION(4,0,0)
+	g_signal_connect_swapped (window, "close-request", G_CALLBACK (window_deleted), main_loop);
+#else
+	g_signal_connect_swapped (window, "delete-event", G_CALLBACK (window_deleted), main_loop);
+#endif
 
 	widget = GTK_WIDGET (nm_vpn_editor_get_widget (editor));
 	gtk_widget_show (widget);
-	gtk_container_add (GTK_CONTAINER (window), widget);
+	gtk_window_set_child (GTK_WINDOW (window), widget);
 	g_main_loop_run (main_loop);
+	g_main_loop_unref (main_loop);
 
 	if (!nm_vpn_editor_update_connection (editor, connection, &error)) {
 		g_printerr ("Error: %s\n", error->message);
 		return EXIT_FAILURE;
 	}
 
-	gtk_widget_destroy (widget);
 	nm_connection_dump (connection);
 
 	return EXIT_SUCCESS;

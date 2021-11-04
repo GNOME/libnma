@@ -12,7 +12,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
- * Copyright 2018, 2019 Red Hat, Inc.
+ * Copyright (C) 2018 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -62,8 +62,8 @@ enum {
                                      NMABarCodeWidgetPrivate))
 
 static void
-do_qr_code_draw (GtkDrawingArea *area, cairo_t *cr, int width, int height,
-                 gpointer user_data)
+qr_code_draw (GtkDrawingArea *area, cairo_t *cr, int width, int height,
+              gpointer user_data)
 {
 	NMABarCodeWidgetPrivate *priv = NMA_BAR_CODE_WIDGET_GET_PRIVATE (user_data);
 	int size = nma_bar_code_get_size (priv->qr);
@@ -80,16 +80,18 @@ do_qr_code_draw (GtkDrawingArea *area, cairo_t *cr, int width, int height,
 	nma_bar_code_draw (priv->qr, cr);
 }
 
+#if !GTK_CHECK_VERSION(4,0,0)
 static gboolean
-qr_code_draw (GtkWidget *widget, cairo_t *cr, gpointer user_data)
+qr_code_draw_cb (GtkWidget *widget, cairo_t *cr, gpointer user_data)
 {
-	do_qr_code_draw (GTK_DRAWING_AREA (widget), cr,
-	                 gtk_widget_get_allocated_width (widget),
-	                 gtk_widget_get_allocated_height (widget),
-	                 user_data);
+	qr_code_draw (GTK_DRAWING_AREA (widget), cr,
+	              gtk_widget_get_allocated_width (widget),
+	              gtk_widget_get_allocated_height (widget),
+	              user_data);
 
 	return TRUE;
 }
+#endif
 
 static char *
 shell_escape (const char *to_escape)
@@ -407,7 +409,12 @@ nma_bar_code_widget_init (NMABarCodeWidget *self)
 	gtk_widget_init_template (GTK_WIDGET (self));
 
 	priv->qr = nma_bar_code_new (NULL);
-	g_signal_connect (priv->qr_code, "draw", G_CALLBACK (qr_code_draw), self);
+#if GTK_CHECK_VERSION(4,0,0)
+	gtk_drawing_area_set_draw_func (GTK_DRAWING_AREA (priv->qr_code),
+	                                qr_code_draw, self, NULL);
+#else
+	g_signal_connect (priv->qr_code, "draw", G_CALLBACK (qr_code_draw_cb), self);
+#endif
 }
 
 /**

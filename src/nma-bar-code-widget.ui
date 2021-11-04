@@ -16,7 +16,6 @@
         <property name="expand">True</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label_xalign">0.5</property>
         <child>
           <object class="GtkDrawingArea" id="qr_code">
             <property name="visible">True</property>

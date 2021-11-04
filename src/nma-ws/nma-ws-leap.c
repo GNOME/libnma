@@ -2,7 +2,7 @@
 /*
  * Dan Williams <dcbw@redhat.com>
  *
- * Copyright 2007 - 2019 Red Hat, Inc.
+ * Copyright (C) 2007 - 2021 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -53,7 +53,7 @@ show_toggled_cb (GtkCheckButton *button, gpointer user_data)
 	NMAWsLeap *self = NMA_WS_LEAP (user_data);
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
 	gtk_entry_set_visibility (GTK_ENTRY (self->leap_password_entry), visible);
 }
 

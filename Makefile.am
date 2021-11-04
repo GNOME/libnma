@@ -141,7 +141,7 @@ src/libnma-gtk4/nma-resources.c: src/nma.gresource.xml $(shell $(GLIB_COMPILE_RE
 
 src/libnma-gtk4/%.ui: src/%.ui
 	@mkdir -p $(builddir)/src/libnma-gtk4 $(builddir)/src/libnma-gtk4/nma-ws
-	gtk4-builder-tool simplify --3to4 $< |awk '/^</ {xml=1} {if (xml) print; else print >"/dev/stderr"}' >$@
+	gtk4-builder-tool simplify --3to4 $< |grep -v can.default >$@
 
 CLEANFILES += \
 	$(libnma_h_priv_gen) \
@@ -185,7 +185,7 @@ libnma_c_real = \
 	src/nma-ui-utils.c \
 	src/init.c \
 	src/nma-cert-chooser.c \
-	src/nma-file-cert-chooser.c \
+	src/nma-cert-chooser-button.c \
 	src/nma-bar-code-widget.c \
 	src/nma-bar-code.c \
 	\
@@ -212,7 +212,6 @@ EXTRA_DIST += \
 	src/qrcodegen.h
 
 libnma_h_priv_real = \
-	src/nma-cert-chooser-private.h \
 	src/nma-private.h \
 	src/nma-ws/nma-eap-fast.h \
 	src/nma-ws/nma-eap-leap.h \
@@ -221,6 +220,7 @@ libnma_h_priv_real = \
 	src/nma-ws/nma-eap-tls.h \
 	src/nma-ws/nma-eap-ttls.h \
 	src/nma-ws/nma-eap.h \
+	src/nma-cert-chooser-button.h \
 	src/nma-ws/nma-ws-802-1x-private.h \
 	src/nma-ws/nma-ws-helpers.h \
 	src/nma-ws/nma-ws-private.h \
@@ -228,14 +228,11 @@ libnma_h_priv_real = \
 
 libnma_h_priv_gcr = \
 	src/nma-pkcs11-token-login-dialog.h \
-	src/nma-pkcs11-cert-chooser-dialog.h \
-	src/nma-cert-chooser-button.h
+	src/nma-pkcs11-cert-chooser-dialog.h
 
 libnma_c_gcr = \
 	src/nma-pkcs11-token-login-dialog.c \
-	src/nma-pkcs11-cert-chooser-dialog.c \
-	src/nma-cert-chooser-button.c \
-	src/nma-pkcs11-cert-chooser.c
+	src/nma-pkcs11-cert-chooser-dialog.c
 
 src_libnmadir = $(includedir)/libnma
 
@@ -760,7 +757,6 @@ CFILE_GLOB = $(top_srcdir)/src/*.c
 IGNORE_HFILES = \
 	nma-resources.h \
 	nma-version.h \
-	nma-cert-chooser-private.h \
 	nma-private.h \
 	nma-pkcs11-token-login-dialog.h \
 	nma-pkcs11-cert-chooser-dialog.h \
@@ -769,11 +765,9 @@ IGNORE_HFILES = \
 
 mkdb_ignore_c_files = \
 	nma-resources.c \
-	nma-file-cert-chooser.c \
 	nma-pkcs11-token-login-dialog.c \
 	nma-pkcs11-cert-chooser-dialog.c \
-	nma-cert-chooser-button.c \
-	nma-pkcs11-cert-chooser.c
+	nma-cert-chooser-button.c
 
 MKDB_OPTIONS = --ignore-files "$(IGNORE_HFILES) $(mkdb_ignore_c_files)"
 

@@ -44,12 +44,10 @@
   <object class="GtkTreeModelSort" id="providers_sort">
     <property name="model">providers_store</property>
   </object>
-  <template class="NMAMobileWizard" parent="GtkAssistant">
+  <object class="GtkAssistant" id="assistant">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">New Mobile Broadband Connection</property>
     <property name="modal">True</property>
-    <property name="window_position">center-always</property>
-    <property name="type_hint">dialog</property>
     <property name="use_header_bar">1</property>
     <signal name="cancel" handler="assistant_cancel" swapped="no"/>
     <signal name="close" handler="assistant_closed" swapped="no"/>
@@ -600,5 +598,5 @@ If you are unsure of your plan please ask your provider for your plan’s APN.</
       <packing>
       </packing>
     </child>
-  </template>
+  </object>
 </interface>

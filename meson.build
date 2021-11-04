@@ -74,12 +74,12 @@ endif
 
 enable_libnma_gtk4 = get_option('libnma_gtk4')
 if enable_libnma_gtk4
-  gtk4_ext_dep = dependency('gtk4', version: '>= 3.96')
+  gtk4_ext_dep = dependency('gtk4', version: '>= 4.0')
   gtk4_dep = declare_dependency(
     dependencies: gtk4_ext_dep,
     compile_args: [
-      '-DGTK_VERSION_MIN_REQUIRED=GTK_VERSION_3_96',
-      '-DGTK_VERSION_MAX_ALLOWED=GTK_VERSION_3_96'
+      '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_4_0',
+      '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_4_0'
     ]
   )
 endif
@@ -154,13 +154,13 @@ gmodule_export_dep = dependency('gmodule-export-2.0')
 m_dep = cc.find_library('m')
 
 # Check for gtk+
-gtk_req_version = '>= 3.10'
+gtk_req_version = '>= 3.12'
 
 gtk_dep = declare_dependency(
   dependencies: dependency('gtk+-3.0', version: gtk_req_version),
   compile_args: [
-    '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_10',
-    '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_10'
+    '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_12',
+    '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_12'
   ]
 )
 
@@ -306,7 +306,6 @@ if enable_gtk_doc
 
   private_headers = [
     'nma-cert-chooser-button.h',
-    'nma-cert-chooser-private.h',
     'nma-pkcs11-cert-chooser-dialog.h',
     'nma-pkcs11-token-login-dialog.h',
     'nma-resources.h',
