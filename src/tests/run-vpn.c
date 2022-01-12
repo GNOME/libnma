@@ -17,7 +17,7 @@ static gboolean
 window_deleted (GMainLoop *main_loop)
 {
 	g_main_loop_quit (main_loop);
-	return FALSE;
+	return TRUE;
 }
 
 int
@@ -80,8 +80,9 @@ main (int argc, char *argv[])
 		g_printerr ("Error: %s\n", error->message);
 		return EXIT_FAILURE;
 	}
-
 	nm_connection_dump (connection);
+
+	gtk_window_destroy (GTK_WINDOW (window));
 
 	return EXIT_SUCCESS;
 }
