@@ -17,7 +17,23 @@ static gboolean
 window_deleted (GMainLoop *main_loop)
 {
 	g_main_loop_quit (main_loop);
-	return TRUE;
+	return FALSE;
+}
+
+static void
+changed_cb (NMVpnEditor *editor, gpointer user_data)
+{
+	gs_unref_object NMConnection *connection = NULL;
+	gs_free_error GError *error = NULL;
+
+	g_printerr ("=== CHANGED ===\n");
+
+	connection = nm_simple_connection_new ();
+	if (!nm_vpn_editor_update_connection (editor, connection, &error)) {
+		g_printerr ("Error: %s\n", error->message);
+	} else {
+		nm_connection_dump (connection);
+	}
 }
 
 int
@@ -59,6 +75,7 @@ main (int argc, char *argv[])
 		g_printerr ("Error: %s\n", error->message);
 		return EXIT_FAILURE;
 	}
+	g_signal_connect (G_OBJECT (editor), "changed", G_CALLBACK (changed_cb), NULL);
 
 	main_loop = g_main_loop_new (NULL, FALSE);
 	window = gtk_window_new ();
@@ -75,14 +92,6 @@ main (int argc, char *argv[])
 	gtk_window_set_child (GTK_WINDOW (window), widget);
 	g_main_loop_run (main_loop);
 	g_main_loop_unref (main_loop);
-
-	if (!nm_vpn_editor_update_connection (editor, connection, &error)) {
-		g_printerr ("Error: %s\n", error->message);
-		return EXIT_FAILURE;
-	}
-	nm_connection_dump (connection);
-
-	gtk_window_destroy (GTK_WINDOW (window));
 
 	return EXIT_SUCCESS;
 }
