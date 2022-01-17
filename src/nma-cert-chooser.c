@@ -929,6 +929,8 @@ constructed (GObject *object)
 	if (priv->flags & NMA_CERT_CHOOSER_FLAG_PEM) {
 		gtk_widget_hide (priv->cert_password);
 		gtk_widget_hide (priv->cert_password_label);
+		if (priv->flags & NMA_CERT_CHOOSER_FLAG_CERT)
+			gtk_widget_hide (priv->show_password);
 	}
 }
 
