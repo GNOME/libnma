@@ -72,6 +72,10 @@ main (int argc, char *argv[])
 	gtk_widget_show (widget);
 	gtk_box_append (content, widget);
 
+	widget = nma_cert_chooser_new ("FLAG_NO_PASSWORDS", NMA_CERT_CHOOSER_FLAG_NO_PASSWORDS);
+	gtk_widget_show (widget);
+	gtk_box_append (content, widget);
+
 	loop = g_main_loop_new (NULL, FALSE);
 	g_signal_connect_swapped (dialog, "response", G_CALLBACK (g_main_loop_quit), loop);
 
