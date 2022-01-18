@@ -1,4 +1,12 @@
 =======================================
+libnma-1.8.34
+Overview of changes since libnma-1.8.32
+=======================================
+
+* Add possibility of building libnma-gtk4 library with experimental
+  Gtk4 support.
+
+=======================================
 libnma-1.8.32
 Overview of changes since libnma-1.8.30
 =======================================
