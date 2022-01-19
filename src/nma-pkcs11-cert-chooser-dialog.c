@@ -119,7 +119,8 @@ object_details (GObject *source_object, GAsyncResult *res, gpointer user_data)
 	CK_OBJECT_CLASS cka_class;
 	const GckAttribute *attr;
 	GcrCertificate *cert;
-	gchar *label, *issuer;
+	gchar *label = NULL;
+	gchar *issuer = NULL;
 	GError *error = NULL;
 	GtkListStore *store1, *store2;
 	IdMatchData data;
@@ -157,23 +158,26 @@ object_details (GObject *source_object, GAsyncResult *res, gpointer user_data)
 	                        id_match,
 	                        &data);
 
+	attr = gck_attributes_find (attrs, CKA_LABEL);
+	if (attr && attr->value && attr->length) {
+		label = g_malloc (attr->length + 1);
+		memcpy (label, attr->value, attr->length);
+		label[attr->length] = '\0';
+	}
+
 	attr = gck_attributes_find (attrs, CKA_VALUE);
 	if (attr && attr->value && attr->length) {
 		cert = gcr_simple_certificate_new (attr->value, attr->length);
-		label = gcr_certificate_get_subject_name (cert);
+		if (!label)
+			label = gcr_certificate_get_subject_name (cert);
 		issuer = gcr_certificate_get_issuer_name (cert);
 		g_object_unref (cert);
-	} else {
-		attr = gck_attributes_find (attrs, CKA_LABEL);
-		if (attr && attr->value && attr->length) {
-			label = g_malloc (attr->length + 1);
-			memcpy (label, attr->value, attr->length);
-			label[attr->length] = '\0';
-		} else {
-			label = g_strdup (_("(Unknown)"));
-		}
-		issuer = g_memdup ("", 1);
 	}
+
+	if (!label)
+		label = g_strdup (_("(Unknown)"));
+	if (!issuer)
+		issuer = g_memdup ("", 1);
 
 	gtk_list_store_append (store1, &iter);
 	gtk_list_store_set (store1, &iter,
