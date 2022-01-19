@@ -455,6 +455,7 @@ create_file_button (NMACertChooserButton *self)
 
 	priv->button_label = gtk_label_new (NULL);
 	gtk_widget_show (priv->button_label);
+	gtk_label_set_ellipsize (GTK_LABEL (priv->button_label), PANGO_ELLIPSIZE_END);
 	g_object_set (priv->button_label, "xalign", (gfloat) 0, NULL);
 	gtk_widget_set_hexpand (priv->button_label, TRUE);
 	gtk_box_append (GTK_BOX (box), priv->button_label);
