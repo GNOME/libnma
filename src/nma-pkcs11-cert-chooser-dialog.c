@@ -50,6 +50,8 @@ struct _NMAPkcs11CertChooserDialogPrivate {
 	GtkCellRenderer *list_name_renderer;
 	GtkTreeViewColumn *list_issued_by_column;
 	GtkCellRenderer *list_issued_by_renderer;
+
+	gboolean object_selected;
 };
 
 #define NMA_PKCS11_CERT_CHOOSER_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
@@ -283,18 +285,23 @@ static void
 row_activated (GtkTreeView *tree_view, GtkTreePath *path,
                GtkTreeViewColumn *column, gpointer user_data)
 {
-	if (gtk_window_activate_default (GTK_WINDOW (user_data)))
-		return;
+	NMAPkcs11CertChooserDialog *self = user_data;
+	NMAPkcs11CertChooserDialogPrivate *priv = self->priv;
+
+	if (priv->object_selected)
+		gtk_dialog_response(GTK_DIALOG (user_data), GTK_RESPONSE_ACCEPT);
 }
 
 static void
 cursor_changed (GtkTreeView *tree_view, gpointer user_data)
 {
 	NMAPkcs11CertChooserDialog *self = NMA_PKCS11_CERT_CHOOSER_DIALOG (user_data);
+	NMAPkcs11CertChooserDialogPrivate *priv = self->priv;
 	gchar *uri;
 
 	uri = nma_pkcs11_cert_chooser_dialog_get_uri (self);
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (self), GTK_RESPONSE_ACCEPT, uri != NULL);
+	priv->object_selected = uri != NULL;
+	gtk_dialog_set_response_sensitive (GTK_DIALOG (self), GTK_RESPONSE_ACCEPT, priv->object_selected);
 	g_free (uri);
 }
 
