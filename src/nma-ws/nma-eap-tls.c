@@ -95,8 +95,8 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 	NMSetting8021x *s_8021x;
 	NMSettingSecretFlags secret_flags;
 	GtkWidget *widget;
+	const char *text = NULL;
 	char *value = NULL;
-	const char *password = NULL;
 	GError *error = NULL;
 	gboolean ca_cert_error = FALSE;
 	NMSetting8021xCKScheme scheme;
@@ -115,21 +115,24 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_domain_entry"));
 	g_assert (widget);
-	g_object_set (s_8021x,
-	              parent->phase2 ? NM_SETTING_802_1X_PHASE2_DOMAIN_SUFFIX_MATCH : NM_SETTING_802_1X_DOMAIN_SUFFIX_MATCH,
-	              gtk_editable_get_text (GTK_EDITABLE (widget)), NULL);
+	text = gtk_editable_get_text (GTK_EDITABLE (widget));
+	if (text && *text) {
+		g_object_set (s_8021x,
+		              parent->phase2 ? NM_SETTING_802_1X_PHASE2_DOMAIN_SUFFIX_MATCH : NM_SETTING_802_1X_DOMAIN_SUFFIX_MATCH,
+		              gtk_editable_get_text (GTK_EDITABLE (widget)), NULL);
+	}
 
 	/* TLS private key */
-	password = nma_cert_chooser_get_key_password (NMA_CERT_CHOOSER (method->client_cert_chooser));
+	text = nma_cert_chooser_get_key_password (NMA_CERT_CHOOSER (method->client_cert_chooser));
 	value = nma_cert_chooser_get_key (NMA_CERT_CHOOSER (method->client_cert_chooser), &scheme);
 
 	if (parent->phase2) {
-		if (!nm_setting_802_1x_set_phase2_private_key (s_8021x, value, password, scheme, &format, &error)) {
+		if (!nm_setting_802_1x_set_phase2_private_key (s_8021x, value, text, scheme, &format, &error)) {
 			g_warning ("Couldn't read phase2 private key '%s': %s", value, error ? error->message : "(unknown)");
 			g_clear_error (&error);
 		}
 	} else {
-		if (!nm_setting_802_1x_set_private_key (s_8021x, value, password, scheme, &format, &error)) {
+		if (!nm_setting_802_1x_set_private_key (s_8021x, value, text, scheme, &format, &error)) {
 			g_warning ("Couldn't read private key '%s': %s", value, error ? error->message : "(unknown)");
 			g_clear_error (&error);
 		}
