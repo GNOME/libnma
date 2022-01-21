@@ -611,7 +611,7 @@ parser_gsm_start (MobileParser *parser,
 			else if (!strcmp (attribute_names[i], "mnc"))
 				mnc = attribute_values[i];
 
-			if (mcc && strlen (mcc) && mnc && strlen (mnc)) {
+			if (mcc && *mcc && mnc && *mnc) {
 				gchar *mccmnc;
 
 				if (!parser->current_provider->mcc_mnc)

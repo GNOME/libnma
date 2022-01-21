@@ -134,7 +134,7 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_anon_identity_entry"));
 	g_assert (widget);
 	text = gtk_editable_get_text (GTK_EDITABLE (widget));
-	if (text && strlen (text))
+	if (text && *text)
 		g_object_set (s_8021x, NM_SETTING_802_1X_ANONYMOUS_IDENTITY, text, NULL);
 
 	g_object_set (s_8021x, NM_SETTING_802_1X_PAC_FILE, method->pac_file_name, NULL);

@@ -74,7 +74,7 @@ validate (NMAEap *parent, GError **error)
 
 	if (method->username_requested) {
 		text = gtk_editable_get_text (GTK_EDITABLE (method->username_entry));
-		if (!text || !strlen (text)) {
+		if (!text || !*text) {
 			widget_set_error (GTK_WIDGET (method->username_entry));
 			g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP username"));
 			ret = FALSE;
@@ -88,7 +88,7 @@ validate (NMAEap *parent, GError **error)
 			widget_unset_error (GTK_WIDGET (method->password_entry));
 		else {
 			text = gtk_editable_get_text (GTK_EDITABLE (method->password_entry));
-			if (!text || !strlen (text)) {
+			if (!text || !*text) {
 				widget_set_error (GTK_WIDGET (method->password_entry));
 				if (ret) {
 					g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC,
@@ -102,7 +102,7 @@ validate (NMAEap *parent, GError **error)
 
 	if (method->pkey_passphrase_requested) {
 		text = gtk_editable_get_text (GTK_EDITABLE (method->pkey_passphrase_entry));
-		if (!text || !strlen (text)) {
+		if (!text || !*text) {
 			widget_set_error (GTK_WIDGET (method->pkey_passphrase_entry));
 			if (ret) {
 				g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC,
