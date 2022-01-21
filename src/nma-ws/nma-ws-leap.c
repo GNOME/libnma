@@ -66,7 +66,7 @@ validate (NMAWs *ws, GError **error)
 	gboolean ret = TRUE;
 
 	text = gtk_editable_get_text (GTK_EDITABLE (self->leap_username_entry));
-	if (!text || !strlen (text)) {
+	if (!text || !*text) {
 		widget_set_error (self->leap_username_entry);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing leap-username"));
 		ret = FALSE;
@@ -79,7 +79,7 @@ validate (NMAWs *ws, GError **error)
 
 	if (   secret_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED
 	    || secret_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED
-	    || (text && strlen (text))) {
+	    || (text && *text)) {
 		widget_unset_error (self->leap_password_entry);
 	} else {
 		widget_set_error (self->leap_password_entry);

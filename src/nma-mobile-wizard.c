@@ -350,7 +350,7 @@ plan_update_complete (NMAMobileWizard *self)
 
 		manual_apn = gtk_editable_get_text (priv->plan_apn_entry);
 		gtk_assistant_set_page_complete (priv->assistant, priv->plan_page,
-		                                 (manual_apn && strlen (manual_apn)));
+		                                 (manual_apn && *manual_apn));
 	}
 }
 
@@ -1361,7 +1361,7 @@ get_country_from_locale (void)
 		return NULL;
 
 	p = strchr (lang, '_');
-	if (!p || !strlen (p)) {
+	if (!p || !*p) {
 		g_free (p);
 		return NULL;
 	}

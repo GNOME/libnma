@@ -139,13 +139,13 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_anon_identity_entry"));
 	g_assert (widget);
 	text = gtk_editable_get_text (GTK_EDITABLE (widget));
-	if (text && strlen (text))
+	if (text && *text)
 		g_object_set (s_8021x, NM_SETTING_802_1X_ANONYMOUS_IDENTITY, text, NULL);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_domain_entry"));
 	g_assert (widget);
 	text = gtk_editable_get_text (GTK_EDITABLE (widget));
-	if (text && strlen (text))
+	if (text && *text)
 		g_object_set (s_8021x, NM_SETTING_802_1X_DOMAIN_SUFFIX_MATCH, text, NULL);
 
 	/* Save CA certificate PIN and its flags to the connection */

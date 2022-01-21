@@ -42,7 +42,7 @@ validate (NMAEap *parent, GError **error)
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
 	identity = gtk_editable_get_text (GTK_EDITABLE (widget));
-	if (!identity || !strlen (identity)) {
+	if (!identity || !*identity) {
 		widget_set_error (widget);
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("missing EAP-TLS identity"));
 		return FALSE;
