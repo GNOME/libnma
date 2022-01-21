@@ -333,7 +333,7 @@ utils_tree_model_get_int64 (GtkTreeModel *model,
 	gtk_tree_model_get (model, iter, column, &item, -1);
 	if (out_raw)
 		*out_raw = item;
-	if (!item || !strlen (item)) {
+	if (!item || !*item) {
 		if (!out_raw)
 			g_free (item);
 		return fail_if_missing ? FALSE : TRUE;
@@ -373,7 +373,7 @@ utils_tree_model_get_address (GtkTreeModel *model,
 	gtk_tree_model_get (model, iter, column, &item, -1);
 	if (out_raw)
 		*out_raw = item;
-	if (!item || !strlen (item)) {
+	if (!item || !*item) {
 		if (!out_raw)
 			g_free (item);
 		return fail_if_missing ? FALSE : TRUE;
@@ -412,7 +412,7 @@ utils_tree_model_get_ip4_prefix (GtkTreeModel *model,
 	gtk_tree_model_get (model, iter, column, &item, -1);
 	if (out_raw)
 		*out_raw = item;
-	if (!item || !strlen (item)) {
+	if (!item || !*item) {
 		if (!out_raw)
 			g_free (item);
 		return fail_if_missing ? FALSE : TRUE;
