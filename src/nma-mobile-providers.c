@@ -439,12 +439,12 @@ iso_3166_parser_start_element (GMarkupParseContext *context,
 				name = attribute_values[i];
 		}
 		if (!country_code) {
-			g_warning ("%s: missing mandatory 'alpha_2_code' atribute in '%s'"
+			g_warning ("%s: missing mandatory 'alpha_2_code' attribute in '%s'"
 			           " element.", __func__, element_name);
 			return;
 		}
 		if (!name) {
-			g_warning ("%s: missing mandatory 'name' atribute in '%s'"
+			g_warning ("%s: missing mandatory 'name' attribute in '%s'"
 			           " element.", __func__, element_name);
 			return;
 		}
