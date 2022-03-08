@@ -185,10 +185,6 @@ libnm_dep = declare_dependency(
   compile_args: cflags
 )
 
-# No such thing yet, just same lame duck placeholders.
-# it may actually end up being called differently.
-config_h.set10('WITH_GCR_GTK4', false)
-
 # GCR API is declared subject to change, do an extensive check of the prototypes
 gcr_api_check_src = '''
   #ifndef GCR_API_SUBJECT_TO_CHANGE
@@ -269,6 +265,31 @@ if enable_gcr
   )
 endif
 config_h.set10('WITH_GCR', enable_gcr)
+
+# GCR for PKCS#11 enabled certificate chooser for libnma-gtk4
+enable_gcr_gtk4 = get_option('gcr_gtk4')
+if enable_gcr_gtk4
+  assert(enable_libnma_gtk4, 'gcr-gtk4 support was requested, but the libnma-gtk4 build was not enabled.')
+
+  deps = [
+    dependency('gcr-gtk4-3', version: '>= 3.90'),
+    dependency('gck-1', version: '>= 3.90')
+  ]
+
+  cflags = [
+    '-DGCR_API_SUBJECT_TO_CHANGE',
+    '-DGCK_API_SUBJECT_TO_CHANGE'
+  ]
+
+  # GCR API is declared subject to change, do an extensive check of the prototypes
+  assert(cc.compiles(gcr_api_check_src, dependencies: deps), 'gcr-gtk4 support was requested with -Dgcr_gtk4=true, but the gcr-gtk4 library is not available.')
+
+  gcr_gtk4_dep = declare_dependency(
+    dependencies: deps,
+    compile_args: cflags
+  )
+endif
+config_h.set10('WITH_GCR_GTK4', enable_gcr_gtk4)
 
 # introspection support
 enable_introspection = get_option('introspection')
