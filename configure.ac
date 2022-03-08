@@ -190,13 +190,21 @@ else
                                         gboolean gck_session_login_finish (GckSession *self, GAsyncResult *result, GError **error);
                                         GckSlotInfo *gck_slot_get_info (GckSlot *self);
                                         GckTokenInfo *gck_slot_get_token_info (GckSlot *self);
+                                        #if GCR_CHECK_VERSION(3,90,0)
+                                        void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GTlsInteraction *interaction,
+                                                                          GCancellable *cancellable, GAsyncReadyCallback callback,
+                                                                          gpointer user_data);
+                                        gchar *gck_uri_data_build (GckUriData *uri_data, GckUriFlags flags);
+                                        GckUriData *gck_uri_data_parse (const gchar *string, GckUriFlags flags, GError **error);
+                                        #else
                                         void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GCancellable *cancellable,
                                                                           GAsyncReadyCallback callback, gpointer user_data);
+                                        gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
+                                        GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
+                                        #endif
                                         GckSession *gck_slot_open_session_finish (GckSlot *self, GAsyncResult *result, GError **error);
                                         void gck_token_info_free (GckTokenInfo *token_info);
-                                        gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
                                         void gck_uri_data_free (GckUriData *uri_data);
-                                        GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
                                         gchar *gcr_certificate_get_issuer_name (GcrCertificate *self);
                                         gchar *gcr_certificate_get_subject_name (GcrCertificate *self);
                                         GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
