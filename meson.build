@@ -189,6 +189,64 @@ libnm_dep = declare_dependency(
 # it may actually end up being called differently.
 config_h.set10('WITH_GCR_GTK4', false)
 
+# GCR API is declared subject to change, do an extensive check of the prototypes
+gcr_api_check_src = '''
+  #ifndef GCR_API_SUBJECT_TO_CHANGE
+  # define GCR_API_SUBJECT_TO_CHANGE
+  #endif
+  #ifndef GCK_API_SUBJECT_TO_CHANGE
+  # define GCK_API_SUBJECT_TO_CHANGE
+  #endif
+
+  #include <gcr/gcr.h>
+  #include <gck/gck.h>
+
+  const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
+  gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
+  gboolean gck_attributes_find_ulong (GckAttributes *attrs, gulong attr_type, gulong *value);
+  GckAttributes *gck_attributes_new_empty (gulong first_type, ...);
+  void gck_attributes_unref (gpointer attrs);
+  void gck_builder_add_all (GckBuilder *builder, GckAttributes *attrs);
+  void gck_builder_add_only (GckBuilder *builder, GckAttributes *attrs, gulong only_type, ...);
+  GckAttributes *gck_builder_end (GckBuilder *builder);
+  GckBuilder *gck_builder_new (GckBuilderFlags flags);
+  void gck_enumerator_next_async (GckEnumerator *self, gint max_objects, GCancellable *cancellable,
+                                  GAsyncReadyCallback callback, gpointer user_data);
+  GList *gck_enumerator_next_finish (GckEnumerator *self, GAsyncResult *result, GError **error);
+  void gck_list_unref_free (GList *reflist);
+  GList *gck_modules_get_slots (GList *modules, gboolean token_present);
+  void gck_modules_initialize_registered_async (GCancellable *cancellable, GAsyncReadyCallback callback,
+                                                gpointer user_data);
+  GList *gck_modules_initialize_registered_finish (GAsyncResult *result, GError **error);
+  void gck_object_get_async (GckObject *self, const gulong *attr_types, guint n_attr_types,
+                             GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+  GckAttributes *gck_object_get_finish (GckObject *self, GAsyncResult *result, GError **error);
+  void gck_session_login_async (GckSession *self, gulong user_type, const guchar *pin,
+                                gsize n_pin, GCancellable *cancellable,
+                                GAsyncReadyCallback callback, gpointer user_data);
+  gboolean gck_session_login_finish (GckSession *self, GAsyncResult *result, GError **error);
+  GckSlotInfo *gck_slot_get_info (GckSlot *self);
+  GckTokenInfo *gck_slot_get_token_info (GckSlot *self);
+  #if GCR_CHECK_VERSION(3,90,0)
+  void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GTlsInteraction *interaction,
+                                    GCancellable *cancellable, GAsyncReadyCallback callback,
+                                    gpointer user_data);
+  gchar *gck_uri_data_build (GckUriData *uri_data, GckUriFlags flags);
+  GckUriData *gck_uri_data_parse (const gchar *string, GckUriFlags flags, GError **error);
+  #else
+  void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GCancellable *cancellable,
+                                    GAsyncReadyCallback callback, gpointer user_data);
+  gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
+  GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
+  #endif
+  GckSession *gck_slot_open_session_finish (GckSlot *self, GAsyncResult *result, GError **error);
+  void gck_token_info_free (GckTokenInfo *token_info);
+  void gck_uri_data_free (GckUriData *uri_data);
+  gchar *gcr_certificate_get_issuer_name (GcrCertificate *self);
+  gchar *gcr_certificate_get_subject_name (GcrCertificate *self);
+  GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
+'''
+
 # GCR for PKCS#11 enabled certificate chooser
 enable_gcr = get_option('gcr')
 if enable_gcr
@@ -203,64 +261,7 @@ if enable_gcr
   ]
 
   # GCR API is declared subject to change, do an extensive check of the prototypes
-  gcr_src = '''
-    #ifndef GCR_API_SUBJECT_TO_CHANGE
-    # define GCR_API_SUBJECT_TO_CHANGE
-    #endif
-    #ifndef GCK_API_SUBJECT_TO_CHANGE
-    # define GCK_API_SUBJECT_TO_CHANGE
-    #endif
-
-    #include <gcr/gcr.h>
-    #include <gck/gck.h>
-
-    const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
-    gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
-    gboolean gck_attributes_find_ulong (GckAttributes *attrs, gulong attr_type, gulong *value);
-    GckAttributes *gck_attributes_new_empty (gulong first_type, ...);
-    void gck_attributes_unref (gpointer attrs);
-    void gck_builder_add_all (GckBuilder *builder, GckAttributes *attrs);
-    void gck_builder_add_only (GckBuilder *builder, GckAttributes *attrs, gulong only_type, ...);
-    GckAttributes *gck_builder_end (GckBuilder *builder);
-    GckBuilder *gck_builder_new (GckBuilderFlags flags);
-    void gck_enumerator_next_async (GckEnumerator *self, gint max_objects, GCancellable *cancellable,
-                                    GAsyncReadyCallback callback, gpointer user_data);
-    GList *gck_enumerator_next_finish (GckEnumerator *self, GAsyncResult *result, GError **error);
-    void gck_list_unref_free (GList *reflist);
-    GList *gck_modules_get_slots (GList *modules, gboolean token_present);
-    void gck_modules_initialize_registered_async (GCancellable *cancellable, GAsyncReadyCallback callback,
-                                                  gpointer user_data);
-    GList *gck_modules_initialize_registered_finish (GAsyncResult *result, GError **error);
-    void gck_object_get_async (GckObject *self, const gulong *attr_types, guint n_attr_types,
-                               GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
-    GckAttributes *gck_object_get_finish (GckObject *self, GAsyncResult *result, GError **error);
-    void gck_session_login_async (GckSession *self, gulong user_type, const guchar *pin,
-                                  gsize n_pin, GCancellable *cancellable,
-                                  GAsyncReadyCallback callback, gpointer user_data);
-    gboolean gck_session_login_finish (GckSession *self, GAsyncResult *result, GError **error);
-    GckSlotInfo *gck_slot_get_info (GckSlot *self);
-    GckTokenInfo *gck_slot_get_token_info (GckSlot *self);
-    #if GCR_CHECK_VERSION(3,90,0)
-    void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GTlsInteraction *interaction,
-                                      GCancellable *cancellable, GAsyncReadyCallback callback,
-                                      gpointer user_data);
-    gchar *gck_uri_data_build (GckUriData *uri_data, GckUriFlags flags);
-    GckUriData *gck_uri_data_parse (const gchar *string, GckUriFlags flags, GError **error);
-    #else
-    void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GCancellable *cancellable,
-                                      GAsyncReadyCallback callback, gpointer user_data);
-    gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
-    GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
-    #endif
-    GckSession *gck_slot_open_session_finish (GckSlot *self, GAsyncResult *result, GError **error);
-    void gck_token_info_free (GckTokenInfo *token_info);
-    void gck_uri_data_free (GckUriData *uri_data);
-    gchar *gcr_certificate_get_issuer_name (GcrCertificate *self);
-    gchar *gcr_certificate_get_subject_name (GcrCertificate *self);
-    GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
-  '''
-
-  assert(cc.compiles(gcr_src, dependencies: deps), 'gcr support was requested, but the gcr library is not available. Use -Dgcr=false to build without it.')
+  assert(cc.compiles(gcr_api_check_src, dependencies: deps), 'gcr support was requested, but the gcr library is not available. Use -Dgcr=false to build without it.')
 
   gcr_dep = declare_dependency(
     dependencies: deps,
