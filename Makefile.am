@@ -486,13 +486,13 @@ src_libnma_gtk4_la_CFLAGS = \
 	-Isrc \
 	$(GTK4_CFLAGS) \
 	$(LIBNM_CFLAGS) \
-	$(GCR_GCR4_CFLAGS)
+	$(GCR_GTK4_CFLAGS)
 
 src_libnma_gtk4_la_LIBADD = \
 	src/utils/libutils-libnm-gtk4.la \
 	$(GTK4_LIBS) \
 	$(LIBNM_LIBS) \
-	$(GCR_GCR4_LIBS)
+	$(GCR_GTK4_LIBS)
 
 EXTRA_src_libnma_gtk4_la_DEPENDENCIES = src/libnma.ver
 
