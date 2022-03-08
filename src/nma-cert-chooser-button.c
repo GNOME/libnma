@@ -15,6 +15,11 @@
 #if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR
 #include "nma-pkcs11-cert-chooser-dialog.h"
 #include <gck/gck.h>
+#include <gcr/gcr.h>	// FIXME: Only here to detect GCK version
+			// Remove once new GCK is released with version bumped
+#if !GCR_CHECK_VERSION(3,90,0)
+#define gck_uri_data_parse gck_uri_parse
+#endif
 #endif
 
 /**
@@ -165,7 +170,7 @@ title_from_pkcs11 (NMACertChooserButton *button)
 	char *label = NULL;
 	GckUriData *data;
 
-	data = gck_uri_parse (priv->uri, GCK_URI_FOR_ANY, &error);
+	data = gck_uri_data_parse (priv->uri, GCK_URI_FOR_ANY, &error);
 	if (data) {
 		if (!gck_attributes_find_string (data->attributes, CKA_LABEL, &label)) {
 			if (data->token_info) {
