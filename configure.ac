@@ -143,11 +143,6 @@ else
 fi
 AM_CONDITIONAL(WITH_LIBNMA_GTK4, test "$with_libnma_gtk4" != "no")
 
-# No such thing yet, just same lame duck placeholders.
-# it may actually end up being called differently.
-AC_DEFINE(WITH_GCR_GTK4, 0, [Define if GTK4 Gcr is available])
-AM_CONDITIONAL(WITH_GCR_GTK4, false)
-
 dnl GCR API is declared subject to change, do an extensive check of the prototypes
 AC_DEFUN([CHECK_GCR_API], [
         CFLAGS_SAVED="$CFLAGS"
@@ -228,6 +223,35 @@ else
 fi
 AM_CONDITIONAL(WITH_GCR, test "${have_gcr}" == "yes")
 
+dnl GCR for PKCS#11 enabled certificate chooser with Gtk4
+AC_ARG_WITH(gcr_gtk4, AS_HELP_STRING([--with-gcr-gtk4], [Enable EXPERIMENTAL advanced certificate chooser for Gtk4 (default: auto)]))
+if (test "$with_libnma_gtk4" = "yes"); then
+    if (test "${with_gcr_gtk4}" = "no"); then
+        have_gcr_gtk4=no
+    else
+        PKG_CHECK_MODULES(GCR_GTK4,
+                          [gcr-gtk4-3 >= 3.90, gck-1 >= 3.90],
+                          [GCR_GTK4_CFLAGS="$GCR_GTK4_CFLAGS -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE"
+                           CHECK_GCR_API(GCR_GTK4, $GCR_GTK4_CFLAGS, have_gcr_gtk4=yes, have_gcr_gtk4=no)],
+                          [have_gcr_gtk4=no])
+    fi
+else
+    if (test "${with_gcr_gtk4}" = "yes"); then
+        AC_MSG_ERROR([gcr-gtk4 support was requested, but the libnma-gtk4 build was not enabled.])
+    fi
+    have_gcr_gtk4=no
+fi
+
+if (test "${have_gcr_gtk4}" = "yes"); then
+     AC_DEFINE(WITH_GCR_GTK4, 1, [Define if Gcr is available])
+else
+    if (test "${with_gcr_gtk4}" = "yes"); then
+        AC_MSG_ERROR([gcr support was requested, but the gcr library is not available.])
+    fi
+    AC_DEFINE(WITH_GCR_GTK4, 0, [Define if Gcr is available])
+fi
+AM_CONDITIONAL(WITH_GCR_GTK4, test "${have_gcr_gtk4}" = "yes")
+
 dnl Check for gobject introspection
 GOBJECT_INTROSPECTION_CHECK([0.9.6])
 
@@ -277,6 +301,7 @@ AC_OUTPUT
 echo ""
 echo "  Build EXPERIMENTAL libnma-gtk4 library for use with GTK4: --with-libnma-gtk4=${with_libnma_gtk4}"
 echo "  GCR: --with-gcr=$have_gcr"
+echo "  GCR_GTK4: --with-gcr-gtk4=$have_gcr_gtk4"
 echo "  LTO: --enable-lto=$enable_lto"
 echo "  Linker garbage collection: --enable-ld-gc=$enable_ld_gc"
 echo ""
