@@ -49,6 +49,7 @@ G_END_DECLS
 #include "nma-ws-802-1x.h"
 #include "nma-ws-dynamic-wep.h"
 #include "nma-ws-leap.h"
+#include "nma-ws-owe.h"
 #include "nma-ws-sae.h"
 #include "nma-ws-wep-key.h"
 #include "nma-ws-wpa-eap.h"

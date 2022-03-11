@@ -110,6 +110,13 @@ main (int argc, char *argv[])
 	g_signal_connect (w, "ws-changed", G_CALLBACK (ws_changed_cb), connection);
 	ws_changed_cb (NMA_WS (w), connection);
 
+	w = GTK_WIDGET (nma_ws_owe_new (connection));
+	gtk_widget_show (w);
+	gtk_notebook_append_page (GTK_NOTEBOOK (notebook), w, gtk_label_new ("OWE"));
+	nma_ws_add_to_size_group (NMA_WS (w), gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL));
+	g_signal_connect (w, "ws-changed", G_CALLBACK (ws_changed_cb), connection);
+	ws_changed_cb (NMA_WS (w), connection);
+
 	g_main_loop_run (loop);
 	g_main_loop_unref (loop);
 }
