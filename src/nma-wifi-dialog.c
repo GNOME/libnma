@@ -18,9 +18,6 @@
 #include "nma-ws.h"
 #include "nma-eap.h"
 
-/* For compatibility with NetworkManager-1.20 and earlier. */
-#define NMU_SEC_SAE 9
-
 G_DEFINE_TYPE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG)
 
 #define NMA_WIFI_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
