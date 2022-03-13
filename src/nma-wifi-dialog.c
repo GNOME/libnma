@@ -18,9 +18,6 @@
 #include "nma-ws.h"
 #include "nma-eap.h"
 
-/* For compatibility with NetworkManager-1.20 and earlier. */
-#define NMU_SEC_SAE 9
-
 G_DEFINE_TYPE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG)
 
 #define NMA_WIFI_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
@@ -686,6 +683,9 @@ get_default_type_for_security (NMSettingWirelessSecurity *sec,
 	if (!strcmp (key_mgmt, "none"))
 		return NMU_SEC_STATIC_WEP;
 
+	if (!strcmp (key_mgmt, "owe"))
+		return NMU_SEC_OWE;
+
 	if (   !strcmp (key_mgmt, "ieee8021x")
 	    && (!have_ap || (ap_flags & NM_802_11_AP_FLAGS_PRIVACY))) {
 		if (auth_alg && !strcmp (auth_alg, "leap"))
@@ -1014,6 +1014,17 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 		add_security_item (self, NMA_WS (ws_sae), sec_model,
 		                   &iter, _("WPA3 Personal"));
 		if (active < 0 && default_type == NMU_SEC_SAE)
+			active = item;
+		item++;
+	}
+
+	if (security_valid (NMU_SEC_OWE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
+		NMAWsOwe *ws_owe;
+
+		ws_owe = nma_ws_owe_new (priv->connection);
+		add_security_item (self, NMA_WS (ws_owe), sec_model,
+		                   &iter, _("Enhanced Open"));
+		if (active < 0 && default_type == NMU_SEC_OWE)
 			active = item;
 		item++;
 	}

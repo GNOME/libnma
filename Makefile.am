@@ -172,6 +172,7 @@ libnma_h_pub = \
 	src/nma-ws/nma-ws-dynamic-wep.h \
 	src/nma-ws/nma-ws.h \
 	src/nma-ws/nma-ws-leap.h \
+	src/nma-ws/nma-ws-owe.h \
 	src/nma-ws/nma-ws-sae.h \
 	src/nma-ws/nma-ws-wep-key.h \
 	src/nma-ws/nma-ws-wpa-eap.h \
@@ -200,6 +201,7 @@ libnma_c_real = \
 	src/nma-ws/nma-ws-dynamic-wep.c \
 	src/nma-ws/nma-ws-helpers.c \
 	src/nma-ws/nma-ws-leap.c \
+	src/nma-ws/nma-ws-owe.c \
 	src/nma-ws/nma-ws-sae.c \
 	src/nma-ws/nma-ws-wep-key.c \
 	src/nma-ws/nma-ws-wpa-eap.c \
