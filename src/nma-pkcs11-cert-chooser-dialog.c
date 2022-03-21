@@ -50,6 +50,8 @@ struct _NMAPkcs11CertChooserDialogPrivate {
 	GtkCellRenderer *list_name_renderer;
 	GtkTreeViewColumn *list_issued_by_column;
 	GtkCellRenderer *list_issued_by_renderer;
+
+	gboolean object_selected;
 };
 
 #define NMA_PKCS11_CERT_CHOOSER_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
@@ -117,7 +119,8 @@ object_details (GObject *source_object, GAsyncResult *res, gpointer user_data)
 	CK_OBJECT_CLASS cka_class;
 	const GckAttribute *attr;
 	GcrCertificate *cert;
-	gchar *label, *issuer;
+	gchar *label = NULL;
+	gchar *issuer = NULL;
 	GError *error = NULL;
 	GtkListStore *store1, *store2;
 	IdMatchData data;
@@ -155,23 +158,26 @@ object_details (GObject *source_object, GAsyncResult *res, gpointer user_data)
 	                        id_match,
 	                        &data);
 
+	attr = gck_attributes_find (attrs, CKA_LABEL);
+	if (attr && attr->value && attr->length) {
+		label = g_malloc (attr->length + 1);
+		memcpy (label, attr->value, attr->length);
+		label[attr->length] = '\0';
+	}
+
 	attr = gck_attributes_find (attrs, CKA_VALUE);
 	if (attr && attr->value && attr->length) {
 		cert = gcr_simple_certificate_new (attr->value, attr->length);
-		label = gcr_certificate_get_subject_name (cert);
+		if (!label)
+			label = gcr_certificate_get_subject_name (cert);
 		issuer = gcr_certificate_get_issuer_name (cert);
 		g_object_unref (cert);
-	} else {
-		attr = gck_attributes_find (attrs, CKA_LABEL);
-		if (attr && attr->value && attr->length) {
-			label = g_malloc (attr->length + 1);
-			memcpy (label, attr->value, attr->length);
-			label[attr->length] = '\0';
-		} else {
-			label = g_strdup (_("(Unknown)"));
-		}
-		issuer = g_memdup ("", 1);
 	}
+
+	if (!label)
+		label = g_strdup (_("(Unknown)"));
+	if (!issuer)
+		issuer = g_memdup ("", 1);
 
 	gtk_list_store_append (store1, &iter);
 	gtk_list_store_set (store1, &iter,
@@ -283,18 +289,23 @@ static void
 row_activated (GtkTreeView *tree_view, GtkTreePath *path,
                GtkTreeViewColumn *column, gpointer user_data)
 {
-	if (gtk_window_activate_default (GTK_WINDOW (user_data)))
-		return;
+	NMAPkcs11CertChooserDialog *self = user_data;
+	NMAPkcs11CertChooserDialogPrivate *priv = self->priv;
+
+	if (priv->object_selected)
+		gtk_dialog_response(GTK_DIALOG (user_data), GTK_RESPONSE_ACCEPT);
 }
 
 static void
 cursor_changed (GtkTreeView *tree_view, gpointer user_data)
 {
 	NMAPkcs11CertChooserDialog *self = NMA_PKCS11_CERT_CHOOSER_DIALOG (user_data);
+	NMAPkcs11CertChooserDialogPrivate *priv = self->priv;
 	gchar *uri;
 
 	uri = nma_pkcs11_cert_chooser_dialog_get_uri (self);
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (self), GTK_RESPONSE_ACCEPT, uri != NULL);
+	priv->object_selected = uri != NULL;
+	gtk_dialog_set_response_sensitive (GTK_DIALOG (self), GTK_RESPONSE_ACCEPT, priv->object_selected);
 	g_free (uri);
 }
 
