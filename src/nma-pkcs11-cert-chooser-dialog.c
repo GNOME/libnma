@@ -16,6 +16,12 @@
 #include <gck/gck.h>
 #include <gcr/gcr.h>
 
+#if !GCR_CHECK_VERSION(3,90,0)
+#define gck_slot_open_session_async(self, options, interaction, cancellable, callback, user_data) \
+	gck_slot_open_session_async(self, options, cancellable, callback, user_data)
+#define gck_uri_data_build gck_uri_build
+#endif
+
 /**
  * SECTION:nma-pkcs11-cert-chooser-dialog
  * @title: NMAPkcs11CertChooserDialog
@@ -343,7 +349,7 @@ login_clicked (GtkButton *button, gpointer user_data)
 		priv->pin_length = 0;
 		priv->pin_value =  g_memdup ("", 1);
 		priv->remember_pin = TRUE;
-		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, session_opened, self);
+		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, NULL, session_opened, self);
 		return;
 	}
 
@@ -357,7 +363,7 @@ login_clicked (GtkButton *button, gpointer user_data)
 		priv->pin_value = g_memdup (nma_pkcs11_token_login_dialog_get_pin_value (NMA_PKCS11_TOKEN_LOGIN_DIALOG (dialog)),
 		                            priv->pin_length + 1);
 		priv->remember_pin = nma_pkcs11_token_login_dialog_get_remember_pin (NMA_PKCS11_TOKEN_LOGIN_DIALOG (dialog));
-		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, session_opened, self);
+		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, NULL, session_opened, self);
 	}
 
 	gtk_window_destroy (GTK_WINDOW (dialog));
@@ -394,7 +400,7 @@ set_property (GObject *object, guint prop_id, const GValue *value, GParamSpec *p
 		if ((token_info->flags & CKF_LOGIN_REQUIRED) == 0)
 			gtk_widget_set_sensitive (priv->login_button, FALSE);
 		gck_token_info_free (token_info);
-		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, session_opened, self);
+		gck_slot_open_session_async (priv->slot, GCK_SESSION_READ_ONLY, NULL, NULL, session_opened, self);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -573,7 +579,7 @@ nma_pkcs11_cert_chooser_dialog_get_uri (NMAPkcs11CertChooserDialog *dialog)
 
 	uri_data.attributes = gck_builder_end (builder);
 	uri_data.token_info = gck_slot_get_token_info (priv->slot);
-	uri = gck_uri_build (&uri_data, GCK_URI_FOR_OBJECT_ON_TOKEN);
+	uri = gck_uri_data_build (&uri_data, GCK_URI_FOR_OBJECT_ON_TOKEN);
 
 	gck_attributes_unref (uri_data.attributes);
 	gck_attributes_unref (attrs);

@@ -61,6 +61,11 @@ gir_sources = [version_header] + nma_ws_sources + files(
   'nma-wifi-dialog.c'
 )
 
+pkcs11_sources = files(
+  'nma-pkcs11-cert-chooser-dialog.c',
+  'nma-pkcs11-token-login-dialog.c'
+)
+
 incs = [
   top_inc,
   shared_inc,
@@ -89,10 +94,7 @@ symbol_map = join_paths(meson.current_source_dir(), 'libnma.ver')
 nma_deps = [ deps, gtk_dep ]
 nma_sources = [ gir_sources, built_sources ]
 if enable_gcr
-  nma_sources += files(
-    'nma-pkcs11-cert-chooser-dialog.c',
-    'nma-pkcs11-token-login-dialog.c'
-  )
+  nma_sources += pkcs11_sources
   nma_deps += gcr_dep
 endif
 
@@ -115,12 +117,19 @@ libnma_dep = declare_dependency(
 )
 
 if enable_libnma_gtk4
+  nma_gtk4_deps = [ deps, gtk4_dep ]
+  nma_gtk4_sources = [ gir_sources, built_sources ]
+  if enable_gcr_gtk4
+    nma_gtk4_sources += pkcs11_sources
+    nma_gtk4_deps += gcr_gtk4_dep
+  endif
+
   libnma_gtk4 = shared_library(
     'nma-gtk4',
-    sources: gir_sources + built_sources,
+    sources: nma_gtk4_sources,
     version: libversion,
     include_directories: incs,
-    dependencies: [ deps, gtk4_dep ],
+    dependencies: nma_gtk4_deps,
     c_args: cflags,
     link_args: '-Wl,--version-script,' + symbol_map,
     link_depends: symbol_map,
