@@ -136,12 +136,34 @@ src/nma-resources.c: src/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --s
 
 src/libnma-gtk4/nma-resources.c: src/nma.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies $(srcdir)/src/nma.gresource.xml |sed "s,^,$(builddir)/src/libnma-gtk4/,")
 	@mkdir -p $(builddir)/src/libnma-gtk4 $(builddir)/src/libnma-gtk4/nma-ws
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(builddir)/src/libnma-gtk4 --generate-source --internal
-
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/src/libnma-gtk4 --sourcedir=$(builddir)/src/libnma-gtk4 --generate-source --internal
 
 src/libnma-gtk4/%.ui: src/%.ui
 	@mkdir -p $(builddir)/src/libnma-gtk4 $(builddir)/src/libnma-gtk4/nma-ws
 	gtk4-builder-tool simplify --3to4 $< |grep -v can.default >$@
+
+# Include Gtk4 GtkBuilder files in release tarball.
+# This way we can ship files that have been tested to be known good.
+# Running gtk4-builder-tool at build time is not recommended:
+# https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
+EXTRA_DIST += \
+	src/libnma-gtk4/nma-mobile-wizard.ui \
+	src/libnma-gtk4/nma-bar-code-widget.ui \
+	src/libnma-gtk4/nma-ws/nma-ws-leap.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-leap.ui \
+	src/libnma-gtk4/nma-ws/nma-ws-wpa-psk.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-simple.ui \
+	src/libnma-gtk4/nma-ws/nma-ws-wep-key.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-tls.ui \
+	src/libnma-gtk4/nma-ws/nma-ws-802-1x.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-fast.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-peap.ui \
+	src/libnma-gtk4/nma-ws/nma-eap-ttls.ui \
+	src/libnma-gtk4/nma-ws/nma-ws-sae.ui \
+	src/libnma-gtk4/nma-pkcs11-token-login-dialog.ui \
+	src/libnma-gtk4/nma-vpn-password-dialog.ui \
+	src/libnma-gtk4/nma-pkcs11-cert-chooser-dialog.ui \
+	src/libnma-gtk4/wifi.ui
 
 CLEANFILES += \
 	$(libnma_h_priv_gen) \
