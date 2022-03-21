@@ -1,4 +1,14 @@
 =======================================
+libnma-1.8.36
+Overview of changes since libnma-1.8.34
+=======================================
+
+* Add support for OWE in wireless security
+* Enable building libnma-gtk4 with gcr-gtk4
+* Improvements for certificate chooser
+* Block to send eap-tls configuration with empty domain
+
+=======================================
 libnma-1.8.34
 Overview of changes since libnma-1.8.32
 =======================================
