@@ -28,6 +28,7 @@
       gettext-devel
       glib2-devel
       gtk3-devel
+      gtk4-devel
       NetworkManager-libnm-devel
       pkgconfig
       /usr/bin/vapigen
@@ -40,7 +41,7 @@
 
 .dist: &dist
   dependencies:
-    - fedora28_dist
+    - fedora35_dist
   variables:
     GIT_STRATEGY: none
 
@@ -73,7 +74,7 @@
     - dnf -y install meson
     - tar xJf libnma-*.tar.xz
     - meson
-      -Dlibnm_gtk=false
+      -Dlibnma_gtk4=true
       -Dgcr=true
       -Diso_codes=true
       -Dmobile_broadband_provider_info=true
@@ -105,6 +106,7 @@
       --disable-introspection
       --disable-vala
       --disable-more-warnings
+      --without-libnma-gtk4
       --without-gcr
     - make -j$(nproc)
     - make -j$(nproc) check
@@ -128,23 +130,26 @@
       --enable-introspection
       --enable-vala
       --enable-more-warnings
+      --with-libnma-gtk4
       --with-gcr
     - make -j$(nproc)
     - make -j$(nproc) check
     - make -j$(nproc) install
     - make -j$(nproc) uninstall
 
-fedora28_dist:
+fedora35_dist:
   <<: *fedora_full
-  image: fedora:28
+  image: fedora:35
   stage: build
   script:
     - dnf -y install
       autoconf automake make
-      NetworkManager-devel
-      NetworkManager-glib-devel
+      xorg-x11-server-Xvfb xorg-x11-xinit
     - sh autogen.sh
-    - make -j$(nproc) distcheck
+    # The Xvfb dance below is because of
+    # https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
+    - xinit /bin/sh -c 'make -j$(nproc) distcheck && touch .success' -- /usr/bin/Xvfb :5
+    - test -e .success
   artifacts:
     paths:
       - "*.xz"
