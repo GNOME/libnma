@@ -172,7 +172,7 @@ fedora_autotools_full:
 centos7:
   <<: *dist
   before_script:
-    - yum -y install
+    - echo yum -y install
       file
       findutils
       gcc
