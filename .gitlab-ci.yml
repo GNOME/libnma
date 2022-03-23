@@ -169,49 +169,6 @@ fedora_autotools_full:
   image: fedora:latest
   stage: test
 
-centos7:
-  <<: *dist
-  before_script:
-    - yum -y install
-      file
-      findutils
-      gcc
-      desktop-file-utils
-      gettext-devel
-      glib2-devel
-      gtk3-devel
-      intltool
-      NetworkManager-libnm-devel
-      pkgconfig
-      /usr/bin/autopoint
-      /usr/bin/vapigen
-      gcr-devel
-      gobject-introspection-devel redhat-rpm-config
-      gtk-doc
-      iso-codes-devel
-      mobile-broadband-provider-info-devel
-      make
-  script:
-    - tar xJf libnma-*.tar.xz
-    - cd libnma-*/
-    - ./configure
-      --disable-silent-rules
-      --with-more-asserts=yes
-      --enable-nls
-      --enable-iso-codes
-      --enable-mobile-broadband-provider-info
-      --enable-gtk-doc
-      --enable-introspection
-      --enable-vala
-      --enable-more-warnings
-      --with-gcr
-    - make -j$(nproc)
-    - make -j$(nproc) check
-    - make -j$(nproc) install
-    - make -j$(nproc) uninstall
-  image: centos:7
-  stage: test
-
 # https://libnma.pages.gitlab.gnome.org/libnma/
 pages:
   <<: *fedora_full
