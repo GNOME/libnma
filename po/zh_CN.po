@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet 1.8.22\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2020-03-06 11:41+0100\n"
+"POT-Creation-Date: 2022-03-24 13:42+0100\n"
 "PO-Revision-Date: 2019-08-15 01:36+0000\n"
 "Last-Translator: tfu <tfu@redhat.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -140,86 +140,47 @@ msgid ""
 "type '%s'"
 msgstr "类型 '%s' 的值 \"%s\" 是无效的或超出类型为 '%s' 的属性 '%s' 的范围"
 
-#: src/nma-bar-code-widget.c:140
+#: src/nma-bar-code-widget.c:142
 msgid "Network"
 msgstr "网络"
 
-#: src/nma-bar-code-widget.c:157
+#: src/nma-bar-code-widget.c:159
 msgid "Password"
 msgstr "密码"
 
-#: src/nma-bar-code-widget.ui:36
+#: src/nma-bar-code-widget.ui:35
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "使用手机扫描或 <a href=\"nma:print\">打印</a>"
 
-#: src/nma-cert-chooser-button.c:153
-msgid "(None)"
-msgstr "(无)"
-
-#: src/nma-cert-chooser-button.c:161
+#: src/nma-cert-chooser-button.c:179
 #, c-format
 msgid "Key in %s"
 msgstr "键入 %s"
 
-#: src/nma-cert-chooser-button.c:162
+#: src/nma-cert-chooser-button.c:180
 #, c-format
 msgid "Certificate in %s"
 msgstr "%s 中的证书"
 
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-msgid "(Unknown)"
-msgstr "(未知信息)"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
 msgid "Select"
 msgstr "选择"
 
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
 msgid "Cancel"
 msgstr "取消"
 
-#: src/nma-cert-chooser-button.c:460
+#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+msgid "(None)"
+msgstr "(无)"
+
+#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+msgid "(Unknown)"
+msgstr "(未知信息)"
+
+#: src/nma-cert-chooser-button.c:431
 msgid "Select from file…"
 msgstr "从文件选择..."
-
-#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
-msgid "No certificate set"
-msgstr "无证书"
-
-#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
-msgid "No key set"
-msgstr "无密钥"
-
-#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
-#, c-format
-msgid "Choose a key for %s Certificate"
-msgstr "为 %s 证书选择一个密钥"
-
-#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
-#, c-format
-msgid "%s private _key"
-msgstr "%s 私钥(_k)"
-
-#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
-#, c-format
-msgid "%s key _password"
-msgstr "%s 密钥密码(_p)"
-
-#: src/nma-file-cert-chooser.c:300
-#, c-format
-msgid "Choose %s Certificate"
-msgstr "选择 %s 证书"
-
-#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
-#, c-format
-msgid "%s _certificate"
-msgstr "%s 证书(_c)"
-
-#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
-#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
-#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
-msgid "Sho_w password"
-msgstr "显示密码(_W)"
 
 #: src/nma-mobile-providers.c:787
 msgid "Default"
@@ -229,15 +190,15 @@ msgstr "默认"
 msgid "My country is not listed"
 msgstr "我所在国家/地区没有被列出"
 
-#: src/nma-mobile-wizard.c:141
+#: src/nma-mobile-wizard.c:142
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:144
+#: src/nma-mobile-wizard.c:145
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
+#: src/nma-mobile-wizard.c:250 src/nma-mobile-wizard.c:282
 msgid "Unlisted"
 msgstr "未列出"
 
@@ -245,19 +206,19 @@ msgstr "未列出"
 msgid "My plan is not listed…"
 msgstr "我的套餐未被列出..."
 
-#: src/nma-mobile-wizard.c:653
+#: src/nma-mobile-wizard.c:652
 msgid "Provider"
 msgstr "提供商"
 
-#: src/nma-mobile-wizard.c:1025
+#: src/nma-mobile-wizard.c:1024
 msgid "Installed GSM device"
 msgstr "已安装的 GSM 设备"
 
-#: src/nma-mobile-wizard.c:1028
+#: src/nma-mobile-wizard.c:1027
 msgid "Installed CDMA device"
 msgstr "已安装的 CDMA 设备"
 
-#: src/nma-mobile-wizard.c:1233
+#: src/nma-mobile-wizard.c:1232
 msgid "Any device"
 msgstr "任何设备"
 
@@ -265,73 +226,73 @@ msgstr "任何设备"
 msgid "New Mobile Broadband Connection"
 msgstr "新移动宽带连接"
 
-#: src/nma-mobile-wizard.ui:71
+#: src/nma-mobile-wizard.ui:69
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
 msgstr "此助手程序可帮助您简单地设置一个到蜂窝(3G)网络的移动宽带连接。"
 
-#: src/nma-mobile-wizard.ui:86
+#: src/nma-mobile-wizard.ui:84
 msgid "You will need the following information:"
 msgstr "您将需要以下信息："
 
-#: src/nma-mobile-wizard.ui:101
+#: src/nma-mobile-wizard.ui:99
 msgid "Your broadband provider’s name"
 msgstr "宽带提供商的名称"
 
-#: src/nma-mobile-wizard.ui:115
+#: src/nma-mobile-wizard.ui:113
 msgid "Your broadband billing plan name"
 msgstr "您的宽带付费套餐名称"
 
-#: src/nma-mobile-wizard.ui:129
+#: src/nma-mobile-wizard.ui:127
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(在某些情况下)您的宽带付费套餐 APN (访问点名称)"
 
-#: src/nma-mobile-wizard.ui:143
+#: src/nma-mobile-wizard.ui:141
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "为此移动宽带设备创建一个连接(_T)："
 
-#: src/nma-mobile-wizard.ui:170
+#: src/nma-mobile-wizard.ui:168
 msgid "Set up a Mobile Broadband Connection"
 msgstr "设置一个移动宽带连接"
 
-#: src/nma-mobile-wizard.ui:188
+#: src/nma-mobile-wizard.ui:186
 msgid "Country or region:"
 msgstr "国家或地区:"
 
-#: src/nma-mobile-wizard.ui:228
+#: src/nma-mobile-wizard.ui:226
 msgid "Choose your Provider’s Country or Region"
 msgstr "选择您的提供商的国家或地区"
 
-#: src/nma-mobile-wizard.ui:243
+#: src/nma-mobile-wizard.ui:241
 msgid "Select your provider from a _list:"
 msgstr "从列表中选择您的提供商(_L)："
 
-#: src/nma-mobile-wizard.ui:288
+#: src/nma-mobile-wizard.ui:286
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "找不到我的提供商，希望手动设置连接(_m)："
 
-#: src/nma-mobile-wizard.ui:309
+#: src/nma-mobile-wizard.ui:307
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "我的提供商使用 GSM 技术(GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:310
+#: src/nma-mobile-wizard.ui:308
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "我的提供商使用 CDMA 技术(1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:321
+#: src/nma-mobile-wizard.ui:319
 msgid "Choose your Provider"
 msgstr "选择您的提供商"
 
-#: src/nma-mobile-wizard.ui:338
+#: src/nma-mobile-wizard.ui:336
 msgid "_Select your plan:"
 msgstr "选择您的套餐(_S)："
 
-#: src/nma-mobile-wizard.ui:365
+#: src/nma-mobile-wizard.ui:363
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "所选套餐的 _APN (访问点名称)："
 
-#: src/nma-mobile-wizard.ui:415
+#: src/nma-mobile-wizard.ui:413
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -342,28 +303,28 @@ msgstr ""
 "\n"
 "如果您不确定您的套餐，请询问您的提供商以获取套餐的 APN。"
 
-#: src/nma-mobile-wizard.ui:436
+#: src/nma-mobile-wizard.ui:434
 msgid "Choose your Billing Plan"
 msgstr "选择您的付费套餐"
 
-#: src/nma-mobile-wizard.ui:454
+#: src/nma-mobile-wizard.ui:452
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "您的移动宽带连接已按以下设定配置："
 
-#: src/nma-mobile-wizard.ui:468
+#: src/nma-mobile-wizard.ui:466
 msgid "Your Device:"
 msgstr "您的设备："
 
-#: src/nma-mobile-wizard.ui:494
+#: src/nma-mobile-wizard.ui:492
 msgid "Your Provider:"
 msgstr "您的服务商："
 
-#: src/nma-mobile-wizard.ui:520
+#: src/nma-mobile-wizard.ui:518
 msgid "Your Plan:"
 msgstr "您的套餐："
 
-#: src/nma-mobile-wizard.ui:575
+#: src/nma-mobile-wizard.ui:573
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -375,241 +336,235 @@ msgstr ""
 "访问网络资源，请检查您的设置。要修改您的移动宽带设置，在系统 >> 首选项菜单中"
 "选择“网络连接”。"
 
-#: src/nma-mobile-wizard.ui:589
+#: src/nma-mobile-wizard.ui:587
 msgid "Confirm Mobile Broadband Settings"
 msgstr "确认移动宽带设置"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:241
+#: src/nma-pkcs11-cert-chooser-dialog.c:255
 msgid "Error logging in: "
 msgstr "错误日志中： "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:263
+#: src/nma-pkcs11-cert-chooser-dialog.c:277
 msgid "Error opening a session: "
 msgstr "打开一个会话出错:"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:20
+#: src/nma-pkcs11-cert-chooser-dialog.ui:19
 msgid "_Unlock token"
 msgstr "解锁令牌(_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:116
+#: src/nma-pkcs11-cert-chooser-dialog.ui:115
 msgid "Name"
 msgstr "名称"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:126
+#: src/nma-pkcs11-cert-chooser-dialog.ui:125
 msgid "Issued By"
 msgstr "由...发出"
 
-#: src/nma-pkcs11-cert-chooser.c:381
-#, c-format
-msgid "Choose a %s Certificate"
-msgstr "选择一个 %s 证书"
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, c-format
-msgid "%s certificate _password"
-msgstr "%s 证书密码(_p)"
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "显示密码(_w)"
-
-#: src/nma-pkcs11-token-login-dialog.c:132
+#: src/nma-pkcs11-token-login-dialog.c:134
 #, c-format
 msgid "Enter %s PIN"
 msgstr "输入 %s PIN码"
 
-#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1107
+#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "取消（_C）"
 
-#: src/nma-pkcs11-token-login-dialog.ui:35
+#: src/nma-pkcs11-token-login-dialog.ui:34
 msgid "_Login"
 msgstr "登录(_L)"
 
-#: src/nma-pkcs11-token-login-dialog.ui:82
+#: src/nma-pkcs11-token-login-dialog.ui:81
 msgid "_Remember PIN"
 msgstr "_Remember PIN"
 
-#: src/nma-ui-utils.c:36
+#: src/nma-ui-utils.c:34
 msgid "Store the password only for this user"
 msgstr "仅为该用户存储密码"
 
-#: src/nma-ui-utils.c:37
+#: src/nma-ui-utils.c:35
 msgid "Store the password for all users"
 msgstr "存储所有用户的密码"
 
-#: src/nma-ui-utils.c:38
+#: src/nma-ui-utils.c:36
 msgid "Ask for this password every time"
 msgstr "每次询问这个密码"
 
-#: src/nma-ui-utils.c:39
+#: src/nma-ui-utils.c:37
 msgid "The password is not required"
 msgstr "不需要密码"
 
-#: src/nma-vpn-password-dialog.ui:39
+#: src/nma-vpn-password-dialog.ui:43
 msgid "_OK"
 msgstr "确定(_O)"
 
-#: src/nma-vpn-password-dialog.ui:73
+#: src/nma-vpn-password-dialog.ui:76
 msgid "Sh_ow passwords"
 msgstr "显示密码(_O)"
 
-#: src/nma-vpn-password-dialog.ui:130
+#: src/nma-vpn-password-dialog.ui:133
 msgid "_Tertiary Password:"
 msgstr "三元密码(_T)："
 
-#: src/nma-vpn-password-dialog.ui:144
+#: src/nma-vpn-password-dialog.ui:147
 msgid "_Secondary Password:"
 msgstr "次要密码(_S)："
 
-#: src/nma-vpn-password-dialog.ui:158
+#: src/nma-vpn-password-dialog.ui:161
 msgid "_Password:"
 msgstr "密码(_P)："
 
-#: src/nma-wifi-dialog.c:117
+#: src/nma-wifi-dialog.c:116
 msgid "Click to connect"
 msgstr "点击连接"
 
-#: src/nma-wifi-dialog.c:448
+#: src/nma-wifi-dialog.c:443
 msgid "New…"
 msgstr "新…"
 
-#: src/nma-wifi-dialog.c:929
+#: src/nma-wifi-dialog.c:927
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "无"
 
-#: src/nma-wifi-dialog.c:945
+#: src/nma-wifi-dialog.c:943
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128 位密钥(十六进制或 ASCII)"
 
-#: src/nma-wifi-dialog.c:952
+#: src/nma-wifi-dialog.c:950
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128 位密码句"
 
-#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
+#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:978
+#: src/nma-wifi-dialog.c:976
 msgid "Dynamic WEP (802.1x)"
 msgstr "动态 WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:990
+#: src/nma-wifi-dialog.c:988
 msgid "WPA & WPA2 Personal"
 msgstr "WPA 及 WPA2 个人"
 
-#: src/nma-wifi-dialog.c:1006
+#: src/nma-wifi-dialog.c:1004
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA 及 WPA2 企业"
 
-#: src/nma-wifi-dialog.c:1017
+#: src/nma-wifi-dialog.c:1015
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA 及 WPA2 个人"
 
-#: src/nma-wifi-dialog.c:1111
+#: src/nma-wifi-dialog.c:1026
+msgid "Enhanced Open"
+msgstr ""
+
+#: src/nma-wifi-dialog.c:1119
 msgid "C_reate"
 msgstr "创建(_R)"
 
-#: src/nma-wifi-dialog.c:1113
+#: src/nma-wifi-dialog.c:1121
 msgid "C_onnect"
 msgstr "连接(_O)"
 
-#: src/nma-wifi-dialog.c:1191
+#: src/nma-wifi-dialog.c:1199
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "访问 Wi-Fi 网络 %s 需要密码或加密密钥。"
 
-#: src/nma-wifi-dialog.c:1193
+#: src/nma-wifi-dialog.c:1201
 msgid "Wi-Fi Network Authentication Required"
 msgstr "需要 Wi-Fi 网络认证"
 
-#: src/nma-wifi-dialog.c:1195
+#: src/nma-wifi-dialog.c:1203
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi 网络要求认证"
 
-#: src/nma-wifi-dialog.c:1200
+#: src/nma-wifi-dialog.c:1208
 msgid "Create New Wi-Fi Network"
 msgstr "创建新的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1202
+#: src/nma-wifi-dialog.c:1210
 msgid "New Wi-Fi network"
 msgstr "新建 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1211
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "输入您要创建的 Wi-Fi 网络的名称。"
 
-#: src/nma-wifi-dialog.c:1205
+#: src/nma-wifi-dialog.c:1213
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "连接到隐藏的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1207
+#: src/nma-wifi-dialog.c:1215
 msgid "Hidden Wi-Fi network"
 msgstr "隐藏的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1216
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
 msgstr "输入您要连接的隐藏的 Wi-Fi 网络的名称及安全性详细信息。"
 
-#: src/nma-ws/nma-eap-fast.c:59
+#: src/nma-ws/nma-eap-fast.c:60
 msgid "missing EAP-FAST PAC file"
 msgstr "缺少 EAP-FAST PAC 文件"
 
-#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
-#: src/nma-ws/nma-eap-ttls.c:366
+#: src/nma-ws/nma-eap-fast.c:250 src/nma-ws/nma-eap-peap.c:310
+#: src/nma-ws/nma-eap-ttls.c:363
 msgid "GTC"
 msgstr "GTC"
 
-#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
-#: src/nma-ws/nma-eap-ttls.c:300
+#: src/nma-ws/nma-eap-fast.c:266 src/nma-ws/nma-eap-peap.c:278
+#: src/nma-ws/nma-eap-ttls.c:297
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: src/nma-ws/nma-eap-fast.c:395
-msgid "Choose a PAC file"
-msgstr "选择一个 PAC 文件"
-
-#: src/nma-ws/nma-eap-fast.c:402
+#: src/nma-ws/nma-eap-fast.c:449
 msgid "PAC files (*.pac)"
 msgstr "PAC 文件(*.pac)"
 
-#: src/nma-ws/nma-eap-fast.c:406
+#: src/nma-ws/nma-eap-fast.c:453
 msgid "All files"
 msgstr "所有文件"
 
-#: src/nma-ws/nma-eap-fast.ui:23
+#: src/nma-ws/nma-eap-fast.ui:19
+msgid "Choose a PAC file"
+msgstr "选择一个 PAC 文件"
+
+#: src/nma-ws/nma-eap-fast.ui:36
+msgid "_Open"
+msgstr "打开(_O)"
+
+#: src/nma-ws/nma-eap-fast.ui:72
 msgid "Anonymous"
 msgstr "匿名"
 
-#: src/nma-ws/nma-eap-fast.ui:26
+#: src/nma-ws/nma-eap-fast.ui:75
 msgid "Authenticated"
 msgstr "已认证"
 
-#: src/nma-ws/nma-eap-fast.ui:29
+#: src/nma-ws/nma-eap-fast.ui:78
 msgid "Both"
 msgstr "两者兼用"
 
-#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-fast.ui:91 src/nma-ws/nma-eap-peap.ui:42
 #: src/nma-ws/nma-eap-ttls.ui:113
 msgid "Anony_mous identity"
 msgstr "匿名身份(_m)"
 
-#: src/nma-ws/nma-eap-fast.ui:68
+#: src/nma-ws/nma-eap-fast.ui:117
 msgid "PAC _file"
 msgstr "PAC 文件(_f)"
 
-#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-fast.ui:188 src/nma-ws/nma-eap-peap.ui:115
 #: src/nma-ws/nma-eap-ttls.ui:71
 msgid "_Inner authentication"
 msgstr "内部认证(_I)"
 
-#: src/nma-ws/nma-eap-fast.ui:136
+#: src/nma-ws/nma-eap-fast.ui:217
 msgid "Allow automatic PAC pro_visioning"
 msgstr "允许自动 PAC 配置(_V)"
 
@@ -632,8 +587,14 @@ msgstr "用户名(_U)"
 msgid "_Password"
 msgstr "密码(_P)"
 
-#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
-#: src/nma-ws/nma-ws-802-1x.c:346
+#: src/nma-ws/nma-eap-leap.ui:54 src/nma-ws/nma-eap-simple.ui:71
+#: src/nma-ws/nma-ws-leap.ui:55 src/nma-ws/nma-ws-sae.ui:56
+#: src/nma-ws/nma-ws-wpa-psk.ui:55
+msgid "Sho_w password"
+msgstr "显示密码(_W)"
+
+#: src/nma-ws/nma-eap-peap.c:294 src/nma-ws/nma-eap-ttls.c:347
+#: src/nma-ws/nma-ws-802-1x.c:343
 msgid "MD5"
 msgstr "MD5"
 
@@ -692,19 +653,19 @@ msgstr "显示密码(_o)"
 msgid "missing EAP-TLS identity"
 msgstr "缺少 EAP-TLS 身份"
 
-#: src/nma-ws/nma-eap-tls.c:234
+#: src/nma-ws/nma-eap-tls.c:237
 msgid "no user certificate selected"
 msgstr "没有选择用户证书"
 
-#: src/nma-ws/nma-eap-tls.c:239
+#: src/nma-ws/nma-eap-tls.c:242
 msgid "selected user certificate file does not exist"
 msgstr "选择用户证书文件不存在"
 
-#: src/nma-ws/nma-eap-tls.c:259
+#: src/nma-ws/nma-eap-tls.c:262
 msgid "no key selected"
 msgstr "没有选择的关键"
 
-#: src/nma-ws/nma-eap-tls.c:264
+#: src/nma-ws/nma-eap-tls.c:267
 msgid "selected key file does not exist"
 msgstr "选择的关键文件不存在"
 
@@ -712,19 +673,19 @@ msgstr "选择的关键文件不存在"
 msgid "I_dentity"
 msgstr "身份(_d)"
 
-#: src/nma-ws/nma-eap-ttls.c:268
+#: src/nma-ws/nma-eap-ttls.c:265
 msgid "PAP"
 msgstr "PAP"
 
-#: src/nma-ws/nma-eap-ttls.c:284
+#: src/nma-ws/nma-eap-ttls.c:281
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: src/nma-ws/nma-eap-ttls.c:317
+#: src/nma-ws/nma-eap-ttls.c:314
 msgid "MSCHAPv2 (no EAP)"
 msgstr "MSCHAPv2 (no EAP)"
 
-#: src/nma-ws/nma-eap-ttls.c:334
+#: src/nma-ws/nma-eap-ttls.c:331
 msgid "CHAP"
 msgstr "CHAP"
 
@@ -740,31 +701,31 @@ msgstr "没有选择 CA 证书"
 msgid "selected CA certificate file does not exist"
 msgstr "所选的CA证书文件不存在"
 
-#: src/nma-ws/nma-ws-802-1x.c:358
+#: src/nma-ws/nma-ws-802-1x.c:355
 msgid "TLS"
 msgstr "TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:382
+#: src/nma-ws/nma-ws-802-1x.c:379
 msgid "PWD"
 msgstr "PWD"
 
-#: src/nma-ws/nma-ws-802-1x.c:393
+#: src/nma-ws/nma-ws-802-1x.c:390
 msgid "FAST"
 msgstr "FAST"
 
-#: src/nma-ws/nma-ws-802-1x.c:404
+#: src/nma-ws/nma-ws-802-1x.c:401
 msgid "Tunneled TLS"
 msgstr "隧道 TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:415
+#: src/nma-ws/nma-ws-802-1x.c:412
 msgid "Protected EAP (PEAP)"
 msgstr "受保护的 EAP (PEAP)"
 
-#: src/nma-ws/nma-ws-802-1x.c:430
+#: src/nma-ws/nma-ws-802-1x.c:427
 msgid "Unknown"
 msgstr "未知"
 
-#: src/nma-ws/nma-ws-802-1x.c:444
+#: src/nma-ws/nma-ws-802-1x.c:441
 msgid "Externally configured"
 msgstr "外部配置"
 
@@ -857,7 +818,7 @@ msgstr ""
 msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
 msgstr "无效的 wpa-psk：不能用 64 个字节作为十六进制解释密钥"
 
-#: src/nma-ws/nma-ws.c:38
+#: src/nma-ws/nma-ws.c:42
 msgid "Unknown error validating 802.1X security"
 msgstr "未知错误验证 802.1X 安全性"
 
@@ -867,11 +828,11 @@ msgstr "未知错误验证 802.1X 安全性"
 msgid "%s connection"
 msgstr "%s 连接"
 
-#: src/utils/utils.c:535
+#: src/utils/utils.c:462
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM 证书 (*.pem, *.crt, *.cer)"
 
-#: src/utils/utils.c:547
+#: src/utils/utils.c:475
 msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
 msgstr "DER，PEM 或 PKCS#12 私钥 (*.der, *.pem, *.p12, *.key)"
 
@@ -890,6 +851,43 @@ msgstr "连接(_o)"
 #: src/wifi.ui:179
 msgid "Wi-Fi _adapter"
 msgstr "Wi-Fi 适配器(_a)"
+
+#~ msgid "No certificate set"
+#~ msgstr "无证书"
+
+#~ msgid "No key set"
+#~ msgstr "无密钥"
+
+#, c-format
+#~ msgid "Choose a key for %s Certificate"
+#~ msgstr "为 %s 证书选择一个密钥"
+
+#, c-format
+#~ msgid "%s private _key"
+#~ msgstr "%s 私钥(_k)"
+
+#, c-format
+#~ msgid "%s key _password"
+#~ msgstr "%s 密钥密码(_p)"
+
+#, c-format
+#~ msgid "Choose %s Certificate"
+#~ msgstr "选择 %s 证书"
+
+#, c-format
+#~ msgid "%s _certificate"
+#~ msgstr "%s 证书(_c)"
+
+#, c-format
+#~ msgid "Choose a %s Certificate"
+#~ msgstr "选择一个 %s 证书"
+
+#, c-format
+#~ msgid "%s certificate _password"
+#~ msgstr "%s 证书密码(_p)"
+
+#~ msgid "Sho_w passwords"
+#~ msgstr "显示密码(_w)"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "管理网络连接"
@@ -2960,9 +2958,6 @@ msgstr "Wi-Fi 适配器(_a)"
 
 #~ msgid "Select file to import"
 #~ msgstr "选择要导入的文件"
-
-#~ msgid "_Open"
-#~ msgstr "打开(_O)"
 
 #~ msgid "Hardware"
 #~ msgstr "硬件"

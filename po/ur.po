@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2020-03-06 11:41+0100\n"
+"POT-Creation-Date: 2022-03-24 13:42+0100\n"
 "PO-Revision-Date: 2010-04-06 22:47+0500\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: urducoder.com <makkiabufaris@aol.com>\n"
@@ -148,94 +148,54 @@ msgid ""
 "type '%s'"
 msgstr ""
 
-#: src/nma-bar-code-widget.c:140
+#: src/nma-bar-code-widget.c:142
 #, fuzzy
 msgid "Network"
 msgstr "ن_یٹ ورک:"
 
-#: src/nma-bar-code-widget.c:157
+#: src/nma-bar-code-widget.c:159
 #, fuzzy
 msgid "Password"
 msgstr "پاس ورڈ:"
 
-#: src/nma-bar-code-widget.ui:36
+#: src/nma-bar-code-widget.ui:35
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:153
-#, fuzzy
-msgid "(None)"
-msgstr "(کچھ نہیں)"
-
-#: src/nma-cert-chooser-button.c:161
+#: src/nma-cert-chooser-button.c:179
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:162
+#: src/nma-cert-chooser-button.c:180
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "CA _سند:"
 
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-#, fuzzy
-msgid "(Unknown)"
-msgstr "نامعلوم"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
 #, fuzzy
 msgid "Select"
 msgstr "فائل منتخب کریں"
 
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
 #, fuzzy
 msgid "Cancel"
 msgstr "gtk-cancel"
 
-#: src/nma-cert-chooser-button.c:460
+#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#, fuzzy
+msgid "(None)"
+msgstr "(کچھ نہیں)"
+
+#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#, fuzzy
+msgid "(Unknown)"
+msgstr "نامعلوم"
+
+#: src/nma-cert-chooser-button.c:431
 #, fuzzy
 msgid "Select from file…"
 msgstr "فائل منتخب کریں"
-
-#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
-#, fuzzy
-msgid "No certificate set"
-msgstr "CA _سند:"
-
-#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
-msgid "No key set"
-msgstr ""
-
-#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
-#, fuzzy, c-format
-msgid "Choose a key for %s Certificate"
-msgstr "اپنی ذاتی سند منتخب کریں..."
-
-#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
-#, fuzzy, c-format
-msgid "%s private _key"
-msgstr "نجی _کلید:"
-
-#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
-#, fuzzy, c-format
-msgid "%s key _password"
-msgstr "_نجی کلید پاس ورڈ:"
-
-#: src/nma-file-cert-chooser.c:300
-#, fuzzy, c-format
-msgid "Choose %s Certificate"
-msgstr "اپنی ذاتی سند منتخب کریں..."
-
-#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
-#, fuzzy, c-format
-msgid "%s _certificate"
-msgstr "_صارف سند:"
-
-#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
-#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
-#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
-msgid "Sho_w password"
-msgstr "پاس ورڈ د_کھائیں"
 
 #: src/nma-mobile-providers.c:787
 msgid "Default"
@@ -245,15 +205,15 @@ msgstr "طے شدہ"
 msgid "My country is not listed"
 msgstr "میرا ملک فہرست میں نہیں ہے"
 
-#: src/nma-mobile-wizard.c:141
+#: src/nma-mobile-wizard.c:142
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:144
+#: src/nma-mobile-wizard.c:145
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
+#: src/nma-mobile-wizard.c:250 src/nma-mobile-wizard.c:282
 msgid "Unlisted"
 msgstr "غیر درج شدہ"
 
@@ -262,19 +222,19 @@ msgstr "غیر درج شدہ"
 msgid "My plan is not listed…"
 msgstr "میرا پلان درجِ فہرست نہیں ہے..."
 
-#: src/nma-mobile-wizard.c:653
+#: src/nma-mobile-wizard.c:652
 msgid "Provider"
 msgstr "فراہم کُنندہ"
 
-#: src/nma-mobile-wizard.c:1025
+#: src/nma-mobile-wizard.c:1024
 msgid "Installed GSM device"
 msgstr "نصب شدہ GSM ڈیوائس"
 
-#: src/nma-mobile-wizard.c:1028
+#: src/nma-mobile-wizard.c:1027
 msgid "Installed CDMA device"
 msgstr "نصب شدہ CDMA ڈیوائس"
 
-#: src/nma-mobile-wizard.c:1233
+#: src/nma-mobile-wizard.c:1232
 msgid "Any device"
 msgstr "کوئی بھی ڈیوائس"
 
@@ -282,7 +242,7 @@ msgstr "کوئی بھی ڈیوائس"
 msgid "New Mobile Broadband Connection"
 msgstr "نیا موبائل براڈ بینڈ اتصال"
 
-#: src/nma-mobile-wizard.ui:71
+#: src/nma-mobile-wizard.ui:69
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -290,74 +250,74 @@ msgstr ""
 "یہ مددگار سیلولر (3G) نیٹ ورک سے موبائل براڈ بینڈ اتصال مرتب کرنے میں آپ کی "
 "مدد کرے گا."
 
-#: src/nma-mobile-wizard.ui:86
+#: src/nma-mobile-wizard.ui:84
 msgid "You will need the following information:"
 msgstr "آپ کو ذیل کی معلومات درکار ہوں گی:"
 
-#: src/nma-mobile-wizard.ui:101
+#: src/nma-mobile-wizard.ui:99
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "آپ کے براڈ بینڈ فراہم کُنندہ کا نام"
 
-#: src/nma-mobile-wizard.ui:115
+#: src/nma-mobile-wizard.ui:113
 msgid "Your broadband billing plan name"
 msgstr "آپ کے فراہم کُنندہ کے بِلِنگ پلان کا نام"
 
-#: src/nma-mobile-wizard.ui:129
+#: src/nma-mobile-wizard.ui:127
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(کچھ صورتوں میں) آپ کا براڈ بینڈ بِلِنگ پلان APN (Access Point Name)"
 
-#: src/nma-mobile-wizard.ui:143
+#: src/nma-mobile-wizard.ui:141
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "ا_س موبائل براڈ بینڈ ڈیوائس کے لیے اتصال بنائیں:"
 
-#: src/nma-mobile-wizard.ui:170
+#: src/nma-mobile-wizard.ui:168
 msgid "Set up a Mobile Broadband Connection"
 msgstr "موبائل براڈ بینڈ اتصال مرتب کریں"
 
-#: src/nma-mobile-wizard.ui:188
+#: src/nma-mobile-wizard.ui:186
 #, fuzzy
 msgid "Country or region:"
 msgstr "ممالک فہرست:"
 
-#: src/nma-mobile-wizard.ui:228
+#: src/nma-mobile-wizard.ui:226
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "اپنے فراہم کُنندہ کا ملک منتخب کریں"
 
-#: src/nma-mobile-wizard.ui:243
+#: src/nma-mobile-wizard.ui:241
 msgid "Select your provider from a _list:"
 msgstr "اپنا فراہم کُنندہ _فہرست میں سے منتخب کریں:"
 
-#: src/nma-mobile-wizard.ui:288
+#: src/nma-mobile-wizard.ui:286
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "میں اپنا فراہم کُنندہ تلاش نہیں کر سکا چنانچہ میں اسے _دستی طور پر شامل کرنا "
 "چاہتا ہوں:"
 
-#: src/nma-mobile-wizard.ui:309
+#: src/nma-mobile-wizard.ui:307
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr ""
 "میرا فراہم کُنندہ GSM ٹیکنالوجی استعمال کرتا ہے (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:310
+#: src/nma-mobile-wizard.ui:308
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "میرا فراہم کُنندہ CDMA ٹیکنالوجی استعمال کرتا ہے (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:321
+#: src/nma-mobile-wizard.ui:319
 msgid "Choose your Provider"
 msgstr "اپنا فراہم کُنندہ منتخب کریں"
 
-#: src/nma-mobile-wizard.ui:338
+#: src/nma-mobile-wizard.ui:336
 msgid "_Select your plan:"
 msgstr "اپنا پلان _منتخب کریں:"
 
-#: src/nma-mobile-wizard.ui:365
+#: src/nma-mobile-wizard.ui:363
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "منتخب کردہ پلان _APN (Access Point Name):"
 
-#: src/nma-mobile-wizard.ui:415
+#: src/nma-mobile-wizard.ui:413
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -371,29 +331,29 @@ msgstr ""
 "اگر آپ اپنے پلان کے حوالے سے تذبذب کا شکار ہیں تو اپنے فراہم کُنندہ سے اپنے "
 "پلان کے APN کے لیے کہیں."
 
-#: src/nma-mobile-wizard.ui:436
+#: src/nma-mobile-wizard.ui:434
 msgid "Choose your Billing Plan"
 msgstr "اپنا بِلِنگ پلان منتخب کریں"
 
-#: src/nma-mobile-wizard.ui:454
+#: src/nma-mobile-wizard.ui:452
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "آپ کا موبائل براڈ بینڈ اتصال مندرجہ ذیل ترتیبات کے ساتھ وضع کیا گیا ہے:"
 
-#: src/nma-mobile-wizard.ui:468
+#: src/nma-mobile-wizard.ui:466
 msgid "Your Device:"
 msgstr "آپ کی ڈیوائس:"
 
-#: src/nma-mobile-wizard.ui:494
+#: src/nma-mobile-wizard.ui:492
 msgid "Your Provider:"
 msgstr "آپ کا فراہم کُنندہ:"
 
-#: src/nma-mobile-wizard.ui:520
+#: src/nma-mobile-wizard.ui:518
 msgid "Your Plan:"
 msgstr "آپ کا پلان:"
 
-#: src/nma-mobile-wizard.ui:575
+#: src/nma-mobile-wizard.ui:573
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -408,200 +368,190 @@ msgstr ""
 "اتصال میں تبدیلی کے لیے نظام >> ترجیحات کی فہرست سے \"نیٹ ورک اتصال\" منتخب "
 "کریں."
 
-#: src/nma-mobile-wizard.ui:589
+#: src/nma-mobile-wizard.ui:587
 msgid "Confirm Mobile Broadband Settings"
 msgstr "موبائل براڈ بینڈ کی ترتیبات کی تصدیق کریں"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:241
+#: src/nma-pkcs11-cert-chooser-dialog.c:255
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:263
+#: src/nma-pkcs11-cert-chooser-dialog.c:277
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Fehler beim Abrufen der VPN-Verbindung »%s«"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:20
+#: src/nma-pkcs11-cert-chooser-dialog.ui:19
 msgid "_Unlock token"
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:116
+#: src/nma-pkcs11-cert-chooser-dialog.ui:115
 msgid "Name"
 msgstr "نام"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:126
+#: src/nma-pkcs11-cert-chooser-dialog.ui:125
 msgid "Issued By"
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser.c:381
-#, fuzzy, c-format
-msgid "Choose a %s Certificate"
-msgstr "اپنی ذاتی سند منتخب کریں..."
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, fuzzy, c-format
-msgid "%s certificate _password"
-msgstr "_صارف سند:"
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "پاس ورڈ _دکھائیں"
-
-#: src/nma-pkcs11-token-login-dialog.c:132
+#: src/nma-pkcs11-token-login-dialog.c:134
 #, c-format
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1107
+#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:35
+#: src/nma-pkcs11-token-login-dialog.ui:34
 msgid "_Login"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:82
+#: src/nma-pkcs11-token-login-dialog.ui:81
 msgid "_Remember PIN"
 msgstr ""
 
-#: src/nma-ui-utils.c:36
+#: src/nma-ui-utils.c:34
 msgid "Store the password only for this user"
 msgstr ""
 
-#: src/nma-ui-utils.c:37
+#: src/nma-ui-utils.c:35
 msgid "Store the password for all users"
 msgstr ""
 
-#: src/nma-ui-utils.c:38
+#: src/nma-ui-utils.c:36
 msgid "Ask for this password every time"
 msgstr ""
 
-#: src/nma-ui-utils.c:39
+#: src/nma-ui-utils.c:37
 #, fuzzy
 msgid "The password is not required"
 msgstr "نیٹ ورک '%s' سے اتصال قائم کرنے کے لیے پاس ورڈ درکار ہے."
 
-#: src/nma-vpn-password-dialog.ui:39
+#: src/nma-vpn-password-dialog.ui:43
 msgid "_OK"
 msgstr ""
 
-#: src/nma-vpn-password-dialog.ui:73
+#: src/nma-vpn-password-dialog.ui:76
 #, fuzzy
 msgid "Sh_ow passwords"
 msgstr "پاس ورڈ _دکھائیں"
 
-#: src/nma-vpn-password-dialog.ui:130
+#: src/nma-vpn-password-dialog.ui:133
 #, fuzzy
 msgid "_Tertiary Password:"
 msgstr "_پاس ورڈ:"
 
-#: src/nma-vpn-password-dialog.ui:144
+#: src/nma-vpn-password-dialog.ui:147
 #, fuzzy
 msgid "_Secondary Password:"
 msgstr "_پاس ورڈ:"
 
-#: src/nma-vpn-password-dialog.ui:158
+#: src/nma-vpn-password-dialog.ui:161
 msgid "_Password:"
 msgstr "_پاس ورڈ:"
 
-#: src/nma-wifi-dialog.c:117
+#: src/nma-wifi-dialog.c:116
 #, fuzzy
 msgid "Click to connect"
 msgstr "Verbindung konnte nicht verschoben werden"
 
-#: src/nma-wifi-dialog.c:448
+#: src/nma-wifi-dialog.c:443
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:929
+#: src/nma-wifi-dialog.c:927
 #, fuzzy
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "کچھ نہیں"
 
-#: src/nma-wifi-dialog.c:945
+#: src/nma-wifi-dialog.c:943
 #, fuzzy
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 64/128-bit ASCII"
 
-#: src/nma-wifi-dialog.c:952
+#: src/nma-wifi-dialog.c:950
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit Passphrase"
 
-#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
+#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:978
+#: src/nma-wifi-dialog.c:976
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "حرکی WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:990
+#: src/nma-wifi-dialog.c:988
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 ذاتی"
 
-#: src/nma-wifi-dialog.c:1006
+#: src/nma-wifi-dialog.c:1004
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 انٹرپرائز"
 
-#: src/nma-wifi-dialog.c:1017
+#: src/nma-wifi-dialog.c:1015
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 ذاتی"
 
-#: src/nma-wifi-dialog.c:1111
+#: src/nma-wifi-dialog.c:1026
+msgid "Enhanced Open"
+msgstr ""
+
+#: src/nma-wifi-dialog.c:1119
 msgid "C_reate"
 msgstr "_بنائیں"
 
-#: src/nma-wifi-dialog.c:1113
+#: src/nma-wifi-dialog.c:1121
 msgid "C_onnect"
 msgstr "_متصل ہوں"
 
-#: src/nma-wifi-dialog.c:1191
+#: src/nma-wifi-dialog.c:1199
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "وائیرلیس نیٹ ورک '%s' تک رسائی کے لیے پاس ورڈ یا ترمیزی کلیدیں درکار ہیں."
 
-#: src/nma-wifi-dialog.c:1193
+#: src/nma-wifi-dialog.c:1201
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "وائیرلیس نیٹ ورک توثیق درکار"
 
-#: src/nma-wifi-dialog.c:1195
+#: src/nma-wifi-dialog.c:1203
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "توثیق درکار از وائیرلیس نیٹ ورک"
 
-#: src/nma-wifi-dialog.c:1200
+#: src/nma-wifi-dialog.c:1208
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "نیا وائیرلیس نیٹ ورک بنائیں"
 
-#: src/nma-wifi-dialog.c:1202
+#: src/nma-wifi-dialog.c:1210
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "نیا وائیرلیس نیٹ ورک"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "نئے وائیرلیس نیٹ ورک کا نام لکھیں جو آپ بنانا چاہتے ہیں."
 
-#: src/nma-wifi-dialog.c:1205
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "پوشیدہ وائیرلیس نیٹ ورک سے اتصال قائم کریں"
 
-#: src/nma-wifi-dialog.c:1207
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "پوشیدہ وائیرلیس نیٹ ورک"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1216
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -610,63 +560,67 @@ msgstr ""
 "اس پوشیدہ وائیرلیس نیٹ ورک کا نام اور سیکورٹی تفصیلات داخل کریں جس سے آپ "
 "متصل ہونے چاہتے ہیں."
 
-#: src/nma-ws/nma-eap-fast.c:59
+#: src/nma-ws/nma-eap-fast.c:60
 msgid "missing EAP-FAST PAC file"
 msgstr ""
 
-#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
-#: src/nma-ws/nma-eap-ttls.c:366
+#: src/nma-ws/nma-eap-fast.c:250 src/nma-ws/nma-eap-peap.c:310
+#: src/nma-ws/nma-eap-ttls.c:363
 msgid "GTC"
 msgstr "GTC"
 
-#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
-#: src/nma-ws/nma-eap-ttls.c:300
+#: src/nma-ws/nma-eap-fast.c:266 src/nma-ws/nma-eap-peap.c:278
+#: src/nma-ws/nma-eap-ttls.c:297
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: src/nma-ws/nma-eap-fast.c:395
-msgid "Choose a PAC file"
-msgstr ""
-
-#: src/nma-ws/nma-eap-fast.c:402
+#: src/nma-ws/nma-eap-fast.c:449
 msgid "PAC files (*.pac)"
 msgstr ""
 
-#: src/nma-ws/nma-eap-fast.c:406
+#: src/nma-ws/nma-eap-fast.c:453
 msgid "All files"
 msgstr ""
 
-#: src/nma-ws/nma-eap-fast.ui:23
+#: src/nma-ws/nma-eap-fast.ui:19
+msgid "Choose a PAC file"
+msgstr ""
+
+#: src/nma-ws/nma-eap-fast.ui:36
+msgid "_Open"
+msgstr ""
+
+#: src/nma-ws/nma-eap-fast.ui:72
 #, fuzzy
 msgid "Anonymous"
 msgstr "_نامعلوم پہچان:"
 
-#: src/nma-ws/nma-eap-fast.ui:26
+#: src/nma-ws/nma-eap-fast.ui:75
 #, fuzzy
 msgid "Authenticated"
 msgstr "_توثیق:"
 
-#: src/nma-ws/nma-eap-fast.ui:29
+#: src/nma-ws/nma-eap-fast.ui:78
 msgid "Both"
 msgstr ""
 
-#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-fast.ui:91 src/nma-ws/nma-eap-peap.ui:42
 #: src/nma-ws/nma-eap-ttls.ui:113
 #, fuzzy
 msgid "Anony_mous identity"
 msgstr "_نامعلوم پہچان:"
 
-#: src/nma-ws/nma-eap-fast.ui:68
+#: src/nma-ws/nma-eap-fast.ui:117
 msgid "PAC _file"
 msgstr ""
 
-#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-fast.ui:188 src/nma-ws/nma-eap-peap.ui:115
 #: src/nma-ws/nma-eap-ttls.ui:71
 #, fuzzy
 msgid "_Inner authentication"
 msgstr "داخلی توثیق:"
 
-#: src/nma-ws/nma-eap-fast.ui:136
+#: src/nma-ws/nma-eap-fast.ui:217
 msgid "Allow automatic PAC pro_visioning"
 msgstr ""
 
@@ -691,8 +645,14 @@ msgstr "صا_رف کا نام:"
 msgid "_Password"
 msgstr "_پاس ورڈ:"
 
-#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
-#: src/nma-ws/nma-ws-802-1x.c:346
+#: src/nma-ws/nma-eap-leap.ui:54 src/nma-ws/nma-eap-simple.ui:71
+#: src/nma-ws/nma-ws-leap.ui:55 src/nma-ws/nma-ws-sae.ui:56
+#: src/nma-ws/nma-ws-wpa-psk.ui:55
+msgid "Sho_w password"
+msgstr "پاس ورڈ د_کھائیں"
+
+#: src/nma-ws/nma-eap-peap.c:294 src/nma-ws/nma-eap-ttls.c:347
+#: src/nma-ws/nma-ws-802-1x.c:343
 msgid "MD5"
 msgstr "MD5"
 
@@ -755,20 +715,20 @@ msgstr "Passphrase anzeigen"
 msgid "missing EAP-TLS identity"
 msgstr ""
 
-#: src/nma-ws/nma-eap-tls.c:234
+#: src/nma-ws/nma-eap-tls.c:237
 #, fuzzy
 msgid "no user certificate selected"
 msgstr "CA _سند:"
 
-#: src/nma-ws/nma-eap-tls.c:239
+#: src/nma-ws/nma-eap-tls.c:242
 msgid "selected user certificate file does not exist"
 msgstr ""
 
-#: src/nma-ws/nma-eap-tls.c:259
+#: src/nma-ws/nma-eap-tls.c:262
 msgid "no key selected"
 msgstr ""
 
-#: src/nma-ws/nma-eap-tls.c:264
+#: src/nma-ws/nma-eap-tls.c:267
 msgid "selected key file does not exist"
 msgstr ""
 
@@ -777,20 +737,20 @@ msgstr ""
 msgid "I_dentity"
 msgstr "شناخت:"
 
-#: src/nma-ws/nma-eap-ttls.c:268
+#: src/nma-ws/nma-eap-ttls.c:265
 msgid "PAP"
 msgstr "PAP"
 
-#: src/nma-ws/nma-eap-ttls.c:284
+#: src/nma-ws/nma-eap-ttls.c:281
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: src/nma-ws/nma-eap-ttls.c:317
+#: src/nma-ws/nma-eap-ttls.c:314
 #, fuzzy
 msgid "MSCHAPv2 (no EAP)"
 msgstr "MSCHAPv2"
 
-#: src/nma-ws/nma-eap-ttls.c:334
+#: src/nma-ws/nma-eap-ttls.c:331
 msgid "CHAP"
 msgstr "CHAP"
 
@@ -807,31 +767,31 @@ msgstr "CA _سند:"
 msgid "selected CA certificate file does not exist"
 msgstr ""
 
-#: src/nma-ws/nma-ws-802-1x.c:358
+#: src/nma-ws/nma-ws-802-1x.c:355
 msgid "TLS"
 msgstr "TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:382
+#: src/nma-ws/nma-ws-802-1x.c:379
 msgid "PWD"
 msgstr ""
 
-#: src/nma-ws/nma-ws-802-1x.c:393
+#: src/nma-ws/nma-ws-802-1x.c:390
 msgid "FAST"
 msgstr ""
 
-#: src/nma-ws/nma-ws-802-1x.c:404
+#: src/nma-ws/nma-ws-802-1x.c:401
 msgid "Tunneled TLS"
 msgstr "Tunneled TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:415
+#: src/nma-ws/nma-ws-802-1x.c:412
 msgid "Protected EAP (PEAP)"
 msgstr "محفوظ EAP (PEAP)"
 
-#: src/nma-ws/nma-ws-802-1x.c:430
+#: src/nma-ws/nma-ws-802-1x.c:427
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: src/nma-ws/nma-ws-802-1x.c:444
+#: src/nma-ws/nma-ws-802-1x.c:441
 msgid "Externally configured"
 msgstr ""
 
@@ -930,7 +890,7 @@ msgstr ""
 msgid "invalid wpa-psk: cannot interpret key with 64 bytes as hex"
 msgstr ""
 
-#: src/nma-ws/nma-ws.c:38
+#: src/nma-ws/nma-ws.c:42
 msgid "Unknown error validating 802.1X security"
 msgstr ""
 
@@ -940,12 +900,12 @@ msgstr ""
 msgid "%s connection"
 msgstr "ڈی ایس ایل اتصال %d"
 
-#: src/utils/utils.c:535
+#: src/utils/utils.c:462
 #, fuzzy
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "DER یا PEM اسناد (*.der, *.pem, *.crt, *.cer)"
 
-#: src/utils/utils.c:547
+#: src/utils/utils.c:475
 #, fuzzy
 msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
 msgstr "DER, PEM, or PKCS#12 نجی کلیدیں (*.der, *.pem, *.p12)"
@@ -969,6 +929,41 @@ msgstr "ا_تصال:"
 #, fuzzy
 msgid "Wi-Fi _adapter"
 msgstr "وائیرلیس ا_ڈاپٹر:"
+
+#, fuzzy
+#~ msgid "No certificate set"
+#~ msgstr "CA _سند:"
+
+#, fuzzy, c-format
+#~ msgid "Choose a key for %s Certificate"
+#~ msgstr "اپنی ذاتی سند منتخب کریں..."
+
+#, fuzzy, c-format
+#~ msgid "%s private _key"
+#~ msgstr "نجی _کلید:"
+
+#, fuzzy, c-format
+#~ msgid "%s key _password"
+#~ msgstr "_نجی کلید پاس ورڈ:"
+
+#, fuzzy, c-format
+#~ msgid "Choose %s Certificate"
+#~ msgstr "اپنی ذاتی سند منتخب کریں..."
+
+#, fuzzy, c-format
+#~ msgid "%s _certificate"
+#~ msgstr "_صارف سند:"
+
+#, fuzzy, c-format
+#~ msgid "Choose a %s Certificate"
+#~ msgstr "اپنی ذاتی سند منتخب کریں..."
+
+#, fuzzy, c-format
+#~ msgid "%s certificate _password"
+#~ msgstr "_صارف سند:"
+
+#~ msgid "Sho_w passwords"
+#~ msgstr "پاس ورڈ _دکھائیں"
 
 #, fuzzy
 #~ msgid "Manage your network connections"
