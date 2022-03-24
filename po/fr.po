@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet 1.8.22\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2020-03-06 11:41+0100\n"
+"POT-Creation-Date: 2022-03-24 13:42+0100\n"
 "PO-Revision-Date: 2019-10-21 16:12+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -169,86 +169,47 @@ msgstr ""
 "la valeur « %s » de type « %s » est invalide ou hors de la plage pour la "
 "propriété « %s » de type « %s »"
 
-#: src/nma-bar-code-widget.c:140
+#: src/nma-bar-code-widget.c:142
 msgid "Network"
 msgstr "Réseau"
 
-#: src/nma-bar-code-widget.c:157
+#: src/nma-bar-code-widget.c:159
 msgid "Password"
 msgstr "Mot de passe"
 
-#: src/nma-bar-code-widget.ui:36
+#: src/nma-bar-code-widget.ui:35
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Scannez avec votre portable ou <a href=\"nma:print\">Print</a>"
 
-#: src/nma-cert-chooser-button.c:153
-msgid "(None)"
-msgstr "(aucun)"
-
-#: src/nma-cert-chooser-button.c:161
+#: src/nma-cert-chooser-button.c:179
 #, c-format
 msgid "Key in %s"
 msgstr "Clé dans %s"
 
-#: src/nma-cert-chooser-button.c:162
+#: src/nma-cert-chooser-button.c:180
 #, c-format
 msgid "Certificate in %s"
 msgstr "Certificat dans %s"
 
-#: src/nma-cert-chooser-button.c:181 src/nma-pkcs11-cert-chooser-dialog.c:169
-msgid "(Unknown)"
-msgstr "(inconnu)"
-
-#: src/nma-cert-chooser-button.c:203 src/nma-cert-chooser-button.c:233
+#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
 msgid "Select"
 msgstr "Sélectionner"
 
-#: src/nma-cert-chooser-button.c:204 src/nma-cert-chooser-button.c:234
+#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/nma-cert-chooser-button.c:460
+#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+msgid "(None)"
+msgstr "(aucun)"
+
+#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+msgid "(Unknown)"
+msgstr "(inconnu)"
+
+#: src/nma-cert-chooser-button.c:431
 msgid "Select from file…"
 msgstr "Choisir à partir d’un fichier…"
-
-#: src/nma-file-cert-chooser.c:113 src/nma-pkcs11-cert-chooser.c:139
-msgid "No certificate set"
-msgstr "Aucun certificat défini"
-
-#: src/nma-file-cert-chooser.c:131 src/nma-pkcs11-cert-chooser.c:163
-msgid "No key set"
-msgstr "Aucune clé définie"
-
-#: src/nma-file-cert-chooser.c:288 src/nma-pkcs11-cert-chooser.c:369
-#, c-format
-msgid "Choose a key for %s Certificate"
-msgstr "Choisissez une clé pour le certificat %s"
-
-#: src/nma-file-cert-chooser.c:292 src/nma-pkcs11-cert-chooser.c:373
-#, c-format
-msgid "%s private _key"
-msgstr "_Clé privée %s"
-
-#: src/nma-file-cert-chooser.c:296 src/nma-pkcs11-cert-chooser.c:377
-#, c-format
-msgid "%s key _password"
-msgstr "_Mot de passe de la clé %s"
-
-#: src/nma-file-cert-chooser.c:300
-#, c-format
-msgid "Choose %s Certificate"
-msgstr "Choisissez le certificat %s"
-
-#: src/nma-file-cert-chooser.c:304 src/nma-pkcs11-cert-chooser.c:385
-#, c-format
-msgid "%s _certificate"
-msgstr "_Certificat %s"
-
-#: src/nma-file-cert-chooser.c:389 src/nma-ws/nma-eap-leap.ui:54
-#: src/nma-ws/nma-eap-simple.ui:71 src/nma-ws/nma-ws-leap.ui:55
-#: src/nma-ws/nma-ws-sae.ui:56 src/nma-ws/nma-ws-wpa-psk.ui:55
-msgid "Sho_w password"
-msgstr "A_fficher le mot de passe"
 
 #: src/nma-mobile-providers.c:787
 msgid "Default"
@@ -258,15 +219,15 @@ msgstr "Par défaut"
 msgid "My country is not listed"
 msgstr "Mon pays n’est pas dans la liste"
 
-#: src/nma-mobile-wizard.c:141
+#: src/nma-mobile-wizard.c:142
 msgid "GSM"
 msgstr "GSM"
 
-#: src/nma-mobile-wizard.c:144
+#: src/nma-mobile-wizard.c:145
 msgid "CDMA"
 msgstr "CDMA"
 
-#: src/nma-mobile-wizard.c:249 src/nma-mobile-wizard.c:281
+#: src/nma-mobile-wizard.c:250 src/nma-mobile-wizard.c:282
 msgid "Unlisted"
 msgstr "Pas dans la liste"
 
@@ -274,19 +235,19 @@ msgstr "Pas dans la liste"
 msgid "My plan is not listed…"
 msgstr "Mon forfait ne figure pas dans la liste…"
 
-#: src/nma-mobile-wizard.c:653
+#: src/nma-mobile-wizard.c:652
 msgid "Provider"
 msgstr "Fournisseur"
 
-#: src/nma-mobile-wizard.c:1025
+#: src/nma-mobile-wizard.c:1024
 msgid "Installed GSM device"
 msgstr "Périphérique GSM installé"
 
-#: src/nma-mobile-wizard.c:1028
+#: src/nma-mobile-wizard.c:1027
 msgid "Installed CDMA device"
 msgstr "Périphérique CDMA installé"
 
-#: src/nma-mobile-wizard.c:1233
+#: src/nma-mobile-wizard.c:1232
 msgid "Any device"
 msgstr "N’importe quel appareil"
 
@@ -294,7 +255,7 @@ msgstr "N’importe quel appareil"
 msgid "New Mobile Broadband Connection"
 msgstr "Nouvelle connexion mobile"
 
-#: src/nma-mobile-wizard.ui:71
+#: src/nma-mobile-wizard.ui:69
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -302,71 +263,71 @@ msgstr ""
 "Cet assistant vous aide à configurer facilement une connexion mobile à large "
 "bande à un réseau cellulaire (3G)."
 
-#: src/nma-mobile-wizard.ui:86
+#: src/nma-mobile-wizard.ui:84
 msgid "You will need the following information:"
 msgstr "Vous devez disposer des informations suivantes :"
 
-#: src/nma-mobile-wizard.ui:101
+#: src/nma-mobile-wizard.ui:99
 msgid "Your broadband provider’s name"
 msgstr "Le nom de votre fournisseur"
 
-#: src/nma-mobile-wizard.ui:115
+#: src/nma-mobile-wizard.ui:113
 msgid "Your broadband billing plan name"
 msgstr "Le nom de votre plan de facturation"
 
-#: src/nma-mobile-wizard.ui:129
+#: src/nma-mobile-wizard.ui:127
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "Le nom du point d’accès (APN) de votre plan de facturation (dans certains "
 "cas)"
 
-#: src/nma-mobile-wizard.ui:143
+#: src/nma-mobile-wizard.ui:141
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Créer une connexion pour cet appareil _mobile :"
 
-#: src/nma-mobile-wizard.ui:170
+#: src/nma-mobile-wizard.ui:168
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Configuration d’une connexion mobile"
 
-#: src/nma-mobile-wizard.ui:188
+#: src/nma-mobile-wizard.ui:186
 msgid "Country or region:"
 msgstr "Pays ou région :"
 
-#: src/nma-mobile-wizard.ui:228
+#: src/nma-mobile-wizard.ui:226
 msgid "Choose your Provider’s Country or Region"
 msgstr "Choisissez le pays ou la région de votre fournisseur"
 
-#: src/nma-mobile-wizard.ui:243
+#: src/nma-mobile-wizard.ui:241
 msgid "Select your provider from a _list:"
 msgstr "Sélectionnez votre fournisseur dans la _liste :"
 
-#: src/nma-mobile-wizard.ui:288
+#: src/nma-mobile-wizard.ui:286
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "Je ne trouve pas mon fournisseur et je souhaite configurer _manuellement la "
 "connexion :"
 
-#: src/nma-mobile-wizard.ui:309
+#: src/nma-mobile-wizard.ui:307
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Mon fournisseur utilise la technologie GSM (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:310
+#: src/nma-mobile-wizard.ui:308
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Mon fournisseur utilise la technologie CDMA (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:321
+#: src/nma-mobile-wizard.ui:319
 msgid "Choose your Provider"
 msgstr "Choisissez votre fournisseur"
 
-#: src/nma-mobile-wizard.ui:338
+#: src/nma-mobile-wizard.ui:336
 msgid "_Select your plan:"
 msgstr "_Choisissez votre forfait :"
 
-#: src/nma-mobile-wizard.ui:365
+#: src/nma-mobile-wizard.ui:363
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Nom du point d’accès (_APN) choisi :"
 
-#: src/nma-mobile-wizard.ui:415
+#: src/nma-mobile-wizard.ui:413
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -379,28 +340,28 @@ msgstr ""
 "Si vous avez des doutes sur le forfait à choisir, interrogez votre "
 "fournisseur au sujet du nom du point d’accès (APN)."
 
-#: src/nma-mobile-wizard.ui:436
+#: src/nma-mobile-wizard.ui:434
 msgid "Choose your Billing Plan"
 msgstr "Choisissez votre plan de facturation"
 
-#: src/nma-mobile-wizard.ui:454
+#: src/nma-mobile-wizard.ui:452
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Votre connexion mobile est configurée avec les paramètres suivants :"
 
-#: src/nma-mobile-wizard.ui:468
+#: src/nma-mobile-wizard.ui:466
 msgid "Your Device:"
 msgstr "Votre périphérique :"
 
-#: src/nma-mobile-wizard.ui:494
+#: src/nma-mobile-wizard.ui:492
 msgid "Your Provider:"
 msgstr "Votre fournisseur :"
 
-#: src/nma-mobile-wizard.ui:520
+#: src/nma-mobile-wizard.ui:518
 msgid "Your Plan:"
 msgstr "Votre forfait :"
 
-#: src/nma-mobile-wizard.ui:575
+#: src/nma-mobile-wizard.ui:573
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -414,148 +375,138 @@ msgstr ""
 "nouvelle fois les paramètres. Pour les modifier, choisissez « Connexions "
 "réseau » dans le menu Système → Préférences."
 
-#: src/nma-mobile-wizard.ui:589
+#: src/nma-mobile-wizard.ui:587
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Confirmation des paramètres de connexion mobile"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:241
+#: src/nma-pkcs11-cert-chooser-dialog.c:255
 msgid "Error logging in: "
 msgstr "Erreur de connexion :"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:263
+#: src/nma-pkcs11-cert-chooser-dialog.c:277
 msgid "Error opening a session: "
 msgstr "Erreur lors de l’ouverture d’une session : "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:20
+#: src/nma-pkcs11-cert-chooser-dialog.ui:19
 msgid "_Unlock token"
 msgstr "_Déverrouiller le jeton"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:116
+#: src/nma-pkcs11-cert-chooser-dialog.ui:115
 msgid "Name"
 msgstr "Nom"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:126
+#: src/nma-pkcs11-cert-chooser-dialog.ui:125
 msgid "Issued By"
 msgstr "Émis par"
 
-#: src/nma-pkcs11-cert-chooser.c:381
-#, c-format
-msgid "Choose a %s Certificate"
-msgstr "Choisissez un certificat %s"
-
-#: src/nma-pkcs11-cert-chooser.c:389
-#, c-format
-msgid "%s certificate _password"
-msgstr "_Mot de passe du certificat %s"
-
-#: src/nma-pkcs11-cert-chooser.c:441
-msgid "Sho_w passwords"
-msgstr "A_fficher les mots de passe"
-
-#: src/nma-pkcs11-token-login-dialog.c:132
+#: src/nma-pkcs11-token-login-dialog.c:134
 #, c-format
 msgid "Enter %s PIN"
 msgstr "Saisissez le PIN %s"
 
-#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:23
-#: src/nma-wifi-dialog.c:1107
+#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "A_nnuler"
 
-#: src/nma-pkcs11-token-login-dialog.ui:35
+#: src/nma-pkcs11-token-login-dialog.ui:34
 msgid "_Login"
 msgstr "_Se connecter"
 
-#: src/nma-pkcs11-token-login-dialog.ui:82
+#: src/nma-pkcs11-token-login-dialog.ui:81
 msgid "_Remember PIN"
 msgstr "Se souvenir du _PIN"
 
-#: src/nma-ui-utils.c:36
+#: src/nma-ui-utils.c:34
 msgid "Store the password only for this user"
 msgstr "Enregistrer le mot de passe seulement pour cet utilisateur"
 
-#: src/nma-ui-utils.c:37
+#: src/nma-ui-utils.c:35
 msgid "Store the password for all users"
 msgstr "Enregistrer le mot de passe pour tous les utilisateurs"
 
-#: src/nma-ui-utils.c:38
+#: src/nma-ui-utils.c:36
 msgid "Ask for this password every time"
 msgstr "Demander ce mot de passe chaque fois"
 
-#: src/nma-ui-utils.c:39
+#: src/nma-ui-utils.c:37
 msgid "The password is not required"
 msgstr "Le mot de passe n’est pas nécessaire"
 
-#: src/nma-vpn-password-dialog.ui:39
+#: src/nma-vpn-password-dialog.ui:43
 msgid "_OK"
 msgstr "_Valider"
 
-#: src/nma-vpn-password-dialog.ui:73
+#: src/nma-vpn-password-dialog.ui:76
 msgid "Sh_ow passwords"
 msgstr "A_fficher les mots de passe"
 
-#: src/nma-vpn-password-dialog.ui:130
+#: src/nma-vpn-password-dialog.ui:133
 msgid "_Tertiary Password:"
 msgstr "_Troisième mot de passe :"
 
-#: src/nma-vpn-password-dialog.ui:144
+#: src/nma-vpn-password-dialog.ui:147
 msgid "_Secondary Password:"
 msgstr "Mot de passe _secondaire :"
 
-#: src/nma-vpn-password-dialog.ui:158
+#: src/nma-vpn-password-dialog.ui:161
 msgid "_Password:"
 msgstr "_Mot de passe :"
 
-#: src/nma-wifi-dialog.c:117
+#: src/nma-wifi-dialog.c:116
 msgid "Click to connect"
 msgstr "Cliquer pour se connecter"
 
-#: src/nma-wifi-dialog.c:448
+#: src/nma-wifi-dialog.c:443
 msgid "New…"
 msgstr "Nouveau…"
 
-#: src/nma-wifi-dialog.c:929
+#: src/nma-wifi-dialog.c:927
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Aucune"
 
-#: src/nma-wifi-dialog.c:945
+#: src/nma-wifi-dialog.c:943
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "Clé WEP 40/128-bit (Hex ou ASCII)"
 
-#: src/nma-wifi-dialog.c:952
+#: src/nma-wifi-dialog.c:950
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit à phrase secrète"
 
-#: src/nma-wifi-dialog.c:967 src/nma-ws/nma-ws-802-1x.c:370
+#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:978
+#: src/nma-wifi-dialog.c:976
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP dynamique (802.1x)"
 
-#: src/nma-wifi-dialog.c:990
+#: src/nma-wifi-dialog.c:988
 msgid "WPA & WPA2 Personal"
 msgstr "WPA et WPA2 personnel"
 
-#: src/nma-wifi-dialog.c:1006
+#: src/nma-wifi-dialog.c:1004
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA et WPA2 entreprise"
 
-#: src/nma-wifi-dialog.c:1017
+#: src/nma-wifi-dialog.c:1015
 msgid "WPA3 Personal"
 msgstr "WPA3 personnel"
 
-#: src/nma-wifi-dialog.c:1111
+#: src/nma-wifi-dialog.c:1026
+msgid "Enhanced Open"
+msgstr ""
+
+#: src/nma-wifi-dialog.c:1119
 msgid "C_reate"
 msgstr "C_réer"
 
-#: src/nma-wifi-dialog.c:1113
+#: src/nma-wifi-dialog.c:1121
 msgid "C_onnect"
 msgstr "Se _connecter"
 
-#: src/nma-wifi-dialog.c:1191
+#: src/nma-wifi-dialog.c:1199
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -563,35 +514,35 @@ msgstr ""
 "Des mots de passe ou des clés de chiffrement sont nécessaires pour l’accès "
 "au réseau Wi-Fi « %s »."
 
-#: src/nma-wifi-dialog.c:1193
+#: src/nma-wifi-dialog.c:1201
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Authentification nécessaire pour le réseau Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1195
+#: src/nma-wifi-dialog.c:1203
 msgid "Authentication required by Wi-Fi network"
 msgstr "Authentification demandée par le réseau Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1200
+#: src/nma-wifi-dialog.c:1208
 msgid "Create New Wi-Fi Network"
 msgstr "Création d’un nouveau réseau Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1202
+#: src/nma-wifi-dialog.c:1210
 msgid "New Wi-Fi network"
 msgstr "Nouveau réseau Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1211
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Saisissez le nom du réseau Wi-Fi que vous voulez créer."
 
-#: src/nma-wifi-dialog.c:1205
+#: src/nma-wifi-dialog.c:1213
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Connexion au réseau Wi-Fi invisible"
 
-#: src/nma-wifi-dialog.c:1207
+#: src/nma-wifi-dialog.c:1215
 msgid "Hidden Wi-Fi network"
 msgstr "Réseau Wi-Fi invisible"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1216
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -599,59 +550,63 @@ msgstr ""
 "Saisissez le nom et les détails de sécurité du réseau Wi-Fi invisible auquel "
 "vous voulez vous connecter."
 
-#: src/nma-ws/nma-eap-fast.c:59
+#: src/nma-ws/nma-eap-fast.c:60
 msgid "missing EAP-FAST PAC file"
 msgstr "fichier EAP-FAST PAC manquant"
 
-#: src/nma-ws/nma-eap-fast.c:256 src/nma-ws/nma-eap-peap.c:312
-#: src/nma-ws/nma-eap-ttls.c:366
+#: src/nma-ws/nma-eap-fast.c:250 src/nma-ws/nma-eap-peap.c:310
+#: src/nma-ws/nma-eap-ttls.c:363
 msgid "GTC"
 msgstr "GTC"
 
-#: src/nma-ws/nma-eap-fast.c:272 src/nma-ws/nma-eap-peap.c:280
-#: src/nma-ws/nma-eap-ttls.c:300
+#: src/nma-ws/nma-eap-fast.c:266 src/nma-ws/nma-eap-peap.c:278
+#: src/nma-ws/nma-eap-ttls.c:297
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: src/nma-ws/nma-eap-fast.c:395
-msgid "Choose a PAC file"
-msgstr "Choisir un fichier PAC…"
-
-#: src/nma-ws/nma-eap-fast.c:402
+#: src/nma-ws/nma-eap-fast.c:449
 msgid "PAC files (*.pac)"
 msgstr "Fichier PAC (*.pac)"
 
-#: src/nma-ws/nma-eap-fast.c:406
+#: src/nma-ws/nma-eap-fast.c:453
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/nma-ws/nma-eap-fast.ui:23
+#: src/nma-ws/nma-eap-fast.ui:19
+msgid "Choose a PAC file"
+msgstr "Choisir un fichier PAC…"
+
+#: src/nma-ws/nma-eap-fast.ui:36
+msgid "_Open"
+msgstr "_Ouvrir"
+
+#: src/nma-ws/nma-eap-fast.ui:72
 msgid "Anonymous"
 msgstr "Anonyme"
 
-#: src/nma-ws/nma-eap-fast.ui:26
+#: src/nma-ws/nma-eap-fast.ui:75
 msgid "Authenticated"
 msgstr "Authentifié"
 
-#: src/nma-ws/nma-eap-fast.ui:29
+#: src/nma-ws/nma-eap-fast.ui:78
 msgid "Both"
 msgstr "Les deux"
 
-#: src/nma-ws/nma-eap-fast.ui:42 src/nma-ws/nma-eap-peap.ui:42
+#: src/nma-ws/nma-eap-fast.ui:91 src/nma-ws/nma-eap-peap.ui:42
 #: src/nma-ws/nma-eap-ttls.ui:113
 msgid "Anony_mous identity"
 msgstr "Identité anony_me"
 
-#: src/nma-ws/nma-eap-fast.ui:68
+#: src/nma-ws/nma-eap-fast.ui:117
 msgid "PAC _file"
 msgstr "Fichier _PAC"
 
-#: src/nma-ws/nma-eap-fast.ui:107 src/nma-ws/nma-eap-peap.ui:115
+#: src/nma-ws/nma-eap-fast.ui:188 src/nma-ws/nma-eap-peap.ui:115
 #: src/nma-ws/nma-eap-ttls.ui:71
 msgid "_Inner authentication"
 msgstr "Authentification i_nterne"
 
-#: src/nma-ws/nma-eap-fast.ui:136
+#: src/nma-ws/nma-eap-fast.ui:217
 msgid "Allow automatic PAC pro_visioning"
 msgstr "P_ermettre le provisionnement PAC automatique"
 
@@ -674,8 +629,14 @@ msgstr "Nom d’_utilisateur"
 msgid "_Password"
 msgstr "_Mot de passe"
 
-#: src/nma-ws/nma-eap-peap.c:296 src/nma-ws/nma-eap-ttls.c:350
-#: src/nma-ws/nma-ws-802-1x.c:346
+#: src/nma-ws/nma-eap-leap.ui:54 src/nma-ws/nma-eap-simple.ui:71
+#: src/nma-ws/nma-ws-leap.ui:55 src/nma-ws/nma-ws-sae.ui:56
+#: src/nma-ws/nma-ws-wpa-psk.ui:55
+msgid "Sho_w password"
+msgstr "A_fficher le mot de passe"
+
+#: src/nma-ws/nma-eap-peap.c:294 src/nma-ws/nma-eap-ttls.c:347
+#: src/nma-ws/nma-ws-802-1x.c:343
 msgid "MD5"
 msgstr "MD5"
 
@@ -734,19 +695,19 @@ msgstr "A_fficher la phrase de passe"
 msgid "missing EAP-TLS identity"
 msgstr "identité EAP-TLS manquante"
 
-#: src/nma-ws/nma-eap-tls.c:234
+#: src/nma-ws/nma-eap-tls.c:237
 msgid "no user certificate selected"
 msgstr "aucun certificat utilisateur sélectionné"
 
-#: src/nma-ws/nma-eap-tls.c:239
+#: src/nma-ws/nma-eap-tls.c:242
 msgid "selected user certificate file does not exist"
 msgstr "le fichier de certificat utilisateur sélectionné n’existe pas"
 
-#: src/nma-ws/nma-eap-tls.c:259
+#: src/nma-ws/nma-eap-tls.c:262
 msgid "no key selected"
 msgstr "aucune clé sélectionnée"
 
-#: src/nma-ws/nma-eap-tls.c:264
+#: src/nma-ws/nma-eap-tls.c:267
 msgid "selected key file does not exist"
 msgstr "le fichier de clé sélectionné n’existe pas"
 
@@ -754,19 +715,19 @@ msgstr "le fichier de clé sélectionné n’existe pas"
 msgid "I_dentity"
 msgstr "I_dentité"
 
-#: src/nma-ws/nma-eap-ttls.c:268
+#: src/nma-ws/nma-eap-ttls.c:265
 msgid "PAP"
 msgstr "PAP"
 
-#: src/nma-ws/nma-eap-ttls.c:284
+#: src/nma-ws/nma-eap-ttls.c:281
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: src/nma-ws/nma-eap-ttls.c:317
+#: src/nma-ws/nma-eap-ttls.c:314
 msgid "MSCHAPv2 (no EAP)"
 msgstr "MSCHAPv2 (non EAP)"
 
-#: src/nma-ws/nma-eap-ttls.c:334
+#: src/nma-ws/nma-eap-ttls.c:331
 msgid "CHAP"
 msgstr "CHAP"
 
@@ -782,31 +743,31 @@ msgstr "aucun certificat sélectionné"
 msgid "selected CA certificate file does not exist"
 msgstr "le fichier de certificat CA n’existe pas"
 
-#: src/nma-ws/nma-ws-802-1x.c:358
+#: src/nma-ws/nma-ws-802-1x.c:355
 msgid "TLS"
 msgstr "TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:382
+#: src/nma-ws/nma-ws-802-1x.c:379
 msgid "PWD"
 msgstr "PWD"
 
-#: src/nma-ws/nma-ws-802-1x.c:393
+#: src/nma-ws/nma-ws-802-1x.c:390
 msgid "FAST"
 msgstr "FAST"
 
-#: src/nma-ws/nma-ws-802-1x.c:404
+#: src/nma-ws/nma-ws-802-1x.c:401
 msgid "Tunneled TLS"
 msgstr "Tunneled TLS"
 
-#: src/nma-ws/nma-ws-802-1x.c:415
+#: src/nma-ws/nma-ws-802-1x.c:412
 msgid "Protected EAP (PEAP)"
 msgstr "Protected EAP (PEAP)"
 
-#: src/nma-ws/nma-ws-802-1x.c:430
+#: src/nma-ws/nma-ws-802-1x.c:427
 msgid "Unknown"
 msgstr "Inconnue"
 
-#: src/nma-ws/nma-ws-802-1x.c:444
+#: src/nma-ws/nma-ws-802-1x.c:441
 msgid "Externally configured"
 msgstr "Configurée de façon externe"
 
@@ -907,7 +868,7 @@ msgstr ""
 "WPA-PSK invalide : impossible d’interpréter une clé de 64 octets en "
 "hexadécimal"
 
-#: src/nma-ws/nma-ws.c:38
+#: src/nma-ws/nma-ws.c:42
 msgid "Unknown error validating 802.1X security"
 msgstr "Erreur inconnue lors de la validation de sécurité 802.1X"
 
@@ -917,11 +878,11 @@ msgstr "Erreur inconnue lors de la validation de sécurité 802.1X"
 msgid "%s connection"
 msgstr "Connexion à %s"
 
-#: src/utils/utils.c:535
+#: src/utils/utils.c:462
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certificats PEM (*.pem, *.crt, *.cer)"
 
-#: src/utils/utils.c:547
+#: src/utils/utils.c:475
 msgid "DER, PEM, or PKCS#12 private keys (*.der, *.pem, *.p12, *.key)"
 msgstr "Clés privées DER, PEM ou PKCS#12 (*.der, *.pem, *.p12, *.key)"
 
@@ -940,6 +901,43 @@ msgstr "Co_nnexion"
 #: src/wifi.ui:179
 msgid "Wi-Fi _adapter"
 msgstr "Ad_aptateur Wi-Fi"
+
+#~ msgid "No certificate set"
+#~ msgstr "Aucun certificat défini"
+
+#~ msgid "No key set"
+#~ msgstr "Aucune clé définie"
+
+#, c-format
+#~ msgid "Choose a key for %s Certificate"
+#~ msgstr "Choisissez une clé pour le certificat %s"
+
+#, c-format
+#~ msgid "%s private _key"
+#~ msgstr "_Clé privée %s"
+
+#, c-format
+#~ msgid "%s key _password"
+#~ msgstr "_Mot de passe de la clé %s"
+
+#, c-format
+#~ msgid "Choose %s Certificate"
+#~ msgstr "Choisissez le certificat %s"
+
+#, c-format
+#~ msgid "%s _certificate"
+#~ msgstr "_Certificat %s"
+
+#, c-format
+#~ msgid "Choose a %s Certificate"
+#~ msgstr "Choisissez un certificat %s"
+
+#, c-format
+#~ msgid "%s certificate _password"
+#~ msgstr "_Mot de passe du certificat %s"
+
+#~ msgid "Sho_w passwords"
+#~ msgstr "A_fficher les mots de passe"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Gérer vos connexions réseau"
@@ -3143,9 +3141,6 @@ msgstr "Ad_aptateur Wi-Fi"
 
 #~ msgid "Select file to import"
 #~ msgstr "Sélectionnez le fichier à importer"
-
-#~ msgid "_Open"
-#~ msgstr "_Ouvrir"
 
 #~ msgid "Hardware"
 #~ msgstr "Matériel"
