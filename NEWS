@@ -1,4 +1,14 @@
 =======================================
+libnma-1.8.36
+Overview of changes since libnma-1.8.34
+=======================================
+
+* Include OWE wireless security option.
+* Do not allow setting empty 802.1x domain for EAP TLS.
+* The GtkBuilder files for Gtk4 are now included in
+  the release tarball.
+
+=======================================
 libnma-1.8.34
 Overview of changes since libnma-1.8.32
 =======================================
