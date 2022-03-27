@@ -191,14 +191,14 @@ if enable_introspection
 
   if enable_libnma_gtk4
     libnma_gtk4_gir = gnome.generate_gir(
-      libnma,
+      libnma_gtk4,
       sources: gir_sources + gir_headers,
       nsversion: nma_gir_version,
       namespace: 'NMA4',
       includes: [ 'Gtk-4.0', 'NM-1.0' ],
       identifier_prefix: nma_gir_prefix,
       symbol_prefix: nma_gir_prefix.to_lower(),
-      export_packages: 'libnma',
+      export_packages: 'libnma-gtk4',
       install: true,
       install_dir_gir: gir_dir,
       install_dir_typelib: typelib_dir
