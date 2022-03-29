@@ -49,9 +49,6 @@
     <property name="title" translatable="yes">New Mobile Broadband Connection</property>
     <property name="modal">True</property>
     <property name="use_header_bar">1</property>
-    <signal name="cancel" handler="assistant_cancel" swapped="no"/>
-    <signal name="close" handler="assistant_closed" swapped="no"/>
-    <signal name="prepare" handler="assistant_prepare" swapped="no"/>
     <child>
       <object class="GtkBox" id="intro_page">
         <property name="visible">True</property>
@@ -154,7 +151,6 @@
             <property name="can_focus">False</property>
             <property name="model">dev_store</property>
             <property name="active">0</property>
-            <signal name="changed" handler="intro_combo_changed" swapped="yes"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -207,7 +203,6 @@
                 <property name="model">country_sort</property>
                 <property name="headers_visible">False</property>
                 <property name="search_column">0</property>
-                <signal name="row-activated" handler="country_update_continue" swapped="yes"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection"/>
                 </child>
@@ -244,7 +239,6 @@
             <property name="use_underline">True</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
-            <signal name="toggled" handler="providers_radio_toggled" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -266,7 +260,6 @@
                 <property name="can_focus">True</property>
                 <property name="model">providers_sort</property>
                 <property name="search_column">0</property>
-                <signal name="row-activated" handler="providers_update_continue" swapped="yes"/>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection"/>
                 </child>
@@ -346,7 +339,6 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="model">plan_store</property>
-            <signal name="changed" handler="plan_combo_changed" swapped="yes"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -373,8 +365,6 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="max_length">64</property>
-            <signal name="changed" handler="plan_update_complete" swapped="yes"/>
-            <signal name="insert-text" handler="apn_filter_cb" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
