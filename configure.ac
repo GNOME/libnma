@@ -134,7 +134,7 @@ LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8"
 PKG_CHECK_MODULES(GTK3, gtk+-3.0 >= 3.12)
 GTK3_CFLAGS="$GTK3_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_12 -DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_3_12"
 
-AC_ARG_WITH(libnma-gtk4, AS_HELP_STRING([--with-libnma-gtk4], [build EXPERIMENTAL libnma-gtk4 library for use with GTK4]))
+AC_ARG_WITH(libnma-gtk4, AS_HELP_STRING([--with-libnma-gtk4], [build libnma-gtk4 library for use with GTK4]))
 if test "$with_libnma_gtk4" == yes; then
 	PKG_CHECK_MODULES(GTK4, gtk4 >= 4.0)
 	GTK4_CFLAGS="$GTK4_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_4_0 -DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_4_0"
@@ -299,9 +299,9 @@ src/nma-version.h
 AC_OUTPUT
 
 echo ""
-echo "  Build EXPERIMENTAL libnma-gtk4 library for use with GTK4: --with-libnma-gtk4=${with_libnma_gtk4}"
+echo "  Build libnma-gtk4 library for use with GTK4: --with-libnma-gtk4=${with_libnma_gtk4}"
 echo "  GCR: --with-gcr=$have_gcr"
-echo "  GCR_GTK4: --with-gcr-gtk4=$have_gcr_gtk4"
+echo "  GCR_GTK4 (EXPERIMENTAL): --with-gcr-gtk4=$have_gcr_gtk4"
 echo "  LTO: --enable-lto=$enable_lto"
 echo "  Linker garbage collection: --enable-ld-gc=$enable_ld_gc"
 echo ""

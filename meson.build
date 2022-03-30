@@ -410,7 +410,7 @@ configure_file(
 )
 
 output = '\n'
-output += '  Build EXPERIMENTAL library libnm-gtk4 for use with GTK4: ' + enable_libnma_gtk4.to_string() + '\n'
+output += '  Build library libnm-gtk4 for use with GTK4: ' + enable_libnma_gtk4.to_string() + '\n'
 output += '  GCR: ' + enable_gcr.to_string() + '\n'
 output += '  LTO: ' + get_option('b_lto').to_string() + '\n'
 output += '  Linker garbage collection: ' + enable_ld_gc.to_string() + '\n'
