@@ -117,8 +117,59 @@ libnma_dep = declare_dependency(
 )
 
 if enable_libnma_gtk4
+  # This is all a bit clumsy, but what can you do...
+  if run_command('test', '-d', join_paths(meson.current_source_dir(), 'libnma-gtk4')).returncode() == 0
+    # The distribution contains the GtkBuilder files for Gtk4. Good.
+    # We need to translate the names though.
+    gtk4_resource_data = []
+    foreach f : resource_data
+      file_name = '@0@'.format(f)
+      path = []
+      foreach c : file_name.split('/')
+        if path.length() == 0
+          path += 'libnma-gtk4'
+        else
+          path += c
+        endif
+      endforeach
+      gtk4_resource_data += join_paths(path)
+    endforeach
+    gtk4_data_files = files(gtk4_resource_data)
+  else
+    # We're probably in a git checkout and need to generate the
+    # GtkBuilder files for Gtk4. Oh well...
+    gen_3to4 = generator(
+      find_program('sh'),
+      output: '@PLAINNAME@',
+      arguments: [
+        '-c',
+        'gtk4-builder-tool simplify --3to4 "$0" |grep -v can.default >"$1"',
+        '@INPUT@', '@OUTPUT@'
+      ]
+    )
+    gtk4_data_files = custom_target(
+      'gtk4-data-files',
+      output: ['libnma-gtk4'],
+      command: find_program('true'),
+      input: gen_3to4.process(
+        resource_data,
+        preserve_path_from: meson.current_source_dir(),
+      )
+    )
+  endif
+
+  gtk4_built_sources = gnome.compile_resources(
+    'nma-gtk4-resources',
+    'nma.gresource.xml',
+    dependencies: gtk4_data_files,
+    source_dir: [
+      'libnma-gtk4',
+      join_paths(meson.current_build_dir(), 'libnma-gtk4.p')
+    ],
+  )
+
   nma_gtk4_deps = [ deps, gtk4_dep ]
-  nma_gtk4_sources = [ gir_sources, built_sources ]
+  nma_gtk4_sources = [ gir_sources, gtk4_built_sources ]
   if enable_gcr_gtk4
     nma_gtk4_sources += pkcs11_sources
     nma_gtk4_deps += gcr_gtk4_dep
