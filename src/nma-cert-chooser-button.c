@@ -50,7 +50,7 @@ typedef struct {
 	gboolean remember_pin;
 	NMACertChooserButtonFlags flags;
 
-	GtkWidget *cert_combo;
+	GtkWidget *button;
 	GtkWidget *button_label;
 } NMACertChooserButtonPrivate;
 
@@ -115,7 +115,7 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 		g_clear_error (&error);
 	}
 
-	model = GTK_LIST_STORE (gtk_combo_box_get_model (GTK_COMBO_BOX (priv->cert_combo)));
+	model = GTK_LIST_STORE (gtk_combo_box_get_model (GTK_COMBO_BOX (priv->button)));
 
 	/* A separator. */
 	gtk_list_store_insert_with_values (model, &iter, 2,
@@ -288,8 +288,12 @@ update_title (NMACertChooserButton *button)
 		label = g_strdup (label);
 	}
 
-	if (priv->cert_combo) {
-		model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->cert_combo));
+	if (priv->button_label) {
+		g_return_if_fail (GTK_IS_BUTTON (priv->button));
+		gtk_label_set_text (GTK_LABEL (priv->button_label), label);
+	} else if (priv->button) {
+		g_return_if_fail (GTK_IS_COMBO_BOX (priv->button));
+		model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->button));
 
 		if (!gtk_tree_model_get_iter_first (model, &iter))
 			g_return_if_reached ();
@@ -298,9 +302,6 @@ update_title (NMACertChooserButton *button)
 		                    COLUMN_LABEL, label ?: _("(Unknown)"),
 		                    -1);
 	}
-
-	if (priv->button_label)
-		gtk_label_set_text (GTK_LABEL (priv->button_label), label);
 }
 
 static void
@@ -405,15 +406,15 @@ create_cert_combo (NMACertChooserButton *self)
 	GtkCellRenderer *cell;
 
 	model = gtk_list_store_new (2, G_TYPE_STRING, GCK_TYPE_SLOT);
-	priv->cert_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (model));
-	gtk_widget_set_hexpand (priv->cert_combo, TRUE);
-	gtk_widget_show (priv->cert_combo);
+	priv->button = gtk_combo_box_new_with_model (GTK_TREE_MODEL (model));
+	gtk_widget_set_hexpand (priv->button, TRUE);
+	gtk_widget_show (priv->button);
 	g_object_unref (model);
 
-	gtk_box_append (GTK_BOX (self), priv->cert_combo);
+	gtk_box_append (GTK_BOX (self), priv->button);
 
-	gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (priv->cert_combo), TRUE);
-	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (priv->cert_combo),
+	gtk_combo_box_set_popup_fixed_width (GTK_COMBO_BOX (priv->button), TRUE);
+	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (priv->button),
 	                                      row_separator,
 	                                      NULL,
 	                                      NULL);
@@ -432,12 +433,12 @@ create_cert_combo (NMACertChooserButton *self)
 	                                   COLUMN_SLOT, NULL, -1);
 
 	cell = gtk_cell_renderer_text_new ();
-	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->cert_combo), cell, FALSE);
-	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (priv->cert_combo), cell, "text", 0);
+	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->button), cell, FALSE);
+	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (priv->button), cell, "text", 0);
 
-	g_signal_connect (priv->cert_combo, "changed", (GCallback) changed, self);
+	g_signal_connect (priv->button, "changed", (GCallback) changed, self);
 
-	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->cert_combo), 0);
+	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->button), 0);
 	initialize_gck_modules (self);
 }
 
@@ -449,14 +450,14 @@ create_file_button (NMACertChooserButton *self)
 	GtkWidget *box;
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (self), GTK_ORIENTATION_VERTICAL);
-	widget = gtk_button_new ();
-	gtk_widget_show (widget);
-	gtk_box_append (GTK_BOX (self), widget);
-	g_signal_connect_swapped (widget, "clicked", (GCallback) select_from_file, self);
+	priv->button = gtk_button_new ();
+	gtk_widget_show (priv->button);
+	gtk_box_append (GTK_BOX (self), priv->button);
+	g_signal_connect_swapped (priv->button, "clicked", (GCallback) select_from_file, self);
 
 	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 1);
 	gtk_widget_show (box);
-	gtk_button_set_child (GTK_BUTTON (widget), box);
+	gtk_button_set_child (GTK_BUTTON (priv->button), box);
 
 	priv->button_label = gtk_label_new (NULL);
 	gtk_widget_show (priv->button_label);
@@ -513,16 +514,26 @@ dispose (GObject *object)
         G_OBJECT_CLASS (nma_cert_chooser_button_parent_class)->dispose (object);
 }
 
+static gboolean
+mnemonic_activate (GtkWidget *widget, gboolean group_cycling)
+{
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (widget);
+
+	return gtk_widget_mnemonic_activate (priv->button, group_cycling);
+}
+
 static void
 nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	g_type_class_add_private (object_class, sizeof (NMACertChooserButtonPrivate));
 
 	object_class->constructed = constructed;
 	object_class->dispose = dispose;
 	object_class->set_property = set_property;
+	widget_class->mnemonic_activate = mnemonic_activate;
 
 	g_signal_new ("changed",
 	              G_OBJECT_CLASS_TYPE(object_class),
