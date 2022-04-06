@@ -847,6 +847,7 @@ constructed (GObject *object)
 	/* The certificate chooser */
 
 	priv->cert_button = nma_cert_chooser_button_new (button_flags);
+	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->cert_button_label), priv->cert_button);
 
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_button, 1, 0, 1, 1);
 	gtk_widget_set_hexpand (priv->cert_button, TRUE);
@@ -872,6 +873,7 @@ constructed (GObject *object)
 
 	priv->key_button = nma_cert_chooser_button_new (button_flags |
 							NMA_CERT_CHOOSER_BUTTON_FLAG_KEY);
+	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->key_button_label), priv->key_button);
 
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_button, 1, 2, 1, 1);
 	gtk_widget_set_hexpand (priv->key_button, TRUE);
@@ -1133,7 +1135,6 @@ nma_cert_chooser_init (NMACertChooser *cert_chooser)
 
 	priv->key_button_label = gtk_label_new (NULL);
 	g_object_set (priv->key_button_label, "xalign", (gfloat) 1, NULL);
-	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->key_button_label), priv->key_button);
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_button_label, 0, 0, 1, 1);
 	gtk_widget_set_sensitive (priv->key_button_label, FALSE);
 	gtk_widget_show (priv->key_button_label);
@@ -1168,7 +1169,6 @@ nma_cert_chooser_init (NMACertChooser *cert_chooser)
 
 	priv->cert_button_label = gtk_label_new (NULL);
 	g_object_set (priv->cert_button_label, "xalign", (gfloat) 1, NULL);
-	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->cert_button_label), priv->cert_button);
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_button_label, 0, 0, 1, 1);
 	gtk_widget_show (priv->cert_button_label);
 	gtk3_widget_set_no_show_all (priv->cert_button_label, TRUE);
