@@ -1,4 +1,14 @@
 =======================================
+libnma-1.8.38
+Overview of changes since libnma-1.8.36
+=======================================
+
+* libnma-gtk4 is no longer considered EXPERIMENTAL.
+* meson now builds libnma-gtk4 properly.
+* Keyboard accelerator for certificate chooser works again.
+* Fixed libnma-gtk4 version of mobile-wizard.
+
+=======================================
 libnma-1.8.36
 Overview of changes since libnma-1.8.34
 =======================================
