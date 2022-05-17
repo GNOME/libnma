@@ -1,6 +1,6 @@
 option('libnma_gtk4', type: 'boolean', value: false, description: 'build library libnma-gtk4 for use with GTK4')
 option('gcr', type: 'boolean', value: true, description: 'Enable advanced certificate chooser.')
-option('gcr_gtk4', type: 'boolean', value: false, description: 'Enable advanced certificate chooser for EXPERIMENTAL library libnma-gtk4.')
+option('gcr_gtk4', type: 'boolean', value: false, description: 'Enable EXPERIMENTAL advanced certificate chooser for library libnma-gtk4.')
 option('more_asserts', type: 'string', value: '0', description: 'Enable more assertions for debugging.')
 option('iso_codes', type: 'boolean', value: true, description: 'check for iso-codes at build-time')
 option('mobile_broadband_provider_info', type: 'boolean', value: true, description: 'check for mobile-broadband-provider-info at build-time')
