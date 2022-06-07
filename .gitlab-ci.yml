@@ -52,7 +52,6 @@
     - tar xJf libnma-*.tar.xz
     - dnf -y install meson
     - meson
-      -Dlibnm_gtk=false
       -Dgcr=false
       -Diso_codes=false
       -Dmobile_broadband_provider_info=false
