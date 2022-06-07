@@ -826,6 +826,13 @@ out:
 }
 
 static gboolean
+allow_wep (void)
+{
+	/* Note to whoever uses this: this might go away! */
+	return !!getenv ("NM_ALLOW_INSECURE_WEP");
+}
+
+static gboolean
 security_valid (NMUtilsSecurityType sectype,
                 NM80211Mode mode,
                 NMDeviceWifiCapabilities wifi_caps,
@@ -834,6 +841,11 @@ security_valid (NMUtilsSecurityType sectype,
                 NM80211ApSecurityFlags ap_wpa,
                 NM80211ApSecurityFlags ap_rsn)
 {
+	if (   !have_ap && !allow_wep()
+	    && (sectype == NMU_SEC_STATIC_WEP || sectype == NMU_SEC_DYNAMIC_WEP)) {
+		return FALSE;
+	}
+
 	switch (mode) {
 	case NM_802_11_MODE_AP:
 		if (sectype == NMU_SEC_SAE)
