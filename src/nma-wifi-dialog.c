@@ -915,7 +915,7 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 				wep_type = NM_WEP_KEY_TYPE_KEY;
 		}
 	} else if (mode == NM_802_11_MODE_ADHOC) {
-		default_type = NMU_SEC_STATIC_WEP;
+		default_type = NMU_SEC_WPA2_PSK;
 		wep_type = NM_WEP_KEY_TYPE_PASSPHRASE;
 	}
 
