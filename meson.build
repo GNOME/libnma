@@ -243,50 +243,48 @@ gcr_api_check_src = '''
   GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
 '''
 
+gcr_cflags = [
+  '-DGCR_API_SUBJECT_TO_CHANGE',
+  '-DGCK_API_SUBJECT_TO_CHANGE'
+]
+
 # GCR for PKCS#11 enabled certificate chooser
 enable_gcr = get_option('gcr')
 if enable_gcr
-  deps = [
-    dependency('gcr-3', version: '>= 3.14'),
-    dependency('gck-1', version: '>= 3.14')
+  gcr4_gtk3_deps = dependency('gcr-4-gtk3', version: '>= 3.90', required: false)
+  gcr3_deps = [
+    dependency('gcr-3', version: '>= 3.14', required: false),
+    dependency('gck-1', version: '>= 3.14', required: false)
   ]
 
-  cflags = [
-    '-DGCR_API_SUBJECT_TO_CHANGE',
-    '-DGCK_API_SUBJECT_TO_CHANGE'
-  ]
-
-  # GCR API is declared subject to change, do an extensive check of the prototypes
-  assert(cc.compiles(gcr_api_check_src, dependencies: deps), 'gcr support was requested, but the gcr library is not available. Use -Dgcr=false to build without it.')
-
-  gcr_dep = declare_dependency(
-    dependencies: deps,
-    compile_args: cflags
-  )
+  if cc.compiles(gcr_api_check_src, dependencies: gcr4_gtk3_deps)
+    gcr_dep = declare_dependency(
+      dependencies: gcr4_gtk3_deps,
+      compile_args: gcr_cflags
+    )
+  else
+    assert(cc.compiles(gcr_api_check_src, dependencies: gcr3_deps),
+      'gcr support was requested, but the gcr library is not available. Use -Dgcr=false to build without it.')
+    gcr_dep = declare_dependency(
+      dependencies: gcr3_deps,
+      compile_args: gcr_cflags
+    )
+  endif
 endif
-config_h.set10('WITH_GCR', enable_gcr)
+config_h.set10('WITH_GCR_GTK3', enable_gcr)
 
 # GCR for PKCS#11 enabled certificate chooser for libnma-gtk4
 enable_gcr_gtk4 = get_option('gcr_gtk4')
 if enable_gcr_gtk4
   assert(enable_libnma_gtk4, 'gcr-gtk4 support was requested, but the libnma-gtk4 build was not enabled.')
 
-  deps = [
-    dependency('gcr-gtk4-3', version: '>= 3.90'),
-    dependency('gck-1', version: '>= 3.90')
-  ]
-
-  cflags = [
-    '-DGCR_API_SUBJECT_TO_CHANGE',
-    '-DGCK_API_SUBJECT_TO_CHANGE'
-  ]
-
-  # GCR API is declared subject to change, do an extensive check of the prototypes
-  assert(cc.compiles(gcr_api_check_src, dependencies: deps), 'gcr-gtk4 support was requested with -Dgcr_gtk4=true, but the gcr-gtk4 library is not available.')
+  gcr4_gtk4_deps = dependency('gcr-4-gtk4', version: '>= 3.90', required: false)
+  assert(cc.compiles(gcr_api_check_src, dependencies: gcr4_gtk4_deps),
+    'gcr-gtk4 support was requested with -Dgcr_gtk4=true, but the gcr-gtk4 library is not available.')
 
   gcr_gtk4_dep = declare_dependency(
-    dependencies: deps,
-    compile_args: cflags
+    dependencies: gcr4_gtk4_deps,
+    compile_args: gcr_cflags
   )
 endif
 config_h.set10('WITH_GCR_GTK4', enable_gcr_gtk4)
