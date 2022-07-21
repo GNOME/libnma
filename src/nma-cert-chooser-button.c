@@ -12,7 +12,7 @@
 #include "nma-cert-chooser-button.h"
 #include "utils.h"
 
-#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR
+#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR_GTK3
 #include "nma-pkcs11-cert-chooser-dialog.h"
 #include <gck/gck.h>
 #include <gcr/gcr.h>	// FIXME: Only here to detect GCK version
@@ -69,7 +69,7 @@ enum {
 static void
 update_title (NMACertChooserButton *button);
 
-#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR
+#if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR_GTK3
 static gboolean
 is_this_a_slot_nobody_loves (GckSlot *slot)
 {

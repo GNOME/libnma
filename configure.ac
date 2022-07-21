@@ -143,62 +143,70 @@ else
 fi
 AM_CONDITIONAL(WITH_LIBNMA_GTK4, test "$with_libnma_gtk4" != "no")
 
-dnl GCR API is declared subject to change, do an extensive check of the prototypes
-AC_DEFUN([CHECK_GCR_API], [
+# Probe if a particular variant of GCR is good enough for us
+AC_DEFUN([CHECK_GCR], [
+    PKG_CHECK_MODULES([$1], [$2], [
+	[$1]_CFLAGS="$[$1]_CFLAGS -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE"
+
+        dnl GCR API is declared subject to change, do an extensive check of the prototypes
         CFLAGS_SAVED="$CFLAGS"
-        CFLAGS="$CFLAGS $2"
+        CFLAGS="$CFLAGS $[$1]_CFLAGS"
         AC_MSG_CHECKING([for $1 usefulness])
         AC_COMPILE_IFELSE([AC_LANG_SOURCE([
-                          #include <gcr/gcr.h>
-                          #include <gck/gck.h>
+              #include <gcr/gcr.h>
+              #include <gck/gck.h>
 
-                          const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
-                          gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
-                          gboolean gck_attributes_find_ulong (GckAttributes *attrs, gulong attr_type, gulong *value);
-                          GckAttributes *gck_attributes_new_empty (gulong first_type, ...);
-                          void gck_attributes_unref (gpointer attrs);
-                          void gck_builder_add_all (GckBuilder *builder, GckAttributes *attrs);
-                          void gck_builder_add_only (GckBuilder *builder, GckAttributes *attrs, gulong only_type, ...);
-                          GckAttributes *gck_builder_end (GckBuilder *builder);
-                          GckBuilder *gck_builder_new (GckBuilderFlags flags);
-                          void gck_enumerator_next_async (GckEnumerator *self, gint max_objects, GCancellable *cancellable,
-                                                          GAsyncReadyCallback callback, gpointer user_data);
-                          GList *gck_enumerator_next_finish (GckEnumerator *self, GAsyncResult *result, GError **error);
-                          void gck_list_unref_free (GList *reflist);
-                          GList *gck_modules_get_slots (GList *modules, gboolean token_present);
-                          void gck_modules_initialize_registered_async (GCancellable *cancellable, GAsyncReadyCallback callback,
-                                                                        gpointer user_data);
-                          GList *gck_modules_initialize_registered_finish (GAsyncResult *result, GError **error);
-                          void gck_object_get_async (GckObject *self, const gulong *attr_types, guint n_attr_types,
-                                                     GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
-                          GckAttributes *gck_object_get_finish (GckObject *self, GAsyncResult *result, GError **error);
-                          void gck_session_login_async (GckSession *self, gulong user_type, const guchar *pin,
-                                                        gsize n_pin, GCancellable *cancellable,
-                                                        GAsyncReadyCallback callback, gpointer user_data);
-                          gboolean gck_session_login_finish (GckSession *self, GAsyncResult *result, GError **error);
-                          GckSlotInfo *gck_slot_get_info (GckSlot *self);
-                          GckTokenInfo *gck_slot_get_token_info (GckSlot *self);
-                          #if GCR_CHECK_VERSION(3,90,0)
-                          void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GTlsInteraction *interaction,
-                                                            GCancellable *cancellable, GAsyncReadyCallback callback,
+              const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
+              gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
+              gboolean gck_attributes_find_ulong (GckAttributes *attrs, gulong attr_type, gulong *value);
+              GckAttributes *gck_attributes_new_empty (gulong first_type, ...);
+              void gck_attributes_unref (gpointer attrs);
+              void gck_builder_add_all (GckBuilder *builder, GckAttributes *attrs);
+              void gck_builder_add_only (GckBuilder *builder, GckAttributes *attrs, gulong only_type, ...);
+              GckAttributes *gck_builder_end (GckBuilder *builder);
+              GckBuilder *gck_builder_new (GckBuilderFlags flags);
+              void gck_enumerator_next_async (GckEnumerator *self, gint max_objects, GCancellable *cancellable,
+                                              GAsyncReadyCallback callback, gpointer user_data);
+              GList *gck_enumerator_next_finish (GckEnumerator *self, GAsyncResult *result, GError **error);
+              void gck_list_unref_free (GList *reflist);
+              GList *gck_modules_get_slots (GList *modules, gboolean token_present);
+              void gck_modules_initialize_registered_async (GCancellable *cancellable, GAsyncReadyCallback callback,
                                                             gpointer user_data);
-                          gchar *gck_uri_data_build (GckUriData *uri_data, GckUriFlags flags);
-                          GckUriData *gck_uri_data_parse (const gchar *string, GckUriFlags flags, GError **error);
-                          #else
-                          void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GCancellable *cancellable,
-                                                            GAsyncReadyCallback callback, gpointer user_data);
-                          gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
-                          GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
-                          #endif
-                          GckSession *gck_slot_open_session_finish (GckSlot *self, GAsyncResult *result, GError **error);
-                          void gck_token_info_free (GckTokenInfo *token_info);
-                          void gck_uri_data_free (GckUriData *uri_data);
-                          gchar *gcr_certificate_get_issuer_name (GcrCertificate *self);
-                          gchar *gcr_certificate_get_subject_name (GcrCertificate *self);
-                          GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
-                          ])], [$3], [$4])
-        AC_MSG_RESULT(${have_gcr})
+              GList *gck_modules_initialize_registered_finish (GAsyncResult *result, GError **error);
+              void gck_object_get_async (GckObject *self, const gulong *attr_types, guint n_attr_types,
+                                         GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data);
+              GckAttributes *gck_object_get_finish (GckObject *self, GAsyncResult *result, GError **error);
+              void gck_session_login_async (GckSession *self, gulong user_type, const guchar *pin,
+                                            gsize n_pin, GCancellable *cancellable,
+                                            GAsyncReadyCallback callback, gpointer user_data);
+              gboolean gck_session_login_finish (GckSession *self, GAsyncResult *result, GError **error);
+              GckSlotInfo *gck_slot_get_info (GckSlot *self);
+              GckTokenInfo *gck_slot_get_token_info (GckSlot *self);
+              #if GCR_CHECK_VERSION(3,90,0)
+              void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GTlsInteraction *interaction,
+                                                GCancellable *cancellable, GAsyncReadyCallback callback,
+                                                gpointer user_data);
+              gchar *gck_uri_data_build (GckUriData *uri_data, GckUriFlags flags);
+              GckUriData *gck_uri_data_parse (const gchar *string, GckUriFlags flags, GError **error);
+              #else
+              void gck_slot_open_session_async (GckSlot *self, GckSessionOptions options, GCancellable *cancellable,
+                                                GAsyncReadyCallback callback, gpointer user_data);
+              gchar *gck_uri_build (GckUriData *uri_data, GckUriFlags flags);
+              GckUriData *gck_uri_parse (const gchar *string, GckUriFlags flags, GError **error);
+              #endif
+              GckSession *gck_slot_open_session_finish (GckSlot *self, GAsyncResult *result, GError **error);
+              void gck_token_info_free (GckTokenInfo *token_info);
+              void gck_uri_data_free (GckUriData *uri_data);
+              gchar *gcr_certificate_get_issuer_name (GcrCertificate *self);
+              gchar *gcr_certificate_get_subject_name (GcrCertificate *self);
+              GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
+              ])],
+              AC_MSG_RESULT(good)
+              [$3],
+              AC_MSG_RESULT(bad)
+              [$4])
         CFLAGS="$CFLAGS_SAVED"
+    ], [$4])
 ])
 
 dnl GCR for PKCS#11 enabled certificate chooser
@@ -206,22 +214,19 @@ AC_ARG_WITH(gcr, AS_HELP_STRING([--with-gcr], [Enable advanced certificate choos
 if (test "${with_gcr}" == "no"); then
     have_gcr=no
 else
-    PKG_CHECK_MODULES(GCR,
-                      [gcr-3 >= 3.14, gck-1 >= 3.14],
-                      [GCR_CFLAGS="$GCR_CFLAGS -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE"
-                       CHECK_GCR_API(GCR, $GCR_CFLAGS, have_gcr=yes, have_gcr=no)],
-                      [have_gcr=no])
+    CHECK_GCR(GCR_GTK3, [gcr-4-gtk3 >= 3.90], have_gcr=yes,
+        [CHECK_GCR(GCR_GTK3, [gcr-3 >= 3.14, gck-1 >= 3.14], have_gcr=yes, have_gcr=no)])
 fi
 
 if (test "${have_gcr}" == "yes"); then
-     AC_DEFINE(WITH_GCR, 1, [Define if Gcr is available])
+     AC_DEFINE(WITH_GCR_GTK3, 1, [Define if Gcr is available for Gtk3])
 else
     if (test "${with_gcr}" == "yes"); then
         AC_MSG_ERROR([gcr support was requested, but the gcr library is not available.])
     fi
-    AC_DEFINE(WITH_GCR, 0, [Define if Gcr is available])
+    AC_DEFINE(WITH_GCR_GTK3, 0, [Define if Gcr is available for Gtk3])
 fi
-AM_CONDITIONAL(WITH_GCR, test "${have_gcr}" == "yes")
+AM_CONDITIONAL(WITH_GCR_GTK3, test "${have_gcr}" == "yes")
 
 dnl GCR for PKCS#11 enabled certificate chooser with Gtk4
 AC_ARG_WITH(gcr_gtk4, AS_HELP_STRING([--with-gcr-gtk4], [Enable EXPERIMENTAL advanced certificate chooser for Gtk4 (default: auto)]))
@@ -229,11 +234,7 @@ if (test "$with_libnma_gtk4" = "yes"); then
     if (test "${with_gcr_gtk4}" = "no"); then
         have_gcr_gtk4=no
     else
-        PKG_CHECK_MODULES(GCR_GTK4,
-                          [gcr-gtk4-3 >= 3.90, gck-1 >= 3.90],
-                          [GCR_GTK4_CFLAGS="$GCR_GTK4_CFLAGS -DGCR_API_SUBJECT_TO_CHANGE -DGCK_API_SUBJECT_TO_CHANGE"
-                           CHECK_GCR_API(GCR_GTK4, $GCR_GTK4_CFLAGS, have_gcr_gtk4=yes, have_gcr_gtk4=no)],
-                          [have_gcr_gtk4=no])
+        CHECK_GCR(GCR_GTK4, [gcr-4-gtk4 >= 3.90], have_gcr_gtk4=yes, have_gcr_gtk4=no)
     fi
 else
     if (test "${with_gcr_gtk4}" = "yes"); then
@@ -243,12 +244,12 @@ else
 fi
 
 if (test "${have_gcr_gtk4}" = "yes"); then
-     AC_DEFINE(WITH_GCR_GTK4, 1, [Define if Gcr is available])
+     AC_DEFINE(WITH_GCR_GTK4, 1, [Define if Gcr is available for Gtk4])
 else
     if (test "${with_gcr_gtk4}" = "yes"); then
-        AC_MSG_ERROR([gcr support was requested, but the gcr library is not available.])
+        AC_MSG_ERROR([gcr-gtk4 support was requested, but the gcr-gtk4 library is not available.])
     fi
-    AC_DEFINE(WITH_GCR_GTK4, 0, [Define if Gcr is available])
+    AC_DEFINE(WITH_GCR_GTK4, 0, [Define if Gcr is available for Gtk4])
 fi
 AM_CONDITIONAL(WITH_GCR_GTK4, test "${have_gcr_gtk4}" = "yes")
 
