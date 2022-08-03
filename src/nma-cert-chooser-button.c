@@ -15,9 +15,9 @@
 #if GTK_CHECK_VERSION(4,0,0) ? WITH_GCR_GTK4 : WITH_GCR_GTK3
 #include "nma-pkcs11-cert-chooser-dialog.h"
 #include <gck/gck.h>
-#include <gcr/gcr.h>	// FIXME: Only here to detect GCK version
-			// Remove once new GCK is released with version bumped
-#if !GCR_CHECK_VERSION(3,90,0)
+/* GCK version numbers are funny: version 3 is older than version 1.9x.
+ * See: https://gitlab.gnome.org/GNOME/gcr/-/merge_requests/109 */
+#if !GCK_CHECK_VERSION(1,90,0) || (GCK_MAJOR_VERSION == 3 && GCK_MINOR_VERSION < 90)
 #define gck_uri_data_parse gck_uri_parse
 #endif
 #endif
