@@ -365,6 +365,7 @@ changed (GtkComboBox *combo_box, gpointer user_data)
 	if (gtk_combo_box_get_active (combo_box) == 0)
 		return;
 
+	gtk_combo_box_popdown (combo_box);
 	g_signal_stop_emission_by_name (combo_box, "changed");
 	gtk_combo_box_get_active_iter (combo_box, &iter);
 
