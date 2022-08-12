@@ -228,7 +228,7 @@ next_object (GObject *obj, GAsyncResult *res, gpointer user_data)
 		                      NULL, object_details, self);
 	}
 
-	gck_list_unref_free (objects);
+	g_list_free_full (objects, g_object_unref);
 }
 
 static void

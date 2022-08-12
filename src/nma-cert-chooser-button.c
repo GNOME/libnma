@@ -158,8 +158,8 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 		gck_token_info_free (info);
 	}
 
-	gck_list_unref_free (slots);
-	gck_list_unref_free (modules);
+	g_list_free_full (slots, g_object_unref);
+	g_list_free_full (modules, g_object_unref);
 }
 
 static char *
