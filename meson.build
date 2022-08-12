@@ -209,7 +209,6 @@ gcr_api_check_src = '''
   void gck_enumerator_next_async (GckEnumerator *self, gint max_objects, GCancellable *cancellable,
                                   GAsyncReadyCallback callback, gpointer user_data);
   GList *gck_enumerator_next_finish (GckEnumerator *self, GAsyncResult *result, GError **error);
-  void gck_list_unref_free (GList *reflist);
   GList *gck_modules_get_slots (GList *modules, gboolean token_present);
   void gck_modules_initialize_registered_async (GCancellable *cancellable, GAsyncReadyCallback callback,
                                                 gpointer user_data);
