@@ -1,4 +1,21 @@
 =======================================
+libnma-1.8.42
+Overview of changes since libnma-1.8.40
+=======================================
+
+* Libnma-gtk4 now has Smart Card support viad Gtk4-enabled version of Gcr.
+* nma-cert-chooser.c is now included in the list of translated files.
+
+=======================================
+libnma-1.8.40
+Overview of changes since libnma-1.8.38
+=======================================
+
+* Ad-Hoc networks now default to using WPA2 instead of WEP.
+* WEP is no longer provided as an option for connecting to hidden networks
+  due to its deprecated status.
+
+=======================================
 libnma-1.8.40
 Overview of changes since libnma-1.8.38
 =======================================
