@@ -6,7 +6,7 @@
 
 .fedora_minimal: &fedora_minimal
   before_script:
-    - dnf -y install
+    - dnf -y install $EXTRA_PACKAGES
       file
       findutils
       gcc
@@ -20,7 +20,7 @@
 
 .fedora_full: &fedora_full
   before_script:
-    - dnf -y install
+    - dnf -y install $EXTRA_PACKAGES
       file
       findutils
       gcc
@@ -33,7 +33,6 @@
       pkgconfig
       /usr/bin/vapigen
       /usr/bin/autopoint
-      gcr-devel
       gobject-introspection-devel redhat-rpm-config
       gtk-doc
       iso-codes-devel
@@ -51,7 +50,7 @@
   script:
     - tar xJf libnma-*.tar.xz
     - dnf -y install meson
-    - meson
+    - meson $EXTRA_MESON_FLAGS
       -Dgcr=false
       -Diso_codes=false
       -Dmobile_broadband_provider_info=false
@@ -72,7 +71,7 @@
   script:
     - dnf -y install meson
     - tar xJf libnma-*.tar.xz
-    - meson
+    - meson $EXTRA_MESON_FLAGS
       -Dlibnma_gtk4=true
       -Dgcr=true
       -Diso_codes=true
@@ -95,7 +94,7 @@
     - dnf -y install make
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
-    - ./configure
+    - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=no
       --disable-nls
@@ -119,7 +118,7 @@
     - dnf -y install make
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
-    - ./configure
+    - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=yes
       --enable-nls
@@ -142,7 +141,7 @@ fedora35_dist:
   stage: build
   script:
     - dnf -y install
-      autoconf automake make
+      autoconf automake make gcr-devel
       xorg-x11-server-Xvfb xorg-x11-xinit
     - sh autogen.sh
     # The Xvfb dance below is because of
@@ -160,6 +159,8 @@ fedora_meson_minimal:
 
 fedora_meson_full:
   <<: *fedora_meson_full
+  variables:
+    EXTRA_PACKAGES: gcr-devel
   image: fedora:latest
   stage: test
 
@@ -170,7 +171,43 @@ fedora_autotools_minimal:
 
 fedora_autotools_full:
   <<: *fedora_autotools_full
+  variables:
+    EXTRA_PACKAGES: gcr-devel
   image: fedora:latest
+  stage: test
+
+# Fedora 37 includes gcr-gtk4 support.
+# gcr-gtk4 support can be moved above and the four jobs below can be removed
+# once fedora:latest is actually fedora:37 or later.
+
+f37_meson_gcr4:
+  <<: *fedora_meson_full
+  variables:
+    EXTRA_PACKAGES: gcr-gtk3-devel gcr-gtk4-devel
+    EXTRA_MESON_FLAGS: -Dlibnma_gtk4=true -Dgcr_gtk4=true
+  image: fedora:37
+  stage: test
+
+f37_meson_gcr3:
+  <<: *fedora_meson_full
+  variables:
+    EXTRA_PACKAGES: gcr3-devel
+  image: fedora:37
+  stage: test
+
+f37_autotools_gcr4:
+  <<: *fedora_autotools_full
+  variables:
+    EXTRA_PACKAGES: gcr-gtk3-devel gcr-gtk4-devel
+    EXTRA_CONFIGURE_FLAGS: --with-libnma-gtk4 --with-gcr-gtk4
+  image: fedora:37
+  stage: test
+
+f37_autotools_gcr3:
+  <<: *fedora_autotools_full
+  variables:
+    EXTRA_PACKAGES: gcr3-devel
+  image: fedora:37
   stage: test
 
 centos7:
