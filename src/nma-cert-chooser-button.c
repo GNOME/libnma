@@ -362,7 +362,7 @@ changed (GtkComboBox *combo_box, gpointer user_data)
 	gchar *label;
 	GckSlot *slot;
 
-	if (gtk_combo_box_get_active (combo_box) == 0)
+	if (gtk_combo_box_get_active (combo_box) == -1)
 		return;
 
 	g_signal_stop_emission_by_name (combo_box, "changed");
@@ -379,7 +379,7 @@ changed (GtkComboBox *combo_box, gpointer user_data)
 
 	g_free (label);
 	g_clear_object (&slot);
-	gtk_combo_box_set_active (combo_box, 0);
+	gtk_combo_box_set_active (combo_box, -1);
 }
 
 static gboolean
