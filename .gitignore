@@ -88,6 +88,7 @@ test-*.log
 
 /libnma-*.tar.*
 src/libnma.pc
+src/libnma-gtk4/
 src/libnma-gtk4.pc
 src/NMA-1.0.gir
 src/NMA-1.0.typelib

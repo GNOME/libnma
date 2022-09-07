@@ -146,6 +146,7 @@ object_details (GObject *source_object, GAsyncResult *res, gpointer user_data)
 
 	switch (cka_class) {
 	case CKO_CERTIFICATE:
+	case CKO_PUBLIC_KEY:
 		store1 = priv->cert_store;
 		store2 = priv->key_store;
 		break;
