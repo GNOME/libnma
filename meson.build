@@ -1,6 +1,6 @@
 project(
   'libnma', 'c',
-  version: '1.10.1',
+  version: '1.10.2',
   license: 'GPL2+',
   default_options: [
     'buildtype=debugoptimized',
