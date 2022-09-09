@@ -1,4 +1,12 @@
 =======================================
+libnma-1.10.2
+Overview of changes since libnma-1.10.0
+=======================================
+
+* Do not pop a certificate chooser if nobody clicked the button.
+* Added Georgian translation.
+
+=======================================
 libnma-1.10.0
 Overview of changes since libnma-1.8.40
 =======================================
