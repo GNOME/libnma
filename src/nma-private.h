@@ -30,6 +30,9 @@ typedef void GtkRoot;
 
 int nma_gtk_dialog_run (GtkDialog *dialog);
 
+void nma_utils_ca_cert_ignore_set (NMConnection *connection, gboolean phase2, gboolean ignore);
+gboolean nma_utils_ca_cert_ignore_get (NMConnection *connection, gboolean phase2);
+
 #define NMA_PRIVATE_H
 
 #endif /* NMA_PRIVATE_H */

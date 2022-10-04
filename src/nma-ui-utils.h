@@ -22,5 +22,7 @@ void nma_utils_update_password_storage (GtkWidget *passwd_entry,
                                         NMSetting *setting,
                                         const char *password_flags_name);
 
-#endif /* NMA_UI_UTILS_H */
+void nma_utils_ca_cert_ignore_load (NMConnection *connection);
+void nma_utils_ca_cert_ignore_save (NMConnection *connection);
 
+#endif /* NMA_UI_UTILS_H */

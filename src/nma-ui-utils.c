@@ -457,3 +457,146 @@ nma_gtk_dialog_run (GtkDialog *dialog)
 
 	return data.response_id;
 }
+
+/*---------------------------------------------------------------------------*/
+
+/* Used as both GSettings keys and GObject data tags */
+#define IGNORE_CA_CERT_TAG "ignore-ca-cert"
+#define IGNORE_PHASE2_CA_CERT_TAG "ignore-phase2-ca-cert"
+
+/**
+ * nma_utils_ca_cert_ignore_set:
+ * @phase2: EAP method phase
+ * @connection: the #NMConnection
+ * @filename: the certificate file, if any
+ * @ca_cert_error: %TRUE if an error was encountered loading the given CA
+ * certificate, %FALSE if not or if a CA certificate is not present
+ *
+ * Updates the connection's CA cert ignore value to %TRUE if the "CA certificate
+ * not required" checkbox is checked.  If @ca_cert_error is %TRUE, then the
+ * connection's CA cert ignore value will always be set to %FALSE, because it
+ * means that the user selected an invalid certificate (thus he does not want to
+ * ignore the CA cert)..
+ */
+void
+nma_utils_ca_cert_ignore_set (NMConnection *connection,
+                              gboolean phase2,
+                              gboolean ignore)
+{
+	NMSetting8021x *s_8021x;
+
+	s_8021x = nm_connection_get_setting_802_1x (connection);
+	if (s_8021x) {
+		g_object_set_data (G_OBJECT (s_8021x),
+		                   phase2 ? IGNORE_PHASE2_CA_CERT_TAG : IGNORE_CA_CERT_TAG,
+		                   GUINT_TO_POINTER (ignore));
+	}
+}
+
+/**
+ * nma_utils_ca_cert_ignore_get:
+ * @phase2: EAP method phase
+ * @connection: the #NMConnection
+ *
+ * Returns: %TRUE if a missing CA certificate can be ignored, %FALSE if a CA
+ * certificate should be required for the connection to be valid.
+ */
+gboolean
+nma_utils_ca_cert_ignore_get (NMConnection *connection,
+                              gboolean phase2)
+{
+	NMSetting8021x *s_8021x;
+
+	s_8021x = nm_connection_get_setting_802_1x (connection);
+	if (s_8021x) {
+		return !!g_object_get_data (G_OBJECT (s_8021x),
+		                            phase2 ? IGNORE_PHASE2_CA_CERT_TAG : IGNORE_CA_CERT_TAG);
+	}
+	return FALSE;
+}
+
+static GSettings *
+_get_ca_ignore_settings (NMConnection *connection)
+{
+	GSettings *settings;
+	char *path = NULL;
+	const char *uuid;
+
+	g_return_val_if_fail (connection, NULL);
+
+	uuid = nm_connection_get_uuid (connection);
+	g_return_val_if_fail (uuid && *uuid, NULL);
+
+	path = g_strdup_printf ("/org/gnome/nm-applet/eap/%s/", uuid);
+	settings = g_settings_new_with_path ("org.gnome.nm-applet.eap", path);
+	g_free (path);
+
+	return settings;
+}
+
+/**
+ * nma_utils_ca_cert_ignore_save:
+ * @connection: the connection for which to save CA cert ignore values to GSettings
+ *
+ * Reads the CA cert ignore tags from the 802.1x setting GObject data and saves
+ * then to GSettings if present, using the connection UUID as the index.
+ */
+void
+nma_utils_ca_cert_ignore_save (NMConnection *connection)
+{
+	NMSetting8021x *s_8021x;
+	GSettings *settings;
+	gboolean ignore = FALSE, phase2_ignore = FALSE;
+
+	g_return_if_fail (connection);
+
+	s_8021x = nm_connection_get_setting_802_1x (connection);
+	if (s_8021x) {
+		ignore = !!g_object_get_data (G_OBJECT (s_8021x), IGNORE_CA_CERT_TAG);
+		phase2_ignore = !!g_object_get_data (G_OBJECT (s_8021x), IGNORE_PHASE2_CA_CERT_TAG);
+	}
+
+	settings = _get_ca_ignore_settings (connection);
+	if (!settings)
+		return;
+
+	g_settings_set_boolean (settings, IGNORE_CA_CERT_TAG, ignore);
+	g_settings_set_boolean (settings, IGNORE_PHASE2_CA_CERT_TAG, phase2_ignore);
+	g_object_unref (settings);
+}
+
+/**
+ * nma_utils_ca_cert_ignore_load:
+ * @connection: the connection for which to load CA cert ignore values to GSettings
+ *
+ * Reads the CA cert ignore tags from the 802.1x setting GObject data and saves
+ * then to GSettings if present, using the connection UUID as the index.
+ */
+void
+nma_utils_ca_cert_ignore_load (NMConnection *connection)
+{
+	GSettings *settings;
+	NMSetting8021x *s_8021x;
+	gboolean ignore, phase2_ignore;
+
+	g_return_if_fail (connection);
+
+	s_8021x = nm_connection_get_setting_802_1x (connection);
+	if (!s_8021x)
+		return;
+
+	settings = _get_ca_ignore_settings (connection);
+	if (!settings)
+		return;
+
+	ignore = g_settings_get_boolean (settings, IGNORE_CA_CERT_TAG);
+	phase2_ignore = g_settings_get_boolean (settings, IGNORE_PHASE2_CA_CERT_TAG);
+
+	g_object_set_data (G_OBJECT (s_8021x),
+	                   IGNORE_CA_CERT_TAG,
+	                   GUINT_TO_POINTER (ignore));
+	g_object_set_data (G_OBJECT (s_8021x),
+	                   IGNORE_PHASE2_CA_CERT_TAG,
+	                   GUINT_TO_POINTER (phase2_ignore));
+	g_object_unref (settings);
+}

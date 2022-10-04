@@ -17,6 +17,7 @@
 #include "nma-wifi-dialog.h"
 #include "nma-ws.h"
 #include "nma-eap.h"
+#include "nma-ui-utils.h"
 
 G_DEFINE_TYPE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG)
 
@@ -349,7 +350,7 @@ connection_combo_changed (GtkWidget *combo,
 	                    C_NEW_COLUMN, &is_new, -1);
 
 	if (priv->connection)
-		nma_eap_ca_cert_ignore_load (priv->connection);
+		nma_utils_ca_cert_ignore_load (priv->connection);
 
 	if (!security_combo_init (self, priv->secrets_only, NULL, NULL)) {
 		g_warning ("Couldn't change Wi-Fi security combo box.");
@@ -1317,7 +1318,7 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
 	}
 
 	/* Save new CA cert ignore values to GSettings */
-	nma_eap_ca_cert_ignore_save (connection);
+	nma_utils_ca_cert_ignore_save (connection);
 
 	/* Fill device */
 	if (device) {
@@ -1360,7 +1361,7 @@ internal_new_dialog (NMClient *client,
 		priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
 		/* Handle CA cert ignore stuff */
-		nma_eap_ca_cert_ignore_load (connection);
+		nma_utils_ca_cert_ignore_load (connection);
 
 		if (!internal_init (self, connection, device, secrets_only, secrets_setting_name, secrets_hints)) {
 			g_warning ("Couldn't create Wi-Fi security dialog.");
