@@ -389,14 +389,20 @@ endif
 schema_conf = configuration_data()
 schema_conf.set('GETTEXT_PACKAGE', 'libnma')
 
-schema = 'org.gnome.nm-applet.gschema.xml'
+foreach schema : [
+  'org.gnome.nm-applet.eap.gschema.xml',
 
-configure_file(
-  input: schema + '.in',
-  output: schema,
-  install_dir: join_paths(nma_datadir, 'glib-2.0', 'schemas'),
-  configuration: schema_conf,
-)
+  # This one belongs to nm-applet.
+  # Kept here for now to avoid breaking on upgrades.
+  'org.gnome.nm-applet.gschema.xml'
+]
+  configure_file(
+    input: schema + '.in',
+    output: schema,
+    install_dir: join_paths(nma_datadir, 'glib-2.0', 'schemas'),
+    configuration: schema_conf,
+  )
+endforeach
 
 config = 'config.h'
 

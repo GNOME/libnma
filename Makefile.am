@@ -797,7 +797,11 @@ MKDB_OPTIONS = --ignore-files "$(IGNORE_HFILES) $(mkdb_ignore_c_files)"
 
 ###############################################################################
 
-gsettings_SCHEMAS = org.gnome.nm-applet.gschema.xml
+# org.gnome.nm-applet.gschema.xml belongs to nm-applet.
+# Kept here for now to avoid breaking on upgrades.
+gsettings_SCHEMAS = \
+	org.gnome.nm-applet.gschema.xml \
+	org.gnome.nm-applet.eap.gschema.xml
 @GSETTINGS_RULES@
 
 check_PROGRAMS += $(check_programs)
