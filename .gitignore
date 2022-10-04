@@ -30,6 +30,8 @@ autom4te.cache
 intltool-*
 /org.gnome.nm-applet.gschema.xml
 /org.gnome.nm-applet.gschema.valid
+/org.gnome.nm-applet.eap.gschema.xml
+/org.gnome.nm-applet.eap.gschema.valid
 
 po/boldquot.sed
 po/en@boldquot.header
