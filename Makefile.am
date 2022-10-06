@@ -269,7 +269,7 @@ src_libnma_la_SOURCES = \
 	$(libnma_h_priv_real) \
 	$(libnma_c_real)
 
-if WITH_GCR_GTK3
+if WITH_GCR
 src_libnma_la_SOURCES += \
 	$(libnma_h_priv_gcr) \
 	$(libnma_c_gcr)
@@ -296,13 +296,13 @@ src_libnma_la_CFLAGS = \
 	-Isrc \
 	$(GTK3_CFLAGS) \
 	$(LIBNM_CFLAGS) \
-	$(GCR_GTK3_CFLAGS)
+	$(GCR_CFLAGS)
 
 src_libnma_la_LIBADD = \
 	src/utils/libutils-libnm.la \
 	$(GTK3_LIBS) \
 	$(LIBNM_LIBS) \
-	$(GCR_GTK3_LIBS)
+	$(GCR_LIBS)
 
 EXTRA_src_libnma_la_DEPENDENCIES = src/libnma.ver
 
@@ -322,7 +322,7 @@ src_NMA_1_0_gir_LIBS = src/libnma.la
 src_NMA_1_0_gir_FILES = \
 	$(libnma_h_pub) \
 	$(libnma_c_real)
-if WITH_GCR_GTK3
+if WITH_GCR
 src_NMA_1_0_gir_FILES += \
 	$(libnma_c_gcr)
 endif
@@ -482,7 +482,7 @@ src_libnma_gtk4_la_SOURCES = \
 	$(libnma_h_priv_real) \
 	$(libnma_c_real)
 
-if WITH_GCR_GTK4
+if WITH_GCR
 src_libnma_gtk4_la_SOURCES += \
 	$(libnma_h_priv_gcr) \
 	$(libnma_c_gcr)
@@ -508,13 +508,13 @@ src_libnma_gtk4_la_CFLAGS = \
 	-Isrc \
 	$(GTK4_CFLAGS) \
 	$(LIBNM_CFLAGS) \
-	$(GCR_GTK4_CFLAGS)
+	$(GCR_CFLAGS)
 
 src_libnma_gtk4_la_LIBADD = \
 	src/utils/libutils-libnm-gtk4.la \
 	$(GTK4_LIBS) \
 	$(LIBNM_LIBS) \
-	$(GCR_GTK4_LIBS)
+	$(GCR_LIBS)
 
 EXTRA_src_libnma_gtk4_la_DEPENDENCIES = src/libnma.ver
 
@@ -534,7 +534,7 @@ src_NMA4_1_0_gir_LIBS = src/libnma-gtk4.la
 src_NMA4_1_0_gir_FILES = \
 	$(libnma_h_pub) \
 	$(libnma_c_real)
-if WITH_GCR_GTK4
+if WITH_GCR
 src_NMA4_1_0_gir_FILES += \
 	$(libnma_c_gcr)
 endif

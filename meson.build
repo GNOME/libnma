@@ -187,15 +187,12 @@ libnm_dep = declare_dependency(
 
 # GCR API is declared subject to change, do an extensive check of the prototypes
 gcr_api_check_src = '''
-  #ifndef GCR_API_SUBJECT_TO_CHANGE
-  # define GCR_API_SUBJECT_TO_CHANGE
-  #endif
-  #ifndef GCK_API_SUBJECT_TO_CHANGE
-  # define GCK_API_SUBJECT_TO_CHANGE
-  #endif
-
-  #include <gcr/gcr.h>
   #include <gck/gck.h>
+  #if GCK_CHECK_VERSION(3,90,0)
+  #include <gcr/gcr.h>
+  #else
+  #include <gcr/gcr-base.h>
+  #endif
 
   const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
   gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
@@ -242,27 +239,29 @@ gcr_api_check_src = '''
   GcrCertificate *gcr_simple_certificate_new (const guchar *data, gsize n_data);
 '''
 
-gcr_cflags = [
-  '-DGCR_API_SUBJECT_TO_CHANGE',
-  '-DGCK_API_SUBJECT_TO_CHANGE'
-]
-
 # GCR for PKCS#11 enabled certificate chooser
 enable_gcr = get_option('gcr')
 if enable_gcr
-  gcr4_gtk3_deps = dependency('gcr-4-gtk3', version: '>= 3.90', required: false)
+  gcr4_deps = [
+    dependency('gcr-4', version: '>= 3.92', required: false),
+    dependency('gck-2', version: '>= 3.92', required: false)
+  ]
   gcr3_deps = [
-    dependency('gcr-3', version: '>= 3.14', required: false),
+    dependency('gcr-base-3', version: '>= 3.14', required: false),
     dependency('gck-1', version: '>= 3.14', required: false)
   ]
+  gcr_cflags = [
+    '-DGCR_API_SUBJECT_TO_CHANGE',
+    '-DGCK_API_SUBJECT_TO_CHANGE'
+  ]
 
-  if cc.compiles(gcr_api_check_src, dependencies: gcr4_gtk3_deps)
+  if cc.compiles(gcr_api_check_src, dependencies: gcr4_deps, args: gcr_cflags)
     gcr_dep = declare_dependency(
-      dependencies: gcr4_gtk3_deps,
+      dependencies: gcr4_deps,
       compile_args: gcr_cflags
     )
   else
-    assert(cc.compiles(gcr_api_check_src, dependencies: gcr3_deps),
+    assert(cc.compiles(gcr_api_check_src, dependencies: gcr3_deps, args: gcr_cflags),
       'gcr support was requested, but the gcr library is not available. Use -Dgcr=false to build without it.')
     gcr_dep = declare_dependency(
       dependencies: gcr3_deps,
@@ -270,23 +269,7 @@ if enable_gcr
     )
   endif
 endif
-config_h.set10('WITH_GCR_GTK3', enable_gcr)
-
-# GCR for PKCS#11 enabled certificate chooser for libnma-gtk4
-enable_gcr_gtk4 = get_option('gcr_gtk4')
-if enable_gcr_gtk4
-  assert(enable_libnma_gtk4, 'gcr-gtk4 support was requested, but the libnma-gtk4 build was not enabled.')
-
-  gcr4_gtk4_deps = dependency('gcr-4-gtk4', version: '>= 3.90', required: false)
-  assert(cc.compiles(gcr_api_check_src, dependencies: gcr4_gtk4_deps),
-    'gcr-gtk4 support was requested with -Dgcr_gtk4=true, but the gcr-gtk4 library is not available.')
-
-  gcr_gtk4_dep = declare_dependency(
-    dependencies: gcr4_gtk4_deps,
-    compile_args: gcr_cflags
-  )
-endif
-config_h.set10('WITH_GCR_GTK4', enable_gcr_gtk4)
+config_h.set10('WITH_GCR', enable_gcr)
 
 # introspection support
 enable_introspection = get_option('introspection')

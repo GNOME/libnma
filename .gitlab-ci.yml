@@ -176,15 +176,15 @@ fedora_autotools_full:
   image: fedora:latest
   stage: test
 
-# Fedora 37 includes gcr-gtk4 support.
-# gcr-gtk4 support can be moved above and the four jobs below can be removed
+# Fedora 37 includes gcr version that no longer pulls in gtk3.
+# gcr-4 support can be moved above and the four jobs below can be removed
 # once fedora:latest is actually fedora:37 or later.
 
 f37_meson_gcr4:
   <<: *fedora_meson_full
   variables:
-    EXTRA_PACKAGES: gcr-gtk3-devel gcr-gtk4-devel
-    EXTRA_MESON_FLAGS: -Dlibnma_gtk4=true -Dgcr_gtk4=true
+    EXTRA_PACKAGES: gcr-devel
+    EXTRA_MESON_FLAGS: -Dlibnma_gtk4=true
   image: fedora:37
   stage: test
 
@@ -198,8 +198,8 @@ f37_meson_gcr3:
 f37_autotools_gcr4:
   <<: *fedora_autotools_full
   variables:
-    EXTRA_PACKAGES: gcr-gtk3-devel gcr-gtk4-devel
-    EXTRA_CONFIGURE_FLAGS: --with-libnma-gtk4 --with-gcr-gtk4
+    EXTRA_PACKAGES: gcr-devel
+    EXTRA_CONFIGURE_FLAGS: --with-libnma-gtk4
   image: fedora:37
   stage: test
 

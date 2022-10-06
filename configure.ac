@@ -153,8 +153,12 @@ AC_DEFUN([CHECK_GCR], [
         CFLAGS="$CFLAGS $[$1]_CFLAGS"
         AC_MSG_CHECKING([for $1 usefulness])
         AC_COMPILE_IFELSE([AC_LANG_SOURCE([
-              #include <gcr/gcr.h>
               #include <gck/gck.h>
+              #if GCK_CHECK_VERSION(3,90,0)
+              #include <gcr/gcr.h>
+              #else
+              #include <gcr/gcr-base.h>
+              #endif
 
               const GckAttribute *gck_attributes_find (GckAttributes *attrs, gulong attr_type);
               gboolean gck_attributes_find_string (GckAttributes *attrs, gulong attr_type, gchar **value);
@@ -213,44 +217,19 @@ AC_ARG_WITH(gcr, AS_HELP_STRING([--with-gcr], [Enable advanced certificate choos
 if (test "${with_gcr}" == "no"); then
     have_gcr=no
 else
-    CHECK_GCR(GCR_GTK3, [gcr-4-gtk3 >= 3.90], have_gcr=yes,
-        [CHECK_GCR(GCR_GTK3, [gcr-3 >= 3.14, gck-1 >= 3.14], have_gcr=yes, have_gcr=no)])
+    CHECK_GCR(GCR, [gcr-4 >= 3.92, gck-2 >= 3.92], have_gcr=yes,
+        [CHECK_GCR(GCR, [gcr-base-3 >= 3.14, gck-1 >= 3.14], have_gcr=yes, have_gcr=no)])
 fi
 
 if (test "${have_gcr}" == "yes"); then
-     AC_DEFINE(WITH_GCR_GTK3, 1, [Define if Gcr is available for Gtk3])
+     AC_DEFINE(WITH_GCR, 1, [Define if Gcr is available for Gtk3])
 else
     if (test "${with_gcr}" == "yes"); then
         AC_MSG_ERROR([gcr support was requested, but the gcr library is not available.])
     fi
-    AC_DEFINE(WITH_GCR_GTK3, 0, [Define if Gcr is available for Gtk3])
+    AC_DEFINE(WITH_GCR, 0, [Define if Gcr is available for Gtk3])
 fi
-AM_CONDITIONAL(WITH_GCR_GTK3, test "${have_gcr}" == "yes")
-
-dnl GCR for PKCS#11 enabled certificate chooser with Gtk4
-AC_ARG_WITH(gcr_gtk4, AS_HELP_STRING([--with-gcr-gtk4], [Enable EXPERIMENTAL advanced certificate chooser for Gtk4 (default: auto)]))
-if (test "$with_libnma_gtk4" = "yes"); then
-    if (test "${with_gcr_gtk4}" = "no"); then
-        have_gcr_gtk4=no
-    else
-        CHECK_GCR(GCR_GTK4, [gcr-4-gtk4 >= 3.90], have_gcr_gtk4=yes, have_gcr_gtk4=no)
-    fi
-else
-    if (test "${with_gcr_gtk4}" = "yes"); then
-        AC_MSG_ERROR([gcr-gtk4 support was requested, but the libnma-gtk4 build was not enabled.])
-    fi
-    have_gcr_gtk4=no
-fi
-
-if (test "${have_gcr_gtk4}" = "yes"); then
-     AC_DEFINE(WITH_GCR_GTK4, 1, [Define if Gcr is available for Gtk4])
-else
-    if (test "${with_gcr_gtk4}" = "yes"); then
-        AC_MSG_ERROR([gcr-gtk4 support was requested, but the gcr-gtk4 library is not available.])
-    fi
-    AC_DEFINE(WITH_GCR_GTK4, 0, [Define if Gcr is available for Gtk4])
-fi
-AM_CONDITIONAL(WITH_GCR_GTK4, test "${have_gcr_gtk4}" = "yes")
+AM_CONDITIONAL(WITH_GCR, test "${have_gcr}" == "yes")
 
 dnl Check for gobject introspection
 GOBJECT_INTROSPECTION_CHECK([0.9.6])
@@ -301,7 +280,6 @@ AC_OUTPUT
 echo ""
 echo "  Build libnma-gtk4 library for use with GTK4: --with-libnma-gtk4=${with_libnma_gtk4}"
 echo "  GCR: --with-gcr=$have_gcr"
-echo "  GCR_GTK4 (EXPERIMENTAL): --with-gcr-gtk4=$have_gcr_gtk4"
 echo "  LTO: --enable-lto=$enable_lto"
 echo "  Linker garbage collection: --enable-ld-gc=$enable_ld_gc"
 echo ""

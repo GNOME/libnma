@@ -170,9 +170,9 @@ if enable_libnma_gtk4
 
   nma_gtk4_deps = [ deps, gtk4_dep ]
   nma_gtk4_sources = [ gir_sources, gtk4_built_sources ]
-  if enable_gcr_gtk4
+  if enable_gcr
     nma_gtk4_sources += pkcs11_sources
-    nma_gtk4_deps += gcr_gtk4_dep
+    nma_gtk4_deps += gcr_dep
   endif
 
   libnma_gtk4 = shared_library(
