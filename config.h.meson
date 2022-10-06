@@ -39,10 +39,7 @@
 #mesondefine VERSION
 
 /* Define if Gcr is available */
-#mesondefine WITH_GCR_GTK3
-
-/* Define if GTK4 Gcr is available */
-#mesondefine WITH_GCR_GTK4
+#mesondefine WITH_GCR
 
 /* Define to 1 if on MINIX. */
 #mesondefine _MINIX

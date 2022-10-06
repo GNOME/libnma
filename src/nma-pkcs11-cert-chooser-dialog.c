@@ -14,7 +14,11 @@
 
 #include <string.h>
 #include <gck/gck.h>
+#if GCK_CHECK_VERSION(3,90,0)
 #include <gcr/gcr.h>
+#else
+#include <gcr/gcr-base.h>
+#endif
 
 #if !GCR_CHECK_VERSION(3,90,0)
 #define gck_slot_open_session_async(self, options, interaction, cancellable, callback, user_data) \
