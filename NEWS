@@ -1,4 +1,14 @@
 =======================================
+libnma-1.10.4
+Overview of changes since libnma-1.10.2
+=======================================
+
+* Fix build with Gcr 3.92 pre-release
+* Split org.gnome.nm-applet.eap GSchema from org.gnome.nm-applet, so that
+  the latter can be provided by network-manager-applet again (where it
+  belongs).
+
+=======================================
 libnma-1.10.2
 Overview of changes since libnma-1.10.0
 =======================================
