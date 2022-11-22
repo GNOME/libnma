@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2016-05-04 21:50+0200\n"
 "Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
 "Language-Team: Gnome Romanian Translation Team\n"
@@ -22,87 +22,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2010-08-15 10:41+0000\n"
 "X-Project-Style: gnome\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Dezactivează notificările de conectare"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Definiți ca „TRUE” pentru a dezactiva notificările ce apar la conectarea la "
-"o rețea."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Dezactivează notificările de deconectare"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Definiți ca „TRUE” pentru a dezactiva notificările ce apar la deconectarea "
-"de la o rețea."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Dezactivează notificările VPN"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Definiți ca „TRUE” pentru a dezactiva notificările ce apar la deconectarea "
-"de la un VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Suprimă notificările pentru rețele disponibile"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Definiți ca „TRUE” pentru a dezactiva notificările pentru rețelele fără fir "
-"disponibile."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Ștampilă"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Folosit pentru a determina dacă configurările ar trebui migrate la o nouă "
-"versiune."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Dezactivare creare Wi-Fi"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Definiți ca „TRUE” pentru a dezactiva crearea de rețele ad-hoc când se "
-"folosește miniaplicația."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Arată miniaplicația în zona de notificări"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Definiți ca „FALSE” pentru a dezactiva afișarea miniaplicației în zona de "
-"notificări."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ignoră certificatul CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -110,7 +35,7 @@ msgstr ""
 "Definiți aceasta ca „TRUE” pentru a dezactiva avertismentele despre "
 "certificatele CA în autentificarea EAP."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -164,32 +89,75 @@ msgstr "Parolă:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "Certific_at de la o autoritate de certificare:"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Selectați certificatul personal..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "Certificat _utilizator:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "Certificat _utilizator:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Selectați certificatul personal..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "C_heie privată:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "Parola pentru cheia _privată:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Afișea_ză parolele"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "Certific_at de la o autoritate de certificare:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 #, fuzzy
 msgid "Select"
 msgstr "Alegeți un fișier"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 #, fuzzy
 msgid "Cancel"
 msgstr "_Anulează"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(nici una)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Necunoscută"
@@ -244,7 +212,7 @@ msgstr "Orice dispozitiv"
 msgid "New Mobile Broadband Connection"
 msgstr "Conexiune nouă de Internet mobil de bandă largă"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -252,74 +220,74 @@ msgstr ""
 "Acest asistent vă ajută să configurați o conexiune la Internet mobil de "
 "bandă largă către o rețea celulară (3G)."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Aveți nevoie de următoarele informații:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "Numele furnizorului"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Numele planului de facturare"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(în unele cazuri) APN-ul (Numele punctului de acces) al planului de facturare"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr ""
 "Creează o conexiune pentru aces_t dispozitiv de acces la Internet mobil de "
 "bandă largă:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Configurează o conexiune către Internet mobil de bandă largă"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Țară sau regiune"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Alegeți țara sau regiunea furnizorului"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Alegeți furnizorul din _listă:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Nu pot găsi furnizorul, dar doresc să îl introduc _manual:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Furnizorul meu folosește tehnologie GSM (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Furnizorul meu folosește tehnologie CDMA (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Alegeți furnizorul"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Selectați planul:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Plan _APN (Nume punct de acces) selectat:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -333,30 +301,30 @@ msgstr ""
 "Dacă sunteți nesigur de plan, întrebați furnizorul care este APN-ul planului "
 "dumneavoastră."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Alegeți planul de facturare"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "Conexiunea la Internet mobil de bandă largă este configurată cu următoarele "
 "valori:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Dispozitiv:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Furnizor:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Plan:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -371,29 +339,29 @@ msgstr ""
 "configurații. Pentru a modifica configurațiile conexiunii alegeți „Conexiuni "
 "de rețea” din meniul Sistem >> Preferințe."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Confirmare configurații Internet mobil de bandă largă"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Eroare la editarea conexiunii"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Deblochează"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Nume"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -402,8 +370,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Anulează"
 
@@ -465,53 +433,53 @@ msgstr "Deconectează"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Niciuna"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "Cheie WEP 40/128-biți (Hex sau ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "Parolă WEP 128-bit"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP dinamic (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA și WPA2 personal"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA și WPA2"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA și WPA2 personal"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "C_reează"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "C_onectare"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -519,43 +487,43 @@ msgstr ""
 "Este necesară parola sau cheia de criptare pentru a accesa rețeaua fără fir "
 "„%s”."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Se cere autentificarea în rețeaua fără fir"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "Autentificarea este necesară pentru rețeaua fără fir"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "Creează rețea fără fir nouă"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "Rețea fără fir nouă"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr ""
 "Introduceți un nume pentru rețeaua fără fir pe care doriți să o creați."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Conectare la rețea fără fir ascunsă"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "Rețea fără fir ascunsă"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -929,40 +897,76 @@ msgstr "Co_nexiune:"
 msgid "Wi-Fi _adapter"
 msgstr "_Adaptor rețea fără fir:"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "Dezactivează notificările de conectare"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Definiți ca „TRUE” pentru a dezactiva notificările ce apar la conectarea "
+#~ "la o rețea."
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Dezactivează notificările de deconectare"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Definiți ca „TRUE” pentru a dezactiva notificările ce apar la "
+#~ "deconectarea de la o rețea."
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Dezactivează notificările VPN"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Definiți ca „TRUE” pentru a dezactiva notificările ce apar la "
+#~ "deconectarea de la un VPN."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Suprimă notificările pentru rețele disponibile"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Definiți ca „TRUE” pentru a dezactiva notificările pentru rețelele fără "
+#~ "fir disponibile."
+
+#~ msgid "Stamp"
+#~ msgstr "Ștampilă"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Folosit pentru a determina dacă configurările ar trebui migrate la o nouă "
+#~ "versiune."
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "Certific_at de la o autoritate de certificare:"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Dezactivare creare Wi-Fi"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Selectați certificatul personal..."
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Definiți ca „TRUE” pentru a dezactiva crearea de rețele ad-hoc când se "
+#~ "folosește miniaplicația."
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "C_heie privată:"
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Arată miniaplicația în zona de notificări"
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Parola pentru cheia _privată:"
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Definiți ca „FALSE” pentru a dezactiva afișarea miniaplicației în zona de "
+#~ "notificări."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Selectați certificatul personal..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "Certificat _utilizator:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Selectați certificatul personal..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Certificat _utilizator:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Afișea_ză parolele"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Gestionează conexiunile la rețea"

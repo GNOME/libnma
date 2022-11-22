@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-06-24 20:41+0100\n"
 "Last-Translator: Carles Ferrando Garcia <carles.ferrando@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -25,85 +25,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Inhabilita les notificacions de connexió"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en connectar-"
-"se a una xarxa."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Inhabilita les notificacions de desconnexió"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en "
-"desconnectar-se d'una xarxa."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Inhabilita les notificacions de la VPN"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en connectar-"
-"se o desconnectar-se d'una VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "No mostris les notificacions de xarxes disponibles"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions quan hi hagi "
-"disponibles xarxes sense fil."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Segell"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"S'utilitza per determinar si cal migrar els paràmetres a una versió nova."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Inhabilita la creació de connexions sense fil"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar la creació de xarxes ad hoc en "
-"utilitzar la miniaplicació."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Mostra la miniaplicació a l'àrea de notificació"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Establiu-lo a «FALSE» (fals) per no mostrar la miniaplicació a l'àrea de "
-"notificació."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ignora el certificat de CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -111,7 +38,7 @@ msgstr ""
 "Establiu-ho a «TRUE» (cert) per inhabilitar els avisos sobre els certificats "
 "de CA en l'autenticació EAP."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -171,29 +98,71 @@ msgstr "Contrasenya"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Escanegeu-lo amb el telèfon o <a href=\"nma:print\">imprimiu-lo</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Cap certificat configurat"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Cap clau configurada"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Trieu el certificat %s"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "_Certificat %s"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "_Contrasenya del certificat %s"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Trieu una clau per al vostre certificat %s"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "Clau _privada %s"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "Contrasenya de la clau _privada %s"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Mo_stra les contrasenyes"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Clau a %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Certificat a %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(cap)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Desconegut)"
 
@@ -245,7 +214,7 @@ msgstr "Qualsevol dispositiu"
 msgid "New Mobile Broadband Connection"
 msgstr "Connexió de banda ampla mòbil nova"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -253,69 +222,69 @@ msgstr ""
 "L'auxiliar us ajudarà a configurar una connexió de banda ampla mòbil a una "
 "xarxa cel·lular (3G) de manera fàcil."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Us caldrà la informació següent:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "El nom del proveïdor de banda ampla"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "El nom del pla de facturació de banda ampla"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "L'APN (Access Point Name - nom del punt d'accés) del vostre pla de "
 "facturació de banda ampla (només en alguns casos)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Crea una connexió per a aques_t dispositiu de banda ampla mòbil:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Configura una connexió de banda ampla mòbil"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "País o regió:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Trieu el país o regió del vostre proveïdor"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Seleccioneu el proveïdor des d'una _llista:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "No hi ha el proveïdor i vull configurar la connexió _manualment:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "El proveïdor utilitza tecnologia GSM (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "El proveïdor utilitza tecnologia CDMA (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Trieu el proveïdor"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Seleccioneu el vostre pla:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "_APN (Access Point Name - nom del punt d'accés) del pla seleccionat:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -328,30 +297,30 @@ msgstr ""
 "Si no esteu segur de quin és el vostre pla, demaneu al proveïdor que us "
 "n'indiqui l'APN («Access Point Name», nom del punt d'accés)."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Seleccioneu el pla de facturació"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "La connexió de banda ampla mòbil està configurada amb els paràmetres "
 "següents:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "El dispositiu:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "El proveïdor:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "El pla:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -365,27 +334,27 @@ msgstr ""
 "voleu modificar els paràmetres de la connexió de banda ampla mòbil, trieu "
 "l'entrada «Connexions de xarxa» del menú Sistema → Preferències."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Confirmeu els paràmetres de la banda ampla mòbil"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Error en iniciar a la sessió: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "S'ha produït un error en obrir la sessió: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "_Desbloqueja testimoni"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Nom"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Emès per"
 
@@ -394,8 +363,8 @@ msgstr "Emès per"
 msgid "Enter %s PIN"
 msgstr "Entra el PIN %s"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -451,53 +420,53 @@ msgstr "Cliqueu per connectar"
 msgid "New…"
 msgstr "Nou…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Cap"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "Clau WEP de 40/128 bits (Hex o ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "Contrasenya WEP de 128 bits"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP dinàmic (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA i WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA i WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA i WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "C_rea"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "C_onnecta"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -505,35 +474,35 @@ msgstr ""
 "Cal una contrasenya o claus d'encriptació per accedir a la xarxa sense fil "
 "«%s»."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Cal autenticació per a la xarxa sense fil"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Cal autenticació per a la xarxa sense fil"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Crea una xarxa sense fil nova"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Xarxa sense fil nova"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Introduïu el nom de la xarxa sense fil que voleu crear."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Connecta't a la xarxa sense fil oculta"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Xarxa sense fil oculta"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -895,42 +864,74 @@ msgstr "Co_nnexió"
 msgid "Wi-Fi _adapter"
 msgstr "_Adaptador sense fil"
 
-#~ msgid "No certificate set"
-#~ msgstr "Cap certificat configurat"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Inhabilita les notificacions de connexió"
 
-#~ msgid "No key set"
-#~ msgstr "Cap clau configurada"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en "
+#~ "connectar-se a una xarxa."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Trieu una clau per al vostre certificat %s"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Inhabilita les notificacions de desconnexió"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Clau _privada %s"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en "
+#~ "desconnectar-se d'una xarxa."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Contrasenya de la clau _privada %s"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Inhabilita les notificacions de la VPN"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en "
+#~ "connectar-se o desconnectar-se d'una VPN."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "No mostris les notificacions de xarxes disponibles"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions quan hi "
+#~ "hagi disponibles xarxes sense fil."
+
+#~ msgid "Stamp"
+#~ msgstr "Segell"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "S'utilitza per determinar si cal migrar els paràmetres a una versió nova."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Inhabilita la creació de connexions sense fil"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Establiu-ho a «TRUE» (cert) per inhabilitar la creació de xarxes ad hoc "
+#~ "en utilitzar la miniaplicació."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Mostra la miniaplicació a l'àrea de notificació"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Establiu-lo a «FALSE» (fals) per no mostrar la miniaplicació a l'àrea de "
+#~ "notificació."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Trieu el vostre certificat %s"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "_Certificat %s"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Trieu el certificat %s"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "_Contrasenya del certificat %s"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Mo_stra les contrasenyes"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Gestioneu les connexions de xarxa"

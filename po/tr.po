@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-09-08 18:54+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
@@ -27,86 +27,12 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "X-POOTLE-MTIME: 1434872144.000000\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Bağlantı bildirimlerini kapat"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Bir ağa bağlanırken bildirim gelmesini engellemek istiyorsanız bunu doğru "
-"olarak ayarlayın."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Bağlantı kesildi bildirimlerini kapat"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Bir ağ bağlantısını keserken bildirim gelmesini engellemek istiyorsanız bu "
-"seçeneği doğru olarak ayarlayın."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN bildirimlerini kapat"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"VPN bağlantısı yaparken ya da bağlantıyı keserken bildirim gelmesini "
-"engellemek istiyorsanız bunu doğru olarak ayarlayın."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Erişilebilir ağ bildirimlerini kapat"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Kullanılabilir kablosuz ağlar bulunduğunda bildirim gelmesini engellemek "
-"istiyorsanız bunu doğru olarak ayarlayın."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Damga"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Ayarların yeni bir sürüme göç ettirip ettirilmeyeceğini belirtmek için "
-"kullanılır."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "WiFi Oluşturmayı devre dışı bırak"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Uygulamacığı kullanırken adhoc ağ oluşturulmasını engellemek istiyorsanız bu "
-"seçeneği doğru olarak ayarlayın."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Bildirim alanında uygulamacığı göster"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Bildirim alanında uygulamacığın görüntülenmesini istemiyorsanız bu seçeneği "
-"YANLIŞ olarak işaretleyin."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA sertifikasını yok say"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -114,7 +40,7 @@ msgstr ""
 "EAP kimlik doğrulamasında CA sertifikaları ile ilgili uyarıları görmek "
 "istemiyorsanız bu seçeneği doğru olarak işaretleyin."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -171,29 +97,71 @@ msgstr "Parola"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Telefonunuzla tarayın ya da <a href=\"nma:print\">Yazdırın</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Sertifika belirlenmedi"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Anahtar belirlenmedi"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "%s Sertifikası Seç"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s _sertifikası"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "%s sertifika _parolası"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "%s Sertifikası için anahtar seç"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s özel _anahtarı"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "%s anahtar _parolası"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Parolaları _göster"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "%s içindeki anahtar"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "%s içindeki sertifika"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Seç"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "İptal Et"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(Hiçbiri)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Bilinmeyen)"
 
@@ -245,7 +213,7 @@ msgstr "Herhangi bir aygıt"
 msgid "New Mobile Broadband Connection"
 msgstr "Yeni Mobil Geniş Bant Bağlantı"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -253,67 +221,67 @@ msgstr ""
 "Bu yardımcı, bir hücresel ağa (3G) kolayca mobil geniş bant bağlantı "
 "kurmanıza yardımcı olacak."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Aşağıdaki bilgilere gereksineceksiniz:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "Geniş bant sağlayıcınızın adı"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Geniş bant ödeme planınızın adı"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(bazı durumlarda) Geniş bant ödeme planı APNʼsi (Erişim Noktası Adı)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Bu mobil _geniş bant aygıtı için bir bağlantı oluştur:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Mobil Geniş Bant Bağlantı Ayarla"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "Ülke veya bölge:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Sağlayıcınızın Ülkesini veya Bölgesini Seçin"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "_Listeden sağlayıcınızı seçin:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Sağlayıcımı bulamıyorum ve _elle kurmak istiyorum:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Sağlayıcım GSM teknolojisini kullanıyor (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Sağlayıcım CDMA teknolojisini kullanıyor (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Sağlayıcınızı Seçin"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Planınızı seçin:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Seçili plan _APNʼsi (Erişim Noktası Adı):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -325,28 +293,28 @@ msgstr ""
 "\n"
 "Planınızdan emin değilseniz hizmet sağlayıcınıza planınızın APNʼsini sorun."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Ödeme Planınızı Seçin"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Mobil geniş bant bağlantınız aşağıdaki ayarlarla yapılandırıldı:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Aygıtınız:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Sağlayıcınız:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Planınız:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -359,27 +327,27 @@ msgstr ""
 "ayarlarınızı gözden geçirin. Geniş bant bağlantı ayarlarınızı düzenlemek "
 "için Sistem → Tercihler menüsünden “Ağ Bağlantıları”nı seçin."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Mobil Geniş Bant Ayarlarını Doğrula"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Giriş yaparken hata: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Oturum açılırken hata: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "Jetonun kilidini _aç"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Ad"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Düzenleyen"
 
@@ -388,8 +356,8 @@ msgstr "Düzenleyen"
 msgid "Enter %s PIN"
 msgstr "%s PINʼini Gir"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_İptal Et"
 
@@ -445,88 +413,88 @@ msgstr "Bağlanmak için tıkla"
 msgid "New…"
 msgstr "Yeni…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Hiçbiri"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit Anahtar (Hex ya da ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit Parola"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dinamik WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 Kişisel"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 Kişisel"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_Oluştur"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "B_ağlan"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "“%s” kablosuz ağına erişmek için parola ya da şifreleme anahtarı gereklidir."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Kablosuz Ağ Kimlik Doğrulaması Gerekli"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Kablosuz ağ için kimlik doğrulaması gerekli"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Yeni Kablosuz Ağ Oluştur"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Yeni Kablosuz Ağ"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Oluşturmak istediğiniz Kablosuz ağ için bir ad girin."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Gizli Kablosuz Ağa Bağlan"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Gizli Kablosuz ağ"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -883,42 +851,75 @@ msgstr "B_ağlantı"
 msgid "Wi-Fi _adapter"
 msgstr "Kablosuz _bağdaştırıcı"
 
-#~ msgid "No certificate set"
-#~ msgstr "Sertifika belirlenmedi"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Bağlantı bildirimlerini kapat"
 
-#~ msgid "No key set"
-#~ msgstr "Anahtar belirlenmedi"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Bir ağa bağlanırken bildirim gelmesini engellemek istiyorsanız bunu doğru "
+#~ "olarak ayarlayın."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "%s Sertifikası için anahtar seç"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Bağlantı kesildi bildirimlerini kapat"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s özel _anahtarı"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Bir ağ bağlantısını keserken bildirim gelmesini engellemek istiyorsanız "
+#~ "bu seçeneği doğru olarak ayarlayın."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "%s anahtar _parolası"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "VPN bildirimlerini kapat"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "VPN bağlantısı yaparken ya da bağlantıyı keserken bildirim gelmesini "
+#~ "engellemek istiyorsanız bunu doğru olarak ayarlayın."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Erişilebilir ağ bildirimlerini kapat"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Kullanılabilir kablosuz ağlar bulunduğunda bildirim gelmesini engellemek "
+#~ "istiyorsanız bunu doğru olarak ayarlayın."
+
+#~ msgid "Stamp"
+#~ msgstr "Damga"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Ayarların yeni bir sürüme göç ettirip ettirilmeyeceğini belirtmek için "
+#~ "kullanılır."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "WiFi Oluşturmayı devre dışı bırak"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Uygulamacığı kullanırken adhoc ağ oluşturulmasını engellemek istiyorsanız "
+#~ "bu seçeneği doğru olarak ayarlayın."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Bildirim alanında uygulamacığı göster"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Bildirim alanında uygulamacığın görüntülenmesini istemiyorsanız bu "
+#~ "seçeneği YANLIŞ olarak işaretleyin."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "%s Sertifikası Seç"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s _sertifikası"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "%s Sertifikası Seç"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "%s sertifika _parolası"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Parolaları _göster"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Ağ bağlantılarınızı yönetin"

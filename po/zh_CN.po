@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet 1.8.22\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-15 01:36+0000\n"
 "Last-Translator: tfu <tfu@redhat.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -30,78 +30,18 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-03-22 13:39+0000\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "禁用连接通知"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "将此项设为 true 以禁用连接到一个网络时显示的通知。"
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "禁用断开通知"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "将此项设为 true 以禁用从一个网络断开时显示的通知。"
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "禁用 VPN 通知"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "将此项设为 true 以禁用连接或断开 VPN 时的通知。"
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "禁用网络可用通知"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "将此项设为 true 以禁用无线网络可用时显示的通知。"
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "时间戳"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr "用于决定设置是否应被迁移至一个新版本。"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "禁用 Wi-Fi 创建"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "设为 true 以禁止使用小程序时创建 adhoc 网络。"
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "在通知区域显示小程序图标"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "设为 FALSE 以禁止小程序图标在通知区域显示。"
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "忽略 CA 证书"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr "将此项设为 true 以禁用在 EAP 认证中关于 CA 证书的警告。"
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -152,29 +92,71 @@ msgstr "密码"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "使用手机扫描或 <a href=\"nma:print\">打印</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "无证书"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "无密钥"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "选择一个 %s 证书"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s 证书(_c)"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "%s 证书密码(_p)"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "为 %s 证书选择一个密钥"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s 私钥(_k)"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "%s 密钥密码(_p)"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "显示密码(_w)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "键入 %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "%s 中的证书"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "选择"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "取消"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(无)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(未知信息)"
 
@@ -226,73 +208,73 @@ msgstr "任何设备"
 msgid "New Mobile Broadband Connection"
 msgstr "新移动宽带连接"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
 msgstr "此助手程序可帮助您简单地设置一个到蜂窝(3G)网络的移动宽带连接。"
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "您将需要以下信息："
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "宽带提供商的名称"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "您的宽带付费套餐名称"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(在某些情况下)您的宽带付费套餐 APN (访问点名称)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "为此移动宽带设备创建一个连接(_T)："
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "设置一个移动宽带连接"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "国家或地区:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "选择您的提供商的国家或地区"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "从列表中选择您的提供商(_L)："
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "找不到我的提供商，希望手动设置连接(_m)："
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "我的提供商使用 GSM 技术(GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "我的提供商使用 CDMA 技术(1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "选择您的提供商"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "选择您的套餐(_S)："
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "所选套餐的 _APN (访问点名称)："
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -303,28 +285,28 @@ msgstr ""
 "\n"
 "如果您不确定您的套餐，请询问您的提供商以获取套餐的 APN。"
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "选择您的付费套餐"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "您的移动宽带连接已按以下设定配置："
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "您的设备："
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "您的服务商："
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "您的套餐："
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -336,27 +318,27 @@ msgstr ""
 "访问网络资源，请检查您的设置。要修改您的移动宽带设置，在系统 >> 首选项菜单中"
 "选择“网络连接”。"
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "确认移动宽带设置"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "错误日志中： "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "打开一个会话出错:"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "解锁令牌(_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "名称"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "由...发出"
 
@@ -365,8 +347,8 @@ msgstr "由...发出"
 msgid "Enter %s PIN"
 msgstr "输入 %s PIN码"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "取消（_C）"
 
@@ -422,87 +404,87 @@ msgstr "点击连接"
 msgid "New…"
 msgstr "新…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "无"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128 位密钥(十六进制或 ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128 位密码句"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "动态 WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA 及 WPA2 个人"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA 及 WPA2 企业"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA 及 WPA2 个人"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "创建(_R)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "连接(_O)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "访问 Wi-Fi 网络 %s 需要密码或加密密钥。"
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "需要 Wi-Fi 网络认证"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi 网络要求认证"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "创建新的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "新建 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "输入您要创建的 Wi-Fi 网络的名称。"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "连接到隐藏的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "隐藏的 Wi-Fi 网络"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -852,42 +834,61 @@ msgstr "连接(_o)"
 msgid "Wi-Fi _adapter"
 msgstr "Wi-Fi 适配器(_a)"
 
-#~ msgid "No certificate set"
-#~ msgstr "无证书"
+#~ msgid "Disable connected notifications"
+#~ msgstr "禁用连接通知"
 
-#~ msgid "No key set"
-#~ msgstr "无密钥"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr "将此项设为 true 以禁用连接到一个网络时显示的通知。"
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "为 %s 证书选择一个密钥"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "禁用断开通知"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s 私钥(_k)"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr "将此项设为 true 以禁用从一个网络断开时显示的通知。"
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "%s 密钥密码(_p)"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "禁用 VPN 通知"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr "将此项设为 true 以禁用连接或断开 VPN 时的通知。"
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "禁用网络可用通知"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr "将此项设为 true 以禁用无线网络可用时显示的通知。"
+
+#~ msgid "Stamp"
+#~ msgstr "时间戳"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr "用于决定设置是否应被迁移至一个新版本。"
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "禁用 Wi-Fi 创建"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr "设为 true 以禁止使用小程序时创建 adhoc 网络。"
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "在通知区域显示小程序图标"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "设为 FALSE 以禁止小程序图标在通知区域显示。"
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "选择 %s 证书"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s 证书(_c)"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "选择一个 %s 证书"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "%s 证书密码(_p)"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "显示密码(_w)"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "管理网络连接"

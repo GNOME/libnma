@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-03-04 16:37+0100\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
@@ -26,86 +26,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-05-18 08:04+0000\n"
 "X-Project-Style: gnome\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Geen meldingen tonen bij verbinding"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Stel dit in op ‘true’ om geen meldingen te krijgen bij het verbinden met een "
-"netwerk."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Geen meldingen tonen bij verbroken verbinding"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Stel dit in op ‘true’ om geen meldingen te krijgen bij het verbreken van een "
-"verbinding met een netwerk."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN-meldingen uitschakelen"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Stel dit in op ‘true’ om geen meldingen te krijgen bij het maken of "
-"verbreken van een verbinding met een VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Meldingen over beschikbare draadloze netwerken onderdrukken"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Stel dit in op ‘true’ om geen meldingen te krijgen wanneer er wifi-netwerken "
-"beschikbaar zijn."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Stempel"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Gebruikt om te bepalen of instellingen moeten worden overgezet naar een "
-"nieuwe versie."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Wifi-aanmaken uitschakelen"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Stel dit in op ‘true’ om te zorgen dat er geen ad-hocnetwerken aangemaakt "
-"kunnen worden bij gebruik van de toepassing."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Toon het programmaatje in het mededelingengebied"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Stel dit in op FALSE om het weergeven van het programmaatje in het "
-"mededelingengebied, uit te schakelen."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA-certificaat negeren"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -113,7 +39,7 @@ msgstr ""
 "Stel dit in op ‘true’ om waarschuwingen over CA-certificaten in EAP-"
 "authenticatie te onderdrukken."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -173,30 +99,72 @@ msgstr "Wachtwoord:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Geen certificaat ingesteld"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Geen sleutel ingesteld"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Kies een %s certificaat"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s _certificaat"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "Wa_chtwoord %s certificaat"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Kies een sleutel voor certificaat %s"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s privé_sleutel"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "Wa _chtwoord %s sleutel"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Wachtwoorden _tonen"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Sleutel in %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Certificaat in %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Selecteren"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Annuleren"
 
 # niets/geen
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(Geen)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Onbekend)"
 
@@ -249,7 +217,7 @@ msgstr "Elk apparaat"
 msgid "New Mobile Broadband Connection"
 msgstr "Nieuwe mobiele breedbandverbinding"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -258,71 +226,71 @@ msgstr ""
 "via een mobiel (3G) netwerk."
 
 # informatie/gegevens
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "U heeft de volgende gegevens nodig:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "De naam van uw breedband-provider"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "De naam van uw breedband-abonnement"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(in sommige gevallen) De naam van het APN (Access Point Name) voor uw "
 "abonnement"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Een verbinding _aanmaken voor dit mobiele breedbandapparaat:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Een mobiele breedbandverbinding instellen"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Land of regio"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Kies het land of de regio van uw provider"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Selecteer uw provider uit de _lijst:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "Ik kan mijn provider niet vinden en wil de verbinding hand_matig invoeren:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Mijn provider gebruikt GSM-technologie (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Mijn provider gebruikt CDMA-technologie (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Kies uw provider"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Selecteer uw abonnement:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Geselecteerd abonnement _APN (Access Point Name):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -337,11 +305,11 @@ msgstr ""
 "internetaanbieder en vraag naar de APN (naam van Access Point) van uw "
 "abonnement."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Kies uw abonnement"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
@@ -349,19 +317,19 @@ msgstr ""
 "instellingen:"
 
 # dienst/service
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Uw apparaat:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Uw provider:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Uw abonnement:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -374,28 +342,28 @@ msgstr ""
 "geen verbinding gemaakt kan worden, controleer uw instellingen dan nogmaals. "
 "Om uw instellingen te wijzigen kiest u ‘Netwerkverbindingen’ in het menu."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Mobiele breedbandinstellingen bevestigen"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Fout bij het aanmelden: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Fout bij het openen van een sessie: "
 
 # openen/ontgrendelen
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "Token _ontgrendelen"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Naam"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Uitgegeven door"
 
@@ -404,8 +372,8 @@ msgstr "Uitgegeven door"
 msgid "Enter %s PIN"
 msgstr "Voer pincode in voor %s"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Annuleren"
 
@@ -463,53 +431,53 @@ msgid "New…"
 msgstr "Nieuw…"
 
 # zonder/geen
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Geen"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit sleutel (Hex or ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit wachtwoordzin"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dynamisch WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 persoonlijk"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 zakelijk"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 persoonlijk"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_Aanmaken"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "_Verbinden"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -517,35 +485,35 @@ msgstr ""
 "Wachtwoorden of encryptiesleutels zijn vereist om toegang te krijgen tot het "
 "wifi-netwerk ‘%s’."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Authenticatie wifi-netwerk vereist"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Het wifi-netwerk vereist authenticatie"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Nieuw wifi-netwerk aanmaken"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Nieuw wifi-netwerk"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Voer een naam in voor het wifi-netwerk dat u wilt aanmaken."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Verbinden met verborgen wifi-netwerk"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Verborgen wifi-netwerk"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -905,42 +873,75 @@ msgstr "_Verbinding"
 msgid "Wi-Fi _adapter"
 msgstr "Wifi-_adapter"
 
-#~ msgid "No certificate set"
-#~ msgstr "Geen certificaat ingesteld"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Geen meldingen tonen bij verbinding"
 
-#~ msgid "No key set"
-#~ msgstr "Geen sleutel ingesteld"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Stel dit in op ‘true’ om geen meldingen te krijgen bij het verbinden met "
+#~ "een netwerk."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Kies een sleutel voor certificaat %s"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Geen meldingen tonen bij verbroken verbinding"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s privé_sleutel"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Stel dit in op ‘true’ om geen meldingen te krijgen bij het verbreken van "
+#~ "een verbinding met een netwerk."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Wa _chtwoord %s sleutel"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "VPN-meldingen uitschakelen"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Stel dit in op ‘true’ om geen meldingen te krijgen bij het maken of "
+#~ "verbreken van een verbinding met een VPN."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Meldingen over beschikbare draadloze netwerken onderdrukken"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Stel dit in op ‘true’ om geen meldingen te krijgen wanneer er wifi-"
+#~ "netwerken beschikbaar zijn."
+
+#~ msgid "Stamp"
+#~ msgstr "Stempel"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Gebruikt om te bepalen of instellingen moeten worden overgezet naar een "
+#~ "nieuwe versie."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Wifi-aanmaken uitschakelen"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Stel dit in op ‘true’ om te zorgen dat er geen ad-hocnetwerken aangemaakt "
+#~ "kunnen worden bij gebruik van de toepassing."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Toon het programmaatje in het mededelingengebied"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Stel dit in op FALSE om het weergeven van het programmaatje in het "
+#~ "mededelingengebied, uit te schakelen."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Kies een %s certificaat"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s _certificaat"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Kies een %s certificaat"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Wa_chtwoord %s certificaat"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Wachtwoorden _tonen"
 
 # geen netwerk/netwerkverbinding
 #~ msgid "Manage your network connections"

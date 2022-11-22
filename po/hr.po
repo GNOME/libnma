@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-10-17 17:02+0200\n"
 "Last-Translator: gogo <linux.hr@protonmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -15,90 +15,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2017-04-09 22:32+0000\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Onemogući obavijesti povezivanja"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "Odaberite za onemogućavanje obavijesti pri povezivanju s mrežom."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Onemogući obavijesti prekida povezivanja"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Odaberite za onemogućavanje obavijesti prilikom prekida povezivanja s mrežom."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Onemogući VPN obavijesti"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Odaberite za onemogućavanje obavijesti prilikom povezivanja ili prekida "
-"povezivanja s VPN-a."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Zabrani obavijesti o dostupnim mrežama"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "Odaberite za onemogućavanje obavijesti kada su bežične mreže dostupne."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Pečat"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Koristi se kako bi se utvrdilo trebaju li postavke migrirati na noviju "
-"inačicu."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Onemogući stvaranje bežične mreže"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Odaberite za onemogućavanje stvaranje adhoc mreža pri korištenju apleta."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Prikaži aplet u području obavijesti"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "Odaberite za onemogućavanje prikaza apleta u području obavijesti."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Zanemari CA vjerodajnicu"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr ""
 "Odaberite za onemogućavanje upozorenja o CA vjerodajnicama u EAP ovjeri."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -156,29 +90,71 @@ msgstr "Lozinka"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Skenirajte sa svojim telefonom ili <a href=\"nma:print\">Ispišite</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Nema postavljenih vjerodajnica"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Nema postavljenih ključeva"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Odaberite %s vjerodajnicu"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s _vjerodajnica"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "Lozinka %s _vjerodajnice"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Odaberite svoj ključ za %s vjerodajnicu"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s privatni _ključ"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "%s lozinka _ključa"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Prikaž_i lozinku"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Ključ u %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Vjerodajnica u %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Odaberi"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(nijedan)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(nepoznato)"
 
@@ -230,7 +206,7 @@ msgstr "Bilo koji uređaj"
 msgid "New Mobile Broadband Connection"
 msgstr "Novo mobilno širokopojasno povezivanje"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -238,71 +214,71 @@ msgstr ""
 "Ovaj pomoćnik vam pomaže jednostavno podesiti mobilno širokopojasno "
 "povezivanje na mobilnu (3G) mrežu."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Bit će vam potrebne sljedeće informacije:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "Naziv vašeg pružatelja usluge"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Naziv plana naplate vašeg pružatelja usluge"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(u nekim slučajevima) NPT (Naziv Pristupne Točke) vašeg plana naplate "
 "mobilnog interneta"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Stvori povezivanje za _ovaj uređaj mobilnog širokopojasnog Interneta:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Postavite povezivanje mobilnog širokopojasnog Interneta"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "Država ili regija:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Odaberite državu ili regiju vašeg pružatelja usluge"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Odaberite svojeg pružatelja usluge s _popisa:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "Ne mogu pronaći svojega pružatelja usluge i želim povezivanje postaviti "
 "_ručno:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Moj pružatelj usluge koristi GSM tehnologiju (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Moj pružatelj usluge koristi CDMA tehnologiju (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Odaberite svojeg pružatelja usluge"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Odaberite svoj plan:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Odabrani plan _NPT (Naziv Pristupne Točke):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -315,29 +291,29 @@ msgstr ""
 "Ako niste sigurni koji plan trebate koristiti, upitajte svojeg pružatelja "
 "mobilnog interneta koji je NPT (Naziv Pristupne Točke) vašeg plana."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Odaberite svoj način naplate"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "Vaše mobilno širokopojasno povezivanje je podešeno sa sljedećim postavkama:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Vaš uređaj:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Vaš pružatelj usluge:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Vaš plan:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -351,27 +327,27 @@ msgstr ""
 "Kako biste uredili postavke svog mobilnog Internet povezivanja, odaberite "
 "\"Mrežno povezivanje\" u izborniku Sustav → Postavke."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Potvrdi mobilne širokopojasne postavke"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Greška prijave: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Greška pri otvaranju sesije: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "_Token otključvanja"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Naziv"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Izdao"
 
@@ -380,8 +356,8 @@ msgstr "Izdao"
 msgid "Enter %s PIN"
 msgstr "Upiši %s PIN"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -437,87 +413,87 @@ msgstr "Klikni za povezivanje"
 msgid "New…"
 msgstr "Novo…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Nijedno"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bitni ključ (heksadecimalni ili ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bitna lozinka"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "Promjenjivi WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 osobni"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 tvrtke"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 msgid "WPA3 Personal"
 msgstr "WPA3 osobni"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "S_tvori"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "_Spoji se"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "Lozinka ili ključ šifriranja je potreban za pristup bežičnoj mreži \"%s\"."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Potrebna je ovjera bežične mreže"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Potrebna je ovjera bežične mreže"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Stvori novu bežičnu mrežu"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Nova bežična mreža"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Upišite naziv bežične mreže koju želite stvoriti."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Poveži se na skrivenu bežičnu mrežu"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Skrivena bežična mreža"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -873,42 +849,69 @@ msgstr "P_ovezivanje"
 msgid "Wi-Fi _adapter"
 msgstr "Bežični _uređaj"
 
-#~ msgid "No certificate set"
-#~ msgstr "Nema postavljenih vjerodajnica"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Onemogući obavijesti povezivanja"
 
-#~ msgid "No key set"
-#~ msgstr "Nema postavljenih ključeva"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr "Odaberite za onemogućavanje obavijesti pri povezivanju s mrežom."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Odaberite svoj ključ za %s vjerodajnicu"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Onemogući obavijesti prekida povezivanja"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s privatni _ključ"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Odaberite za onemogućavanje obavijesti prilikom prekida povezivanja s "
+#~ "mrežom."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "%s lozinka _ključa"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Onemogući VPN obavijesti"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Odaberite za onemogućavanje obavijesti prilikom povezivanja ili prekida "
+#~ "povezivanja s VPN-a."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Zabrani obavijesti o dostupnim mrežama"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Odaberite za onemogućavanje obavijesti kada su bežične mreže dostupne."
+
+#~ msgid "Stamp"
+#~ msgstr "Pečat"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Koristi se kako bi se utvrdilo trebaju li postavke migrirati na noviju "
+#~ "inačicu."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Onemogući stvaranje bežične mreže"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Odaberite za onemogućavanje stvaranje adhoc mreža pri korištenju apleta."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Prikaži aplet u području obavijesti"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "Odaberite za onemogućavanje prikaza apleta u području obavijesti."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Odaberite %s vjerodajnicu"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s _vjerodajnica"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Odaberite %s vjerodajnicu"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Lozinka %s _vjerodajnice"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Prikaž_i lozinku"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Upravljanje mrežnim povezivanjem"
@@ -3564,8 +3567,8 @@ msgstr "Bežični _uređaj"
 #~ "Slaves “%s” and “%s” apply to different virtual ports (“%s” and “%s”) of "
 #~ "the same physical device."
 #~ msgstr ""
-#~ "Pomoćni \"%s\" i \"%s\" primijenjenii na različite virtualne ulaze (\"%s"
-#~ "\" i \"%s\") iste fizičke adrese."
+#~ "Pomoćni \"%s\" i \"%s\" primijenjenii na različite virtualne ulaze "
+#~ "(\"%s\" i \"%s\") iste fizičke adrese."
 
 #, c-format
 #~ msgid "%s slave %d"

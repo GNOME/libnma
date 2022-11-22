@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-07-21 12:37+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@lists.gnome.gr\n"
@@ -24,87 +24,12 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Project-Style: gnome\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Απενεργοποίηση ειδοποιήσεων σύνδεσης"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε συνδέεστε "
-"σε δίκτυο."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Απενεργοποίηση ειδοποιήσεων αποσύνδεσης"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
-"αποσυνδέεστε από ένα δίκτυο."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Απενεργοποίηση ειδοποιήσεων VPN"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
-"αποσυνδέεστε από ένα δίκτυο VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Απενεργοποίηση ειδοποιήσεων διαθέσιμων δικτύων"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε υπάρχουν "
-"διαθέσιμα δίκτυα Wi-Fi."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Σφραγίδα"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Χρησιμοποιείται για να καθορίζει αν οι ρυθμίσεις πρέπει να μεταφερθούν σε "
-"νέα έκδοση."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Απενεργοποίηση δημιουργίας ασύρματου δικτύου"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Ορίστε το ως αληθές για να απενεργοποιήσετε την δημιουργία adhoc δικτύων "
-"κατά τη χρήση της μικροεφαρμογής."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Εμφάνιση της μικροεφαρμογής στην περιοχή ειδοποιήσεων"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Ορισμός σε ΨΕΥΔΕΣ για απενεργοποίηση εμφάνισης της μικροεφαρμογής στην "
-"περιοχή ειδοποιήσεων."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Παράβλεψη πιστοποιητικού CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -112,7 +37,7 @@ msgstr ""
 "Ορίστε το ως αληθές για να απενεργοποιήσετε τις προειδοποιήσεις σχετικά με "
 "τα πιστοποιητικά CA στην πιστοποίηση EAP."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -166,31 +91,74 @@ msgstr "Κωδικός πρόσβασης:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "Δεν α_παιτείται κανένα πιστοποιητικό CA"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Επιλέξτε πιστοποιητικό CA"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "Πιστοποιητικό _χρήστη:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "Πιστοποιητικό _χρήστη:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Επιλέξτε πιστοποιητικό CA"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "Ιδιωτικό κ_λειδί:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "Κωδικός πρόσβασης _ιδιωτικού κλειδιού:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Εμ_φάνιση κωδικών πρόσβασης"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "Πιστοποιητικό C_A:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 #, fuzzy
 msgid "Select"
 msgstr "Επιλέξτε αρχείο"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(κανένα)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Άγνωστο"
@@ -245,7 +213,7 @@ msgstr "Οποιαδήποτε συσκευή"
 msgid "New Mobile Broadband Connection"
 msgstr "Νέα κινητή ευρυζωνική σύνδεση"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -253,73 +221,73 @@ msgstr ""
 "Ο βοηθός αυτός σας επιτρέπει να συνδεθείτε εύκολα σε ένα κινητό ευρυζωνικό "
 "(3G) δίκτυο."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Θα χρειαστείτε τις ακόλουθες πληροφορίες:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "Το όνομα του παρόχου της σύνδεσης σας"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Το όνομα της συνδρομής σας"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(σε κάποιες περιπτώσεις) Το APN (Όνομα σημείου πρόσβασης) της ευρυζωνικής "
 "συνδρομής σας"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Δημιουργία σύνδεσης για την _ακόλουθη συσκευή:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Ρύθμιση κινητής ευρυζωνικής σύνδεσης"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Χώρα ή περιοχή"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Επιλέξτε τη χώρα ή περιοχή του παρόχου σας"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Επιλέξτε τον πάροχό σας από τη _λίστα:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Δε βρήκα τον πάροχό μου και θέλω να τον πληκτρολογήσω _χειροκίνητα:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Ο πάροχός μου χρησιμοποιεί τεχνολογίες GSM (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Ο πάροχός μου χρησιμοποιεί τεχνολογίες CDMA (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Επιλέξτε τον πάροχό σας"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Επιλέξτε τη συνδρομή σας:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "_APN (Access Point Name) επιλεγμένης συνδρομής:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -333,28 +301,28 @@ msgstr ""
 "Αν δεν είστε σίγουροι για τον τύπο συνδρομής σας, ζητήστε το APN της "
 "συνδρομής σας από τον πάροχο."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Επιλέξτε τη συνδρομή σας"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Η κινητή ευρυζωνική σας σύνδεση περιλαμβάνει τις ακόλουθες ρυθμίσεις:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Η συσκευή σας:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Ο πάροχός σας:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Η συνδρομή σας:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -369,29 +337,29 @@ msgstr ""
 "να τροποποιήσετε τις ρυθμίσεις της κινητής ευρυζωνικής σύνδεσης, επιλέξτε "
 "\"Συνδέσεις δικτύου\" από το μενού Σύστημα >> Προτιμήσεις."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Επιβεβαίωση των ρυθμίσεων της κινητής ευρυζωνικής σύνδεσης"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Σφάλμα επεξεργασίας σύνδεσης"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Ξεκλείδωμα"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Όνομα"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -400,8 +368,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -463,54 +431,54 @@ msgstr "Αποσύνδεση"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Κανένα"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "Κλειδί WEP 40/128-bit (Hex ή ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "Συνθηματική φράση WEP 128-bit"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "Δυναμικό WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "Προσωπικό WPA & WPA2"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "Εταιρικό WPA & WPA2"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "Προσωπικό WPA & WPA2"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "Δ_ημιουργία"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "Σύν_δεση"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -518,35 +486,35 @@ msgstr ""
 "Απαιτούνται κωδικοί πρόσβασης ή κλειδιά κρυπτογράφησης για πρόσβαση στο "
 "δίκτυο Wi-Fi '%s'."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Απαιτείται πιστοποίηση δικτύου Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Απαιτείται πιστοποίηση από το δίκτυο Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Δημιουργία νέου δικτύου Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Νέο δίκτυο Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Εισάγετε το όνομα του δικτύου Wi-Fi που επιθυμείτε να δημιουργήσετε."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Σύνδεση σε κρυφό δίκτυο Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Κρυφό δίκτυο Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -917,40 +885,76 @@ msgstr "Σύν_δεση:"
 msgid "Wi-Fi _adapter"
 msgstr "_Προσαρμογέας Wi-Fi:"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "Απενεργοποίηση ειδοποιήσεων σύνδεσης"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
+#~ "συνδέεστε σε δίκτυο."
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Απενεργοποίηση ειδοποιήσεων αποσύνδεσης"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
+#~ "αποσυνδέεστε από ένα δίκτυο."
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Απενεργοποίηση ειδοποιήσεων VPN"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
+#~ "αποσυνδέεστε από ένα δίκτυο VPN."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Απενεργοποίηση ειδοποιήσεων διαθέσιμων δικτύων"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Ορίστε το ως αληθές για να απενεργοποιήσετε τις ειδοποιήσεις όποτε "
+#~ "υπάρχουν διαθέσιμα δίκτυα Wi-Fi."
+
+#~ msgid "Stamp"
+#~ msgstr "Σφραγίδα"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Χρησιμοποιείται για να καθορίζει αν οι ρυθμίσεις πρέπει να μεταφερθούν σε "
+#~ "νέα έκδοση."
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "Δεν α_παιτείται κανένα πιστοποιητικό CA"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Απενεργοποίηση δημιουργίας ασύρματου δικτύου"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Επιλέξτε πιστοποιητικό CA"
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Ορίστε το ως αληθές για να απενεργοποιήσετε την δημιουργία adhoc δικτύων "
+#~ "κατά τη χρήση της μικροεφαρμογής."
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Ιδιωτικό κ_λειδί:"
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Εμφάνιση της μικροεφαρμογής στην περιοχή ειδοποιήσεων"
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Κωδικός πρόσβασης _ιδιωτικού κλειδιού:"
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Ορισμός σε ΨΕΥΔΕΣ για απενεργοποίηση εμφάνισης της μικροεφαρμογής στην "
+#~ "περιοχή ειδοποιήσεων."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Επιλέξτε πιστοποιητικό CA"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "Πιστοποιητικό _χρήστη:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Επιλέξτε πιστοποιητικό CA"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Πιστοποιητικό _χρήστη:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Εμ_φάνιση κωδικών πρόσβασης"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Διαχείριση των συνδέσεων δικτύου"

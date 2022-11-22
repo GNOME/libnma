@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-02-10 11:32+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -18,84 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "باغلىنىش ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"بىر تورغا باغلىنىۋاتقاندا ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز بۇ تاللاشنى "
-"TRUE غا تەڭشەڭ."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "باغلىنىش ئۈزۈلگەنلىك ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"بىر تور باغلىنىشىنى ئۈزۈۋاتقاندا ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز بۇ "
-"تاللاشنى TRUE غا تەڭشەڭ."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "ۋ پ ن(VPN) ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"ۋ پ ن(VPN) تورىغا  باغلىنىۋاتقاندا ياكى باغلىنىش ئۈزۈلۈۋاتقاندا "
-"ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز بۇ تاللاشنى TRUE غا تەڭشەڭ."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "تور ئىشلىتىلىشچان ئۇقتۇرۇشلىرىنى چەكلە"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"ئەگەر بۇ true قىلىپ بەلگىلەنسە، ئىشلەتكىلى بولىدىغان Wi-Fi بار بولغاندا "
-"چىقىرىدىغان ئۇقتۇرۇش ئىناۋەتسىز قىلىنىدۇ."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "تامغا"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"تەڭشەكلەرنىڭ يېڭى بىر نۇسخىغا كۆچۈش-كۆچۈرمەسلىكنى بەلگىلەش ئۈچۈن ئىشلىتىلىدۇ."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "سىمسىز تور Wi-Fi قۇرۇشنى تاقا"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"قوللانچاقلارنى ئىشلەتكەندە adhoc تورلىرىنى قۇرماسلىقنى ئىستىسىڭىز بۇ "
-"تاللاشنى TRUE غا تەڭشەڭ."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA گۇۋاھنامىسىگە پەرۋا قىلما"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -103,7 +31,7 @@ msgstr ""
 "EAP دىكى كىملىك دەلىللەشتە CA گۇۋاھنامىسىنىڭ ئاگاھلاندۇرۇشلىرىنى خالىمىسىڭىز "
 "بۇنى true غا تەڭشەڭ."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -157,30 +85,73 @@ msgstr "ئىم:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "CA گۇۋاھنامىسىگە پەرۋا قىلما"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "CA گۇۋاھنامىسى تاللا"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "ئىشلەتكۈچى گۇۋاھنامىسى(_U):"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "ئىشلەتكۈچى گۇۋاھنامىسى(_U):"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "CA گۇۋاھنامىسى تاللا"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "شەخسىي ئاچقۇچ(_K)"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "شەخسىي ئاچقۇچ ئىمى(_P):"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "ئىمنى كۆرسەت(_W)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "C_A گۇۋاھنامىسى:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(يوق)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "نامەلۇم"
@@ -234,7 +205,7 @@ msgstr "ھەرقانداق بىر ئۈسكۈنە"
 msgid "New Mobile Broadband Connection"
 msgstr "يېڭى كۆچمە كەڭ بەلۋاغ باغلىنىشى"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -242,72 +213,72 @@ msgstr ""
 "بۇ ياردەمچى پروگرامما كۆچمە تېلېفون تورى(3G) نى قۇلايلىق تەڭشەپ كۆچمە كەڭ "
 "بەلۋاغقا باغلىنىشقا ياردەم قىلىدۇ."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "ئاستىدىكى ئۇچۇرلارغا ئېھتىياجىڭىز چۈشىدۇ:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "كەڭ بەلۋاغ تەمىنلىگۈچىڭىزنىڭ ئاتى"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "كەڭ بەلۋاغ ھەق تۆلەش پىلانىڭىز ئاتى"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(بەزى ئەھۋالدا) كەڭ بەلۋاغ ھەق تۆلەش پىلانىڭىزنىڭ APN(زىيارەت نۇقتا ئاتى) ئى"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "بۇ كۆچمە كەڭ بەلۋاغ ئۈسكۈنىسى ئۈچۈن بىر باغلىنىش قۇر(_T):"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "يېڭى كۆچمە كەڭ بەلۋاغ باغلىنىشىنى سەپلە"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "دۆلەت ياكى رايون"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "تەمىنلىگۈچىڭىزنىڭ دۆلىتى ياكى رايونىنى تاللاڭ"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "تەمىنلىگۈچىڭىزنى تىزىملىكتىن تاللاڭ(_L)؛"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "تەمىنلىگۈچىمنى تاپالمىدى ۋە قولۇمدا كىرگۈزۈشنى ئىستەيمەن(_M):"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "تەمىنلىگۈچىم GSM تېخنىكىسىنى ئىشلىتىدۇ(GPRS، EDGE، UMTS، HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "تەمىنلىگۈچىم CDMA تېخنىكىسىنى ئىشلىتىدۇ(1xRTT، EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "تەمىنلىگۈچىڭىزنى تاللاڭ"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "پىلانىڭىزنى تاللاڭ(_S):"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "تاللانغان پىلان APN(زىيارەت نۇقتا ئاتى)(_A)"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -320,28 +291,28 @@ msgstr ""
 "\n"
 "پىلانىڭىزنى جەزم قىلالمىسىڭىز تەمىنلىگۈچىڭىزدىن پىلانىڭىزنىڭ APN ئىنى سوراڭ"
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "ھەق تۆلەش پىلانىڭىزنى كىرگۈزۈڭ"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "كۆچمە كەڭ بەلۋاغ باغلىنىشىڭىز ئاستىدىكى تەڭشەكلەر بىلەن سەپلەنگەن:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "ئۈسكۈنىڭىز:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "تەمىنلىگۈچىڭىز:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "پىلانىڭىز:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -356,29 +327,29 @@ msgstr ""
 "تەڭشەكلىرىنى ئۆزگەرتىش ئۈچۈن \"سىستېما››\" تاللاش ئىقتىدار تىزىملىكىدىن "
 "\"تور باغلىنىشلىرى\" نى تاللاڭ."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "كۆچمە كەڭ بەلۋاغ تەڭشەكلىرىنى جەزملە"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "باغلىنىشنى تەھرىرلەۋاتقاندا خاتالىق كۆرۈلدى"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "قۇلۇپسىزلا(_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "ئاتى"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -387,8 +358,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -450,55 +421,55 @@ msgstr "ئۈز"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "يوق"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128 بىتلىق ئاچقۇچ(16لىك ياكى ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128 بىتلىق شىفىر"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "دىنامىكىلىق WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA ۋە WPA2 كىشىلىك نۇسخىسى"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA ۋە WPA2 كارخانا نۇسخىسى"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA ۋە WPA2 كىشىلىك نۇسخىسى"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "قۇر(_R)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 #, fuzzy
 msgid "C_onnect"
 msgstr "باغلاندى"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -506,35 +477,35 @@ msgstr ""
 "سىمسىز(Wi-Fi) تور ‹%s› نى زىيارەت قىلىش ئۈچۈن ئىم ياكى شىفىرلاش ئاچقۇچى "
 "زۆرۈردۇر."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "سىمسىز(Wi-Fi) تور كىملىك دەلىللەش زۆرۈر"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "سىمسىز(Wi-Fi) تور كىملىك دەلىللەشنى تەلەپ قىلدى"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "يېڭى سىمسىز(Wi-Fi) تور قۇرۇش"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "يېڭى سىمسىز(Wi-Fi) تور"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "قۇرماقچى بولغان سىمسىز(Wi-Fi) تورنىڭ ئاتىنى كىرگۈزۈڭ."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "يوشۇرۇن سىمسىز(Wi-Fi) تورغا باغلىنىش"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "يوشۇرۇن سىمسىز(Wi-Fi) تور"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -907,40 +878,67 @@ msgstr "باغلىنىش(_O):"
 msgid "Wi-Fi _adapter"
 msgstr "سىمسىز(Wi-Fi) تور كارتىسى(_A):"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "باغلىنىش ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "بىر تورغا باغلىنىۋاتقاندا ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز بۇ "
+#~ "تاللاشنى TRUE غا تەڭشەڭ."
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "باغلىنىش ئۈزۈلگەنلىك ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "بىر تور باغلىنىشىنى ئۈزۈۋاتقاندا ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز "
+#~ "بۇ تاللاشنى TRUE غا تەڭشەڭ."
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "ۋ پ ن(VPN) ئۇقتۇرۇشىنى ئىناۋەتسىز قىل"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "ۋ پ ن(VPN) تورىغا  باغلىنىۋاتقاندا ياكى باغلىنىش ئۈزۈلۈۋاتقاندا "
+#~ "ئۇقتۇرۇشلارنىڭ چىقماسلىقىنى ئىستىسىڭىز بۇ تاللاشنى TRUE غا تەڭشەڭ."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "تور ئىشلىتىلىشچان ئۇقتۇرۇشلىرىنى چەكلە"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "ئەگەر بۇ true قىلىپ بەلگىلەنسە، ئىشلەتكىلى بولىدىغان Wi-Fi بار بولغاندا "
+#~ "چىقىرىدىغان ئۇقتۇرۇش ئىناۋەتسىز قىلىنىدۇ."
+
+#~ msgid "Stamp"
+#~ msgstr "تامغا"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "تەڭشەكلەرنىڭ يېڭى بىر نۇسخىغا كۆچۈش-كۆچۈرمەسلىكنى بەلگىلەش ئۈچۈن "
+#~ "ئىشلىتىلىدۇ."
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "CA گۇۋاھنامىسىگە پەرۋا قىلما"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "سىمسىز تور Wi-Fi قۇرۇشنى تاقا"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "CA گۇۋاھنامىسى تاللا"
-
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "شەخسىي ئاچقۇچ(_K)"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "شەخسىي ئاچقۇچ ئىمى(_P):"
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "قوللانچاقلارنى ئىشلەتكەندە adhoc تورلىرىنى قۇرماسلىقنى ئىستىسىڭىز بۇ "
+#~ "تاللاشنى TRUE غا تەڭشەڭ."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "CA گۇۋاھنامىسى تاللا"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "ئىشلەتكۈچى گۇۋاھنامىسى(_U):"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "CA گۇۋاھنامىسى تاللا"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "ئىشلەتكۈچى گۇۋاھنامىسى(_U):"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "ئىمنى كۆرسەت(_W)"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "تور باغلىنىشلىرىڭىزنى باشقۇرۇڭ"

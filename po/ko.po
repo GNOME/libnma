@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet 1.8.22\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-13 10:26+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
@@ -33,79 +33,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "연결이 되면 알려주지 않음"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "참이면 네트워크에 연결되었을 때 알려주지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "연결이 끊기면 알려주지 않음"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "참이면 네트워크가 끊어졌을 때 알려주지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "가상 사설망 알려주지 않음"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "참이면 가상 사설망에 연결하거나 연결이 끊어졌을 때 알려주지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "네트워크에서 사용 가능한 통지를 무시합니다"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "참이면 와이파이 네트워크가 사용 가능할 때 알려주지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "스탬프"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr "설정을 새로운 버전으로 옮겨야 할지를 결정하려고 사용합니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "와이파이 만들기 사용하지 않음"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "참이면 애플릿 사용할 때 애드혹 네트워크를 만들지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "알림 영역에 애플릿 표시"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "거짓으로 설정하면 알림 영역에 애플릿 표시를 하지 않습니다."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA 인증서 무시"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr "참이면 CA 인증서가 EAP 인증이 되었는지 경고를 하지 않습니다."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -161,29 +100,72 @@ msgstr "암호:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "CA 인증서 불필요(_R)"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "키가 설정되지 않았습니다."
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "개인 인증서 선택..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "사용자 인증서(_U):"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "사용자 인증서(_U):"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "개인 인증서 선택..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "비밀키(_K):"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "비밀키 암호(_P):"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "암호 보이기(_W)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "열쇠 입력 %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "CA 인증서(_A):"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "선택 "
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "취소 "
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(없음)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(알 수 없음)"
 
@@ -236,7 +218,7 @@ msgstr "모든 장치"
 msgid "New Mobile Broadband Connection"
 msgstr "새 모바일 광대역 연결"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -244,71 +226,71 @@ msgstr ""
 "이 도우미를 이용해 휴대전화(3G) 네트워크를 사용하는 모바일 광대역 연결을 손쉽"
 "게 설정할 수 있습니다."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "다음 정보가 필요합니다:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "통신사의 이름"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "통신사의 요금제 이름"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(어떤 경우엔) 통신사의 요금제 APN (AP 이름)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "이 모바일 광대역 장치에 대한 연결 만들기(_T):"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "모바일 광대역 연결을 설정"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "국가 혹은 지역"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "통신사의 국가 혹은 지역 선택"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "목록에서 통신사 선택(_L):"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "통신사가 없으므로 직접 입력(_M):"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "내 통신사는 GSM 기반 기술을 사용합니다(GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "내 통신사는 CDMA 기반 기술을 사용합니다(1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "통신사를 선택하십시오"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "요금제 선택(_S):"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "요금제 _APN(억세스 포인트 이름):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -321,28 +303,28 @@ msgstr ""
 "\n"
 "만약 요금제가 확실하지 않다면, 통신사에 요금제의 APN에 대해 문의하십시오."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "요금제를 선택하십시오"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "모바일 광대역 연결이 다음과 같이 설정되었습니다:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "장치:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "통신사:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "요금제:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -356,29 +338,29 @@ msgstr ""
 "역 연결 설정을 변경하려면, 시스템 >> 기본 설정 메뉴에서 \"네트워크 연결\"을 "
 "선택하십시오."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "모바일 광대역 설정 확인"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "로그인 오류 : "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "연결을 편집하는데 오류"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "잠금 해제(_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "이름"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "발급자"
 
@@ -387,8 +369,8 @@ msgstr "발급자"
 msgid "Enter %s PIN"
 msgstr "들어가다 %s 핀"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -449,88 +431,88 @@ msgstr "연결 끊김"
 msgid "New…"
 msgstr "새로운…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "없음"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128비트 키(Hex 또는 ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128비트 열쇠글"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "동적 WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "개인용 WPA 또는 WPA2"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "기업용 WPA 또는 WPA2"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "개인용 WPA 또는 WPA2"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "만들기(_R)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "연결(_O)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "와이파이 네트워크 '%s'에 연결하려면 암호 또는 암호화 키가 있어야 합니다."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "와이파이 네트워크 인증이 필요합니다"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "와이파이 네트워크에 인증이 필요합니다"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "새 와이파이 네트워크 만들기"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "새 와이파이 네트워크"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "연결하려는 와이파이 네트워크의 이름을 입력하십시오."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "감춰진 와이파이 네트워크에 연결"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "숨겨진 와이파이 네트워크"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -905,43 +887,63 @@ msgstr "연결 이름(_O):"
 msgid "Wi-Fi _adapter"
 msgstr "와이파이 어댑터(_A):"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "연결이 되면 알려주지 않음"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr "참이면 네트워크에 연결되었을 때 알려주지 않습니다."
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "연결이 끊기면 알려주지 않음"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr "참이면 네트워크가 끊어졌을 때 알려주지 않습니다."
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "가상 사설망 알려주지 않음"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "참이면 가상 사설망에 연결하거나 연결이 끊어졌을 때 알려주지 않습니다."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "네트워크에서 사용 가능한 통지를 무시합니다"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr "참이면 와이파이 네트워크가 사용 가능할 때 알려주지 않습니다."
+
+#~ msgid "Stamp"
+#~ msgstr "스탬프"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr "설정을 새로운 버전으로 옮겨야 할지를 결정하려고 사용합니다."
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "CA 인증서 불필요(_R)"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "와이파이 만들기 사용하지 않음"
 
-#~ msgid "No key set"
-#~ msgstr "키가 설정되지 않았습니다."
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr "참이면 애플릿 사용할 때 애드혹 네트워크를 만들지 않습니다."
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "개인 인증서 선택..."
+#~ msgid "Show the applet in notification area"
+#~ msgstr "알림 영역에 애플릿 표시"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "비밀키(_K):"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "비밀키 암호(_P):"
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "거짓으로 설정하면 알림 영역에 애플릿 표시를 하지 않습니다."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "개인 인증서 선택..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "사용자 인증서(_U):"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "개인 인증서 선택..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "사용자 인증서(_U):"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "암호 보이기(_W)"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "네트워크 연결을 관리합니다"
@@ -2184,9 +2186,9 @@ msgstr "와이파이 어댑터(_A):"
 #~ "values will be forced without checking the device compatibility. If "
 #~ "unsure, leave here “Ignore” or pick “Automatic”."
 #~ msgstr ""
-#~ "장치 링크 협상. \"Manual\"을 선택하면 장치 호환성을 확인하지 않고 \"Speed"
-#~ "\"및 \"Duplex\"값이 강제로 설정됩니다. 확실하지 않으면 \"무시\"또는 \"자동"
-#~ "\"을 선택하십시오."
+#~ "장치 링크 협상. \"Manual\"을 선택하면 장치 호환성을 확인하지 않고 "
+#~ "\"Speed\"및 \"Duplex\"값이 강제로 설정됩니다. 확실하지 않으면 \"무시\"또"
+#~ "는 \"자동\"을 선택하십시오."
 
 #, fuzzy
 #~ msgid "_Speed"

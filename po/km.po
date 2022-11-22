@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po_nm-applet-km\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-04-23 15:44+0700\n"
 "Last-Translator: Sophea Sok <sophea@open.org.kh>\n"
 "Language-Team: Khmer <>\n"
@@ -21,79 +21,18 @@ msgstr ""
 "X-Generator: WordForge 0.8 RC1\n"
 "X-Language: km-KH\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "បិទ​ការ​ជូនដំណឹង​ដែល​បាន​តភ្ជាប់"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ភ្ជាប់​បណ្ដាញ។"
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "បិទ​ការ​ជូនដំណឹង​ដែល​បាន​ផ្ដាច់"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ផ្ដាច់​ពី​បណ្ដាញ។"
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "បិទ​ការ​ជូនដំណឹង VPN"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ភ្ជាប់ ឬ​ផ្ដាច់​ពី VPN ។"
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "លាក់​​​ការ​ជូនដំណឹង​បណ្ដាញ​ដែល​មាន"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង នៅ​ពេល​មាន​បណ្ដាញ​វ៉ាយហ្វាយ។"
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "តែម"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr "ត្រូវ​បាន​ប្រើ ដើម្បី​កំណត់​ថា​តើ​គួរតែ​ប្ដូរ​ការ​កំណត់​ទៅ​ជា​កំណែ​ថ្មី​ដែរ​ឬ​ទេ។"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "បិទ​ការ​បង្កើត​វ៉ាយហ្វាយ"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "កំណត់​ទៅ​ពិត​ដើម្បី​បិទ​ការ​បង្កើត​បណ្ដាញ adhoc នៅ​ពេល​ប្រើ​អាប់ភ្លេត។"
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "បង្ហាញ​អាប់ភ្លេត​នៅ​ក្នុង​តំបន់​ជូន​ដំណឹង"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "កំណត់​ទៅ​មិន​ពិត ដើម្បី​បិទ​ការ​បង្ហាញ​អាប់ភ្លេត​នៅ​ក្នុង​តំបន់​ជូន​ដំណឹង។"
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "មិន​អើពើ​វិញ្ញាបនបត្រ CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ព្រមាន​អំពី​វិញ្ញាបនបត្រ CA នៅ​ក្នុង​ការ​ផ្ទៀងផ្ទាត់ EAP ។"
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -146,30 +85,73 @@ msgstr "ពាក្យសម្ងាត់៖"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "មិន​បាន​ទាមទារ​វិញ្ញាបនបត្រ CA"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "ជ្រើស​វិញ្ញាបនបត្រ CA"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "វិញ្ញាបនបត្រ​អ្នកប្រើ៖"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "វិញ្ញាបនបត្រ​អ្នកប្រើ៖"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "ជ្រើស​វិញ្ញាបនបត្រ CA"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "សោ​ឯកជន៖"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "ពាក្យសម្ងាត់​សោ​ឯកជន៖"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "បង្ហាញ​ពាក្យសម្ងាត់"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "វិញ្ញាបនបត្រ CA ៖"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(គ្មាន)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "មិនស្គាល់"
@@ -223,77 +205,77 @@ msgstr "ឧបករណ៍​ណាមួយ"
 msgid "New Mobile Broadband Connection"
 msgstr "ការ​តភ្ជាប់​រលកអាកាស​ចល័ត​ថ្មី"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
 msgstr "អ្នកជំនួយការ​នឹង​ជួយ​អ្នក​ក្នុង​ការ​រៀបចំ​ការ​តភ្ជាប់​រលកអាកាស​ចល័ត​ទៅកាន់​បណ្ដាញ​ទូរស័ព្ទ (3G) ។"
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "អ្នក​នឹង​ត្រូវការ​ព័ត៌មាន​ដូច​ខាងក្រោម៖"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "ឈ្មោះ​ក្រុម​ហ៊ុន​ផ្ដល់​​រលក​អាកាស​របស់​អ្នក"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "ឈ្មោះ​គម្រោង​ចេញ​វិក្កយបត្រ​រលកអាកាស​របស់​អ្នក"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(ក្នុង​ករណី​ខ្លះ​) គម្រោង​ចេញ​វិក្កយបត្រ​រលកអាកាស​​​របស់​ APN (Access Point Name)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "បង្កើត​ការ​តភ្ជាប់​សម្រាប់​ឧបករណ៍​រលកអាកាស​ចល័ត​នេះ៖"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "រៀបចំ​ការ​តភ្ជាប់​រលកអាកាស​ចល័ត"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "ប្រទេស ឬ​តំបន់"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "ជ្រើស​ប្រទេស ឬ​តំបន់​របស់​ក្រុមហ៊ុន​ផ្ដល់"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "ជ្រើស​ក្រុមហ៊ុន​ផ្ដល់​ពី​បញ្ជី៖"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "ខ្ញុំ​មិន​អាច​រក​ឃើញ​ក្រុមហ៊ុន​ផ្ដល់ ហើយ​ខ្ញុំ​ចង់​វាយ​បញ្ចូល​វា​ដោយ​ដៃ៖"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "ក្រុមហ៊ុន​ផ្ដល់​របស់​ខ្ញុំ​ប្រើ​បច្ចេកវិទ្យា GSM  (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "ក្រុមហ៊ុន​ផ្ដល់​របស់​ខ្ញុំ​ប្រើ​បច្ចេកវិទ្យា CDMA  (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "ជ្រើស​ក្រុមហ៊ុន​ផ្ដល់​របស់​អ្នក"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "ជ្រើស​គម្រោង​របស់​អ្នក៖"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "បាន​ជ្រើស​គម្រោង APN (Access Point Name) ៖"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -306,28 +288,28 @@ msgstr ""
 "\n"
 "បើ​​អ្នក​មិន​ប្រាកដ​ជាមួយ​គម្រោង​របស់​អ្នក​ទេ​ ​សូម​​សួរ​ក្រុម​ហ៊ុន​ផ្ដល់​​របស់​អ្នក​ អំពី​​គម្រោង APN របស់​អ្នក។"
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "ជ្រើស​គម្រោង​ចេញ​វិក្កយបត្រ​របស់​អ្នក"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "ការ​តភ្ជាប់​រលកអាកាស​ចល័ត​របស់​អ្នក​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ​​ដូច​ខាងក្រោម៖"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "ឧបករណ៍​របស់​អ្នក៖"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "ក្រុមហ៊ុន​ផ្ដល់​របស់​អ្នក៖"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "គម្រោង​របស់​អ្នក៖"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -341,29 +323,29 @@ msgstr ""
 "ឡើងវិញ។ ដើម្បី​កែប្រែ​ការ​កំណត់​ការ​តភ្ជាប់​រលកអាកាស​ចល័ត​របស់​អ្នក ជ្រើស \"ការ​តភ្ជាប់​បណ្ដាញ\" ពី​ម៉ឺនុយ "
 "ប្រព័ន្ធ >> ចំណូលចិត្ត ។"
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "បញ្ចាក់​ការ​កំណត់​រលកអាកាស​ចល័ត"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "កំហុស​ក្នុង​ការ​កែសម្រួល​ការ​តភ្ជាប់"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "ដោះ​សោ"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -372,8 +354,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -435,89 +417,89 @@ msgstr "ផ្ដាច់"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "គ្មាន"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit Key (Hex ឬ ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "ឃ្លា​សម្ងាត់ WEP 128-bit"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP (802.1X) ថាមវន្ត"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 ផ្ទាល់ខ្លួន"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 ក្រុមហ៊ុន"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 ផ្ទាល់ខ្លួន"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "បង្កើត"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 #, fuzzy
 msgid "C_onnect"
 msgstr "បាន​តភ្ជាប់"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "បាន​ទាមទារ​ពាក្យសម្ងាត់ ឬ​សោ​ការ​ដាក់​លេខកូដ ដើម្បី​ចូល​ដំណើរការ​បណ្ដាញ​វ៉ាយហ្វាយ '%s' ។"
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "ទាមទារ​ការ​ផ្ទៀងផ្ទាត់​បណ្ដាញ​វ៉ាយហ្វាយ"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "បាន​ទាមទារ​ការ​ផ្ទៀងផ្ទាត់​តាម​បណ្ដាញ​វ៉ាយហ្វាយ"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "បង្កើត​បណ្ដាញ​វ៉ាយហ្វាយ​ថ្មី"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "បណ្ដាញ​វ៉ាយហ្វាយ​ថ្មី"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "បញ្ចូល​ឈ្មោះ​សម្រាប់​បណ្ដាញ​វ៉ាយហ្វាយ​ដែល​អ្នក​ចង់​បង្កើត។"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "តភ្ជាប់​ទៅកាន់​បណ្ដាញ​វ៉ាយហ្វាយ​ដែល​លាក់"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "បណ្ដាញ​វ៉ាយហ្វាយ​ដែល​លាក់"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -886,40 +868,62 @@ msgstr "ការ​តភ្ជាប់៖"
 msgid "Wi-Fi _adapter"
 msgstr "អាដាប់ទ័រ​វ៉ាយហ្វាយ៖"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "បិទ​ការ​ជូនដំណឹង​ដែល​បាន​តភ្ជាប់"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ភ្ជាប់​បណ្ដាញ។"
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "បិទ​ការ​ជូនដំណឹង​ដែល​បាន​ផ្ដាច់"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ផ្ដាច់​ពី​បណ្ដាញ។"
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "បិទ​ការ​ជូនដំណឹង VPN"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង​នៅ​ពេល​ភ្ជាប់ ឬ​ផ្ដាច់​ពី VPN ។"
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "លាក់​​​ការ​ជូនដំណឹង​បណ្ដាញ​ដែល​មាន"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr "កំណត់​វា​ទៅ​ពិត​ដើម្បី​បិទ​ការ​ជូនដំណឹង នៅ​ពេល​មាន​បណ្ដាញ​វ៉ាយហ្វាយ។"
+
+#~ msgid "Stamp"
+#~ msgstr "តែម"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr "ត្រូវ​បាន​ប្រើ ដើម្បី​កំណត់​ថា​តើ​គួរតែ​ប្ដូរ​ការ​កំណត់​ទៅ​ជា​កំណែ​ថ្មី​ដែរ​ឬ​ទេ។"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "មិន​បាន​ទាមទារ​វិញ្ញាបនបត្រ CA"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "បិទ​ការ​បង្កើត​វ៉ាយហ្វាយ"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "ជ្រើស​វិញ្ញាបនបត្រ CA"
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr "កំណត់​ទៅ​ពិត​ដើម្បី​បិទ​ការ​បង្កើត​បណ្ដាញ adhoc នៅ​ពេល​ប្រើ​អាប់ភ្លេត។"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "សោ​ឯកជន៖"
+#~ msgid "Show the applet in notification area"
+#~ msgstr "បង្ហាញ​អាប់ភ្លេត​នៅ​ក្នុង​តំបន់​ជូន​ដំណឹង"
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "ពាក្យសម្ងាត់​សោ​ឯកជន៖"
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "កំណត់​ទៅ​មិន​ពិត ដើម្បី​បិទ​ការ​បង្ហាញ​អាប់ភ្លេត​នៅ​ក្នុង​តំបន់​ជូន​ដំណឹង។"
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "ជ្រើស​វិញ្ញាបនបត្រ CA"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "វិញ្ញាបនបត្រ​អ្នកប្រើ៖"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "ជ្រើស​វិញ្ញាបនបត្រ CA"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "វិញ្ញាបនបត្រ​អ្នកប្រើ៖"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "បង្ហាញ​ពាក្យសម្ងាត់"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "គ្រប់គ្រង​ការ​តភ្ជាប់បណ្ដាញ​របស់​អ្នក"

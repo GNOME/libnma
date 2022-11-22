@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-10-12 20:48+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
@@ -20,85 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=1;\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "غیرفعال‌سازی اعلان‌های برقراری ارتباط"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"برای غیرفعال‌سازی اعلان‌ها هنگام ارتباط با یک شبکه این قسمت را True تنظیم کنید."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "غیرفعال‌سازی اعلان‌های قطع ارتباط"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"برای غیرفعال‌سازی اعلان‌ها در زمان قطع ارتباط از یک شبکه بر روی true تنظیم "
-"کنید."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "غیرفعال‌سازی اعلان‌های وی‌پی‌ان"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"برای غیرفعال‌سازی اعلان‌ها در زمان قطع ارتباط یا اتصال به وی‌پی‌ان این قسمت را "
-"True تنظیم کنید."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "متوقف کردن اعلان‌های موجود شبکه‌ها"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"برای غیرفعال‌سازی اعلان‌ها در زمانی که شبکه‌های بی‌سیم در دسترس هستند این قسمت "
-"را True تنظیم کنید."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "تمبر"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"جهت تشخیص اینکه آیا تنظیمات باید به نسخه جدید انتقال پیدا کنند یا خیر مورد "
-"استفاده قرار می‌گیرد."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "غیرفعال‌سازی ساخت وای‌فای"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"برای غیرفعال کردن شبکه‌های ادهاک زمانی که از برنامک استفاده می‌کنید گزینه True "
-"را انتخاب کنید."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "نادیده گرفتن گواهینامه‌ی CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -106,7 +33,7 @@ msgstr ""
 "برای غیرفعال کردن هشدارهای مربوط به گواهینامه‌های CA در تصدیق‌هویت EAP برروی "
 "true تنظیم کنید."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -160,30 +87,73 @@ msgstr "گذرواژه:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "نادیده گرفتن گواهینامه‌ی CA"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "مجوز CA انتخاب کنید"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "مجوز _کاربر:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "مجوز _کاربر:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "مجوز CA انتخاب کنید"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "کلید خصوصی"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "گذرواژه کلید _خصوصی:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "_نمایش گذرواژه‌ها"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "_مجوز CA:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(هیچکدام)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "ناشناس"
@@ -237,7 +207,7 @@ msgstr "هر دستگاهی"
 msgid "New Mobile Broadband Connection"
 msgstr "اتصال جدید شبکه تلفن همراه پهن‌باند"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -245,73 +215,73 @@ msgstr ""
 "این دستیار کمک می‌کند تا شما به راحتی یک ارتباط باند پهن تلفن همراه را به "
 "عنوان تلفن همراه (3G) راه‌اندازی کنید."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "شما به اطلاعات زیر نیاز خواهید داشت:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "نام ارائه‌دهنده شبکه پهن‌باند"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "نام پلان مالی شبکه پهن‌باند"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(در بعضی موارد) هزینه‌ی استفاده از شبکه پهن‌باند APN (نام نقطه دسترسی)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "یک اتصال برای ا_ین شبکه پهن‌باند تلفن همراه بساز:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "برپاسازی اتصال شبکه تلفن همراه پهن‌باند"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "کشور یا منطقه"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "کشور یا منطقه ارائه‌دهنده خود را انتخاب کنید"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "ارائه‌دهنده خود را از یک _فهرست انتخاب کنید:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "من نمی توانم ارائه‌دهنده خود را پیدا کنم و می خواهم به طور _دستی آن را وارد "
 "نمایم:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "ارائه‌دهنده من از فناوری GSM استفاده می‌کند (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "ارائه‌دهنده من از فناوری CDMA استفاده می‌کند. (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "ارائه‌دهنده خود را انتخاب کنید"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "پلان خود را _انتخاب کنید"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "پلان انتخاب _شده APN (نام Access Point)"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -325,28 +295,28 @@ msgstr ""
 "اگر شما از پلان خود مطمئن نیستید، از ارائه‌دهنده خود در مورد APN پلان خود "
 "بپرسید."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "پلان مالی خود را انتخاب کنید"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "شبکه پهن‌باند تلفن همراه شما با تنظیمات مقابل پیکربندی شده است:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "دستگاه شما:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "ارئه‌دهنده شما:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "پلان شما:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -360,29 +330,29 @@ msgstr ""
 "پیدا کنید، تنظیمات خود را دوباره بررسی کنید. برای تغییر تنظیمات اتصال "
 "پهن‌باند تلفن همراه، «اتصال‌های شبکه» را از منوی سیستم >> ترجیحات انتخاب کنید."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "تایید تنظیمات شبکه پهن‌باند تلفن همراه"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "خطا در هنگام ویرایش ارتباط"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_بازکردن قفل"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "نام"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -391,8 +361,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -454,96 +424,96 @@ msgstr "ارتباط قطع شده"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "هیچکدام"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "کلید وپ ۴۰/۱۲۸ بیتی (Hex یا ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "عبارت عبور وپ ۱۲۸ بیتی"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "وپ پویا (x02.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 شخصی"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 شخصی"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_ساخت"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "_اتصال"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "برای دسترسی به شبکه بی‌سیم «%s»، گذرواژه‌ها یا کلیدهای رمز نگاری شده نیاز است."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "شبکه بی‌سیم به تصدیق هویت نیاز دارد"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "شبکه بی‌سیم به تصدیق هویت نیاز دارد"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "ساخت یک شبکه بی‌سیم جدید"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "شبکه بی‌سیم جدید"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "نام شبکه بی‌سیمی را که می خواهید بسازید وارد کنید."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "اتصال به شبکه بی‌سیم مخفی "
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "شبکه‌های بی‌سیم مخفی"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -916,40 +886,68 @@ msgstr "ا_رتباط:"
 msgid "Wi-Fi _adapter"
 msgstr "آ_داپتور بی‌سیم:"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "غیرفعال‌سازی اعلان‌های برقراری ارتباط"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "برای غیرفعال‌سازی اعلان‌ها هنگام ارتباط با یک شبکه این قسمت را True تنظیم "
+#~ "کنید."
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "غیرفعال‌سازی اعلان‌های قطع ارتباط"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "برای غیرفعال‌سازی اعلان‌ها در زمان قطع ارتباط از یک شبکه بر روی true تنظیم "
+#~ "کنید."
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "غیرفعال‌سازی اعلان‌های وی‌پی‌ان"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "برای غیرفعال‌سازی اعلان‌ها در زمان قطع ارتباط یا اتصال به وی‌پی‌ان این قسمت "
+#~ "را True تنظیم کنید."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "متوقف کردن اعلان‌های موجود شبکه‌ها"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "نادیده گرفتن گواهینامه‌ی CA"
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "برای غیرفعال‌سازی اعلان‌ها در زمانی که شبکه‌های بی‌سیم در دسترس هستند این "
+#~ "قسمت را True تنظیم کنید."
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "مجوز CA انتخاب کنید"
+#~ msgid "Stamp"
+#~ msgstr "تمبر"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "کلید خصوصی"
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "جهت تشخیص اینکه آیا تنظیمات باید به نسخه جدید انتقال پیدا کنند یا خیر "
+#~ "مورد استفاده قرار می‌گیرد."
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "گذرواژه کلید _خصوصی:"
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "غیرفعال‌سازی ساخت وای‌فای"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "برای غیرفعال کردن شبکه‌های ادهاک زمانی که از برنامک استفاده می‌کنید گزینه "
+#~ "True را انتخاب کنید."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "مجوز CA انتخاب کنید"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "مجوز _کاربر:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "مجوز CA انتخاب کنید"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "مجوز _کاربر:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "_نمایش گذرواژه‌ها"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "اتصال‌های شبکه خود را مدیریت کنید"

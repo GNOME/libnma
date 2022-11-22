@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-12-08 14:39+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
@@ -19,89 +19,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Gtranslator 3.30.1\n"
 "X-Project-Style: gnome\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Išjungti pranešimus apie prisijungimą"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Nustatykite į teigiamą, jei nepageidaujate, kad būtų rodomi pranešimai "
-"jungiantis prie tinklo."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Išjungti pranešimus apie atsijungimą"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Nustatykite į teigiamą, jei nepageidaujate, kad būtų rodomi pranešimai "
-"atsijungus nuo tinklo."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Išjungti VPN pranešimus"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Nustatykite teigiamą, jei norite išjungti pranešimus atsijungiant nuo VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Slėpti „yra atvirų tinklų“ pranešimus"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Nustatykite į teigiamą, jei norite išjungti pranešimus, rodomus esant "
-"prieinamų belaidžio ryšio tinklų."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Antspaudas"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Naudojama norint nustatyti, ar nustatymai turėtų būti perkelti į naują "
-"versiją."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Išjungti belaidžių tinklų kūrimo galimybę"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Nustatykite į teigiamą, jei norite išjungti „adhoc“ tinklų kūrimo galimybę "
-"naudojant šį įtaisą."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Rodyti įtaisą pranešimų vietoje"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "Nustatykite NEIGIAMĄ įtaiso rodymui pranešimų vietoje išjungti."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Nepaisyti LĮ liudijimo"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -109,7 +37,7 @@ msgstr ""
 "Nustatykite teigiamą, norėdami išjungti įspėjimus apie LĮ liudijimus EAP "
 "tapatybės nustatyme."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -169,29 +97,71 @@ msgstr "Slaptažodis:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Nenustatytas joks liudijimas"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Nenustatytas joks raktas"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Pasirinkite %s liudijimą"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s _liudijimas"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "%s liudijimo sla_ptažodis"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Pasirinkite raktą, skirtą %s liudijimui"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s privatusis ra_ktas"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "%s rakto sla_ptažodis"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "R_odyti slaptažodžius"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Raktas, esantis %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Liudijimas, esantis %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Pasirinkti"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(Nėra)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Nežinoma)"
 
@@ -243,7 +213,7 @@ msgstr "Bet koks įrenginys"
 msgid "New Mobile Broadband Connection"
 msgstr "Naujas mobilusis plačiajuostis ryšys"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -251,70 +221,70 @@ msgstr ""
 "Šis pagelbiklis leidžia lengvai nustatyti mobilųjį plačiajuostį ryšį su "
 "mobiliuoju (3G) tinklu."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Jums prireiks šios informacijos:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "Jūsų plačiojuosčio ryšio tiekėjo pavadinimas"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Jūsų plačiajuosčio ryšio mokėjimo plano vardas"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(kai kuriais atvejais) Jūsų plačiajuosčio ryšio mokėjimo plano APN (prieigos "
 "taško vardas)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Sukurti ryšį _šiam mobiliojo plačiajuosčio ryšio įrenginiui:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Nustatyti mobilųjį plačiajuostį ryšį"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Šalis ar regionas"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Pasirinkite savo tiekėjo šalį ar regioną"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Pasirinkite savo tiekėją iš _sąrašo:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Nerandu savo tiekėjo ir noriu nurodyti jį _rankiniu būdu:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Mano tiekėjas naudoja GSM technologiją (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Mano tiekėjas naudoja CDMA technologiją (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Pasirinkite savo tiekėją"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Pasirinkite savo planą:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Pasirinktas plano _APN (prieigos taško vardas):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -327,29 +297,29 @@ msgstr ""
 "Jeigu nesate tikri dėl savo plano, paklauskite savo tiekėjo, koks yra jūsų "
 "plano APN (prieigos taško vardas)."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Pasirinkite savo mokėjimo planą"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "Jūsų mobilusis plačiajuostis ryšys nustatytas, naudojant šiuos nustatymus:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Jūsų įrenginys:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Jūsų tiekėjas:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Jūsų planas:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -363,27 +333,27 @@ msgstr ""
 "Norėdami pakeisti savo mobiliojo plačiajuosčio ryšio nustatymus, pasirinkite "
 "meniu Sistema → Nuostatos punktą „Tinklo ryšiai“."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Patvirtinkite mobiliojo plačiajuosčio ryšio nustatymus"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Klaida jungiantis į: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Klaida atveriant seansą: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "_Atrakinti leksemą"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Išdavė"
 
@@ -392,8 +362,8 @@ msgstr "Išdavė"
 msgid "Enter %s PIN"
 msgstr "Įveskite %s PIN"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
@@ -449,53 +419,53 @@ msgstr "Spustelėkite, norėdami prisijungti"
 msgid "New…"
 msgstr "Naujas…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Nėra"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128 bitų raktas (šešioliktainis arba ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128 bitų slaptafrazė"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dinaminis WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA ir WPA2 asmeninis"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA ir WPA2 industrinis"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA ir WPA2 asmeninis"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "Suku_rti"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "Prisi_jungti"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -503,35 +473,35 @@ msgstr ""
 "Norint gauti prieigą prie belaidžio tinklo „%s“ reikalingi slaptažodžiai ar "
 "šifravimo raktai."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Reikia nustatyti jūsų tapatybę belaidžiame tinkle"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Belaidis tinklas prašo nustatyti jūsų tapatybę"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Sukurti naują belaidį tinklą"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Naujas belaidis tinklas"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Įveskite pageidaujamo sukurti belaidžio tinklo pavadinimą."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Prisijungti prie paslėpto belaidžio tinklo"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Paslėptas belaidis tinklas"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -888,42 +858,73 @@ msgstr "_Ryšys"
 msgid "Wi-Fi _adapter"
 msgstr "Belaidis _adapteris"
 
-#~ msgid "No certificate set"
-#~ msgstr "Nenustatytas joks liudijimas"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Išjungti pranešimus apie prisijungimą"
 
-#~ msgid "No key set"
-#~ msgstr "Nenustatytas joks raktas"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Nustatykite į teigiamą, jei nepageidaujate, kad būtų rodomi pranešimai "
+#~ "jungiantis prie tinklo."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Pasirinkite raktą, skirtą %s liudijimui"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Išjungti pranešimus apie atsijungimą"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s privatusis ra_ktas"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Nustatykite į teigiamą, jei nepageidaujate, kad būtų rodomi pranešimai "
+#~ "atsijungus nuo tinklo."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "%s rakto sla_ptažodis"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Išjungti VPN pranešimus"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Nustatykite teigiamą, jei norite išjungti pranešimus atsijungiant nuo VPN."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Slėpti „yra atvirų tinklų“ pranešimus"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Nustatykite į teigiamą, jei norite išjungti pranešimus, rodomus esant "
+#~ "prieinamų belaidžio ryšio tinklų."
+
+#~ msgid "Stamp"
+#~ msgstr "Antspaudas"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Naudojama norint nustatyti, ar nustatymai turėtų būti perkelti į naują "
+#~ "versiją."
+
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Išjungti belaidžių tinklų kūrimo galimybę"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Nustatykite į teigiamą, jei norite išjungti „adhoc“ tinklų kūrimo "
+#~ "galimybę naudojant šį įtaisą."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Rodyti įtaisą pranešimų vietoje"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "Nustatykite NEIGIAMĄ įtaiso rodymui pranešimų vietoje išjungti."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Pasirinkite %s liudijimą"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s _liudijimas"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Pasirinkite %s liudijimą"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "%s liudijimo sla_ptažodis"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "R_odyti slaptažodžius"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Tvarkyti tinklo ryšius"

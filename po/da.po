@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-19 19:29+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -30,89 +30,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Deaktivér påmindelse ved etableret forbindelse"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Sæt denne til sand for at deaktivere påmindelser ved oprettelse af "
-"forbindelse til et netværk."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Deaktivér påmindelse ved afbrudt forbindelse"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Sæt denne til sand for at deaktivere påmindelser ved afbrydelse af "
-"forbindelse til et netværk."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Deaktivér VPN-påmindelser"
-
-# Skal "true" oversættes? Senere oversættes "false" ikke.
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Sæt denne til sand for at deaktivere påmindelser, når der forbindes til et "
-"VPN, eller når forbindelsen afbrydes."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Tilbagehold påmindelser om tilgængelige netværk"
-
-# Skal "true" oversættes? Senere oversættes "false" ikke.
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Sæt denne til sand for at deaktivere påmindelser, når der er tilgængelige wi-"
-"fi-netværk."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Stempel"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Bliver brugt til at bestemme, hvorvidt indstillinger skal genbruges til en "
-"ny version."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Deaktivér oprettelse af WiFi"
-
-# Skal "true" oversættes? Senere oversættes "false" ikke.
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Sæt denne til sand for at deaktivere oprettelse af adhoc-netværk, når "
-"panelprogrammet bruges."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Vis panelprogrammet i statusfeltet"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Sæt til FALSE for at deaktivere visning af panelprogrammet i statusfeltet."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ignorér CA-certifikat"
 
 # Skal "true" oversættes? Senere oversættes "false" ikke.
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -121,7 +45,7 @@ msgstr ""
 "godkendelsen."
 
 # Skal "true" oversættes? Senere oversættes "false" ikke.
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -180,29 +104,71 @@ msgstr "Adgangskode"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Skan med din telefon eller <a href=\"nma:print\">udskriv</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Intet certifikat angivet"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Ingen nøgle angivet"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Vælg et %s-certifikat"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s-_certifikat"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "Adgangs_kode til %s-certifikat"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Vælg en nøgle til %s-certifikat"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "Privat %s-nøg_le"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "Adgangskode til %s-nøgle"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "_Vis adgangskoder"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Nøgle i %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Certifikat i %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Vælg"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Annullér"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(Ingen)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Ukendt)"
 
@@ -254,7 +220,7 @@ msgstr "Enhver enhed"
 msgid "New Mobile Broadband Connection"
 msgstr "Ny mobil bredbåndsforbindelse"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -262,71 +228,71 @@ msgstr ""
 "Denne guide hjælper dig med at oprette en mobil bredbåndsforbindelse til et "
 "mobilt (3G) netværk."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Du har brug for følgende oplysninger:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "Navnet på din bredbåndsudbyder"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Navnet på afregningen af dit bredbåndsabonnement"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(i visse tilfælde) APN (Access Point Name) for afregning af dit "
 "bredbåndsabonnement"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Opret en forbindelse til _denne mobile bredbåndsenhed:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Opsæt en mobil bredbåndsforbindelse"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "Land eller region:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Vælg din udbyders land eller region"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Vælg din udbyder på en _liste:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "Jeg kan ikke finde min udbyder, og jeg ønsker at opsætte forbindelsen "
 "_manuelt:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Min udbyder bruger GSM-teknologi (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Min udbyder bruger CDMA-teknologi (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Vælg din udbyder"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Vælg dit abonnement:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Va_lgt abonnements APN (Access Point Name):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -339,29 +305,29 @@ msgstr ""
 "Spørg din udbyder om dit abonnements APN, hvis du er i tvivl om dit "
 "abonnement."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Vælg abonnementsafregning"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "Din mobile bredbåndsforbindelse er konfigureret med følgende indstillinger:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Din enhed:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Din udbyder:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Dit abonnement:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -375,27 +341,27 @@ msgstr ""
 "Hvis du vil tilpasse dine indstillinger for mobil bredbåndsforbindelse, så "
 "vælg “Netværksforbindelser” fra menuen System → Indstillinger."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Bekræft indstillinger for mobilt bredbånd"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Fejl i forsøget på at logge ind: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Fejl ved åbning af en session: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "_Lås token op"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Navn"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Udstedt af"
 
@@ -404,8 +370,8 @@ msgstr "Udstedt af"
 msgid "Enter %s PIN"
 msgstr "Indtast %s-PIN"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Annullér"
 
@@ -461,53 +427,53 @@ msgstr "Klik for at forbinde"
 msgid "New…"
 msgstr "Ny …"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Ingen"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit-nøgle (Hex eller ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit adgangsfrase"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dynamisk WEP (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA og WPA2 personlig"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA og WPA2 enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA og WPA2 personlig"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "O_pret"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "F_orbind"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -515,35 +481,35 @@ msgstr ""
 "Der kræves adgangskoder eller krypteringsnøgler for at få adgang til wi-fi-"
 "netværket “%s”."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Godkendelse til wi-fi-netværket påkrævet"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Der kræves godkendelse til wi-fi-netværket"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Opret nyt wi-fi-netværk"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Nyt wi-fi-netværk"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Indtast et navn på det wi-fi-netværk, du ønsker at oprette."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Forbind til skjult wi-fi-netværk"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Skjult wi-fi-netværk"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -898,42 +864,77 @@ msgstr "Forbi_ndelse"
 msgid "Wi-Fi _adapter"
 msgstr "Wi-fi-ada_pter"
 
-#~ msgid "No certificate set"
-#~ msgstr "Intet certifikat angivet"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Deaktivér påmindelse ved etableret forbindelse"
 
-#~ msgid "No key set"
-#~ msgstr "Ingen nøgle angivet"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Sæt denne til sand for at deaktivere påmindelser ved oprettelse af "
+#~ "forbindelse til et netværk."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Vælg en nøgle til %s-certifikat"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Deaktivér påmindelse ved afbrudt forbindelse"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Privat %s-nøg_le"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Sæt denne til sand for at deaktivere påmindelser ved afbrydelse af "
+#~ "forbindelse til et netværk."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Adgangskode til %s-nøgle"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Deaktivér VPN-påmindelser"
+
+# Skal "true" oversættes? Senere oversættes "false" ikke.
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Sæt denne til sand for at deaktivere påmindelser, når der forbindes til "
+#~ "et VPN, eller når forbindelsen afbrydes."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Tilbagehold påmindelser om tilgængelige netværk"
+
+# Skal "true" oversættes? Senere oversættes "false" ikke.
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Sæt denne til sand for at deaktivere påmindelser, når der er tilgængelige "
+#~ "wi-fi-netværk."
+
+#~ msgid "Stamp"
+#~ msgstr "Stempel"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Bliver brugt til at bestemme, hvorvidt indstillinger skal genbruges til "
+#~ "en ny version."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Deaktivér oprettelse af WiFi"
+
+# Skal "true" oversættes? Senere oversættes "false" ikke.
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Sæt denne til sand for at deaktivere oprettelse af adhoc-netværk, når "
+#~ "panelprogrammet bruges."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Vis panelprogrammet i statusfeltet"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Sæt til FALSE for at deaktivere visning af panelprogrammet i statusfeltet."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Vælg %s-certifikat"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s-_certifikat"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Vælg et %s-certifikat"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Adgangs_kode til %s-certifikat"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "_Vis adgangskoder"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Håndtér dine netværksforbindelser"

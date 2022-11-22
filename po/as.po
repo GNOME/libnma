@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-08-20 18:20+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
@@ -20,83 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "সংযুক্ত অধিসূচনাসমূহ অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"এটা নেটৱৰ্কলে সংযোগ কৰোতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "বিচ্ছিন্ন হোৱাৰ অধিসূচনা অসামৰ্থবান কৰা হ'ব"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"এটা নেটৱৰ্কৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি "
-"কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN অধিসূচনাসমূহ অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"এটা VPN লে সংযোগ কৰোতে অথবা তাৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে "
-"ইয়াক সত্যলে সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "উপলব্ধ নেটৱৰ্কৰ অধিসূচনা প্ৰদৰ্শন লুকুৱা হ'ব"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"যেতিয়া Wi-Fi নেটৱৰ্কসমূহ উপলব্ধ থাকে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
-"সংহতি কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "স্টেম্প"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"নতুন সংস্কৰণত সংহতিসমূহ প্ৰব্ৰজন কৰা হ'ব নে নহয় নিৰ্ধাৰণ কৰিবলৈ ইয়াক ব্যৱহাৰ কৰা হয়।"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Wi-Fi সৃষ্টি অসামৰ্থবান কৰক"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"এপ্লেট ব্যৱহাৰ কৰি থাকোতে adhoc নেটৱৰ্কসমূহৰ সৃষ্টি অসামৰ্থবান কৰিবলে সত্যলে সংহতি "
-"কৰক।"
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "এপ্লেটক অধিসূচনা স্থানত দেখুৱাওক"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "এপ্লেটক অধিসূচনা স্থানত প্ৰদৰ্শন অসামৰ্থবান কৰিবলে FALSE লৈ সংহত।"
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA প্ৰমাণপত্ৰ উপেক্ষা কৰক"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -104,7 +33,7 @@ msgstr ""
 "EAP প্ৰমাণীকৰণত CA প্ৰমাণপত্ৰসমূহৰ বিষয়ে সতৰ্কবাৰ্তা অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
 "সংহতি কৰক।"
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -158,31 +87,74 @@ msgstr "পাছৱৰ্ড:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "ব্যক্তিগত কি' (_k):"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_w)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "CA প্ৰমাণপত্ৰ (_A):"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 #, fuzzy
 msgid "Select"
 msgstr "এটা পঞ্জিকা নিৰ্বাচন কৰক"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(শূণ্য)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "অজ্ঞাত"
@@ -237,7 +209,7 @@ msgstr "যিকোনো ডিভাইচ"
 msgid "New Mobile Broadband Connection"
 msgstr "নতুন ম'বাইল ব্ৰডবেণ্ড সংযোগ"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -245,72 +217,72 @@ msgstr ""
 "এই সহায়ক ব্যৱস্থাৰ সহায়ত এটা চেলুলাৰ (3G) নেটৱৰ্কৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ "
 "স্থাপন কৰা যাব।"
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "নিম্নলিখিত তথ্যৰ প্ৰয়োজন:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "ব্ৰডবেণ্ড সেৱা উপলব্ধকৰ্তাৰ নাম"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "ব্ৰডবেণ্ড বিলিং পৰিকল্পনাৰ নাম"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(কিছু ক্ষেত্ৰত) আপোনাৰ ব্যৱহৃত ব্ৰডবেণ্ড বিলিং পৰিকল্পনা APN (এক্সেচ পইন্ট নেম)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "এই ম'বাইল ব্ৰডবেণ্ড ডিভাইচৰ বাবে সংযোগ সৃষ্টি কৰক (_t)"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "ম'বাইল ব্ৰডবেণ্ড সংযোগ প্ৰস্তুত কৰক"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "দেশ অথবা অঞ্চল"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "আপোনাৰ প্ৰদানকাৰীৰ দেশ অথবা অঞ্চল বাছক"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "তালিকাৰ পৰা সেৱা উপলব্ধকৰ্তাৰ নাম বাছক (_l):"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "সেৱা উপলব্ধকৰ্তাৰ নাম অনুপস্থিত আৰু মই স্বয়ং সেইটো লিখিবলৈ ইচ্ছুক (_m):"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr ""
 "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা GSM প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "মোৰ সেৱা উপলব্ধকৰ্তা দ্বাৰা CDMA প্ৰযুক্তি ব্যৱহাৰ কৰা হয় (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "সেৱা উপলব্ধকৰ্তা বাছক"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "আপোনাৰ পৰিকল্পনা বাছক (_S):"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "নিৰ্বাচিত পৰিকল্পনাৰ APN (এক্সেচ পইন্ট নেম) (_A):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -324,28 +296,28 @@ msgstr ""
 "পৰিকল্পনা সম্পৰ্কে নিশ্চিত ন'হ'লে অনুগ্ৰহ কৰি সেৱা উপলব্ধকৰ্তা সৈতে যোগাযোগ কৰি "
 "আপোনাৰ ব্যৱহৃত পৰিকল্পনাৰ APN জানক।"
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "ব্যৱহৃত বিল পৰিকল্পনা বাছক"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "নিম্নলিখিত সংহতিসমূহৰ সৈতে ম'বাইল ব্ৰডবেণ্ড সংযোগ সংৰূপণ কৰা হৈছে:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "আপোনাৰ ডিভাইচ:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "আপোনাৰ সেৱা উপলব্ধকৰ্তা:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "আপোনাৰ পৰিকল্পনা:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -359,29 +331,29 @@ msgstr ""
 "কৰা সম্ভৱ ন'হ'লে, নিৰ্ধাৰিত সংহতিসমূহসমূহ পৰীক্ষা কৰক।  ম'বাইল ব্ৰডবেণ্ড সংযোগৰ "
 "সংহতিসমূহ পৰিবৰ্তন কৰাৰ বাবে প্ৰণালী >> পছন্দ তালিকাৰ পৰা \"নেটৱৰ্ক সংযোগ\" বাছক।"
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "ম'বাইল ব্ৰডবেণ্ডৰ সংহতিসমূহ নিশ্চিত কৰক"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "সংযোগ সম্পাদন কৰোতে ত্ৰুটি"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "আনলক কৰক (_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "নাম"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -390,8 +362,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -453,88 +425,88 @@ msgstr "বিচ্ছিন্ন কৰক"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "কোনো নহয়"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bit কি (Hex অথবা ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP ১২৮-বিট পৰিচয়পংক্তি"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "ডাইনামিক WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA আৰু WPA2 ব্যক্তিগত"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA আৰু WPA2 এন্টাৰপ্ৰাইজ"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA আৰু WPA2 ব্যক্তিগত"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "সৃষ্টি কৰক (_r)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "সংযোগ কৰা (_o)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "'%s' Wi-Fi নেটৱৰ্ক ব্যৱহাৰ কৰাৰ বাবে পাছৱৰ্ড বা এনক্ৰিপশন কি'ৰ প্ৰয়োজন।"
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Wi-Fi নেটৱৰ্ক প্ৰমাণীকৰণ প্ৰয়োজন"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi নেটৱৰ্কৰ দ্বাৰা প্ৰমাণীকৰণৰ প্ৰয়োজন"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "নতুন Wi-Fi নেটৱৰ্ক সৃষ্টি কৰক"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "নতুন Wi-Fi নেটৱৰ্ক"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "সৃষ্টি কৰাৰ বাবে চিহ্নিত Wi-Fi নেটৱৰ্কৰ এটা নাম নিৰ্ধাৰণ কৰক।"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "লুকুৱা Wi-Fi নেটৱৰ্কৰ সৈতে সংযোগ কৰক"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "লুকুৱা Wi-Fi নেটৱৰ্ক"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -903,40 +875,73 @@ msgstr "সংযোগ (_o):"
 msgid "Wi-Fi _adapter"
 msgstr "Wi-Fi এডাপ্টাৰ (_a):"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "সংযুক্ত অধিসূচনাসমূহ অসামৰ্থবান কৰক"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "এটা নেটৱৰ্কলে সংযোগ কৰোতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
+
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "বিচ্ছিন্ন হোৱাৰ অধিসূচনা অসামৰ্থবান কৰা হ'ব"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "এটা নেটৱৰ্কৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে সংহতি "
+#~ "কৰক।"
+
+#~ msgid "Disable VPN notifications"
+#~ msgstr "VPN অধিসূচনাসমূহ অসামৰ্থবান কৰক"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "এটা VPN লে সংযোগ কৰোতে অথবা তাৰ পৰা বিচ্ছিন্ন হওতে অধিসূচনাসমূহ অসামৰ্থবান "
+#~ "কৰিবলে ইয়াক সত্যলে সংহতি কৰক।"
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "উপলব্ধ নেটৱৰ্কৰ অধিসূচনা প্ৰদৰ্শন লুকুৱা হ'ব"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "যেতিয়া Wi-Fi নেটৱৰ্কসমূহ উপলব্ধ থাকে অধিসূচনাসমূহ অসামৰ্থবান কৰিবলে ইয়াক সত্যলে "
+#~ "সংহতি কৰক।"
+
+#~ msgid "Stamp"
+#~ msgstr "স্টেম্প"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "নতুন সংস্কৰণত সংহতিসমূহ প্ৰব্ৰজন কৰা হ'ব নে নহয় নিৰ্ধাৰণ কৰিবলৈ ইয়াক ব্যৱহাৰ কৰা "
+#~ "হয়।"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "কোনো CA প্ৰমাণপত্ৰৰ প্ৰয়োজন নাই (_r)"
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Wi-Fi সৃষ্টি অসামৰ্থবান কৰক"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "এপ্লেট ব্যৱহাৰ কৰি থাকোতে adhoc নেটৱৰ্কসমূহৰ সৃষ্টি অসামৰ্থবান কৰিবলে সত্যলে "
+#~ "সংহতি কৰক।"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "ব্যক্তিগত কি' (_k):"
+#~ msgid "Show the applet in notification area"
+#~ msgstr "এপ্লেটক অধিসূচনা স্থানত দেখুৱাওক"
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "ব্যক্তিগত কি' পাছৱৰ্ড (_P):"
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr "এপ্লেটক অধিসূচনা স্থানত প্ৰদৰ্শন অসামৰ্থবান কৰিবলে FALSE লৈ সংহত।"
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "এটা CA প্ৰমাণপত্ৰ বাছক"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "ব্যৱহাৰকাৰী প্ৰমাণপত্ৰ (_U):"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "পাছৱৰ্ডসমূহ দেখুৱাওক (_w)"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "আপোনাৰ নেটৱৰ্ক সংযোগসমূহ ব্যৱস্থাপনা কৰক"

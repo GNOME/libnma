@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-12-02 05:10-0500\n"
 "Last-Translator: Shankar <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -20,89 +20,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.5.1\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-#, fuzzy
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-"ಬದಲಾಯಿಸಿ."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕಲಾದ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-"ಬದಲಾಯಿಸಿ."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-#, fuzzy
-msgid "Disable VPN notifications"
-msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
-"ಬದಲಾಯಿಸಿ."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿವೆ ಎಂಬ ಸೂಚನೆಗಳನ್ನು ತಡೆಹಿಡಿ"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿರುವುದನ್ನು ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಬದಲಾಯಿಸಿ."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "ಮುದ್ರೆ"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr "ಸಿದ್ಧತೆಗಳನ್ನು ಹೊಸ ಆವೃತ್ತಿಗೆ ವರ್ಗಾಯಿಸಬೇಕೆ ಎಂದು ನಿರ್ಧರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Wi-Fi ನಿರ್ಮಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-#, fuzzy
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"ಆಪ್ಲೆಟ್‌ ಅನ್ನು ಬಳಸುವಾಗ ಒಂದು ತಾತ್ಕಾಲಿಕ ಜಾಲಬಂಧವನ್ನು ರಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು "
-"TRUE ಗೆ ಬದಲಾಯಿಸಿ."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 #, fuzzy
 msgid "Ignore CA certificate"
 msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
@@ -111,7 +35,7 @@ msgstr ""
 "ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
 "ಬದಲಾಯಿಸಿ."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
@@ -167,30 +91,73 @@ msgstr "ಗುಪ್ತಪದ:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "ಖಾಸಗಿ ಕೀಲಿ(_k):"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ(_P):"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "C_A ಪ್ರಮಾಣಪತ್ರ:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(ಯಾವುದೂ ಇಲ್ಲ)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "ಅಜ್ಞಾತ"
@@ -244,7 +211,7 @@ msgstr "ಯಾವುದೆ ಸಾಧನ"
 msgid "New Mobile Broadband Connection"
 msgstr "ಹೊಸ ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಂಪರ್ಕ"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -252,74 +219,74 @@ msgstr ""
 "ಈ ಸಹಾಯಕವು ಒಂದು ಸೆಲ್ಯುಲಾರ್ (3G) ಜಾಲಬಂಧಕ್ಕಾಗಿ ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಂಪರ್ಕವನ್ನು "
 "ಸಜ್ಜುಗೊಳಿಸಲು ನೆರವಾಗುತ್ತದೆ."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "ನೀವು ಈ ಕೆಳಗಿನ ಮಾಹಿತಿಯನ್ನು ನೀಡಬೇಕಾಗುತ್ತದೆ:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "ನಿಮ್ಮ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಒದಗಿಸಿದವರ ಹೆಸರು"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "ನಿಮ್ಮ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಬಿಲ್ಲಿಂಗ್ ಯೋಜನೆಯ(ಪ್ಲಾನ್) ಹೆಸರು"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(ಕೆಲವು ಸಂದರ್ಭಗಳಲ್ಲಿ) ನಿಮ್ಮ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಬಿಲ್ಲಿಂಗ್ ಯೋಜನೆಯ APN (ಎಕ್ಸೆಸ್ ಪಾಯಿಂಟ್ ನೇಮ್)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "ಈ ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಾಧನಕ್ಕಾಗಿ ಸಂಪರ್ಕವನ್ನು ರಚಿಸು(_t):"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಂಪರ್ಕವನ್ನ ಸಜ್ಜುಗೊಳಿಸಿ"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "ದೇಶದ ಪಟ್ಟಿ:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "ನಿಮಗೆ ಒದಗಿಸುವವರ ದೇಶವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "ನಿಮಗೆ ಒದಗಿಸುವವರನ್ನು ಪಟ್ಟಿಯಿಂದ ಆಯ್ಕೆ ಮಾಡಿ(_l):"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "ನನಗೆ ಒದಗಿಸುವವರನ್ನು ಪತ್ತೆ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಹಾಗು ನಾನೆ ಸ್ವತಃ ನಮೂದಿಸಲು "
 "ಬಯಸುತ್ತೇನೆ(_m):"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "ನನಗೆ ಒದಗಿಸುವವರು GSM ತಂತ್ರಜ್ಞಾನವನ್ನು ಬಳಸುತ್ತಾರೆ (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "ನನಗೆ ಒದಗಿಸುವವರು CDMA ತಂತ್ರಜ್ಞಾನವನ್ನು ಬಳಸುತ್ತಾರೆ (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "ನಿಮಗೆ ಒದಗಿಸುವವರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು(ಪ್ಲಾನ್) ಆಯ್ಕೆ ಮಾಡಿ(_S):"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ಯೋಜನೆಯ (ಪ್ಲಾನ್) _APN (ಎಕ್ಸೆಸ್ ಪಾಯಿಂಟ್ ಹೆಸರು):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -333,28 +300,28 @@ msgstr ""
 "ನಿಮ್ಮ ಯೋಜನೆಯ ಬಗೆಗೆ ನಿಮಗೆ ಮಾಹಿತಿ ಇಲ್ಲದೆ ಹೋದಲ್ಲಿ ನಿಮ್ಮ ಯೋಜನೆಯ APN ಗಾಗಿ "
 "ಒದಗಿಸುವವರನ್ನು ಕೇಳಿ."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಯೋಜನೆಯನ್ನು(ಪ್ಲಾನ್) ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "ನಿಮ್ಮ ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಂಪರ್ಕವನ್ನು ಈ ಕೆಳಗಿನ ಸಿದ್ಧತೆಗಳೊಂದಿಗೆ ಸಂರಚಿಸಲಾಗಿದೆ:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "ನಿಮ್ಮ ಸಾಧನ:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "ನಿಮಗೆ ಒದಗಿಸುವವರು:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "ನಿಮ್ಮ ಯೋಜನೆ(ಪ್ಲಾನ್):"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -369,29 +336,29 @@ msgstr ""
 "ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಂಪರ್ಕದ ಸಿದ್ಧತೆಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ವ್ಯವಸ್ಥೆ >> ಆದ್ಯತೆಗಳ ಮೆನುವಿನಿಂದ "
 "\"ಜಾಲಬಂಧ ಸಂಪರ್ಕಗಳು\" ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "ಮೊಬೈಲ್ ಬ್ರಾಡ್‌ಬ್ಯಾಂಡ್ ಸಿದ್ಧತೆಗಳನ್ನು ಖಚಿತಪಡಿಸಿ"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "ಸಂಪರ್ಕವನ್ನು ಉಳಿಸುವಲ್ಲಿ ದೋಷ ಉಂಟಾಗಿದೆ"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "ಅನ್‌ಲಾಕ್ ಮಾಡು(_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "ಹೆಸರು"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -400,8 +367,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -463,55 +430,55 @@ msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕು"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 #, fuzzy
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "ಯಾವುದೂ ಇಲ್ಲ"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-ಬಿಟ್ ಕೀಲಿ (ಹೆಕ್ಸ್ ಅಥವ ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit ಗುಪ್ತವಾಕ್ಯ"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "ಡೈನಮಿಕ್ WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 ವೈಯಕ್ತಿಕ"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 ಎಂಟರ್ಪ್ರೈಸ್"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 ವೈಯಕ್ತಿಕ"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "ರಚಿಸು(_r)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "ಸಂಪರ್ಕ ಜೋಡಿಸು(_o)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -519,42 +486,42 @@ msgstr ""
 "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ '%s' ಅನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳಲು ಗುಪ್ತಪದ ಅಥವ ಗೂಢಲಿಪೀಕರಣ ಕೀಲಿಯ "
 "ಅಗತ್ಯವಿರುತ್ತದೆ."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಕ್ಕಾಗಿ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "ಹೊಸ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧವನ್ನು ರಚಿಸಿ"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "ಹೊಸ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "ನೀವು ನಿರ್ಮಿಸಲು ಬಯಸುವ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧದ ಹೆಸರನ್ನು ನಮೂದಿಸಿ."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "ಅಡಗಿಸಲಾದ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "ಅಡಗಿಸಲಾದ ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧ"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -940,40 +907,71 @@ msgstr "ಸಂಪರ್ಕ(_n):"
 msgid "Wi-Fi _adapter"
 msgstr "ವೈರ್ಲೆಸ್ ಅಡಾಪ್ಟರ್(_a):"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "ಯಾವುದೆ CA ಪ್ರಮಾಣಪತ್ರದ ಅಗತ್ಯವಿಲ್ಲ:"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "ಒಂದು ಜಾಲಬಂಧಕ್ಕೆ ಸಂಪರ್ಕ ಸಾಧಿಸುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+#~ "ಬದಲಾಯಿಸಿ."
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕಲಾದ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "ಖಾಸಗಿ ಕೀಲಿ(_k):"
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+#~ "ಬದಲಾಯಿಸಿ."
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ(_P):"
+#, fuzzy
+#~ msgid "Disable VPN notifications"
+#~ msgstr "ಸಂಪರ್ಕಗೊಂಡ ಸೂಚನೆಗಳನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "ಒಂದು ಜಾಲಬಂಧದಿಂದ ಸಂಪರ್ಕ ಕಡಿದುಹಾಕುವಾಗ ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE ಗೆ "
+#~ "ಬದಲಾಯಿಸಿ."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿವೆ ಎಂಬ ಸೂಚನೆಗಳನ್ನು ತಡೆಹಿಡಿ"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "ವೈರ್ಲೆಸ್ ಜಾಲಬಂಧಗಳು ಲಭ್ಯವಿರುವುದನ್ನು ಸೂಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು TRUE "
+#~ "ಬದಲಾಯಿಸಿ."
+
+#~ msgid "Stamp"
+#~ msgstr "ಮುದ್ರೆ"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr "ಸಿದ್ಧತೆಗಳನ್ನು ಹೊಸ ಆವೃತ್ತಿಗೆ ವರ್ಗಾಯಿಸಬೇಕೆ ಎಂದು ನಿರ್ಧರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ"
+
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Wi-Fi ನಿರ್ಮಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸು"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "ಆಪ್ಲೆಟ್‌ ಅನ್ನು ಬಳಸುವಾಗ ಒಂದು ತಾತ್ಕಾಲಿಕ ಜಾಲಬಂಧವನ್ನು ರಚಿಸುವುದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲು ಇದನ್ನು "
+#~ "TRUE ಗೆ ಬದಲಾಯಿಸಿ."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ(_U):"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
 
 #, fuzzy
 #~ msgid "Manage your network connections"

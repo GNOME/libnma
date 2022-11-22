@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-03-24 09:49+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
@@ -15,97 +15,24 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.7.1\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Вимкнути сповіщення про підключення"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-#, fuzzy
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "Встановіть у TRUE, для вимикання сповіщення про приєднання до мережі."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Вимкнути сповіщення про відключення"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Встановіть у TRUE, для вимикання сповіщення про від'єднання від мережі."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-#, fuzzy
-msgid "Disable VPN notifications"
-msgstr "Вимкнути сповіщення про підключення"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Встановіть у TRUE, для вимикання сповіщення про від'єднання від мережі."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Вимкнути сповіщення про доступні мережі"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Встановіть у TRUE, для вимикання сповіщення про доступні бездротові мережі."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Штамп"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Використовується для визначення параметрів, які мають бути перенесені у нову "
-"версію."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Вимкнути створення з'єднання Wi-Fi"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-#, fuzzy
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Встановіть у TRUE, для вимикання нестандартних мереж при використані аплету."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 #, fuzzy
 msgid "Ignore CA certificate"
 msgstr "Виберіть сертифікат CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr "Встановіть у TRUE, для вимикання сповіщення про приєднання до мережі."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
@@ -158,30 +85,73 @@ msgstr "Пароль:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "Сертифікат C_A:"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Обрати персональний сертифікат..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "Сертифікат _користувача:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "Сертифікат _користувача:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Обрати персональний сертифікат..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "Приватний кл_юч:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "Па_роль до мережного ключа:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "П_оказати паролі"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "Сертифікат C_A:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(немає)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Невідомо"
@@ -235,7 +205,7 @@ msgstr "Будь-який пристрій"
 msgid "New Mobile Broadband Connection"
 msgstr "Нове мобільне широкосмугове з'єднання"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -243,71 +213,71 @@ msgstr ""
 "Цей помічник допоможе вам налаштувати мобільне широкосмугове підключення до "
 "мобільної (3G) мережі."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Вам буде потрібна наступна інформація:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "Назва провайдера"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Тарифний план"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(у деяких випадках) Точка доступу (APN), відповідає тарифному плану"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Створити з'єднання для _цього мобільного широкосмугового пристрою:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Налаштовування мобільного широкосмугового пристрою"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Країна або область"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Виберіть країну вашого провайдера або область"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Виберіть п_ровайдера зі списку:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Я не можу знайти свого провайдера та хочу ввести його _вручну:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Мій провайдер використовує технологію GSM (GPRS, EDGE, UMTS, HSPDA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Мій провайдер використовує технологію CDMA (1xRTT. EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Виберіть свого провайдера"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Виберіть план:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Виберіть _точку доступу (APN) цього тарифного плану:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -321,28 +291,28 @@ msgstr ""
 "Якщо ви не впевнені, спитайте у провайдера, яка точка доступу (APN) "
 "відповідає вашому тарифному плану."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Виберіть тарифний план"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Мобільне широкосмугове з'єднання налаштовано з наступними параметрами:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Пристрій:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Провайдер:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "План:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -358,29 +328,29 @@ msgstr ""
 "змінити параметри з'єднання, виберіть пункт «Мережні з'єднання» з меню "
 "Система >> Параметри."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Підтвердження параметрів мобільного з'єднання"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Помилка редагування з'єднання"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Розблокувати"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Назва"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -389,8 +359,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -452,96 +422,96 @@ msgstr "Від'єднатися"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Без перевірки автентичності"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-бітний ключ (Hex або ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-и бітна ключова фраза"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "Динамічний WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "С_творити"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "_З'єднати"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 "Для доступу до бездротової мережі «%s» необхідні паролі або ключі шифрування."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Для доступу до бездротової мережі потрібна автентифікація"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "Для доступу до бездротової мережі потрібна автентифікація"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "Створити нову бездротову мережу"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "Нова бездротова мережа"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Введіть назву бездротової мережі, яку треба створити."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "З'єднатись з прихованою бездротовою мережею"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "Прихована бездротова мережа"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -915,40 +885,70 @@ msgstr "З'_єднання:"
 msgid "Wi-Fi _adapter"
 msgstr "Бездротовий _адаптер:"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "Вимкнути сповіщення про підключення"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "Сертифікат C_A:"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Встановіть у TRUE, для вимикання сповіщення про приєднання до мережі."
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Обрати персональний сертифікат..."
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Вимкнути сповіщення про відключення"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Приватний кл_юч:"
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Встановіть у TRUE, для вимикання сповіщення про від'єднання від мережі."
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Па_роль до мережного ключа:"
+#, fuzzy
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Вимкнути сповіщення про підключення"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Встановіть у TRUE, для вимикання сповіщення про від'єднання від мережі."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Вимкнути сповіщення про доступні мережі"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Встановіть у TRUE, для вимикання сповіщення про доступні бездротові "
+#~ "мережі."
+
+#~ msgid "Stamp"
+#~ msgstr "Штамп"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Використовується для визначення параметрів, які мають бути перенесені у "
+#~ "нову версію."
+
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Вимкнути створення з'єднання Wi-Fi"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Встановіть у TRUE, для вимикання нестандартних мереж при використані "
+#~ "аплету."
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Обрати персональний сертифікат..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "Сертифікат _користувача:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Обрати персональний сертифікат..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Сертифікат _користувача:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "П_оказати паролі"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Організуйте ваші мережеві з'єднання"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-12-02 01:55-0500\n"
 "Last-Translator: \n"
 "Language-Team: Bengali (India) <anubad@lists.ankur.org.in>\n"
@@ -22,92 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.5.1\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "সংযুক্ত হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-#, fuzzy
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"নেটওয়ার্কের সাথে সংযুক্ত করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই "
-"মান TRUE হিসাবে নির্ধারণ করুন।"
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "বিচ্ছিন্ন হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"নেটওয়ার্কের সাথে সংযোগ বিচ্ছিন্ন করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার "
-"জন্য এই মান TRUE হিসাবে নির্ধারণ করুন।"
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-#, fuzzy
-msgid "Disable VPN notifications"
-msgstr "সংযুক্ত হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"নেটওয়ার্কের সাথে সংযোগ বিচ্ছিন্ন করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার "
-"জন্য এই মান TRUE হিসাবে নির্ধারণ করুন।"
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "উপলব্ধ নেটওয়ার্কের বিজ্ঞপ্তি প্রদর্শন আড়াল করা হবে"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-#, fuzzy
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"বেতার নেটওয়ার্ক উপলব্ধ থাকলে বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই মান "
-"TRUE হিসাবে নির্ধারণ করুন।"
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "স্ট্যাম্প"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"নতুন সংস্করণের মধ্যে বৈশিষ্ট্য মাইগ্রেট করা হবে কি না নির্ধারণ করতে এটি ব্যবহার করা "
-"হয়।"
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "ওয়াই-ফাই নির্মাণ নিষ্ক্রিয় করুন"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-#, fuzzy
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"এই অ্যাপ্লেট সহযোগে অ্যাড-হক নেটওয়ার্ক নির্মাণের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই মান "
-"TRUE হিসাবে নির্ধারণ করুন।"
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 #, fuzzy
 msgid "Ignore CA certificate"
 msgstr "CA সার্টিফিকেট: (_A)"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
@@ -116,7 +37,7 @@ msgstr ""
 "নেটওয়ার্কের সাথে সংযুক্ত করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই "
 "মান TRUE হিসাবে নির্ধারণ করুন।"
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 #, fuzzy
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
@@ -172,30 +93,73 @@ msgstr "পাসওয়ার্ড:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "কোনো CA সার্টিফিকেটের প্রয়োজন নেই (_r)"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "ব্যক্তিগত সার্টিফিকেট নির্বাচন করুন..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "ব্যবহারকারীর সার্টিফিকেট: (_U)"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "ব্যবহারকারীর সার্টিফিকেট: (_U)"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "ব্যক্তিগত সার্টিফিকেট নির্বাচন করুন..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "ব্যক্তিগত-কি: (_k)"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "ব্যক্তিগত কি-র পাসওয়ার্ড: (_P)"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "পাসওয়ার্ড প্রদর্শন করা হবে (_w)"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "CA সার্টিফিকেট: (_A)"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(শূণ্য)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "অজানা"
@@ -249,7 +213,7 @@ msgstr "যে কোনো ডিভাইস"
 msgid "New Mobile Broadband Connection"
 msgstr "নতুন মোবাইল ব্রড-ব্যান্ড সংযোগ"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -257,72 +221,72 @@ msgstr ""
 "এই সহায়ক ব্যবস্থার সাহায্যে একটি সেলুলার (৩জি) নেটওয়ার্কের সাথে মোবাইল ব্রড-ব্যান্ড "
 "সংযোগ স্থাপন করা যাবে।"
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "নিম্নলিখিত তথ্য প্রয়োজন:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "ব্রড-ব্যান্ড পরিসেবা উপলব্ধকারীর নাম"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "ব্রড-ব্যান্ড বিলিং প্ল্যানের নাম"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(কিছু ক্ষেত্রে) আপনার ব্যবহৃত ব্রড-ব্যান্ড বিলিং প্ল্যান APN (অ্যাকসেস পয়েন্ট নেম)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "এই মোবাইল ব্রড-ব্যান্ড ডিভাইসের জন্য সংযোগ নির্মাণ করুন (_t)"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "মোবাইল ব্রড-ব্যান্ড সংযোগ প্রস্তুত করুন"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "দেশের তালিকা:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "পরিসেবা উপলব্ধকারীর দেশ নির্বাচন করুন"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "তালিকা থেকে পরিসেবা উপলব্ধকারীর নাম নির্বাচন করুন: (_l)"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "পরিসেবা উপলব্ধকারীর নাম অনুপস্থিত এবং আমি স্বয়ং তা লিখতে ইচ্ছুক: (_m)"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr ""
 "পরিসেবা উপলব্ধকারী দ্বারা GSM প্রযুক্তি ব্যবহার করা হয় (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "পরিসেবা উপলব্ধকারী দ্বারা CDMA প্রযুক্তি ব্যবহার করা হয় (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "পরিসেবা উপলব্ধকারী নির্বাচন করুন"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "ব্যবহৃত প্ল্যান নির্বাচন করুন: (_S)"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "নির্বাচিত প্ল্যানের APN (অ্যাকসেস পয়েন্ট নেম): (_A)"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -336,28 +300,28 @@ msgstr ""
 "প্ল্যান সম্পর্কে নিশ্চিত না হলে অনুগ্রহ করে পরিসেবা উপলব্ধকারী সাথে যোগাযোগ করে "
 "আপনার ব্যবহৃত প্ল্যানের APN জেনে নিন।"
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "ব্যবহৃত বিল প্ল্যান নির্বাচন করুন"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "নিম্নলিখিত বৈশিষ্ট্য সহ মোবাইল ব্রড-ব্যান্ড সংযোগ কনফিগার করা হয়েছে:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "আপনার ব্যবহৃত ডিভাইস:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "পরিসেবা উপলব্ধকারী:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "আপনার ব্যবহৃত প্ল্যান:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -372,29 +336,29 @@ msgstr ""
 "সংযোগের বৈশিষ্ট্য পরিবর্তন করার জন্য সিস্টেম >> পছন্দ মেনু থেকে \"নেটওয়ার্ক সংযোগ\" "
 "নির্বাচন করুন।"
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "মোবাইল ব্রড-ব্যান্ডের বৈশিষ্ট্য নিশ্চিত করুন"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "সংযোগ সংরক্ষণ করতে সমস্যা"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "আন-লক করুন: (_U)"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "নাম"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -403,8 +367,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -466,96 +430,96 @@ msgstr "সংযোগ বিচ্ছিন্ন করুন"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 #, fuzzy
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "শূণ্য"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP ৪০/১২৮-বিট কি (Hex অথবা ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP ১২৮-বিট পরিচয়পংক্তি"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "ডাইনামিক WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA ও WPA2 ব্যক্তিগত"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA ও WPA2 এন্টারপ্রাইজ"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA ও WPA2 ব্যক্তিগত"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "নির্মান করুন (_r)"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "সংযোগ করুন (_o)"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "'%s' বেতার নেটওয়ার্ক ব্যবহার করার জন্য পাসওয়ার্ড অথবা এনক্রিপশন-কি প্রয়োজন।"
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "বেতার নেটওয়ার্ক অনুমোদন প্রয়োজন"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 #, fuzzy
 msgid "Authentication required by Wi-Fi network"
 msgstr "বেতার নেটওয়ার্কের জন্য অনুমোদন প্রয়োজন"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "নতুন বেতার নেটওয়ার্ক তৈরি করুন"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 #, fuzzy
 msgid "New Wi-Fi network"
 msgstr "নতুন বেতার নেটওয়ার্ক"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "নির্মাণ করার উদ্দেশ্যে চিহ্নিত বেতার নেটওয়ার্কের নাম নির্ধারণ করুন।"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "গোপন বেতার নেটওয়ার্কের সাথে সংযোগ স্থাপন করুন"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 #, fuzzy
 msgid "Hidden Wi-Fi network"
 msgstr "গোপন বেতার নেটওয়ার্ক"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -942,40 +906,73 @@ msgstr "সংযোগ: (_n)"
 msgid "Wi-Fi _adapter"
 msgstr "বেতার অ্যাডাপ্টার: (_a)"
 
+#~ msgid "Disable connected notifications"
+#~ msgstr "সংযুক্ত হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
+
 #, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "কোনো CA সার্টিফিকেটের প্রয়োজন নেই (_r)"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "নেটওয়ার্কের সাথে সংযুক্ত করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই "
+#~ "মান TRUE হিসাবে নির্ধারণ করুন।"
 
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "ব্যক্তিগত সার্টিফিকেট নির্বাচন করুন..."
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "বিচ্ছিন্ন হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
 
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "ব্যক্তিগত-কি: (_k)"
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "নেটওয়ার্কের সাথে সংযোগ বিচ্ছিন্ন করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় "
+#~ "করার জন্য এই মান TRUE হিসাবে নির্ধারণ করুন।"
 
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "ব্যক্তিগত কি-র পাসওয়ার্ড: (_P)"
+#, fuzzy
+#~ msgid "Disable VPN notifications"
+#~ msgstr "সংযুক্ত হওয়ার বিজ্ঞপ্তি নিষ্ক্রিয় করা হবে"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "নেটওয়ার্কের সাথে সংযোগ বিচ্ছিন্ন করার সময় বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় "
+#~ "করার জন্য এই মান TRUE হিসাবে নির্ধারণ করুন।"
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "উপলব্ধ নেটওয়ার্কের বিজ্ঞপ্তি প্রদর্শন আড়াল করা হবে"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "বেতার নেটওয়ার্ক উপলব্ধ থাকলে বিজ্ঞপ্তি প্রদানের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই মান "
+#~ "TRUE হিসাবে নির্ধারণ করুন।"
+
+#~ msgid "Stamp"
+#~ msgstr "স্ট্যাম্প"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "নতুন সংস্করণের মধ্যে বৈশিষ্ট্য মাইগ্রেট করা হবে কি না নির্ধারণ করতে এটি ব্যবহার "
+#~ "করা হয়।"
+
+#, fuzzy
+#~ msgid "Disable WiFi Create"
+#~ msgstr "ওয়াই-ফাই নির্মাণ নিষ্ক্রিয় করুন"
+
+#, fuzzy
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "এই অ্যাপ্লেট সহযোগে অ্যাড-হক নেটওয়ার্ক নির্মাণের ব্যবস্থা নিষ্ক্রিয় করার জন্য এই "
+#~ "মান TRUE হিসাবে নির্ধারণ করুন।"
 
 #, fuzzy, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "ব্যক্তিগত সার্টিফিকেট নির্বাচন করুন..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "ব্যবহারকারীর সার্টিফিকেট: (_U)"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "ব্যক্তিগত সার্টিফিকেট নির্বাচন করুন..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "ব্যবহারকারীর সার্টিফিকেট: (_U)"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "পাসওয়ার্ড প্রদর্শন করা হবে (_w)"
 
 #, fuzzy
 #~ msgid "Manage your network connections"

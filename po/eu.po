@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-applet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-10-19 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
@@ -19,85 +19,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Desgaitu konektatutako jakinarazpenak"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko sare batera "
-"konektatzean."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Desgaitu deskonektatutako jakinarazpenak"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko sare batetik "
-"deskonektatzean."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Desgaitu VPNren jakinarazpenak"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko VPN batera "
-"konektatzean edo batetik deskonektatzean."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Ezabatu sare erabilgarrien jakinarazpenak"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko wifi sareak "
-"erabilgarri daudenean."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Zigilua"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Ezarpenak bertsio berrira migratuko diren edo ez  ezartzeko erabiltzen da."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Desgaitu WiFiaren sorrera"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Ezarri hau TRUE (egia) gisa bereziki prestatutako sareen sorrera desgaitzeko "
-"miniaplikazioa erabiltzean."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Erakutsi miniaplikazioa jakinarazpenen arean"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Ezarri FALSE (faltsua) gisa miniaplikazioa jakinarazpenen arean erakustea "
-"desgaitzeko."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ez ikusi egin ZE ziurtagiriri"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -105,7 +32,7 @@ msgstr ""
 "Ezarri TRUE (egia) gisa EAP autentifikazioan ZE ziurtagiriei buruzko abisuak "
 "desgaitzeko."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -161,29 +88,71 @@ msgstr "Pasahitza"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr "Eskaneatu zure telefonoarekin edo <a href=\"nma:print\">Inprimatu</a>"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+msgid "No certificate set"
+msgstr "Ez dago ziurtagiririk ezarrita"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr "Ez dago gakorik ezarrita"
+
+#: src/nma-cert-chooser.c:860
+#, c-format
+msgid "Choose a %s Certificate"
+msgstr "Hautatu %s ziurtagiri bat"
+
+#: src/nma-cert-chooser.c:864
+#, c-format
+msgid "%s _certificate"
+msgstr "%s _ziurtagiria"
+
+#: src/nma-cert-chooser.c:868
+#, c-format
+msgid "%s certificate _password"
+msgstr "%s ziurtagiriaren _pasahitza"
+
+#: src/nma-cert-chooser.c:887
+#, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Hautatu gako bat %s ziurtagirirako"
+
+#: src/nma-cert-chooser.c:891
+#, c-format
+msgid "%s private _key"
+msgstr "%s _gako pribatua"
+
+#: src/nma-cert-chooser.c:895
+#, c-format
+msgid "%s key _password"
+msgstr "%s gakoaren _pasahitza"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Erakutsi _pasahitzak"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "Gakoa hemen: %s"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "Ziurtagiria hemen: %s"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "Hautatu"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(bat ere ez)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(Ezezaguna)"
 
@@ -235,7 +204,7 @@ msgstr "Edozein gailu"
 msgid "New Mobile Broadband Connection"
 msgstr "Banda zabal mugikorreko konexio berria"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -243,68 +212,68 @@ msgstr ""
 "Morroi honek banda zabal mugikorreko konexioa mugikorren sarera (3G) "
 "konfiguratzen lagunduko dizu."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Honako informazioa beharko duzu:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr "Banda zabalaren hornitzailearen izena"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Banda zabalaren prezioen planaren izena"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(zenbait kasutan) banda zabalaren APN prezioen plana"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Sortu konexio bat banda zabal mugikorreko gailu _honentzako:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Konfiguratu banda zabal mugikorreko konexioa"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr "Herrialde edo eskualdea:"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr "Aukeratu zure hornitzailearen herrialde edo eskualdea"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Hautatu hornitzailea _zerrendatik:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 "Ezin dut hornitzailea aurkitu eta konexioa _eskuz konfiguratu nahi dut:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Hornitzaileak GSM teknologia darabil (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Hornitzaileak CDMA teknologia darabil (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Aukeratu hornitzailea"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Hautatu zure plana:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Hautatu _APL (sarbidetzeko puntuaren izena) plana:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -317,28 +286,28 @@ msgstr ""
 "Ez bazaude ziur planari buruz, galdetu iezaiozu hornitzaileari planaren "
 "APLari buruz."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Aukeratu prezioen plana"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Banda zabal mugikorreko konexioa honako ezarpenekin konfiguratu da:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Gailua:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Hornitzailea:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Plana:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -352,27 +321,27 @@ msgstr ""
 "konexioaren ezarpenak aldatzeko, aukeratu Sistema >> Hobespenak menuko "
 "\"Sareko konexioak\" elementua."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Berretsi banda zabal mugikorreko ezarpenak"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "Errorea saioa hastean: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "Errorea saioa irekitzean: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr "_Desblokeatu tokena"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Izena"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr "Jaulkitzailea"
 
@@ -381,8 +350,8 @@ msgstr "Jaulkitzailea"
 msgid "Enter %s PIN"
 msgstr "Sartu %s PINa"
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -438,86 +407,86 @@ msgstr "Egin klik konektatzeko"
 msgid "New…"
 msgstr "Berria…"
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Bat ere ez"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128 bit-eko gakoa (hamaseitarra edo ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128 bit-eko pasaesaldia"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP dinamikoa (802.1x)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA eta WPA2 pertsonala"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA eta WPA2 enpresa"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 msgid "WPA3 Personal"
 msgstr "WPA3 pertsonala"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_Sortu"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "_Konektatu"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "Pasahitzak edo zifratze-gakoak behar dira “%s” wifi sarera sartzeko."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Wifi sarearen autentifikazioa beharrezkoa"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wifi sareak autentifikazioa eskatzen du"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Sortu wifi sare berria"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Wifi sare berria"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Sartu wifi sarearen izena sortzeko."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Konektatu ezkutuko wifi sarera"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Ezkutuko wifi sarea"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -877,42 +846,74 @@ msgstr "_Konexioa"
 msgid "Wi-Fi _adapter"
 msgstr "Wifiaren _moldagailua:"
 
-#~ msgid "No certificate set"
-#~ msgstr "Ez dago ziurtagiririk ezarrita"
+#~ msgid "Disable connected notifications"
+#~ msgstr "Desgaitu konektatutako jakinarazpenak"
 
-#~ msgid "No key set"
-#~ msgstr "Ez dago gakorik ezarrita"
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to a network."
+#~ msgstr ""
+#~ "Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko sare batera "
+#~ "konektatzean."
 
-#, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Hautatu gako bat %s ziurtagirirako"
+#~ msgid "Disable disconnected notifications"
+#~ msgstr "Desgaitu deskonektatutako jakinarazpenak"
 
-#, c-format
-#~ msgid "%s private _key"
-#~ msgstr "%s _gako pribatua"
+#~ msgid ""
+#~ "Set this to true to disable notifications when disconnecting from a "
+#~ "network."
+#~ msgstr ""
+#~ "Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko sare batetik "
+#~ "deskonektatzean."
 
-#, c-format
-#~ msgid "%s key _password"
-#~ msgstr "%s gakoaren _pasahitza"
+#~ msgid "Disable VPN notifications"
+#~ msgstr "Desgaitu VPNren jakinarazpenak"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when connecting to or "
+#~ "disconnecting from a VPN."
+#~ msgstr ""
+#~ "Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko VPN batera "
+#~ "konektatzean edo batetik deskonektatzean."
+
+#~ msgid "Suppress networks available notifications"
+#~ msgstr "Ezabatu sare erabilgarrien jakinarazpenak"
+
+#~ msgid ""
+#~ "Set this to true to disable notifications when Wi-Fi networks are "
+#~ "available."
+#~ msgstr ""
+#~ "Ezarri hau TRUE (egia) gisa jakinarazpenak desgaitzeko wifi sareak "
+#~ "erabilgarri daudenean."
+
+#~ msgid "Stamp"
+#~ msgstr "Zigilua"
+
+#~ msgid ""
+#~ "Used to determine whether settings should be migrated to a new version."
+#~ msgstr ""
+#~ "Ezarpenak bertsio berrira migratuko diren edo ez  ezartzeko erabiltzen da."
+
+#~ msgid "Disable WiFi Create"
+#~ msgstr "Desgaitu WiFiaren sorrera"
+
+#~ msgid ""
+#~ "Set to true to disable creation of adhoc networks when using the applet."
+#~ msgstr ""
+#~ "Ezarri hau TRUE (egia) gisa bereziki prestatutako sareen sorrera "
+#~ "desgaitzeko miniaplikazioa erabiltzean."
+
+#~ msgid "Show the applet in notification area"
+#~ msgstr "Erakutsi miniaplikazioa jakinarazpenen arean"
+
+#~ msgid ""
+#~ "Set to FALSE to disable displaying the applet in the notification area."
+#~ msgstr ""
+#~ "Ezarri FALSE (faltsua) gisa miniaplikazioa jakinarazpenen arean erakustea "
+#~ "desgaitzeko."
 
 #, c-format
 #~ msgid "Choose %s Certificate"
 #~ msgstr "Hautatu %s ziurtagiria"
-
-#, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "%s _ziurtagiria"
-
-#, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Hautatu %s ziurtagiri bat"
-
-#, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "%s ziurtagiriaren _pasahitza"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Erakutsi _pasahitzak"
 
 #~ msgid "Manage your network connections"
 #~ msgstr "Kudeatu sareko konexioak"
