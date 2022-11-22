@@ -1,11 +1,12 @@
-# Ukrainian translation of NetworkManager
+# Ukrainian translation of libnma
+# This file is distributed under the same license as the libnma package.
+#
 # Copyright (C) Free Software Foundation, 2005
-# This file is distributed under the same license as the NetworkManager package.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010.
 # Korostil Daniel <ted.korostiled@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-03-24 09:49+0300\n"

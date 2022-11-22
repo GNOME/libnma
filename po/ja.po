@@ -1,7 +1,5 @@
-# translation of ja.po to Japanese
-# Japanese translation for NetworkManager (network-manager-applet)
+# Japanese translation for libnma
 # Copyright (C) 2005-2012 Dan Williams <dcbw@redhat.com>
-# This file is distributed under the same license as the NetworkManager package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2005-2007.
 # Kiyoto Hashida <khashida@redhat.com>, 2010.
 # KURASAWA Nozomu <nabetaro@caldron.jp>, 2010.
@@ -13,9 +11,10 @@
 # Hajime Taira <htaira@redhat.com>, 2013.
 # kemorigu <kemorigu@redhat.com>, 2019. #zanata
 # ljanda <ljanda@redhat.com>, 2019. #zanata
+# This file is distributed under the same license as the libnma package.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet 1.8.22\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-15 04:55+0000\n"

@@ -1,11 +1,10 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dzongkha translation of libnma.
+# Copyright (C) 2007 libnma translators
+# This file is distributed under the same license as the libnma package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet.network-manager-applet-0-6.pot\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2007-03-16 09:28+0530\n"

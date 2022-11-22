@@ -1,12 +1,12 @@
-# Qırımtatarca nm-applet
-# This file is distributed under the same license as the nm-aplet package.
+# Qırımtatarca libnma
+# This file is distributed under the same license as the libnma package.
 #
 # Türkçeden çabik uyarlama.
 # Reşat SABIQ <tilde.birlik@gmail.com>, 2009, 2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nm-aplet 0.6\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-05-21 18:21-0500\n"

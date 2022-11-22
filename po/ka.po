@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libnma 1.10.1\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2022-09-07 18:11+0200\n"

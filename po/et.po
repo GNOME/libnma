@@ -1,9 +1,9 @@
 # VõrguHalduri eesti keele tõlge.
-# Estonian translation of NetworkManager.
+# Estonian translation of libnma.
 #
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2011 The GNOME Project
-# This file is distributed under the same license as the Networkmanager package.
+# This file is distributed under the same license as the libnma package.
 #
 # Priit Laes <amd store20 com>, 2006.
 # Ivar Smolin <okul at linux.ee>, 2006–2007, 2010, 2011.
@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Network Manager MASTER\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-03-13 02:52+0300\n"

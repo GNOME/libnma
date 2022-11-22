@@ -1,12 +1,12 @@
-# Aragonese translation for network-manager-applet.
-# Copyright (C) 2010 network-manager-applet's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-applet package.
-# FULL NAME <EMAIL@ADDRESS>, 2011.
+# Aragonese translation for libnma.
+# This file is distributed under the same license as the libnma package.
+#
+# Copyright (C) 2010 libnma translators
 # Daniel Martinez <entaltoaragon@gmail.com>, 2010, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-09-29 13:19+0200\n"

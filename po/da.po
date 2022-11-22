@@ -1,6 +1,6 @@
-# Danish translation of network-manager-applet.
+# Danish translation of libnma.
 # Copyright (C) 2004-2009, 2012-2018 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager package.
+# This file is distributed under the same license as the libnma package.
 # David Nielsen <dnielsen@breakmygentoo.net>, 2004.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004.
 # Lasse Bang Mikkelsen <lbm@fatalerror.dk>, 2005, 06.
@@ -18,7 +18,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-19 19:29+0200\n"

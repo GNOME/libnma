@@ -1,16 +1,15 @@
-# Esperanto translation for network-manager-applet.
+# Esperanto translation for libnma.
 # Copyright (C) 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-applet package.
-# M. <>, 2009.
+# This file is distributed under the same license as the libnma package.
 # kitzOgen <kitzogen@gmail.com>, 2009.
 # Michael MORONI, <haikara90@gmail.com>, 2009.
-# Patrick OUDEJANS <>, 2009.
-# Aisano <>, 2010.
+# Patrick OUDEJANS, 2009.
+# Aisano, 2010.
 # Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011, 2012.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011, 2014, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-01-06 01:51+0200\n"

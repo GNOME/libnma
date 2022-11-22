@@ -1,6 +1,7 @@
-# Serbian translation of network-manager-applet
+# Serbian translation of libnma
+# This file is distributed under the same license as the libnma package.
+#
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2004—2018.
-# This file is distributed under the same license as the totem package.
 # Translators:
 # Filip Miletic
 # Danilo Šegan
@@ -9,7 +10,7 @@
 # Marko M. Kostić <marko.m.kostic@gmail.com>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-02-24 19:43+0200\n"

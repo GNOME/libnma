@@ -1,14 +1,13 @@
-# translation of network-manager-applet.master.po to Hindi
-# Hindi translation for network-manager-applet.
-# Copyright (C) 2009 network-manager-applet's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-applet package.
+# Hindi translation for libnma.
+# This file is distributed under the same license as the libnma package.
 #
+# Copyright (C) 2009 libnma translators
 # Rajesh Ranjan <rajesh672@gmail.com>, 2009.
 # Rajesh Ranjan <rranjan@redhat.com>, 2010.
 # chandankumar <chandankumar.093047@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet.master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-03-24 13:57+0000\n"

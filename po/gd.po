@@ -1,11 +1,11 @@
-# Gaelic; Scottish translation for network-manager-applet
+# Gaelic; Scottish translation for libnma
+# This file is distributed under the same license as the libnma package.
+#
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the eog package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 # GunChleoc <fios@foramnagaidhlig.net>, 2014, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: eog\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2017-03-09 15:27+0100\n"

@@ -1,7 +1,6 @@
-# translation of networkmanager-applet.master.po to Spanish
-# Traducción de NetworkManager al español.
-# Copyright (C) Spanish translation for NetworkManager
-# This file is distributed under the same license as the NetworkManager package.
+# translation of libnma to Spanish
+# Traducción de libnma al español.
+# This file is distributed under the same license as the libnma package.
 #
 # Antonio Ognio <antonio@linux.org.pe>, 2004.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005, 2006.
@@ -13,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: networkmanager-applet.master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-10-10 15:22+0200\n"

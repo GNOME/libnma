@@ -1,7 +1,7 @@
-# translation of zh_CN.po to network-manager-applet
-# Simplified Chinese translation to network-manager-applet.
+# translation of libnma to libnma
+# Simplified Chinese translation to libnma.
 # Copyright (C) 2009, 2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-applet package.
+# This file is distributed under the same license as the libnma package.
 #
 # Funda Wang <fundawang@linux.net.cn>, 2004.
 # Wei Mingzhi <whistler@openoffice.org>, 2009, 2010.
@@ -16,7 +16,7 @@
 # tfu <tfu@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet 1.8.22\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-15 01:36+0000\n"

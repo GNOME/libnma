@@ -1,15 +1,15 @@
-# Bulgarian translation of network-manager-applet po-file
+# Bulgarian translation of libnma po-file
 # Copyright (C) 2005, 2007, 2009, 2011, 2012 Free Software Foundation, Inc.
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # Copyright (C) 2009, 2010, 2011, 2012 Krasimir Chonov <mk2616@abv.bg>.
-# This file is distributed under the same license as the network-manager-applet package.
+# This file is distributed under the same license as the libnma package.
 # Alexander Shopov <ash@kambanaria.org>, 2005, 2007, 2009, 2011, 2012, 2014.
 # Krasimir Chonov <mk2616@abv.bg>, 2009, 2010, 2011, 2012.
 # Damyan Ivanov <dam+gnome@ktnx.net>, 2010, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-10-09 19:44+0300\n"

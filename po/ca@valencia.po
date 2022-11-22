@@ -1,7 +1,7 @@
-# Catalan translation for NetworkManager
-# Copyright © 2005, 2006, 2007, The Free Software Foundation, Inc.
-# This file is distributed under the same license as the
-#   NetworkManager package.
+# Catalan translation for libnma
+# This file is distributed under the same license as the libnma package.
+#
+# Copyright (C) 2005, 2006, 2007, The Free Software Foundation, Inc.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2005, 2006, 2007.
 # David Planella Molas <david.planella@gmail.com>, 2008, 2009, 2011.
 # Jordi Estrada <jordi.estrada@gmail.com>, 2010.
@@ -10,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-09-15 21:17+0200\n"

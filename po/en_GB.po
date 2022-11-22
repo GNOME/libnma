@@ -1,11 +1,10 @@
-# NetworkManager
 # Copyright (C) 2004 The GNOME Foundation.
-# This file is distributed under the same license as the NetworkManager package.
+# This file is distributed under the same license as the libnma package.
 # David Lodge <dave@cirt.net>, 2004.
 # Bruce Cowan <bruce@bcowan.me.uk>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-03-26 18:11+0100\n"

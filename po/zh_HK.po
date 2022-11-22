@@ -1,5 +1,5 @@
-# Translation of network-manager-applet to Chinese (Hong Kong).
-# Chinese (Hong Kong) translation of Network Manager.
+# Translation of libnma to Chinese (Hong Kong).
+# Chinese (Hong Kong) translation of libnma.
 # Copyright (C) 2005, 2010, 2013 Free Software Foundation, Inc.
 # Woodman Tuen <wmtuen@gmail.com>, 2005.
 # Hialan Liu <hialan.liu@gmail.com>, 2008.
@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet 0.9.8\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-08-30 18:45+0800\n"

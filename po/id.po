@@ -1,13 +1,13 @@
-# Indonesian translation of network-manager-applet.
-# Copyright (C) 2009 THE network-manager-applet'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-applet package.
+# Indonesian translation of libnma.
+# Copyright (C) 2009 libnma translators
+# This file is distributed under the same license as the libnma package.
 #
 # Andika Triwidada <andika@gmail.com>, 2009-2013, 2015, 2017.
 # Dirgita <dirgitadevina@yahoo.co.id>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-08-27 14:58+0700\n"

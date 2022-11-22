@@ -1,6 +1,6 @@
-# French translation of network-manager-applet.
+# French translation of libnma.
 # Copyright (C) 2004-2019 The GNOME Foundation.
-# This file is distributed under the same license as the network-manager-applet package.
+# This file is distributed under the same license as the libnma package.
 #
 # Raphaël Tournoy <lexpas@free.fr>, 2004.
 # Stéphane Raimbault <stephae.raimbault@gmail.com>, 2006-2008.
@@ -18,7 +18,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet 1.8.22\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-10-21 16:12+0200\n"

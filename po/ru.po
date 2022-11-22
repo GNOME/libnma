@@ -1,5 +1,4 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the libnma package.
 #
 # Leonid Kanter <leon@asplinux.ru>, 2006, 2007, 2008, 2009, 2010.
 # Артём Попов <artfwo@gmail.com>, 2009.
@@ -12,7 +11,7 @@
 # Olesya Gerasimenko <gammaray@basealt.ru>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-22 16:07MSK\n"

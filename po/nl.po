@@ -1,5 +1,5 @@
-# Dutch translation for Network Manager Applet
-# This file is distributed under the same license as the network-manager-applet package.
+# Dutch translation for libnma
+# This file is distributed under the same license as the libnma package.
 # the wired network       het kabelnetwerk (is meer voor TV-kabelnetwerk?)
 # bekabelde/bekabeld netwerk/draadnetwerk/vast netwerk
 # the wireless network    het draadloos netwerk
@@ -11,7 +11,7 @@
 # Nathan Follens <nthn@unseen.is>, 2018-2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-03-04 16:37+0100\n"

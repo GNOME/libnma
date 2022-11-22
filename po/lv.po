@@ -1,7 +1,5 @@
-# translation of NetworkManager.HEAD2.po to Latvian
-# translation of NetworkManager.HEAD.po to Latvian
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# translation of libnma to Latvian
+# This file is distributed under the same license as the libnma package.
 #
 #
 # Raivis Dejus <orvils@gmail.com>, 2006.
@@ -9,7 +7,7 @@
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager.HEAD2\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-03-23 22:08+0200\n"

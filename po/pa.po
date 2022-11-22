@@ -1,11 +1,9 @@
-# translation of NetworkManager.HEAD.po to Punjabi
-# translation of pa.po to Punjabi
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# translation of libnma to Punjabi
+# This file is distributed under the same license as the libnma package.
 # A S Alam <aalam@users.sf.net>, 2004, 2005, 2009, 2010, 2011, 2012, 2013, 2014, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager.HEAD\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2017-07-23 11:57-0600\n"

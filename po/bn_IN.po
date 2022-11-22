@@ -1,15 +1,14 @@
-# translation of bn_IN.po to Bengali INDIA
-# Bengali (India) translation of network-manager-applet.
-# Copyright (C) 2009 network-manager-applet's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-applet package.
+# Bengali (India) translation of libnma.
+# This file is distributed under the same license as the libnma package.
 #
+# Copyright (C) 2009 libnma translators
 # sankarshan mukhopadhyay <sankarshan@randomink.org>, 2009.
 # sankarshan mukhopadhyay <sankarshan@fedoraproject.org>, 2009.
 # Runa Bhattacharjee <runab@redhat.com>, 2010, 2011.
 # sray <sray@redhat.com>, 2014. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-12-02 01:55-0500\n"

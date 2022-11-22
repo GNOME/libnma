@@ -1,6 +1,6 @@
-# Galician translation of NetworkManager Applet
+# Galician translation of libnma
 # Copyright (C) -2008, The GNOME Foundation
-# This file is distributed under the same license as the NetworkManager Applet package.
+# This file is distributed under the same license as libnma package.
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007, 2008.
 # Martin Mendez Iglesias <martin.men@gmail.com>, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
@@ -12,7 +12,7 @@
 # Marcos Lans, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: gl\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2017-07-29 21:30+0200\n"

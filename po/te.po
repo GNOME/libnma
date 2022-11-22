@@ -1,8 +1,7 @@
-# translation of te.po to Telugu
-# Telugu translation of network-manager-applet.
-# Copyright (C) 2011, 2012 Swecha Telugu Localisation Team (localization@swecha.net)
-# This file is distributed under the same license as the network-manager-applet package.
+# Telugu translation of libnma.
+# This file is distributed under the same license as the libnma package.
 #
+# Copyright (C) 2011, 2012 Swecha Telugu Localisation Team (localization@swecha.net)
 # Krishna Babu K <kkrothap@redhat.com>, 2009, 2010.
 # gvs giri <gvs.giri947@gmial.com>, 2011.
 # Sasi Bhushan Boddepalli <sasi@swecha.net>, 2011, 2012
@@ -11,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: te\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-06-27 15:21+0530\n"

@@ -1,11 +1,11 @@
-# Kazakh translation for network-manager-applet.
-# Copyright (C) 2013 network-manager-applet's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-applet package.
+# Kazakh translation for libnma.
+# Copyright (C) 2013 libnma translators
+# This file is distributed under the same license as the libnma package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2011-2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-08-26 08:42+0500\n"

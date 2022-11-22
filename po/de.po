@@ -1,6 +1,6 @@
-# German translation of the NetworkManager applet.
+# German translation of libnma.
 # Copyright (C) 2005 Dan Williams <dcbw@redhat.com>
-# This file is distributed under the same license as the NetworkManager package.
+# This file is distributed under the same license as the libnma package.
 #
 #
 # Hendrik Brandt <heb@gnome-de.org>, 2004-2005.
@@ -21,7 +21,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2018-08-25 23:06+0200\n"

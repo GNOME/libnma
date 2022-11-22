@@ -1,12 +1,11 @@
-# translation of mr.po to Marathi
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# translation of libnma to Marathi
+# This file is distributed under the same license as the libnma package.
 #
 # Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2009.
 # Sandeep Shedmake <sshedmak@redhat.com>, 2010, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: mr\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2011-03-28 16:06+0530\n"

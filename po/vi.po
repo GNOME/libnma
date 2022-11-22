@@ -1,13 +1,13 @@
-# Vietnamese translation for Network Manager.
-# Copyright © 2014 Gnome i18n Project for Vietnamese.
-# This file is distributed under the same license as the network-manager-applet package.
+# Vietnamese translation for libnma.
+# Copyright (C) 2014 Gnome i18n Project for Vietnamese.
+# This file is distributed under the same license as the libnma package.
 # Clytie Siddall <clytie@riverland.net.au>, 2006-2007.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2011-2013.
 # Trần Ngọc Quân <vnwildman@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet master\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-11-28 15:54+0700\n"

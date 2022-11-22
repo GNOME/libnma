@@ -1,7 +1,6 @@
-# translation of ko.po to Korean
-# networkmanager korean translation.
-# Copyright (C) 2007 THE NetworkManager'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager package.
+# libnma korean translation.
+# Copyright (C) 2007 libnma translators
+# This file is distributed under the same license as the libnma package.
 #
 #
 # Young-Ho Cha <ganadist@gmail.com>, 2006.
@@ -20,7 +19,7 @@
 # ljanda <ljanda@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet 1.8.22\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-08-13 10:26+0000\n"

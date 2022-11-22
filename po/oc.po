@@ -1,12 +1,12 @@
-# Translation of oc.po to Occitan
-# Occitan translation of NetworkManager.
+# Occitan translation of libnma.
+# This file is distributed under the same license as the libnma package.
+#
 # Copyright (C) 2004-2006 The GNOME Foundation.
-# This file is distributed under the same license as the NetworkManager package.
 # Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2006-2008.
 # Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: oc\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2016-03-10 21:49+0200\n"

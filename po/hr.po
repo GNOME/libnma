@@ -1,11 +1,10 @@
-# NetworkManager
 # Copyright (C) Red Hat, Inc.
-# This file is distributed under the same license as the NetworkManager package.
+# This file is distributed under the same license as the libnma package.
 # Tomislav Vujec <tvujec@redhat.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2019-10-17 17:02+0200\n"

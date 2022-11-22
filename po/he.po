@@ -1,11 +1,11 @@
-# Hebrew translation for network-manager-applet
+# Hebrew translation for libnma
+# This file is distributed under the same license as the libnma package.
+#
 # Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
-# This file is distributed under the same license as the network-manager-applet package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-03-16 16:19+0200\n"

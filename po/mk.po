@@ -1,15 +1,13 @@
-# translation of network-manager-applet.HEAD.po to Macedonian
-# translation of mk.po.
-# Copyright (C) 2005 THE mk.po'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the mk.po package.
+# translation of libnma to Macedonian
+# This file is distributed under the same license as the libnma package.
 #
+# Copyright (C) 2005 libnma translators
 # Арангел Ангов <ufo@linux.net.mk>, 2005.
-# <>, 2005.
 # Jovan Naumovski <jovan@lugola.net>, 2006.
 # Arangel Angov <ufo@linux.net.mk>, 2006, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet.HEAD\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2011-12-24 21:35+0100\n"

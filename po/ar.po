@@ -1,7 +1,7 @@
-# translation of network-manager-applet.network-manager-applet-0-6.ar.po to
-# Arabic translations for gnome package.
-# Copyright (C) 2007 THE gnome'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome package.
+# Arabic translations for libnma.
+# This file is distributed under the same license as the libnma package.
+
+# Copyright (C) 2007 libnma translators
 # Automatically generated, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Khaled Hosny <khaledhosny@eglug.org>, 2009, 2010, 2011.
@@ -9,7 +9,7 @@
 # Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet.network-manager-applet-0-6.ar\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
 "POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2011-09-17 16:16+0300\n"
