@@ -22,6 +22,8 @@
 
 #include <gtk/gtk.h>
 
+#include "nma-version.h"
+
 G_BEGIN_DECLS
 
 #define NMA_VPN_TYPE_PASSWORD_DIALOG            (nma_vpn_password_dialog_get_type ())
@@ -32,6 +34,10 @@ G_BEGIN_DECLS
 
 typedef struct NMAVpnPasswordDialog        NMAVpnPasswordDialog;
 typedef struct NMAVpnPasswordDialogClass   NMAVpnPasswordDialogClass;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAVpnPasswordDialog, g_object_unref)
+#endif
 
 struct NMAVpnPasswordDialog {
 	GtkDialog parent;

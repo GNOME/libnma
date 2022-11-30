@@ -15,6 +15,10 @@ G_BEGIN_DECLS
 typedef struct _NMAWsWpaEap NMAWsWpaEap;
 typedef struct _NMAWsWpaEapClass NMAWsWpaEapClass;
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAWsWpaEap, g_object_unref)
+#endif
+
 #define NMA_TYPE_WS_WPA_EAP            (nma_ws_wpa_eap_get_type ())
 #define NMA_WS_WPA_EAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsWpaEap))
 #define NMA_WS_WPA_EAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_SAE, NMAWsWpaEapClass))

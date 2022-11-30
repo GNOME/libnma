@@ -14,6 +14,8 @@
 #include <glib-object.h>
 #include <gio/gio.h>
 
+#include "nma-version.h"
+
 /******************************************************************************/
 /* Access method type */
 
@@ -44,6 +46,10 @@ const gchar           **nma_mobile_access_method_get_dns      (NMAMobileAccessMe
 const gchar            *nma_mobile_access_method_get_3gpp_apn (NMAMobileAccessMethod *method);
 NMAMobileFamily         nma_mobile_access_method_get_family   (NMAMobileAccessMethod *method);
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAMobileAccessMethod, nma_mobile_access_method_unref)
+#endif
+
 /******************************************************************************/
 /* Mobile provider type */
 
@@ -59,6 +65,10 @@ GSList             *nma_mobile_provider_get_methods      (NMAMobileProvider *pro
 const gchar       **nma_mobile_provider_get_3gpp_mcc_mnc (NMAMobileProvider *provider);
 const guint32      *nma_mobile_provider_get_cdma_sid     (NMAMobileProvider *provider);
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAMobileProvider, nma_mobile_provider_unref)
+#endif
+
 /******************************************************************************/
 /* Country Info type */
 
@@ -73,6 +83,10 @@ const gchar    *nma_country_info_get_country_code (NMACountryInfo *country_info)
 const gchar    *nma_country_info_get_country_name (NMACountryInfo *country_info);
 GSList         *nma_country_info_get_providers    (NMACountryInfo *country_info);
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMACountryInfo, nma_country_info_unref)
+#endif
+
 /******************************************************************************/
 /* Mobile providers database type */
 
@@ -86,6 +100,10 @@ GSList         *nma_country_info_get_providers    (NMACountryInfo *country_info)
 typedef struct _NMAMobileProvidersDatabase NMAMobileProvidersDatabase;
 typedef struct _NMAMobileProvidersDatabaseClass NMAMobileProvidersDatabaseClass;
 typedef struct _NMAMobileProvidersDatabasePrivate NMAMobileProvidersDatabasePrivate;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAMobileProvidersDatabase, g_object_unref)
+#endif
 
 struct _NMAMobileProvidersDatabase {
 	GObject parent;

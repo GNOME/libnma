@@ -36,6 +36,10 @@
 typedef struct _NMABarCode       NMABarCode;
 typedef struct _NMABarCodeClass  NMABarCodeClass;
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMABarCode, g_object_unref)
+#endif
+
 NMA_AVAILABLE_IN_1_8_22
 GType       nma_bar_code_get_type (void) G_GNUC_CONST;
 

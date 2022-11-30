@@ -15,6 +15,10 @@ G_BEGIN_DECLS
 typedef struct _NMAWsLeap NMAWsLeap;
 typedef struct _NMAWsLeapClass NMAWsLeapClass;
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAWsLeap, g_object_unref)
+#endif
+
 #define NMA_TYPE_WS_LEAP            (nma_ws_leap_get_type ())
 #define NMA_WS_LEAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_LEAP, NMAWsLeap))
 #define NMA_WS_LEAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_LEAP, NMAWsLeapClass))

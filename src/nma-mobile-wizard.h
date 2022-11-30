@@ -14,8 +14,14 @@
 #include <NetworkManager.h>
 #include <nm-device.h>
 
+#include "nma-version.h"
+
 typedef struct _NMAMobileWizard NMAMobileWizard;
 typedef struct _NMAMobileWizardClass NMAMobileWizardClass;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAMobileWizard, g_object_unref)
+#endif
 
 /**
  * NMAMobileWizardAccessMethod:

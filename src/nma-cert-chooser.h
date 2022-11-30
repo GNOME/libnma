@@ -52,6 +52,10 @@ typedef struct _NMACertChooser NMACertChooser;
 NMA_AVAILABLE_IN_1_8
 typedef struct _NMACertChooserClass NMACertChooserClass;
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMACertChooser, g_object_unref)
+#endif
+
 NMA_AVAILABLE_IN_1_8
 GType                nma_cert_chooser_get_type                     (void);
 
