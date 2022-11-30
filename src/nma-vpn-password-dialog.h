@@ -17,8 +17,8 @@
  *          Dan Williams <dcbw@redhat.com>
  */
 
-#ifndef NMA_VPN_PASSWORD_DIALOG_H
-#define NMA_VPN_PASSWORD_DIALOG_H
+#ifndef __NMA_VPN_PASSWORD_DIALOG_H__
+#define __NMA_VPN_PASSWORD_DIALOG_H__
 
 #include <gtk/gtk.h>
 
@@ -82,4 +82,4 @@ const char *nma_vpn_password_dialog_get_password_ternary (NMAVpnPasswordDialog *
 
 G_END_DECLS
 
-#endif /* NMA_VPN_PASSWORD_DIALOG_H */
+#endif /* __NMA_VPN_PASSWORD_DIALOG_H__ */

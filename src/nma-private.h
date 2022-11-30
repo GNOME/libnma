@@ -6,7 +6,8 @@
  * Copyright (C) 2019 - 2021 Red Hat, Inc.
  */
 
-#ifndef NMA_PRIVATE_H
+#ifndef __NMA_PRIVATE_H__
+#define __NMA_PRIVATE_H__
 
 #if !GTK_CHECK_VERSION(4,0,0)
 #define gtk_editable_set_text(editable,text)		gtk_entry_set_text(GTK_ENTRY(editable), (text))
@@ -30,6 +31,4 @@ typedef void GtkRoot;
 
 int nma_gtk_dialog_run (GtkDialog *dialog);
 
-#define NMA_PRIVATE_H
-
-#endif /* NMA_PRIVATE_H */
+#endif /* __NMA_PRIVATE_H__ */

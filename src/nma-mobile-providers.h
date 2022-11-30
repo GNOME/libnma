@@ -7,8 +7,8 @@
  * Copyright (C) 2012 Lanedo GmbH.
  */
 
-#ifndef NM_MOBILE_PROVIDERS_H
-#define NM_MOBILE_PROVIDERS_H
+#ifndef __NMA_MOBILE_PROVIDERS_H__
+#define __NMA_MOBILE_PROVIDERS_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -128,4 +128,4 @@ gboolean nma_mobile_providers_split_3gpp_mcc_mnc (const gchar *mccmnc,
                                                   gchar **mcc,
                                                   gchar **mnc);
 
-#endif /* NM_MOBILE_PROVIDERS_H */
+#endif /* __NMA_MOBILE_PROVIDERS_H__ */

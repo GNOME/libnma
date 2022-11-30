@@ -3,8 +3,8 @@
  * Copyright 2015 Red Hat, Inc.
  */
 
-#ifndef NMA_UI_UTILS_H
-#define NMA_UI_UTILS_H
+#ifndef __NMA_UI_UTILS_H__
+#define __NMA_UI_UTILS_H__
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -22,5 +22,4 @@ void nma_utils_update_password_storage (GtkWidget *passwd_entry,
                                         NMSetting *setting,
                                         const char *password_flags_name);
 
-#endif /* NMA_UI_UTILS_H */
-
+#endif /* __NMA_UI_UTILS_H__ */

@@ -6,8 +6,8 @@
  * Copyright (C) 2015,2017 Red Hat, Inc.
  */
 
-#ifndef NMA_CERT_CHOOSER_H
-#define NMA_CERT_CHOOSER_H
+#ifndef __NMA_CERT_CHOOSER_H__
+#define __NMA_CERT_CHOOSER_H__
 
 #include <gtk/gtk.h>
 #include <NetworkManager.h>
@@ -150,4 +150,4 @@ NMSettingSecretFlags nma_cert_chooser_get_key_password_flags       (NMACertChoos
 
 G_END_DECLS
 
-#endif /* NMA_CERT_CHOOSER_H */
+#endif /* __NMA_CERT_CHOOSER_H__ */

@@ -7,8 +7,8 @@
  * (C) Copyright 2008 - 2018 Red Hat, Inc.
  */
 
-#ifndef MOBILE_WIZARD_H
-#define MOBILE_WIZARD_H
+#ifndef __NMA_MOBILE_WIZARD_H__
+#define __NMA_MOBILE_WIZARD_H__
 
 #include <glib.h>
 #include <NetworkManager.h>
@@ -62,4 +62,4 @@ void nma_mobile_wizard_present (NMAMobileWizard *wizard);
 
 void nma_mobile_wizard_destroy (NMAMobileWizard *self);
 
-#endif /* MOBILE_WIZARD_H */
+#endif /* __NMA_MOBILE_WIZARD_H__ */
