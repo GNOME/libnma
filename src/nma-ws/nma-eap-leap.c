@@ -8,9 +8,6 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
-#include <ctype.h>
-#include <string.h>
-
 #include "nma-eap.h"
 #include "nma-ws.h"
 #include "nma-ws-private.h"

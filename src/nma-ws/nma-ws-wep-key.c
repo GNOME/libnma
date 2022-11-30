@@ -6,7 +6,6 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
-#include <ctype.h>
 #include <string.h>
 
 #include "nma-ws.h"

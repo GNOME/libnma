@@ -17,8 +17,6 @@
 
 #include "nm-default.h"
 
-#include <stdint.h>
-
 #include "nma-bar-code.h"
 #include "nma-bar-code-widget.h"
 

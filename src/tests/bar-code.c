@@ -15,11 +15,7 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
-#include <stdio.h>
-#include <string.h>
-
 #include <gtk/gtk.h>
-
 #include "nma-bar-code-widget.h"
 
 static gboolean
