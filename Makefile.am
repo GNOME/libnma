@@ -344,6 +344,7 @@ src_tests_mobile_wizard_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK3_CFLAGS) \
 	$(LIBNM_CFLAGS) \
+	-DNMALOCALEDIR=\"$(datadir)/locale\" \
 	"-I$(srcdir)/shared/" \
 	"-I$(srcdir)/src" \
 	-Isrc
@@ -559,6 +560,7 @@ src_tests_mobile_wizard_gtk4_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK4_CFLAGS) \
 	$(LIBNM_CFLAGS) \
+	-DNMALOCALEDIR=\"$(datadir)/locale\" \
 	"-I$(srcdir)/shared/" \
 	"-I$(srcdir)/src" \
 	-Isrc

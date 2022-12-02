@@ -23,6 +23,10 @@ main (int argc, char *argv[])
 	GMainLoop *loop;
 	NMAMobileWizard *wizard;
 
+	bindtextdomain (GETTEXT_PACKAGE, NMALOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+
 	gtk_init ();
 	loop = g_main_loop_new (NULL, FALSE);
 
