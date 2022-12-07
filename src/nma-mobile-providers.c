@@ -964,7 +964,7 @@ mobile_providers_parse_sync (const gchar *country_codes,
 	char *path;
 	const gchar * const *dirs;
 	int i;
-	gboolean success;
+	gboolean success = FALSE;
 
 	dirs = g_get_system_data_dirs ();
 	countries = g_hash_table_new_full (g_str_hash,
@@ -1004,6 +1004,22 @@ mobile_providers_parse_sync (const gchar *country_codes,
 			g_warning ("Could not find the country codes file (%s): check your installation\n",
 			           ISO_3166_COUNTRY_CODES);
 		}
+	}
+
+	/*
+	 * The areas where mobile operators operate, the areas where ITU
+	 * recognizes the use of a MCC and ISO 3166-1 country codes
+	 * generally overlap very well, which allows use to use ISO 3166-1
+	 * codes to identify the area in the mobile-broadband-database.
+	 *
+	 * Kosovo seems to be an exception. There are operators specific
+	 * to the area, use a Kosovo-specific MCC, but there's no
+	 * ISO 3166-1 code. Until it gets one, let's use a provisional one
+	 * that seems to be in common use.
+	 */
+	if (success) {
+		g_hash_table_insert (countries, g_strdup ("XK"),
+				     country_info_new ("XK", _("Kosovo")));
 	}
 
 	if (service_providers) {
