@@ -465,18 +465,15 @@ static const GMarkupParser iso_3166_parser = {
 };
 
 static gboolean
-read_country_codes (GHashTable *table,
+_read_country_codes (GHashTable *table,
                     const gchar *country_codes_file,
+                    const gchar *country_codes_locale,
                     GCancellable *cancellable,
                     GError **error)
 {
 	GMarkupParseContext *ctx;
 	char *buf;
 	gsize buf_len;
-
-	/* Set domain to iso_3166 for country name translation */
-	bindtextdomain ("iso_3166", ISO_CODES_PREFIX "/locale");
-	bind_textdomain_codeset ("iso_3166", "UTF-8");
 
 	if (!g_file_get_contents (country_codes_file, &buf, &buf_len, error)) {
 		g_prefix_error (error,
@@ -493,9 +490,39 @@ read_country_codes (GHashTable *table,
 		return FALSE;
 	}
 
+	/* Set domain to iso_3166 for country name translation */
+	bindtextdomain ("iso_3166", country_codes_locale);
+	bind_textdomain_codeset ("iso_3166", "UTF-8");
+
 	g_markup_parse_context_free (ctx);
 	g_free (buf);
 	return TRUE;
+}
+
+static gboolean
+read_country_codes_file (GHashTable *table,
+                         const gchar *country_codes_file,
+                         GCancellable *cancellable,
+                         GError **error)
+{
+	gs_free char *country_codes_locale = NULL;
+
+	country_codes_locale = g_build_filename (country_codes_file, "../../locale", NULL);
+	return _read_country_codes (table, country_codes_file, country_codes_locale, cancellable, error);
+}
+
+static gboolean
+read_country_codes_dir (GHashTable *table,
+                        const gchar *country_codes_dir,
+                        GCancellable *cancellable,
+                        GError **error)
+{
+	gs_free char *country_codes_file = NULL;
+	gs_free char *country_codes_locale = NULL;
+
+	country_codes_file = g_build_filename (country_codes_dir, ISO_3166_COUNTRY_CODES, NULL);
+	country_codes_locale = g_build_filename (country_codes_dir, "locale", NULL);
+	return _read_country_codes (table, country_codes_file, country_codes_locale, cancellable, error);
 }
 
 /******************************************************************************/
@@ -977,28 +1004,20 @@ mobile_providers_parse_sync (const gchar *country_codes,
 
 	/* Use default paths if none given */
 	if (country_codes) {
-		if (!read_country_codes (countries, country_codes, cancellable, error)) {
+		if (!read_country_codes_file (countries, country_codes, cancellable, error)) {
 			g_hash_table_unref (countries);
 			return FALSE;
 		}
 	} else {
 		/* First try the user override file. */
-		path = g_build_filename (g_get_user_data_dir (), ISO_3166_COUNTRY_CODES, NULL);
-		success = read_country_codes (countries, path, cancellable, NULL);
-		g_free (path);
+		success = read_country_codes_dir (countries, g_get_user_data_dir (), cancellable, NULL);
 
 		/* Look in system locations. */
-		for (i = 0; dirs[i] && !success; i++) {
-			path = g_build_filename (dirs[i], ISO_3166_COUNTRY_CODES, NULL);
-			success = read_country_codes (countries, path, cancellable, NULL);
-			g_free (path);
-		}
+		for (i = 0; dirs[i] && !success; i++)
+			success = read_country_codes_dir (countries, dirs[i], cancellable, NULL);
 
-		if (!success) {
-			path = g_build_filename (ISO_CODES_PREFIX, "share", ISO_3166_COUNTRY_CODES, NULL);
-			success = read_country_codes (countries, path, cancellable, NULL);
-			g_free (path);
-		}
+		if (!success)
+			success = read_country_codes_dir (countries, ISO_CODES_DATADIR, cancellable, NULL);
 
 		if (!success) {
 			g_warning ("Could not find the country codes file (%s): check your installation\n",

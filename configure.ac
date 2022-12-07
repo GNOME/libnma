@@ -86,7 +86,7 @@ if test x$disable_iso_codes_check = "xno" ; then
     else
         AC_MSG_RESULT([no])
     fi
-    AC_DEFINE_UNQUOTED([ISO_CODES_PREFIX],["`$PKG_CONFIG --variable=prefix iso-codes`"],[ISO codes prefix])
+    AC_DEFINE_UNQUOTED([ISO_CODES_DATADIR],["`$PKG_CONFIG --variable=prefix iso-codes`/share"],[ISO codes data directory])
     PKG_CHECK_MODULES(ISO_CODES, [iso-codes],
         [],
         [echo -e "\n$ISO_CODES_PKG_ERRORS.\n"
@@ -94,7 +94,7 @@ if test x$disable_iso_codes_check = "xno" ; then
          echo "You can also disable build-time check for 'iso-codes' via --disable-iso-codes";
          exit 1;])
 else
-    AC_DEFINE_UNQUOTED([ISO_CODES_PREFIX],["$prefix"],[ISO codes prefix])
+    AC_DEFINE_UNQUOTED([ISO_CODES_DATADIR],["$datadir"],[ISO codes data directory])
 fi
 
 # Check for mobile-broadband-provider-info for Mobile Broadband wizard
@@ -117,7 +117,7 @@ if test x$disable_mobile_broadband_provider_info_check = "xno" ; then
          echo "You can also disable build-time check for 'mobile-broadband-provider-info' via --disable-mobile-broadband-provider-info";
          exit 1;])
 else
-    AC_DEFINE_UNQUOTED([MOBILE_BROADBAND_PROVIDER_INFO_DATABASE],["$prefix/share/mobile-broadband-provider-info/serviceproviders.xml"],[Mobile Broadband Service Provider Information Database location])
+    AC_DEFINE_UNQUOTED([MOBILE_BROADBAND_PROVIDER_INFO_DATABASE],["$datadir/mobile-broadband-provider-info/serviceproviders.xml"],[Mobile Broadband Service Provider Information Database location])
 fi
 
 dnl

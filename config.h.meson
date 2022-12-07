@@ -1,8 +1,8 @@
 /* Gettext package */
 #mesondefine GETTEXT_PACKAGE
 
-/* ISO codes prefix */
-#mesondefine ISO_CODES_PREFIX
+/* ISO codes data directory */
+#mesondefine ISO_CODES_DATADIR
 
 /* Mobile Broadband Service Provider Information Database location */
 #mesondefine MOBILE_BROADBAND_PROVIDER_INFO_DATABASE
