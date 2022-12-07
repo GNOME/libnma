@@ -523,20 +523,6 @@ typedef struct {
 	MobileContextState state;
 } MobileParser;
 
-static NMACountryInfo *
-lookup_country (GHashTable *table, const char *country_code)
-{
-	NMACountryInfo *country_info;
-
-	country_info = g_hash_table_lookup (table, country_code);
-	if (!country_info) {
-		g_warning ("%s: adding providers for unknown country '%s'", __func__, country_code);
-		country_info = g_hash_table_lookup (table, "");
-	}
-
-	return country_info;
-}
-
 static void
 parser_toplevel_start (MobileParser *parser,
                        const char *name,
@@ -561,7 +547,7 @@ parser_toplevel_start (MobileParser *parser,
 			if (!strcmp (attribute_names[i], "code")) {
 				g_free (parser->country_code);
 				parser->country_code = g_ascii_strup (attribute_values[i], -1);
-				parser->current_country = lookup_country (parser->table, parser->country_code);
+				parser->current_country = g_hash_table_lookup (parser->table, parser->country_code);
 				parser->state = PARSER_COUNTRY;
 				break;
 			}
@@ -703,7 +689,17 @@ static void
 parser_country_end (MobileParser *parser,
                     const char *name)
 {
-	if (!strcmp (name, "country")) {
+	if (!strcmp (name, "name")) {
+		if (!parser->current_country) {
+			g_debug ("%s: code '%s' unknown, falling back to '%s'", __func__,
+				 parser->country_code, parser->text_buffer);
+			parser->current_country = country_info_new (parser->country_code,
+								    parser->text_buffer);
+			g_hash_table_insert (parser->table,
+					     g_strdup (parser->country_code),
+					     parser->current_country);
+		}
+	} else if (!strcmp (name, "country")) {
 		parser->current_country = NULL;
 		g_free (parser->country_code);
 		parser->country_code = NULL;
@@ -717,6 +713,14 @@ static void
 parser_provider_end (MobileParser *parser,
                      const char *name)
 {
+	if (!parser->current_country) {
+		if (g_hash_table_size (parser->table) > 1) {
+			g_warning ("%s: adding providers for unknown country '%s'",
+			           __func__, parser->country_code);
+		}
+		parser->current_country = g_hash_table_lookup (parser->table, "");
+	}
+
 	if (!strcmp (name, "name")) {
 		if (!parser->current_provider->name) {
 			/* Use the first one. */
