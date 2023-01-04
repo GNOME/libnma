@@ -133,9 +133,9 @@ if enable_iso_codes
   iso_3166 = iso_codes_dep.get_pkgconfig_variable('domains').contains('iso_3166')
   message('whether iso-codes has iso_3166 domain: ' + iso_3166.to_string())
 
-  config_h.set_quoted('ISO_CODES_PREFIX', iso_codes_dep.get_pkgconfig_variable('prefix'))
+  config_h.set_quoted('ISO_CODES_DATADIR', iso_codes_dep.get_pkgconfig_variable('prefix') + '/share')
 else
-  config_h.set_quoted('ISO_CODES_PREFIX', nma_prefix)
+  config_h.set_quoted('ISO_CODES_DATADIR', nma_datadir)
 endif
 
 # Check for mobile-broadband-provider-info for Mobile Broadband wizard
