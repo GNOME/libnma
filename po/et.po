@@ -1,9 +1,9 @@
 # VõrguHalduri eesti keele tõlge.
-# Estonian translation of NetworkManager.
+# Estonian translation of libnma.
 #
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2011 The GNOME Project
-# This file is distributed under the same license as the Networkmanager package.
+# This file is distributed under the same license as the libnma package.
 #
 # Priit Laes <amd store20 com>, 2006.
 # Ivar Smolin <okul at linux.ee>, 2006–2007, 2010, 2011.
@@ -11,9 +11,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Network Manager MASTER\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2013-03-13 02:52+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -25,75 +25,12 @@ msgstr ""
 "X-Poedit-Language: Estonia\n"
 "X-Poedit-Country: ESTONIAN\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Ühendumise saavutamisest ei teatata"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "Kui tõene, siis on võrguga ühendumise teated keelatud."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Ühenduse katkemisest ei teatata"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "Kui tõene, siis on võrguühenduse katkemise teated keelatud."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN teadete keelamine"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "Kui tõene, siis on VPN ühenduse loomise ja katkemise teated keelatud."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Saadaolevatest võrkudest ei teatata"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "Kui tõene, siis on saadaolevatest Wi-Fi võrkudest teatamine keelatud."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Tempel"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Kasutatakse, et kindlaks teha, millal tuleb sätteid uuendada järgmisele "
-"versioonile."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Wi-Fi loomine keelatud"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "Kui tõene, siis on adhoc võrgu loomine rakendi abil keelatud."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Rakendit näidatakse teatealas"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "Määra väärtuseks FALSE, et keelata rakendi näitamine teatealas."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Sertifitseerimiskeskuse sertifikaadi eiramine"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -101,7 +38,7 @@ msgstr ""
 "Märgi see, et keelata hoiatused sertifitseerimiskeskuse (CA) sertide kohta "
 "EAP autentimisel."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -155,30 +92,73 @@ msgstr "Parool:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "Sertifitseerimiskeskuse sertifikaadi eiramine"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Vali sertifitseerimiskeskuse sertifikaat"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "_Kasutaja sertifikaart:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "_Kasutaja sertifikaart:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Vali sertifitseerimiskeskuse sertifikaat"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "Privaat_võti:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "_Privaatvõtme parool:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "_Näita paroole"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "Sertifitseerimis_keskuse sert:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(puudub)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Tundmatu"
@@ -232,80 +212,80 @@ msgstr "Iga seade"
 msgid "New Mobile Broadband Connection"
 msgstr "Uus mobiiliühendus"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
 msgstr "See abiline teeb mobiilivõrgu (3G) ühenduse seadistamise lihtsaks."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Vaja on alljärgnevat teavet:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "Sinu teenusepakkuja nimi"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Sinu ühenduse makseplaani nimi"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "(Mõnel juhul) sinu ühenduse makseplaani APN (Access Point Name, "
 "pöörduspunkti nimi)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Ühenduse loomine _selle mobiiliühenduse seadmega:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Mobiiliühenduse seadistamine"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Riik või piirkond"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Teenusepakkuja asukohariigi või -regiooni valimine"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Vali oma teenusepakkuja _loetelust:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "Ma ei leidnud oma teenusepakkujat, ma tahan selle sisestada _käsitsi:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr ""
 "Minu teenusepakkuja kasutab _GSM-tehnoloogiat (GPRS, EDGE, UMTS, HSDPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Minu teenusepakkuja kasutab _CDMA-tehnoloogiat (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Vali teenusepakkuja"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Vali oma plaan:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "Valitud plaani _APN (Access Point Name, pöörduspunkti nimi):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -319,29 +299,29 @@ msgstr ""
 "Kui sa pole kindel, küsi oma teenusepakkujalt õige plaani APN (Access Point "
 "Name, pöörduspunkti nimi)."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Makseplaani valimine"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr "Sinu mobiiliühendus on seadistatud järgmiselt:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Sinu seade:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Sinu teenusepakkuja:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Sinu makseplaan:"
 
 # Ubuntul on siin "Arvuti > Eelistused"
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -355,29 +335,29 @@ msgstr ""
 "sätteid.  Mobiiliühenduse muutmiseks vali \"Võrguühendused\" menüüst Süsteem "
 "> Eelistused."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Mobiiliühenduse sätete kinnitamine"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Viga ühenduse muutmisel"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Võta lukust lahti"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Nimi"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -386,8 +366,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -449,88 +429,88 @@ msgstr "Katkesta ühendus"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Puudub"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 40/128-bitine võti (Hex või ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bitine parool"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "Dünaamiline WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 isiklik"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 ettevõtte"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 isiklik"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_Loo"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "Ü_hendu"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "Ligipääsuks Wi-Fi võrgule '%s' on vaja parooli või krüpteerimisvõtit."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Wi-Fi võrk nõuab salasõna"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi võrgu jaoks on vaja salasõna"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Uue Wi-Fi võrgu loomine"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Uus Wi-Fi võrk"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Sisesta loodava Wi-Fi võrgu nimi."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Varjatud Wi-Fi võrku ühendumine"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Varjatud Wi-Fi võrk"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -899,2589 +879,3 @@ msgstr "Ü_hendus:"
 #, fuzzy
 msgid "Wi-Fi _adapter"
 msgstr "Wi-Fi _adapter:"
-
-#, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "Sertifitseerimiskeskuse sertifikaadi eiramine"
-
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Vali sertifitseerimiskeskuse sertifikaat"
-
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Privaat_võti:"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "_Privaatvõtme parool:"
-
-#, fuzzy, c-format
-#~ msgid "Choose %s Certificate"
-#~ msgstr "Vali sertifitseerimiskeskuse sertifikaat"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "_Kasutaja sertifikaart:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Vali sertifitseerimiskeskuse sertifikaat"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "_Kasutaja sertifikaart:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "_Näita paroole"
-
-#~ msgid "Manage your network connections"
-#~ msgstr "Võrguühenduste haldamine"
-
-#, fuzzy
-#~ msgid "Advanced Network Configuration"
-#~ msgstr "Aktiivsed võrguühendused"
-
-#~ msgid "Manage and change your network connection settings"
-#~ msgstr "Võrguühenduse sätete haldus"
-
-#, fuzzy
-#~ msgid "NetworkManager"
-#~ msgstr "Võrguhalduri rakend"
-
-#, fuzzy
-#~ msgid "NetworkManager connection editor"
-#~ msgstr "Võrguühendus puudub"
-
-#, fuzzy
-#~ msgid "The NetworkManager Developers"
-#~ msgstr "Võrguhalduri rakend"
-
-#~ msgid "802.1X authentication"
-#~ msgstr "802.1X autentimine"
-
-#, fuzzy
-#~ msgid "ad-hoc"
-#~ msgstr "Ad-hoc"
-
-#~ msgid "Failed to add/activate connection"
-#~ msgstr "Ühenduse lisamine/aktiveerimine nurjus"
-
-#~ msgid "Unknown error"
-#~ msgstr "Tundmatu viga"
-
-#~ msgid "Connection failure"
-#~ msgstr "Ühendus nurjus"
-
-#~ msgid "Device disconnect failed"
-#~ msgstr "Seadmega ühenduse katkestamine nurjus"
-
-#~ msgid "Disconnect failure"
-#~ msgstr "Ühenduse katkestamine nurjus"
-
-#~ msgid "Connection activation failed"
-#~ msgstr "Ühenduse aktiveerimine nurjus"
-
-#, fuzzy
-#~ msgid "Don’t show this message again"
-#~ msgstr "Ära seda uuesti näita"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” disconnected because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' katkes, kuna võrguühendus katkestati."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna võrguühendus katkestati."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service stopped "
-#~ "unexpectedly."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna VPN-teenus peatus ootamatult."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service returned invalid "
-#~ "configuration."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna VPN-teenus tagastas vigase seadistuse."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the connection attempt timed out."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna ühendumise katse aegus."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service did not start in "
-#~ "time."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna VPN-teenus ei käivitunud õigeaegselt."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna VPN-teenuse käivitamine nurjus."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because there were no valid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna ei leitud sobivat VPN'i parooli."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because of invalid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus sobimatu VPN'i parooli tõttu."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus."
-
-#, c-format
-#~ msgid ""
-#~ "VPN connection has been successfully established.\n"
-#~ "\n"
-#~ "%s\n"
-#~ msgstr ""
-#~ "VPN ühenduse loomine edukas.\n"
-#~ "\n"
-#~ "%s\n"
-
-#~ msgid "VPN connection has been successfully established.\n"
-#~ msgstr "VPN ühenduse loomine edukas.\n"
-
-#~ msgid "VPN Login Message"
-#~ msgstr "VPN'i sisselogimise teade"
-
-#~ msgid "VPN Connection Failed"
-#~ msgstr "VPN-ühendus nurjus"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' nurjus, kuna VPN-teenuse käivitamine nurjus.\n"
-#~ "\n"
-#~ "%s"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühenduse '%s' käivitamine nurjus.\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "device not ready (firmware missing)"
-#~ msgstr "seade pole valmis (puudub püsivara)"
-
-#~ msgid "device not ready"
-#~ msgstr "seade pole valmis"
-
-#~ msgid "disconnected"
-#~ msgstr "ühendamata"
-
-#~ msgid "Disconnect"
-#~ msgstr "Katkesta ühendus"
-
-#~ msgid "device not managed"
-#~ msgstr "seade pole hallatud"
-
-#~ msgid "No network devices available"
-#~ msgstr "Võrguseadmeid ei leitud"
-
-#~ msgid "_VPN Connections"
-#~ msgstr "_VPN-ühendused"
-
-#, fuzzy
-#~ msgid "_Configure VPN…"
-#~ msgstr "_Seadista VPN..."
-
-#, fuzzy
-#~ msgid "_Add a VPN connection…"
-#~ msgstr "_VPN-ühendused"
-
-#, fuzzy
-#~ msgid "NetworkManager is not running…"
-#~ msgstr "Võrguhaldur ei tööta..."
-
-#~ msgid "Networking disabled"
-#~ msgstr "Võrguühendused keelatud"
-
-#~ msgid "Enable _Networking"
-#~ msgstr "_Võrguühendused lubatud"
-
-#~ msgid "Enable _Wi-Fi"
-#~ msgstr "_Wi-Fi ühendused lubatud"
-
-#~ msgid "Enable _Mobile Broadband"
-#~ msgstr "_Mobiiliühendus lubatud"
-
-#~ msgid "Enable N_otifications"
-#~ msgstr "_Teated lubatud"
-
-#~ msgid "Connection _Information"
-#~ msgstr "Ü_henduse andmed"
-
-#, fuzzy
-#~ msgid "Edit Connections…"
-#~ msgstr "Ühenduste muutmine..."
-
-#~ msgid "_About"
-#~ msgstr "_Programmist lähemalt"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to “%s”."
-#~ msgstr "Oled nüüd ühendatud võrku '%s'."
-
-#~ msgid "Disconnected"
-#~ msgstr "Ühendus katkestatud"
-
-#~ msgid "The network connection has been disconnected."
-#~ msgstr "Võrguühendus katkes."
-
-#, fuzzy, c-format
-#~ msgid "Preparing network connection “%s”…"
-#~ msgstr "Võrguühenduse '%s' ettevalmistamine..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for network connection “%s”…"
-#~ msgstr "Võrguühenduse '%s' jaoks on vajalik kasutaja autentimine..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a network address for “%s”…"
-#~ msgstr "Võrguaadressi pärimine võrgu '%s' jaoks..."
-
-#, fuzzy, c-format
-#~ msgid "Network connection “%s” active"
-#~ msgstr "Võrguühendus '%s' on aktiivne"
-
-#, fuzzy, c-format
-#~ msgid "Starting VPN connection “%s”…"
-#~ msgstr "VPN-ühenduse '%s' alustamine..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for VPN connection “%s”…"
-#~ msgstr "VPN-ühenduse '%s' jaoks on vajalik kasutaja autentimine..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a VPN address for “%s”…"
-#~ msgstr "VPN'i aadressi pärimine võrgu '%s' jaoks..."
-
-#, fuzzy
-#~ msgid "VPN connection active"
-#~ msgstr "VPN-ühendus '%s' on aktiivne"
-
-#~ msgid "No network connection"
-#~ msgstr "Võrguühendus puudub"
-
-#~ msgid "NetworkManager Applet"
-#~ msgstr "Võrguhalduri rakend"
-
-#~ msgid "Wrong PUK code; please contact your provider."
-#~ msgstr "Vale PUK-kood; võta ühendust oma teenusepakkujaga."
-
-#~ msgid "Wrong PIN code; please contact your provider."
-#~ msgstr "Vale PIN-kood; võta ühendust oma teenusepakkujaga."
-
-#, fuzzy
-#~ msgid "Sending unlock code…"
-#~ msgstr "Luku avamise koodi saatmine..."
-
-#, c-format
-#~ msgid "Mobile Broadband (%s)"
-#~ msgstr "Mobiiliühendus (%s)"
-
-#~ msgid "Mobile Broadband"
-#~ msgstr "Mobiiliühendus"
-
-#~ msgid "Available"
-#~ msgstr "Saadaval"
-
-#, fuzzy
-#~ msgid "New Mobile Broadband connection…"
-#~ msgstr "Uus mobiiliühendus"
-
-#~ msgid "Connection Established"
-#~ msgstr "Ühendus loodud"
-
-#~ msgid "You are now connected to the Mobile Broadband network."
-#~ msgstr "Oled nüüd ühendatud mobiiliinternetti."
-
-#~ msgid "Mobile Broadband network."
-#~ msgstr "Mobiiliühenduse võrk."
-
-#~ msgid "You are now registered on the home network."
-#~ msgstr "Oled nüüd ühendatud koduvõrku."
-
-#~ msgid "You are now registered on a roaming network."
-#~ msgstr "Oled nüüd ühendatud rändlusvõrku (roaming)."
-
-#~ msgid "You are now connected to the mobile broadband network."
-#~ msgstr "Oled nüüd ühendatud mobiiliinternetti."
-
-#, fuzzy, c-format
-#~ msgid "Preparing mobile broadband connection “%s”…"
-#~ msgstr "Mobiiliühenduse '%s' ettevalmistamine..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring mobile broadband connection “%s”…"
-#~ msgstr "Mobiiliühenduse '%s' häälestamine..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for mobile broadband connection “%s”…"
-#~ msgstr "Kasutaja autentimine on vajalik mobiiliühenduse '%s' jaoks..."
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active"
-#~ msgstr "Mobiiliühendus '%s' on aktiivne"
-
-#~ msgid "Auto Ethernet"
-#~ msgstr "Automaatne juhtmega ühendus"
-
-#, c-format
-#~ msgid "Ethernet Networks (%s)"
-#~ msgstr "Ethernet võrgud (%s)"
-
-#, c-format
-#~ msgid "Ethernet Network (%s)"
-#~ msgstr "Ethernet võrk (%s)"
-
-#~ msgid "Ethernet Networks"
-#~ msgstr "Ethernet võrgud"
-
-#~ msgid "Ethernet Network"
-#~ msgstr "Ethernet võrk"
-
-#~ msgid "You are now connected to the ethernet network."
-#~ msgstr "Oled nüüd ühendatud ethernet võrku."
-
-#, fuzzy, c-format
-#~ msgid "Preparing ethernet network connection “%s”…"
-#~ msgstr "Ethernet võrgu ühenduse '%s' ettevalmistamine..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring ethernet network connection “%s”…"
-#~ msgstr "Ethernet võrgu ühenduse '%s' häälestamine..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for ethernet network connection “%s”…"
-#~ msgstr ""
-#~ "Ethernet võrguühenduse '%s' jaoks on vajalik kasutaja autentimine..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting an ethernet network address for “%s”…"
-#~ msgstr "Võrguaadressi pärimine ethernet võrgu '%s' jaoks..."
-
-#, fuzzy, c-format
-#~ msgid "Ethernet network connection “%s” active"
-#~ msgstr "Ethernet võrguühendus '%s' on aktiivne"
-
-#~ msgid "DSL authentication"
-#~ msgstr "DSL autentimine"
-
-#, fuzzy
-#~ msgid "_Connect to Hidden Wi-Fi Network…"
-#~ msgstr "Varjatud Wi-Fi võrku ühendumine"
-
-#, fuzzy
-#~ msgid "Create _New Wi-Fi Network…"
-#~ msgstr "Uue Wi-Fi võrgu loomine"
-
-#~ msgid "(none)"
-#~ msgstr "(puudub)"
-
-#~ msgid "Failed to add new connection"
-#~ msgstr "Uut ühendust pole võimalik lisada"
-
-#, c-format
-#~ msgid "Wi-Fi Networks (%s)"
-#~ msgstr "Wi-Fi võrgud (%s)"
-
-#, c-format
-#~ msgid "Wi-Fi Network (%s)"
-#~ msgstr "Wi-Fi võrk (%s)"
-
-#~ msgid "Wi-Fi Network"
-#~ msgid_plural "Wi-Fi Networks"
-#~ msgstr[0] "Wi-Fi võrk"
-#~ msgstr[1] "Wi-Fi võrgud"
-
-#~ msgid "Wi-Fi is disabled"
-#~ msgstr "Wi-Fi on keelatud"
-
-#~ msgid "Wi-Fi is disabled by hardware switch"
-#~ msgstr "Wi-Fi on keelatud riistvaralisest lülitist"
-
-#~ msgid "More networks"
-#~ msgstr "Veel võrke"
-
-#~ msgid "Wi-Fi Networks Available"
-#~ msgstr "Wi-Fi võrgud on saadaval"
-
-#~ msgid "Use the network menu to connect to a Wi-Fi network"
-#~ msgstr "Wi-Fi võrku ühendumiseks kasuta võrgumenüüd"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to the Wi-Fi network “%s”."
-#~ msgstr "Oled nüüd ühendatud Wi-Fi võrku '%s'."
-
-#, fuzzy, c-format
-#~ msgid "Preparing Wi-Fi network connection “%s”…"
-#~ msgstr "Wi-Fi võrgu '%s' ühenduse ettevalmistamine..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring Wi-Fi network connection “%s”…"
-#~ msgstr "Wi-Fi võrgu '%s' ühenduse häälestamine..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for Wi-Fi network “%s”…"
-#~ msgstr "Wi-Fi võrgu '%s' jaoks on vajalik kasutaja autentimine..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a Wi-Fi network address for “%s”…"
-#~ msgstr "Võrguaadressi pärimine Wi-Fi võrgu '%s' jaoks..."
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active: %s (%d%%)"
-#~ msgstr "Wi-Fi ühendus võrku '%s' on aktiivne: %s (%d%%)"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active"
-#~ msgstr "Wi-Fi võrguühendus '%s' on aktiivne"
-
-#~ msgid "Failed to activate connection"
-#~ msgstr "Ühenduse aktiveerimine nurjus"
-
-#~ msgid "Error displaying connection information:"
-#~ msgstr "Viga ühenduse andmete kuvamisel:"
-
-#~ msgid "Dynamic WEP"
-#~ msgstr "Dünaamiline WEP"
-
-#~ msgid "WPA/WPA2"
-#~ msgstr "WPA/WPA2"
-
-#, fuzzy
-#~ msgid "More addresses"
-#~ msgstr "Aadressid"
-
-#~ msgid "WEP"
-#~ msgstr "WEP"
-
-#~ msgctxt "Wi-Fi/Ethernet security"
-#~ msgid "None"
-#~ msgstr "Puudub"
-
-#, c-format
-#~ msgid "%u Mb/s"
-#~ msgstr "%u Mb/s"
-
-#~ msgctxt "Speed"
-#~ msgid "Unknown"
-#~ msgstr "Tundmatu"
-
-#~ msgctxt "Address"
-#~ msgid "Unknown"
-#~ msgstr "Tundmatu"
-
-#~ msgid "IP Address"
-#~ msgstr "IP-aadress"
-
-#~ msgid "Broadcast Address"
-#~ msgstr "Eetri aadress"
-
-#~ msgctxt "Subnet Mask"
-#~ msgid "Unknown"
-#~ msgstr "Tundmatu"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "Alamvõrgu mask"
-
-#, fuzzy
-#~ msgid "Primary DNS"
-#~ msgstr "Esmane DNS:"
-
-#, fuzzy
-#~ msgid "Secondary DNS"
-#~ msgstr "Teisene DNS:"
-
-#, fuzzy
-#~ msgid "Tertiary DNS"
-#~ msgstr "Kolmas DNS:"
-
-#, c-format
-#~ msgid "Ethernet (%s)"
-#~ msgstr "Ethernet (%s)"
-
-#, c-format
-#~ msgid "802.11 Wi-Fi (%s)"
-#~ msgstr "802.11 Wi-Fi (%s)"
-
-#, c-format
-#~ msgid "GSM (%s)"
-#~ msgstr "GSM (%s)"
-
-#, c-format
-#~ msgid "CDMA (%s)"
-#~ msgstr "CDMA (%s)"
-
-#~ msgid "General"
-#~ msgstr "Üldine"
-
-#~ msgid "Interface"
-#~ msgstr "Liides"
-
-#~ msgid "Hardware Address"
-#~ msgstr "Riistvara aadress"
-
-#~ msgid "Driver"
-#~ msgstr "Draiver"
-
-#~ msgid "Speed"
-#~ msgstr "Kiirus"
-
-#, fuzzy
-#~ msgid "Security"
-#~ msgstr "Turvalisus:"
-
-#~ msgid "IPv4"
-#~ msgstr "IPv4"
-
-#~ msgid "Default Route"
-#~ msgstr "Vaikimisi marsruut"
-
-#~ msgid "IPv6"
-#~ msgstr "IPv6"
-
-#~ msgid "VPN Type"
-#~ msgstr "VPNi liik"
-
-#~ msgid "VPN Gateway"
-#~ msgstr "VPNi lüüs"
-
-#~ msgid "VPN Username"
-#~ msgstr "VPNi kasutajanimi"
-
-#~ msgid "VPN Banner"
-#~ msgstr "VPN-i pealkiri (banner)"
-
-#~ msgid "Base Connection"
-#~ msgstr "Baasühendus"
-
-#~ msgid "No valid active connections found!"
-#~ msgstr "Sobivaid aktiivseid ühendusi pole!"
-
-#, fuzzy
-#~ msgid ""
-#~ "Copyright © 2004-2017 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2008 Novell, Inc.\n"
-#~ "and many other community contributors and translators"
-#~ msgstr ""
-#~ "Autoriõigused © 2004–2011 Red Hat, Inc.\n"
-#~ "Autoriõigused © 2005-2008 Novell, Inc.\n"
-#~ "ja paljud teised kaasosalised ja tõlkijad kogukonnast"
-
-#~ msgid ""
-#~ "Notification area applet for managing your network devices and "
-#~ "connections."
-#~ msgstr "Teateala rakend võrguühenduste ja seadmete haldamiseks."
-
-#~ msgid "NetworkManager Website"
-#~ msgstr "Võrguhalduri veebileht"
-
-#~ msgid ""
-#~ "The NetworkManager Applet could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "Võrguhalduri rakend ei suutnud leida vajalikke allikaid (.ui faili ei "
-#~ "leitud)."
-
-#~ msgid "Missing resources"
-#~ msgstr "Puuduvad allikad"
-
-#~ msgid "Mobile broadband network password"
-#~ msgstr "Mobiiliühenduse võrguparool"
-
-#, fuzzy, c-format
-#~ msgid "A password is required to connect to “%s”."
-#~ msgstr "Võrku '%s' ühendumiseks on vaja parooli."
-
-#~ msgid "Password:"
-#~ msgstr "Parool:"
-
-#~ msgid "SIM PIN unlock required"
-#~ msgstr "Vajalik on SIM-kaardi PIN-kood"
-
-#~ msgid "SIM PIN Unlock Required"
-#~ msgstr "Vajalik on SIM-kaardi PIN-kood"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PIN code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Mobiiliühenduse seadme '%s' kasutamiseks on vajalik SIM-kaardi PIN-kood."
-
-#~ msgid "PIN code:"
-#~ msgstr "PIN-kood:"
-
-#~ msgid "Show PIN code"
-#~ msgstr "Näita PIN-koodi"
-
-#~ msgid "SIM PUK unlock required"
-#~ msgstr "Vajalik on SIM-kaardi PUK-kood"
-
-#~ msgid "SIM PUK Unlock Required"
-#~ msgstr "Vajalik on SIM-kaardi PUK-kood"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PUK code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Mobiiliühenduse seadme '%s' kasutamiseks on vajalik SIM-kaardi PUK-kood."
-
-#~ msgid "PUK code:"
-#~ msgstr "PUK-kood:"
-
-#~ msgid "New PIN code:"
-#~ msgstr "Uus PIN-kood:"
-
-#~ msgid "Re-enter new PIN code:"
-#~ msgstr "Uus PIN-kood uuesti:"
-
-#~ msgid "Show PIN/PUK codes"
-#~ msgstr "Näita PIN/PUK-koodi"
-
-#, fuzzy
-#~ msgid "Connection had no VPN setting"
-#~ msgstr "Ühenduse andmed"
-
-#, fuzzy, c-format
-#~ msgid "Failed to write connection to VPN UI: %s (%d)"
-#~ msgstr "DUN-ühenduse loomine nurjus: %s"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add an IP address."
-#~ msgstr ""
-#~ "IP-aadress on arvuti nimi võrgus. Klõpsa \"Lisa\", et lisada IP-aadress."
-
-#~ msgid "_Delete"
-#~ msgstr "_Kustuta"
-
-#~ msgid "Ig_nore automatically obtained routes"
-#~ msgstr "Automaatselt saadud marsruute _eiratakse"
-
-#~ msgid "_Use this connection only for resources on its network"
-#~ msgstr "Ü_hendust kasutatakse ainult selle kohtvõrgu jaoks"
-
-#~ msgid ""
-#~ "If enabled, this connection will never be used as the default network "
-#~ "connection."
-#~ msgstr ""
-#~ "Kui märgitud, ei kasutata seda ühendust mitte kunagi vaikimisi "
-#~ "võrguühendusena."
-
-#, fuzzy
-#~ msgid "C_reate…"
-#~ msgstr "Loo…"
-
-#~ msgid "Choose a Connection Type"
-#~ msgstr "Ühenduse liigi valimine"
-
-#~ msgid ""
-#~ "Select the type of connection you wish to create.\n"
-#~ "\n"
-#~ "If you are creating a VPN, and the VPN connection you wish to create does "
-#~ "not appear in the list, you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Vali, mis liiki ühenduse tahad luua.\n"
-#~ "\n"
-#~ "Kui soovid luua VPN ühendust ning soovitud VPN ühenduse liiki nimekirjas "
-#~ "ei leidu, võib vajalik VPN plugin olla paigaldamata."
-
-#, fuzzy
-#~ msgid "_Device"
-#~ msgstr "_Teenus:"
-
-#~ msgid "Round-robin"
-#~ msgstr "Round-robin"
-
-#~ msgid "Active backup"
-#~ msgstr "Aktiivne varundus"
-
-#~ msgid "XOR"
-#~ msgstr "XOR"
-
-#~ msgid "Broadcast"
-#~ msgstr "Eetriaadress"
-
-#~ msgid "802.3ad"
-#~ msgstr "802.3ad"
-
-#~ msgid "Adaptive transmit load balancing"
-#~ msgstr "Kohanev ülekande koormuse jaotus"
-
-#~ msgid "Adaptive load balancing"
-#~ msgstr "Kohanev koormusjaotus"
-
-#~ msgid "MII (recommended)"
-#~ msgstr "MII (soovitatud)"
-
-#~ msgid "ARP"
-#~ msgstr "ARP"
-
-#, fuzzy
-#~ msgid "Bonded _connections"
-#~ msgstr "Liitühendused (bonded):"
-
-#, fuzzy
-#~ msgid "M_ode"
-#~ msgstr "_Režiim:"
-
-#~ msgid "_Edit"
-#~ msgstr "_Muuda"
-
-#, fuzzy
-#~ msgid "Monitoring _frequency"
-#~ msgstr "Monitoorimise _sagedus:"
-
-#~ msgid "ms"
-#~ msgstr "ms"
-
-#, fuzzy
-#~ msgid "_Interface name"
-#~ msgstr "_Liidese nimi:"
-
-#, fuzzy
-#~ msgid "_Link Monitoring"
-#~ msgstr "Ü_henduse monitooring:"
-
-#, fuzzy
-#~ msgid "ARP _targets"
-#~ msgstr "ARP _sihtkohad:"
-
-#~ msgid ""
-#~ "An IP address, or a comma-separated list of IP addresses, to look for "
-#~ "when checking the link status."
-#~ msgstr ""
-#~ "IP-aadress või komadega eraldatud IP-aadresside loetelu, millega "
-#~ "kontrollitakse ühenduse toimimist."
-
-#, fuzzy
-#~ msgid "Link _up delay"
-#~ msgstr "Link _maas viivitus:"
-
-#, fuzzy
-#~ msgid "Link _down delay"
-#~ msgstr "Link _püsti viivitus:"
-
-#, fuzzy
-#~ msgid "_Primary"
-#~ msgstr "Esmane DNS:"
-
-#, fuzzy
-#~ msgid "_MTU"
-#~ msgstr "Ülekandeühiku piirsuurus (_MTU):"
-
-#~ msgid "bytes"
-#~ msgstr "baiti"
-
-#, fuzzy
-#~ msgid "Path _cost"
-#~ msgstr "Marsruudi _hind:"
-
-#, fuzzy
-#~ msgid "_Priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "_Hairpin mode"
-#~ msgstr "_Hairpin režiim:"
-
-#, fuzzy
-#~ msgid "Bridged _connections"
-#~ msgstr "_Sildühendused:"
-
-#, fuzzy
-#~ msgid "_Forward delay"
-#~ msgstr "_Edastamise viivitus:"
-
-#, fuzzy
-#~ msgid "_Hello time"
-#~ msgstr "_Tervitusaeg:"
-
-#~ msgid "s"
-#~ msgstr "s"
-
-#, fuzzy
-#~ msgid "Enable I_GMP snooping"
-#~ msgstr "_Võrguühendused lubatud"
-
-#~ msgid "Enable _STP (Spanning Tree Protocol)"
-#~ msgstr "_STP lubamine (Spanning Tree Protocol)"
-
-#, fuzzy
-#~ msgid "_Max age"
-#~ msgstr "_Suurim vanus:"
-
-#, fuzzy
-#~ msgid "_Aging time"
-#~ msgstr "_Vananemise aeg:"
-
-#~ msgid "automatic"
-#~ msgstr "automaatne"
-
-#~ msgid "default"
-#~ msgstr "vaikimisi"
-
-#, fuzzy
-#~ msgid "Stable"
-#~ msgstr "_Wi-Fi ühendused lubatud"
-
-#, fuzzy
-#~ msgid ""
-#~ "The MAC address entered here will be used as hardware address for the "
-#~ "network device this connection is activated on. This feature is known as "
-#~ "MAC cloning or spoofing. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "Siia sisestatud MAC-aadressi kasutatakse selle ühendusega kasutatava "
-#~ "seadme riistvaralise aadressina. Seda võimalust tuntakse ka MAC-i "
-#~ "kloonimise või petmisena. Näiteks: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "MAC address"
-#~ msgstr "Aadress"
-
-#, fuzzy
-#~ msgid "HW address"
-#~ msgstr "Aadress"
-
-#, fuzzy, c-format
-#~ msgid "invalid interface-name (%s): "
-#~ msgstr "VLAN liidese _nimi:"
-
-#, fuzzy
-#~ msgid "invalid hardware address"
-#~ msgstr "Riistvara aadress:"
-
-#, fuzzy
-#~ msgid "device"
-#~ msgstr "Iga seade"
-
-#, fuzzy
-#~ msgid "_Use Data Center Bridging (DCB) for this connection"
-#~ msgstr "Sellel ühendusel 802.1_X turvalisuse kasutamine"
-
-#, fuzzy
-#~ msgid "Enable"
-#~ msgstr "_Wi-Fi ühendused lubatud"
-
-#, fuzzy
-#~ msgid "Priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "Priority Groups"
-#~ msgstr "_Prioriteet:"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "4"
-#~ msgstr "4"
-
-#, fuzzy
-#~ msgid "Strict Bandwidth"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "Priority Bandwidth"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "Group Bandwidth"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "_Service"
-#~ msgstr "_Teenus:"
-
-#, fuzzy
-#~ msgid "PPP _interface"
-#~ msgstr "Liides"
-
-#, fuzzy
-#~ msgid "P_arent interface"
-#~ msgstr "_Vanemliides:"
-
-#, fuzzy
-#~ msgid "C_laim interface"
-#~ msgstr "_Vanemliides:"
-
-#~ msgid "Twisted Pair (TP)"
-#~ msgstr "Pöördpaar (TP, twisted pair)"
-
-# see on ajaloo tunnist välja astunud: http://en.wikipedia.org/wiki/Attachment_Unit_Interface
-# seda vist elusuuruses ei näe
-# muidu lisaseadme liides kõlaks küll
-#~ msgid "Attachment Unit Interface (AUI)"
-#~ msgstr "Attachment Unit Interface (AUI)"
-
-#~ msgid "BNC"
-#~ msgstr "BNC"
-
-#~ msgid "Media Independent Interface (MII)"
-#~ msgstr "Meediumist sõltumatu liides (MII)"
-
-#~ msgid "10 Mb/s"
-#~ msgstr "10 Mb/s"
-
-#~ msgid "100 Mb/s"
-#~ msgstr "100 Mb/s"
-
-#~ msgid "1 Gb/s"
-#~ msgstr "1 Gb/s"
-
-#~ msgid "10 Gb/s"
-#~ msgstr "10 Gb/s"
-
-#~ msgid "Ignore"
-#~ msgstr "Eira"
-
-#~ msgid "Manual"
-#~ msgstr "Käsitsi"
-
-#, fuzzy
-#~ msgid "_Port"
-#~ msgstr "_Port:"
-
-#, fuzzy
-#~ msgid "C_loned MAC address"
-#~ msgstr "_Kloonitud MAC-aadress:"
-
-#, fuzzy
-#~ msgid "Wake on LAN"
-#~ msgstr "_Privaatvõtme parool:"
-
-#, fuzzy
-#~ msgid "De_fault"
-#~ msgstr "Vaikimisi"
-
-#, fuzzy
-#~ msgid "_Ignore"
-#~ msgstr "Eira"
-
-#, fuzzy
-#~ msgid "_Broadcast"
-#~ msgstr "Eetriaadress"
-
-#, fuzzy
-#~ msgid "_Wake on LAN password"
-#~ msgstr "_Privaatvõtme parool:"
-
-#, fuzzy
-#~ msgid "_Speed"
-#~ msgstr "_Kiirus:"
-
-#, fuzzy
-#~ msgid "Duple_x"
-#~ msgstr "_Täisdupleks"
-
-#~ msgid "Yes"
-#~ msgstr "Jah"
-
-#~ msgid "No"
-#~ msgstr "Ei"
-
-#~ msgid "All _users may connect to this network"
-#~ msgstr "_Kõik kasutajad võivad selle võrguga ühenduda"
-
-#, fuzzy
-#~ msgid "Automatically connect to _VPN"
-#~ msgstr "Selle ühendusega koos ühendutakse automaatselt _VPN võrku"
-
-#, fuzzy
-#~ msgid "Firewall _zone"
-#~ msgstr "Tulemüüri _tsoon:"
-
-#, fuzzy
-#~ msgid "_Metered connection"
-#~ msgstr "Liitühendused (bonded):"
-
-#, fuzzy
-#~ msgid "Connect _automatically with priority"
-#~ msgstr "_Automaatne ühendumine"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add static IP address to be configured in addition to the "
-#~ "automatic ones."
-#~ msgstr ""
-#~ "IP-aadress on arvuti nimi võrgus. Klõpsa \"Lisa\", et lisada IP-aadress."
-
-#, fuzzy
-#~ msgid "Additional static addresses"
-#~ msgstr "Automaatne, ainult aadressid"
-
-#~ msgid "Addresses"
-#~ msgstr "Aadressid"
-
-#~ msgid "Datagram"
-#~ msgstr "Datagram"
-
-#~ msgid "Connected"
-#~ msgstr "Ühendatud"
-
-#, fuzzy
-#~ msgid "_Transport mode"
-#~ msgstr "_Transportrežiim:"
-
-#, fuzzy
-#~ msgid "Device name"
-#~ msgstr "Seadme nimi + number"
-
-#, fuzzy
-#~ msgid "Parent device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "Mode"
-#~ msgstr "_Režiim:"
-
-#, fuzzy
-#~ msgid "MTU"
-#~ msgstr "Ülekandeühiku piirsuurus (_MTU):"
-
-#~ msgid "Automatic with manual DNS settings"
-#~ msgstr "Automaatne käsitsi DNS sätetega"
-
-#~ msgid "Link-Local"
-#~ msgstr "Link-Local"
-
-#~ msgid "Shared to other computers"
-#~ msgstr "Jagab teistele arvutitele"
-
-#, fuzzy
-#~ msgid "_Method"
-#~ msgstr "_Meetod:"
-
-#, fuzzy
-#~ msgid ""
-#~ "The DHCP client identifier allows the network administrator to customize "
-#~ "your computer’s configuration. If you wish to use a DHCP client "
-#~ "identifier, enter it here."
-#~ msgstr ""
-#~ "DHCP kliendi identifikaator võimaldab võrguhalduril sinu arvuti jaoks "
-#~ "määrata eriseadistuse. Kui soovid kasutada DHCP kliendi identifikaatorit, "
-#~ "sisesta see siia."
-
-#~ msgid ""
-#~ "Domains used when resolving host names. Use commas to separate multiple "
-#~ "domains."
-#~ msgstr ""
-#~ "Domeenid, mida kasutatakse hostinimede lahendamisel. Mitu domeeni eralda "
-#~ "komaga."
-
-#, fuzzy
-#~ msgid "D_HCP client ID"
-#~ msgstr "D_HCP kliendi ID:"
-
-#, fuzzy
-#~ msgid "S_earch domains"
-#~ msgstr "_Otsidomeenid:"
-
-#, fuzzy
-#~ msgid "DNS ser_vers"
-#~ msgstr "_DNS-serverid:"
-
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses."
-#~ msgstr ""
-#~ "Domeeninimeserverite IP-aadresse kasutatakse hostinimede lahendamiseks. "
-#~ "Mitme domeeninimeserveri kasutamiseks eralda need komadega."
-
-#~ msgid "Require IPv_4 addressing for this connection to complete"
-#~ msgstr "Selle ühenduse loomiseks tuleb nõuda IPv_4 aadressi"
-
-#~ msgid ""
-#~ "When connecting to IPv6-capable networks, allows the connection to "
-#~ "complete if IPv4 configuration fails but IPv6 configuration succeeds."
-#~ msgstr ""
-#~ "Ühendumisel IPv6 võrkudega lõpetatakse ühendumine edukalt ka siis, kui "
-#~ "IPv4 seadistamine nurjub ja IPv6 seadistamine õnnestub."
-
-#~ msgid "_Routes…"
-#~ msgstr "_Marsruudid…"
-
-#~ msgid "Disabled"
-#~ msgstr "Keelatud"
-
-#, fuzzy
-#~ msgid "Stable privacy"
-#~ msgstr "_Wi-Fi ühendused lubatud"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses. Link-local "
-#~ "addresses will be automatically scoped to the connecting interface."
-#~ msgstr ""
-#~ "Domeeninimeserverite IP-aadresse kasutatakse hostinimede lahendamiseks. "
-#~ "Mitme domeeninimeserveri kasutamiseks eralda need komadega."
-
-#~ msgid "Require IPv_6 addressing for this connection to complete"
-#~ msgstr "Selle ühenduse loomiseks tuleb nõuda IPv_6 aadressi"
-
-#~ msgid ""
-#~ "When connecting to IPv4-capable networks, allows the connection to "
-#~ "complete if IPv6 configuration fails but IPv4 configuration succeeds."
-#~ msgstr ""
-#~ "Ühendumisel IPv4 võrkudega lõpetatakse ühendumine edukalt ka siis, kui "
-#~ "IPv6 seadistamine nurjub ja IPv4 seadistamine õnnestub."
-
-#~ msgid "EAP"
-#~ msgstr "EAP"
-
-#, fuzzy
-#~ msgid "Strict"
-#~ msgstr "Meetrika"
-
-#, fuzzy
-#~ msgid "_Device name"
-#~ msgstr "Seadme nimi + number"
-
-#, fuzzy
-#~ msgid "_Parent device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "_Mode"
-#~ msgstr "_Režiim:"
-
-#~ msgid "Basic"
-#~ msgstr "Põhiline"
-
-#, fuzzy
-#~ msgid "Nu_mber"
-#~ msgstr "_Number:"
-
-#~ msgid "Advanced"
-#~ msgstr "Täpsemalt"
-
-#, fuzzy
-#~ msgid "_APN"
-#~ msgstr "_APN:"
-
-#, fuzzy
-#~ msgid "N_etwork ID"
-#~ msgstr "_Võrgu ID:"
-
-#, fuzzy
-#~ msgid "Change…"
-#~ msgstr "_Muuda..."
-
-#, fuzzy
-#~ msgid "P_IN"
-#~ msgstr "P_IN:"
-
-#~ msgid "Allow _roaming if home network is not available"
-#~ msgstr "_Roaming on lubatud, kui koduvõrk pole saadaval"
-
-#~ msgid "Authentication"
-#~ msgstr "Autentimine"
-
-#, fuzzy
-#~ msgid "Allowed methods"
-#~ msgstr "Lubatud viisid:"
-
-#~ msgid "Configure _Methods…"
-#~ msgstr "_Meetodite seadistamine…"
-
-#~ msgid "Compression"
-#~ msgstr "Tihendus"
-
-#~ msgid "_Use point-to-point encryption (MPPE)"
-#~ msgstr "_Point-to-Point krüpteeringu kasutamine (MPPE)"
-
-#~ msgid "_Require 128-bit encryption"
-#~ msgstr "_128-bitine krüpteerimine nõutud"
-
-#~ msgid "Use _stateful MPPE"
-#~ msgstr "_Stateful-MPPE kasutamine"
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "_BSD-tihendamine lubatud"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "_Deflate-tihendamine lubatud"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "TCP _päiste tihendamine lubatud"
-
-#~ msgid "Echo"
-#~ msgstr "Kaja"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Saadetakse PPP _echo pakette"
-
-#, fuzzy
-#~ msgid "None"
-#~ msgstr "Puudub"
-
-#, fuzzy
-#~ msgid "Import script from a file…"
-#~ msgstr "VPN-ühenduse seadistuse importimine..."
-
-#, fuzzy
-#~ msgid "Method"
-#~ msgstr "_Meetod:"
-
-#, fuzzy
-#~ msgid "Ad_vanced…"
-#~ msgstr "Täpsemalt"
-
-#, fuzzy
-#~ msgid "Ethernet port state"
-#~ msgstr "Ethernet võrgud"
-
-#, fuzzy
-#~ msgid "_Port priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "_LACP port priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "LACP port _key"
-#~ msgstr "Privaat_võti:"
-
-#, fuzzy
-#~ msgid "_Up delay"
-#~ msgstr "Link _maas viivitus:"
-
-#, fuzzy
-#~ msgid "_Down delay"
-#~ msgstr "Link _püsti viivitus:"
-
-#, fuzzy
-#~ msgid "Send _interval"
-#~ msgstr "_Vanemliides:"
-
-#, fuzzy
-#~ msgid "_Source host"
-#~ msgstr "ARP _sihtkohad:"
-
-#, fuzzy
-#~ msgid "_Target host"
-#~ msgstr "ARP _sihtkohad:"
-
-#, fuzzy
-#~ msgid "Im_port team configuration from a file…"
-#~ msgstr "VPN-ühenduse seadistuse importimine..."
-
-#, fuzzy
-#~ msgid "Bandwidth"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "Port priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "From the team device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "_Teamed connections"
-#~ msgstr "Liitühendused (bonded):"
-
-#~ msgid "Ethernet"
-#~ msgstr "Ethernet"
-
-#~ msgid "VLAN"
-#~ msgstr "VLAN"
-
-#, fuzzy
-#~ msgid "IP"
-#~ msgstr "IPv4"
-
-#, fuzzy
-#~ msgid "TCP"
-#~ msgstr "GTC"
-
-#, fuzzy
-#~ msgid "_Hardware Address"
-#~ msgstr "Riistvara aadress:"
-
-#, fuzzy
-#~ msgid "_Hardware address policy"
-#~ msgstr "Riistvara aadress:"
-
-#, fuzzy
-#~ msgid "_System priority"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "Transmission _balancing interval"
-#~ msgstr "Saatja _võimsus:"
-
-#, fuzzy
-#~ msgid "_Transmission balancer"
-#~ msgstr "Saatja _võimsus:"
-
-#, fuzzy
-#~ msgid "_Parent interface"
-#~ msgstr "_Vanemliides:"
-
-#, fuzzy
-#~ msgid "VLAN inter_face name"
-#~ msgstr "VLAN liidese _nimi:"
-
-#, fuzzy
-#~ msgid "Cloned MAC _address"
-#~ msgstr "_Kloonitud MAC-aadress:"
-
-#, fuzzy
-#~ msgid "VLAN _id"
-#~ msgstr "VLANi _ID:"
-
-#~ msgid "Device name + number"
-#~ msgstr "Seadme nimi + number"
-
-#~ msgid "\"vlan\" + number"
-#~ msgstr "\"vlan\" + number"
-
-#, fuzzy
-#~ msgid "S_ecurity"
-#~ msgstr "_Turvalisus:"
-
-#~ msgid "A (5 GHz)"
-#~ msgstr "A (5 GHz)"
-
-#~ msgid "B/G (2.4 GHz)"
-#~ msgstr "B/G (2.4 GHz)"
-
-#~ msgid "Ad-hoc"
-#~ msgstr "Ad-hoc"
-
-#~ msgid "mW"
-#~ msgstr "mW"
-
-#, fuzzy
-#~ msgid "Transmission po_wer"
-#~ msgstr "Saatja _võimsus:"
-
-#~ msgid "Mb/s"
-#~ msgstr "Mb/s"
-
-#, fuzzy
-#~ msgid "_Rate"
-#~ msgstr "_Kiirus:"
-
-#, fuzzy
-#~ msgid "_BSSID"
-#~ msgstr "_BSSID:"
-
-#, fuzzy
-#~ msgid "C_hannel"
-#~ msgstr "_Kanal:"
-
-#, fuzzy
-#~ msgid "Ban_d"
-#~ msgstr "_Sagedus:"
-
-#, fuzzy
-#~ msgid "SS_ID"
-#~ msgstr "SS_ID:"
-
-#~ msgid "Allowed Authentication Methods"
-#~ msgstr "Lubatud autentimismeetodid"
-
-#~ msgid "_EAP"
-#~ msgstr "_EAP"
-
-#~ msgid "Extensible Authentication Protocol"
-#~ msgstr "Laiendatav autentimisprotokoll"
-
-#~ msgid "_PAP"
-#~ msgstr "_PAP"
-
-#~ msgid "Password Authentication Protocol"
-#~ msgstr "Parooliga autentimisprotokoll"
-
-#~ msgid "C_HAP"
-#~ msgstr "C_HAP"
-
-#~ msgid "Challenge Handshake Authentication Protocol"
-#~ msgstr "Challenge Handshake autentimisprotokoll (CHAP)"
-
-#~ msgid "_MSCHAP"
-#~ msgstr "_MSCHAP"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol"
-#~ msgstr "Microsofti Challenge Handshake autentimisprotokoll (MCHAP)"
-
-#~ msgid "MSCHAP v_2"
-#~ msgstr "MSCHAP v_2"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol version 2"
-#~ msgstr ""
-#~ "Microsofti Challenge Handshake autentimisprotokolli versioon 2 (MCHAP v2)"
-
-#, fuzzy
-#~ msgid ""
-#~ "In most cases, the provider’s PPP servers will support all authentication "
-#~ "methods. If connections fail, try disabling support for some methods."
-#~ msgstr ""
-#~ "Tavaliselt toetab PPP teenusepakkuja server kõiki autentimisviise. Kui "
-#~ "ühendus siiski nurjub, proovi mõne viisi keelamist."
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgid "InfiniBand"
-#~ msgstr "InfiniBand"
-
-#~ msgid "Bond"
-#~ msgstr "Liitühendus (bond)"
-
-#~ msgid "Bridge"
-#~ msgstr "Sild"
-
-#~ msgid "VPN"
-#~ msgstr "VPN"
-
-#, fuzzy
-#~ msgid "The VPN plugin failed to import the VPN connection correctly: "
-#~ msgstr ""
-#~ "VPN plugin ei suutnud VPN ühendust korrektselt importida\n"
-#~ "\n"
-#~ "Viga: puudub VPN teenuse tüüp."
-
-# importimise dialoogi pealkiri
-#~ msgid "Select file to import"
-#~ msgstr "Importimiseks faili valimine"
-
-#~ msgid "Hardware"
-#~ msgstr "Riistvara"
-
-#~ msgid "Virtual"
-#~ msgstr "Virtuaalne"
-
-#, fuzzy
-#~ msgid "Import a saved VPN configuration…"
-#~ msgstr "VPN-ühenduse seadistuse importimine..."
-
-#~ msgid ""
-#~ "The connection editor dialog could not be initialized due to an unknown "
-#~ "error."
-#~ msgstr ""
-#~ "Ühenduse redaktori dialoogi pole tundmatu vea tõttu võimalik lähtestada."
-
-#~ msgid "Could not create new connection"
-#~ msgstr "Uut ühendust pole võimalik luua"
-
-#~ msgid "Connection delete failed"
-#~ msgstr "Ühenduse kustutamine nurjus"
-
-#, c-format
-#~ msgid "Are you sure you wish to delete the connection %s?"
-#~ msgstr "Kas sa oled kindel, et tahad kustutada ühenduse %s?"
-
-#, fuzzy
-#~ msgid "_New Connection"
-#~ msgstr "_VPN-ühendused"
-
-#~ msgid "Address"
-#~ msgstr "Aadress"
-
-#~ msgid "Netmask"
-#~ msgstr "Võrgumask"
-
-#~ msgid "Gateway"
-#~ msgstr "Lüüs (gateway)"
-
-#~ msgid "Metric"
-#~ msgstr "Meetrika"
-
-#~ msgid "Prefix"
-#~ msgstr "Prefiks"
-
-#, c-format
-#~ msgid "Editing %s"
-#~ msgstr "Ühenduse %s muutmine"
-
-#~ msgid "Editing un-named connection"
-#~ msgstr "Nimetu ühenduse muutmine"
-
-#, fuzzy
-#~ msgid "Missing connection name"
-#~ msgstr "Ühenduse _nimi:"
-
-#, fuzzy
-#~ msgid "Editor initializing…"
-#~ msgstr "Viga redaktori lähtestamisel"
-
-#, fuzzy
-#~ msgid "Connection cannot be modified"
-#~ msgstr "Ühenduse lisamine nurjus"
-
-#~ msgid ""
-#~ "The connection editor could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "Ühenduste redigeerija ei suutnud leida vajalikke allikaid (.ui faili ei "
-#~ "leitud)."
-
-#~ msgid "_Save"
-#~ msgstr "_Salvesta"
-
-#~ msgid "Save any changes made to this connection."
-#~ msgstr "Salvesta kõik sellele ühendusele tehtud muudatused."
-
-#~ msgid "Authenticate to save this connection for all users of this machine."
-#~ msgstr ""
-#~ "Selle ühenduse salvestamiseks selle arvuti kõigi kasutajate jaoks pead "
-#~ "end autentima."
-
-#~ msgid "Could not create connection"
-#~ msgstr "Ühendust pole võimalik luua"
-
-#~ msgid "Could not edit connection"
-#~ msgstr "Ühendust pole võimalik muuta"
-
-#~ msgid "Unknown error creating connection editor dialog."
-#~ msgstr "Tundmatu viga ühenduse muutmise dialoogi loomisel."
-
-#~ msgid "Error initializing editor"
-#~ msgstr "Viga redaktori lähtestamisel"
-
-#~ msgid "Connection add failed"
-#~ msgstr "Ühenduse lisamine nurjus"
-
-#, fuzzy
-#~ msgid ""
-#~ "Security labels may prevent some files from being used with certificate "
-#~ "authentication."
-#~ msgstr ""
-#~ "Märgi see, et keelata hoiatused sertifitseerimiskeskuse (CA) sertide "
-#~ "kohta EAP autentimisel."
-
-#, fuzzy
-#~ msgid "Connection _name"
-#~ msgstr "Ühenduse _nimi:"
-
-#, fuzzy
-#~ msgid "_Export…"
-#~ msgstr "_Eksportimine..."
-
-#~ msgid "never"
-#~ msgstr "mitte kunagi"
-
-#~ msgid "now"
-#~ msgstr "nüüd"
-
-#, c-format
-#~ msgid "%d minute ago"
-#~ msgid_plural "%d minutes ago"
-#~ msgstr[0] "%d minut tagasi"
-#~ msgstr[1] "%d minutit tagasi"
-
-#, c-format
-#~ msgid "%d hour ago"
-#~ msgid_plural "%d hours ago"
-#~ msgstr[0] "%d tund tagasi"
-#~ msgstr[1] "%d tundi tagasi"
-
-#, c-format
-#~ msgid "%d day ago"
-#~ msgid_plural "%d days ago"
-#~ msgstr[0] "%d päev tagasi"
-#~ msgstr[1] "%d päeva tagasi"
-
-#, c-format
-#~ msgid "%d month ago"
-#~ msgid_plural "%d months ago"
-#~ msgstr[0] "%d kuu tagasi"
-#~ msgstr[1] "%d kuud tagasi"
-
-#, c-format
-#~ msgid "%d year ago"
-#~ msgid_plural "%d years ago"
-#~ msgstr[0] "%d aasta tagasi"
-#~ msgstr[1] "%d aastat tagasi"
-
-#, fuzzy
-#~ msgid "Connection cannot be deleted"
-#~ msgstr "Ühenduse lisamine nurjus"
-
-#, fuzzy
-#~ msgid "Select a connection to edit"
-#~ msgstr "DSL-ühendus %d"
-
-#, fuzzy
-#~ msgid "Select a connection to delete"
-#~ msgstr "DSL-ühendus %d"
-
-#~ msgid "Last Used"
-#~ msgstr "Viimati kasutatud"
-
-#~ msgid "Edit the selected connection"
-#~ msgstr "Valitud ühenduse muutmine"
-
-#~ msgid "Authenticate to edit the selected connection"
-#~ msgstr "Valitud ühenduse muutmiseks pead end autentima"
-
-#~ msgid "Delete the selected connection"
-#~ msgstr "Valitud ühenduse kustutamine"
-
-#~ msgid "Authenticate to delete the selected connection"
-#~ msgstr "Valitud ühenduse kustutamiseks pead end autentima"
-
-#, fuzzy
-#~ msgid "Unrecognized connection type"
-#~ msgstr "Mobiiliühenduse liik pole toetatud."
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to import “%s” connections"
-#~ msgstr "Ei tea, kuidas '%s' ühendust luua"
-
-#, fuzzy
-#~ msgid "Error importing connection"
-#~ msgstr "Viga ühenduse muutmisel"
-
-#~ msgid "Error creating connection"
-#~ msgstr "Viga ühenduse loomisel"
-
-#, fuzzy
-#~ msgid "Connection type not specified."
-#~ msgstr "Ühenduse lisamine nurjus"
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to create “%s” connections"
-#~ msgstr "Ei tea, kuidas '%s' ühendust luua"
-
-#~ msgid "Error editing connection"
-#~ msgstr "Viga ühenduse muutmisel"
-
-#, fuzzy, c-format
-#~ msgid "Did not find a connection with UUID “%s”"
-#~ msgstr "Ei leitud ühendust UUID-ga '%s'"
-
-#~ msgid "Network Connections"
-#~ msgstr "Võrguühendused"
-
-#, fuzzy
-#~ msgid "Add a new connection"
-#~ msgstr "_VPN-ühendused"
-
-#~ msgid "802.1X Security"
-#~ msgstr "802.1X turvalisus"
-
-#~ msgid "Could not load 802.1X Security user interface."
-#~ msgstr "802.1X turvalisuse kasutajaliidest pole võimalik laadida."
-
-#~ msgid "Use 802.1_X security for this connection"
-#~ msgstr "Sellel ühendusel 802.1_X turvalisuse kasutamine"
-
-#, fuzzy
-#~ msgid "Could not load Bluetooth user interface."
-#~ msgstr "Ethernet võrgu kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "Bluetooth connection %d"
-#~ msgstr "Liitühendus %d (bond)"
-
-#, fuzzy
-#~ msgid "Bluetooth Type"
-#~ msgstr "Bluetooth"
-
-#, fuzzy
-#~ msgid "_Personal Area Network"
-#~ msgstr "Ethernet võrk"
-
-#, fuzzy
-#~ msgid "_Dial-Up Network"
-#~ msgstr "Wi-Fi võrk"
-
-#~ msgid "Could not load bond user interface."
-#~ msgstr "Liitühenduse (bond) kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "primary"
-#~ msgstr "Esmane DNS:"
-
-#, c-format
-#~ msgid "Bond connection %d"
-#~ msgstr "Liitühendus %d (bond)"
-
-#~ msgid "Could not load bridge user interface."
-#~ msgstr "Sildühenduse kasutajaliidest pole võimalik laadida."
-
-#, c-format
-#~ msgid "Bridge connection %d"
-#~ msgstr "Sildühendus %d"
-
-#~ msgid "Bridge Port"
-#~ msgstr "Silla port"
-
-#~ msgid "Could not load bridge port user interface."
-#~ msgstr "Sildpordi kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Could not load DCB user interface."
-#~ msgstr "DSL kasutajaliidest pole võimalik laadida."
-
-#~ msgid "Could not load DSL user interface."
-#~ msgstr "DSL kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "missing parent interface"
-#~ msgstr "_Vanemliides:"
-
-#, c-format
-#~ msgid "DSL connection %d"
-#~ msgstr "DSL-ühendus %d"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “em1”, "
-#~ "“3C:97:0E:42:1A:19”, “em1 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "See valik lubab ühendumise ainult seadmel, mille riistvaraline MAC-"
-#~ "aadress on siia sisestatud. Näiteks: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "ignored"
-#~ msgstr "Eiratakse"
-
-#~ msgid "Could not load ethernet user interface."
-#~ msgstr "Ethernet võrgu kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Ethernet device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "cloned MAC"
-#~ msgstr "_Kloonitud MAC-aadress:"
-
-#, c-format
-#~ msgid "Ethernet connection %d"
-#~ msgstr "Ethernet võrgu ühendus %d"
-
-#~ msgid ""
-#~ "The zone defines the trust level of the connection. Default is not a "
-#~ "regular zone, selecting it results in the use of the default zone set in "
-#~ "the firewall. Only usable if firewalld is active."
-#~ msgstr ""
-#~ "Tsoon määrab ühenduse usaldustaseme. Vaikimisi ei ole tavaline tsoon, "
-#~ "selle valimisel kasutatakse tulemüüri vaikimisi tsooni. Kasutatav ainult "
-#~ "siis, kui firewalld on aktiivne."
-
-#~ msgid "Could not load General user interface."
-#~ msgstr "Üldist kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “ib0”, "
-#~ "“80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65”, “ib0 "
-#~ "(80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65)”"
-#~ msgstr ""
-#~ "See valik lubab ühendumise ainult seadmel, mille riistvaraline MAC-"
-#~ "aadress on siia sisestatud. Näiteks: 00:11:22:33:44:55"
-
-#~ msgid "Could not load InfiniBand user interface."
-#~ msgstr "InfiniBand-võrgu kasutajaliidest pole võimalik laadida."
-
-#, c-format
-#~ msgid "InfiniBand connection %d"
-#~ msgstr "InfiniBand võrgu ühendus %d"
-
-#, fuzzy
-#~ msgid "Could not load IP tunnel user interface."
-#~ msgstr "IPv4 kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "IP tunnel connection %d"
-#~ msgstr "Ethernet võrgu ühendus %d"
-
-#~ msgid "Automatic (VPN)"
-#~ msgstr "Automaatne (VPN)"
-
-#~ msgid "Automatic (VPN) addresses only"
-#~ msgstr "Automaatselt (VPN) ainult aadressid"
-
-#~ msgid "Automatic, addresses only"
-#~ msgstr "Automaatne, ainult aadressid"
-
-#~ msgid "Automatic (PPPoE)"
-#~ msgstr "Automaatne (PPPoE)"
-
-#~ msgid "Automatic (PPPoE) addresses only"
-#~ msgstr "Automaatselt (PPPoE) ainult aadressid"
-
-#~ msgid "Automatic (DHCP)"
-#~ msgstr "Automaatne (DHCP)"
-
-#~ msgid "Automatic (DHCP) addresses only"
-#~ msgstr "Automaatselt (DHCP) ainult aadressid"
-
-#~ msgid "Link-Local Only"
-#~ msgstr "Ainult Link-Local"
-
-#, fuzzy
-#~ msgid "Additional DNS ser_vers"
-#~ msgstr "_DNS lisaserverid:"
-
-#, fuzzy
-#~ msgid "Additional s_earch domains"
-#~ msgstr "_Lisaotsidomeenid:"
-
-#, c-format
-#~ msgid "Editing IPv4 routes for %s"
-#~ msgstr "Seadme %s IPv4-marsruutide muutmine"
-
-#~ msgid "IPv4 Settings"
-#~ msgstr "IPv4 sätted"
-
-#~ msgid "Could not load IPv4 user interface."
-#~ msgstr "IPv4 kasutajaliidest pole võimalik laadida."
-
-#~ msgid "Automatic, DHCP only"
-#~ msgstr "Automaatne, ainult DHCP"
-
-#, c-format
-#~ msgid "Editing IPv6 routes for %s"
-#~ msgstr "Seadme %s IPv6-marsruutide muutmine"
-
-#~ msgid "IPv6 Settings"
-#~ msgstr "IPv6 sätted"
-
-#~ msgid "Could not load IPv6 user interface."
-#~ msgstr "IPv6 kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Could not load MACsec user interface."
-#~ msgstr "WiMAX-võrgu kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "MACSEC connection %d"
-#~ msgstr "WiMAX ühendus %d"
-
-#, c-format
-#~ msgid "%s slave %d"
-#~ msgstr "%s alluv %d"
-
-#~ msgid "Could not load mobile broadband user interface."
-#~ msgstr "Mobiiliühenduse kasutajaliidest pole võimalik laadida."
-
-#~ msgid "Unsupported mobile broadband connection type."
-#~ msgstr "Mobiiliühenduse liik pole toetatud."
-
-#~ msgid "Select Mobile Broadband Provider Type"
-#~ msgstr "Mobiiliühenduse teenusepakkuja liigi valimine"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the technology your mobile broadband provider uses. If you are "
-#~ "unsure, ask your provider."
-#~ msgstr ""
-#~ "Vali mobiiliühenduse pakkuja kasutatav tehnoloogia.  Kui sa pole kindel, "
-#~ "küsi oma teenusepakkujalt."
-
-#~ msgid ""
-#~ "My provider uses _GSM-based technology (i.e. GPRS, EDGE, UMTS, HSDPA)"
-#~ msgstr ""
-#~ "Minu teenusepakkuja kasutab _GSM-il põhinevat tehnoloogiat (nt GPRS, "
-#~ "EDGE, UMTS, HSDPA)"
-
-#~ msgid "My provider uses C_DMA-based technology (i.e. 1xRTT, EVDO)"
-#~ msgstr ""
-#~ "Minu teenusepakkuja kasutab C_DMA-l põhinevat tehnoloogiat (nt 1xRTT, "
-#~ "EVDO)"
-
-#~ msgid "none"
-#~ msgstr "puudub"
-
-#, c-format
-#~ msgid "Editing PPP authentication methods for %s"
-#~ msgstr "%s PPP autentimisviiside muutmine"
-
-#~ msgid "PPP Settings"
-#~ msgstr "PPP sätted"
-
-#~ msgid "Could not load PPP user interface."
-#~ msgstr "PPP kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Could not load proxy user interface."
-#~ msgstr "Liitühenduse (bond) kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Could not load team user interface."
-#~ msgstr "VLAN kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "Team connection %d"
-#~ msgstr "DSL-ühendus %d"
-
-#, fuzzy
-#~ msgid "Team Port"
-#~ msgstr "Silla port"
-
-#, fuzzy
-#~ msgid "Could not load team port user interface."
-#~ msgstr "Sildpordi kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "New connection…"
-#~ msgstr "Võrguühendus puudub"
-
-#~ msgid "Could not load vlan user interface."
-#~ msgstr "VLAN kasutajaliidest pole võimalik laadida."
-
-#, c-format
-#~ msgid "VLAN connection %d"
-#~ msgstr "VLAN-ühendus %d"
-
-#, fuzzy, c-format
-#~ msgid "Could not load editor VPN plugin for “%s” (%s)."
-#~ msgstr "VPN-i pluginat teenuse '%s' jaoks ei leitud."
-
-#, fuzzy
-#~ msgid "unknown failure"
-#~ msgstr "Ühendus nurjus"
-
-#~ msgid "Could not load VPN user interface."
-#~ msgstr "VPN kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "Could not find VPN plugin for “%s”."
-#~ msgstr "VPN-i pluginat teenuse '%s' jaoks ei leitud."
-
-#, c-format
-#~ msgid "VPN connection %d"
-#~ msgstr "VPN-ühendus %d"
-
-#~ msgid "Choose a VPN Connection Type"
-#~ msgstr "VPN-ühenduse liigi valimine"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the type of VPN you wish to use for the new connection. If the "
-#~ "type of VPN connection you wish to create does not appear in the list, "
-#~ "you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Vali, mis liiki VPN ühendust kasutada. Kui soovitud VPN ühenduse liiki "
-#~ "nimekirjas ei leidu, võib vajalik VPN plugin olla paigaldamata."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the Wi-Fi access point (AP) "
-#~ "specified by the BSSID entered here. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "See valik lubab ühenduda ainult siia sisestatud BSSID aadressiga Wi-Fi "
-#~ "ruuteriga (AP). Näiteks: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “wlan0”, "
-#~ "“3C:97:0E:42:1A:19”, “wlan0 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "See valik lubab ühendumise ainult seadmel, mille riistvaraline MAC-"
-#~ "aadress on siia sisestatud. Näiteks: 00:11:22:33:44:55"
-
-#, c-format
-#~ msgid "%u (%u MHz)"
-#~ msgstr "%u (%u MHz)"
-
-#~ msgid "Could not load Wi-Fi user interface."
-#~ msgstr "Wi-Fi-võrgu kasutajaliidest pole võimalik laadida."
-
-#, fuzzy
-#~ msgid "Wi-Fi device"
-#~ msgstr "Iga seade"
-
-#, c-format
-#~ msgid "Wi-Fi connection %d"
-#~ msgstr "Wi-Fi ühendus %d"
-
-#~ msgid "Dynamic WEP (802.1X)"
-#~ msgstr "Dünaamiline WEP (802.1X)"
-
-#~ msgid "Could not load Wi-Fi security user interface; missing Wi-Fi setting."
-#~ msgstr ""
-#~ "Wi-Fi-võrgu turvalisuse kasutajaliidest pole võimalik laadida; puudub Wi-"
-#~ "Fi säte."
-
-#~ msgid "Wi-Fi Security"
-#~ msgstr "Wi-Fi turvalisus"
-
-#~ msgid "Could not load Wi-Fi security user interface."
-#~ msgstr "Wi-Fi-võrgu turvalisuse kasutajaliidest pole võimalik laadida."
-
-#, fuzzy, c-format
-#~ msgid "A file named “%s” already exists."
-#~ msgstr "Fail nimega \"%s\" on juba olemas."
-
-#~ msgid "_Replace"
-#~ msgstr "_Asenda"
-
-#, c-format
-#~ msgid "Do you want to replace %s with the VPN connection you are saving?"
-#~ msgstr "Kas sa tahad asendada %s praegu salvestatava VPN ühendusega?"
-
-#~ msgid "Cannot export VPN connection"
-#~ msgstr "VPN-ühendust pole võimalik eksportida"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The VPN connection “%s” could not be exported to %s.\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "VPN-ühendust '%s' ei saanud eksportida %s.\n"
-#~ "\n"
-#~ "Viga: %s."
-
-# eksportimise faili valiku pealkiri
-#, fuzzy
-#~ msgid "Export VPN connection…"
-#~ msgstr "VPN-ühenduse eksportimine..."
-
-#~ msgid "_Unlock"
-#~ msgstr "_Võta lukust lahti"
-
-#~ msgid "Automatically unlock this device"
-#~ msgstr "Selle seadme luku automaatne avamine"
-
-#~ msgid "Connection Information"
-#~ msgstr "Ühenduse andmed"
-
-#, fuzzy
-#~ msgid "I can’t find my provider and I wish to enter it _manually:"
-#~ msgstr ""
-#~ "Ma ei leidnud oma teenusepakkujat, ma tahan selle sisestada _käsitsi:"
-
-#~ msgid "Provider:"
-#~ msgstr "Teenusepakkuja:"
-
-#~ msgid "Country or Region List:"
-#~ msgstr "Riikide ja piirkondade nimekiri:"
-
-#~ msgid "Country or region"
-#~ msgstr "Riik või piirkond"
-
-#~ msgid "Wired"
-#~ msgstr "Juhtmega"
-
-#~ msgid "OLPC Mesh"
-#~ msgstr "OLPC võrk"
-
-#~ msgid "ADSL"
-#~ msgstr "ADSL"
-
-#~ msgid "PCI"
-#~ msgstr "PCI"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#, c-format
-#~ msgctxt "long device name"
-#~ msgid "%s %s"
-#~ msgstr "%s %s"
-
-#~ msgid "Wi-Fi _security:"
-#~ msgstr "Wi-Fi _turvalisus:"
-
-#~ msgid "_Network name:"
-#~ msgstr "_Võrgu nimi:"
-
-#~ msgid "C_onnection:"
-#~ msgstr "Ü_hendus:"
-
-#~ msgid "Wi-Fi _adapter:"
-#~ msgstr "Wi-Fi _adapter:"
-
-#~ msgid "Usage:"
-#~ msgstr "Kasutus:"
-
-#~ msgid ""
-#~ "This program is a component of NetworkManager (https://wiki.gnome.org/"
-#~ "Projects/NetworkManager/)."
-#~ msgstr ""
-#~ "See rakendus on võrguhalduri osa (https://wiki.gnome.org/Projects/"
-#~ "NetworkManager/)."
-
-#~ msgid ""
-#~ "It is not intended for command-line interaction but instead runs in the "
-#~ "GNOME desktop environment."
-#~ msgstr ""
-#~ "See ei ole mõeldud käsurealt juhtimiseks, vaid GNOME töölauakeskkonnas "
-#~ "kasutamiseks."
-
-#~ msgid "EVDO"
-#~ msgstr "EVDO"
-
-#~ msgid "GPRS"
-#~ msgstr "GPRS"
-
-#~ msgid "EDGE"
-#~ msgstr "EDGE"
-
-#~ msgid "UMTS"
-#~ msgstr "UMTS"
-
-#~ msgid "HSDPA"
-#~ msgstr "HSDPA"
-
-#~ msgid "HSUPA"
-#~ msgstr "HSUPA"
-
-#~ msgid "HSPA"
-#~ msgstr "HSPA"
-
-#~ msgid "HSPA+"
-#~ msgstr "HSPA+"
-
-#~ msgid "LTE"
-#~ msgstr "LTE"
-
-#~ msgid "not enabled"
-#~ msgstr "pole lubatud"
-
-#~ msgid "not registered"
-#~ msgstr "pole registreeritud"
-
-#, c-format
-#~ msgid "Home network (%s)"
-#~ msgstr "Koduvõrk (%s)"
-
-#~ msgid "Home network"
-#~ msgstr "Koduvõrk"
-
-#~ msgid "searching"
-#~ msgstr "otsimine"
-
-#~ msgid "registration denied"
-#~ msgstr "registreerimisest keelduti"
-
-#, c-format
-#~ msgid "%s (%s roaming)"
-#~ msgstr "%s (%s roaming)"
-
-#, c-format
-#~ msgid "%s (roaming)"
-#~ msgstr "%s (roaming)"
-
-# see ei ole päris õige tõlge, aga võib-olla kajastab potentsiaalselt suuremat kulukust rohkem
-#, c-format
-#~ msgid "Roaming network (%s)"
-#~ msgstr "Välisriigi roaming-võrk (%s)"
-
-# see ei ole päris õige tõlge, aga võib-olla kajastab potentsiaalselt suuremat kulukust rohkem
-#~ msgid "Roaming network"
-#~ msgstr "Välisriigi roaming-võrk"
-
-#, fuzzy, c-format
-#~ msgid "PIN code for SIM card “%s” on “%s”"
-#~ msgstr "'%s' SIM kaardi PIN kood seadmes '%s'"
-
-#~ msgid "PIN code required"
-#~ msgstr "Vajalik on PIN-kood"
-
-#~ msgid "PIN code is needed for the mobile broadband device"
-#~ msgstr "Mobiiliühenduse seadmele on vaja PIN-koodi"
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active: (%d%%%s%s)"
-#~ msgstr "Mobiiliühendus '%s' on aktiivne: (%d%%%s%s)"
-
-#~ msgid "roaming"
-#~ msgstr "rändlus (roaming)"
-
-#~ msgid "%s (default)"
-#~ msgstr "%s (vaikimisi)"
-
-#~ msgid "Ignored"
-#~ msgstr "Eiratakse"
-
-#~ msgid "Failed to update connection secrets due to an unknown error."
-#~ msgstr "Tundmatu vea tõttu nurjus ühenduse paroolide uuendamine."
-
-#, fuzzy
-#~ msgid "Priority:"
-#~ msgstr "_Prioriteet:"
-
-#, fuzzy
-#~ msgid "2:"
-#~ msgstr "2"
-
-#, fuzzy
-#~ msgid "3:"
-#~ msgstr "3"
-
-#, fuzzy
-#~ msgid "4:"
-#~ msgstr "4"
-
-#~ msgid "_Automatically connect to this network when it is available"
-#~ msgstr "_Automaatne ühendumine selle võrguga, kui saadaval"
-
-#, fuzzy
-#~ msgid "Connection _priority for auto-activation:"
-#~ msgstr "Ü_henduse andmed"
-
-#~ msgid "DSL"
-#~ msgstr "DSL"
-
-#~ msgid "Cannot import VPN connection"
-#~ msgstr "VPN-ühendust pole võimalik importida"
-
-#, fuzzy
-#~ msgid ""
-#~ "The file “%s” could not be read or does not contain recognized VPN "
-#~ "connection information\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "Faili '%s' ei saanud lugeda või ei sisaldanud see äratuntavat VPN "
-#~ "ühenduse teavet\n"
-#~ "\n"
-#~ "Viga: %s."
-
-#, fuzzy
-#~ msgid "unknown error"
-#~ msgstr "Tundmatu viga"
-
-#, fuzzy
-#~ msgid "Choose a Certificate Authority certificate"
-#~ msgstr "Vali sertifitseerimiskeskuse sertifikaadifail..."
-
-#~ msgid "C_A certificate:"
-#~ msgstr "Sertifitseerimis_keskuse sert:"
-
-#, fuzzy
-#~ msgid "NetworkManager for GNOME"
-#~ msgstr "Võrguhalduri rakend"
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected because the VPN service stopped."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' katkestati, kuna VPN-teenus peatus."
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-ühendus '%s' katkes."
-
-#~ msgid "_Disconnect VPN"
-#~ msgstr "_Katkesta VPN-ühendus"
-
-#~ msgid "New Mobile Broadband connection..."
-#~ msgstr "Uus mobiiliühendus..."
-
-#~ msgid "_Connect to Hidden Wi-Fi Network..."
-#~ msgstr "_Ühendu varjatud Wi-Fi võrku..."
-
-#~ msgid "Create _New Wi-Fi Network..."
-#~ msgstr "Loo _uus Wi-Fi võrk..."
-
-#~ msgid " "
-#~ msgstr " "
-
-# Automaatne kokkulepe?
-#~ msgid "Aut_onegotiate"
-#~ msgstr "Aut_onegotiate"
-
-#~ msgid "FirewallD is not running."
-#~ msgstr "FirewallD ei tööta."
-
-#~ msgid "New..."
-#~ msgstr "Uus..."
-
-#, fuzzy
-#~ msgid "invalid EAP-TLS CA certificate: %s"
-#~ msgstr "Sertifitseerimis_keskuse sert:"
-
-#~ msgid "Unencrypted private keys are insecure"
-#~ msgstr "Krüpteerimata privaatvõtmed pole turvalised"
-
-#~ msgid ""
-#~ "The selected private key does not appear to be protected by a password.  "
-#~ "This could allow your security credentials to be compromised.  Please "
-#~ "select a password-protected private key.\n"
-#~ "\n"
-#~ "(You can password-protect your private key with openssl)"
-#~ msgstr ""
-#~ "Tundub, et valitud privaatvõti ei ole parooliga kaitstud. Seetõttu võivad "
-#~ "turvatunnused olla ohus. Palun kasuta parooliga kaitstud privaatvõtit.\n"
-#~ "\n"
-#~ "(Privaatvõtme saab parooliga kaitsta openssl-i abil)"
-
-#~ msgid "Choose your personal certificate..."
-#~ msgstr "Vali privaatsertifikaadi fail..."
-
-#~ msgid "Choose your private key..."
-#~ msgstr "Vali privaatvõtme fail..."
-
-#~ msgid "Enable WiMA_X Mobile Broadband"
-#~ msgstr "WiMA_X-ühendus lubatud"
-
-#~ msgid "_Help"
-#~ msgstr "A_bi"
-
-#~ msgid "New Mobile Broadband (CDMA) connection..."
-#~ msgstr "Uus mobiiliühendus (CDMA)..."
-
-#~ msgid "You are now connected to the CDMA network."
-#~ msgstr "Oled nüüd ühendatud CDMA-võrku."
-
-#~ msgid "CDMA network."
-#~ msgstr "CDMA võrk."
-
-#~ msgid "New Mobile Broadband (GSM) connection..."
-#~ msgstr "Uus mobiiliühendus (GSM)..."
-
-#~ msgid "You are now connected to the GSM network."
-#~ msgstr "Oled nüüd ühendatud GSM-võrku."
-
-#~ msgid "GSM network."
-#~ msgstr "GSM võrk."
-
-#~ msgid "WiMAX Mobile Broadband (%s)"
-#~ msgstr "WiMAX mobiiliühendus (%s)"
-
-#~ msgid "WiMAX Mobile Broadband"
-#~ msgstr "WiMAX mobiiliühendus"
-
-#~ msgid "WiMAX is disabled"
-#~ msgstr "WiMAX on keelatud"
-
-#~ msgid "WiMAX is disabled by hardware switch"
-#~ msgstr "WiMAX on keelatud riistvaralisest lülitist"
-
-#~ msgid "You are now connected to the WiMAX network."
-#~ msgstr "Oled nüüd ühendatud WiMAX-võrku."
-
-#~ msgid "%d dB"
-#~ msgstr "%d dB"
-
-#~ msgctxt "WiMAX CINR"
-#~ msgid "unknown"
-#~ msgstr "tundmatu"
-
-#~ msgctxt "WiMAX Base Station ID"
-#~ msgid "unknown"
-#~ msgstr "tundmatu"
-
-#~ msgid "WiMAX (%s)"
-#~ msgstr "WiMAX (%s)"
-
-#~ msgid "CINR:"
-#~ msgstr "CINR:"
-
-#~ msgid "BSID:"
-#~ msgstr "BSID:"
-
-#~ msgid "Only on activation"
-#~ msgstr "Ainult aktiveerumisel"
-
-#~ msgid "_Device MAC address:"
-#~ msgstr "_Seadme MAC-aadress:"
-
-#~ msgid "Carrier de_tect:"
-#~ msgstr "Operaatori _tuvastus:"
-
-#~ msgid "Any"
-#~ msgstr "Suvaline"
-
-#~ msgid "3G (UMTS/HSPA)"
-#~ msgstr "3G (UMTS/HSPA)"
-
-#~ msgid "2G (GPRS/EDGE)"
-#~ msgstr "2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 3G (UMTS/HSPA)"
-#~ msgstr "Eelista 3G (UMTS/HSPA)"
-
-#~ msgid "Prefer 2G (GPRS/EDGE)"
-#~ msgstr "Eelista 2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 4G (LTE)"
-#~ msgstr "Eelistatakse 4G ühendust (LTE)"
-
-#~ msgid "Use only 4G (LTE)"
-#~ msgstr "Kasutatakse ainult 4G ühendust (LTE)"
-
-#~ msgid "Infrastructure"
-#~ msgstr "Infrastruktuur"
-
-#~ msgid "WiMAX"
-#~ msgstr "WiMAX"
-
-#~ msgid "_Save..."
-#~ msgstr "_Salvesta..."
-
-#~ msgid "Error saving connection"
-#~ msgstr "Viga ühenduse salvestamisel"
-
-#~ msgid "The property '%s' / '%s' is invalid: %d"
-#~ msgstr "Omadus '%s' / '%s' pole sobiv: %d"
-
-#~ msgid "_Edit..."
-#~ msgstr "_Muuda..."
-
-#~ msgid "_Delete..."
-#~ msgstr "_Kustuta..."
-
-#~ msgid "Automatic (PPP)"
-#~ msgstr "Automaatne (PPP)"
-
-#~ msgid "Automatic (PPP) addresses only"
-#~ msgstr "Automaatselt (PPP) ainult aadressid"
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (failed to connect to D-Bus: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "Bluetoothi seadistamine pole võimalik (ühendumine D-Bus'iga nurjus: (%s) "
-#~ "%s)."
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (error finding NetworkManager: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "Bluetoothi seadistamine pole võimalik (tõrge võrguhalduri otsimisel: (%s) "
-#~ "%s)."
-
-#~ msgid "Use your mobile phone as a network device (PAN/NAP)"
-#~ msgstr "Mobiiltelefoni kasutamine võrguseadmena (PAN/NAP)"
-
-#~ msgid "Access the Internet using your mobile phone (DUN)"
-#~ msgstr "Internetiühendus mobiiltelefoni kaudu (DUN)"
-
-#~ msgid "Error: %s"
-#~ msgstr "Tõrge: %s"
-
-#~ msgid "Your phone is now ready to use!"
-#~ msgstr "Sinu telefon on valmis kasutamiseks!"
-
-#~ msgid "Mobile wizard was canceled"
-#~ msgstr "Mobiiliühenduse nõustaja katkestati"
-
-#~ msgid "Unknown phone device type (not GSM or CDMA)"
-#~ msgstr "Tundmatut tüüpi telefoniseade (pole GSM ega CDMA)"
-
-#~ msgid "unknown modem type."
-#~ msgstr "tundmatu modemi liik."
-
-#~ msgid "failed to connect to the phone."
-#~ msgstr "telefoniga ühendumine nurjus."
-
-#~ msgid "unexpectedly disconnected from the phone."
-#~ msgstr "ühendus katkes ootamatult telefonist."
-
-#~ msgid "timed out detecting phone details."
-#~ msgstr "telefoni andmete tuvastamine aegus."
-
-#~ msgid "Detecting phone configuration..."
-#~ msgstr "Telefoni seadistuse tuvastamine..."
-
-#~ msgid "error getting bus connection"
-#~ msgstr "viga siini ühenduse hankimisel"
-
-#~ msgid ""
-#~ "The default Bluetooth adapter must be enabled before setting up a Dial-Up-"
-#~ "Networking connection."
-#~ msgstr ""
-#~ "Vaikimisi Bluetoothi adapter peab olema enne sissehelistamisühenduse "
-#~ "(dial-up) seadistamist sisse lülitatud."
-
-#~ msgid "Failed to create PAN connection: %s"
-#~ msgstr "PAN-ühenduse loomine nurjus: %s"
-
-#~ msgid "%s Network"
-#~ msgstr "%s võrk"
-
-#~ msgid "No Certificate Authority certificate chosen"
-#~ msgstr "Ühtki sertifitseerimiskeskuse sertifikaadifaili pole valitud"
-
-#~ msgid ""
-#~ "Not using a Certificate Authority (CA) certificate can result in "
-#~ "connections to insecure, rogue Wi-Fi networks.  Would you like to choose "
-#~ "a Certificate Authority certificate?"
-#~ msgstr ""
-#~ "Sertifitseerimiskeskuse (CA) sertifikaadi mittekasutamine võib põhjustada "
-#~ "ühendumise ebaturvalistesse, kuritegelikesse Wi-Fi võrkudesse. Kas sa "
-#~ "valiksid siiski sertifitseerimiskeskuse sertifikaadi?"
-
-#~ msgid "Don't _warn me again"
-#~ msgstr "Ära enam _hoiata"
-
-#~ msgid "A_vailable to all users"
-#~ msgstr "_Saadaval kõigile kasutajatele"

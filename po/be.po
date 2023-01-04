@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2012-08-19 00:28+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian <be-i18n-gnome@googlegroups.com>\n"
@@ -14,83 +14,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Выключыць апавяшчэнні аб злучэнні"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "Выключыць апавяшчэнні пры злучэнні з сеткай."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Выключыць апавяшчэнні аб адлучэнні"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "Выключыць апавяшчэнні пры адлучэнні ад сеткі."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Выключыць апавяшчэнні аб VPN-злучэнні"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "Выключыць апавяшчэнні пры злучэнні і адлучэнні ад VPN-сеткі."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "Блакіраваць апавяшчэнні аб наяўнасці сетак"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr "Выключыць апавяшчэнні аб наяўнасці сетак Wi-Fi."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Адбітак"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"Выкарыстоўваецца для вызначэння патрэбы ў міграцыі настроек на новую версію."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Выключыць магчымасць стварэння Wi-Fi-сеткі"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "Выключыць для аплета магчымасць стварэння adhoc-сеткі."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ігнараваць сертыфікат CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr "Выключыць папярэджанні аб сертыфікатах CA для EAP-ідэнтыфікацыі."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -143,30 +81,73 @@ msgstr "Пароль:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "Ігнараваць сертыфікат CA"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Вызначэнне сертыфіката CA"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "_Сертыфікат карыстальніка:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "_Сертыфікат карыстальніка:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Вызначэнне сертыфіката CA"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "Прыватны _ключ:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "_Пароль прыватнага ключа:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "_Паказаць паролі"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "_Сертыфікат CA:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(няма)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Невядома"
@@ -220,7 +201,7 @@ msgstr "Любое прыстасаванне"
 msgid "New Mobile Broadband Connection"
 msgstr "Новае шырокапалоснае мабільнае злучэнне"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -228,72 +209,72 @@ msgstr ""
 "Гэты памочнік дапаможа вам лёгка настроіць шырокапалоснае мабільнае злучэнне "
 "з сотавай 3G-сеткай."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Вам спатрэбіцца наступная інфармацыя:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "Назва вашага мабільнага аператара"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "Назва вашага тарыфнага плана"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr "(у некаторых выпадках) Пункт доступу (APN) для вашага тарыфнага плана"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr ""
 "Стварыць злучэнне для _гэтага прыстасавання шырокапалоснай мабільнай сувязі:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Настройка шырокапалоснага мабільнага злучэння"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "Краіна ці рэгіён"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Выбар краіны ці рэгіёна мабільнага аператара"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Выберыце свайго мабільнага _аператара са спіса:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "_Я не знайшоў свайго аператара і хачу вызначыць яго самастойна:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "Мой аператар выкарыстоўвае GSM-тэхналогію (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "Мой аператар выкарыстоўвае CDMA-тэхналогію (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Выбар мабільнага аператара"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Вызначыце тарыфны план:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "_Пункт доступу тарыфнага плана (APN):"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -307,29 +288,29 @@ msgstr ""
 "Калі вы не ўпэўнены, якім тарыфным планам вы карыстаецеся, спытайце ў свайго "
 "мабільнага аператара аб патрэбным пункце доступу (APN)."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Выбар тарыфнага плана"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "Ваша шырокапалоснае мабільнае злучэнне мае наступную канфігурацыю настроек:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "Прыстасаванне:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "Мабільны аператар:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "Тарыфны план:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -344,29 +325,29 @@ msgstr ""
 "шырокапалоснага мабільнага злучэння, выберыце пункт \"Сеткавыя злучэнні\" ў "
 "меню \"Асабістыя настройкі\"."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Пацвярджэнне настроек шырокапалоснай мабільнай сувязі"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "Памылка змянення злучэння"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Разблакіраваць"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Назва"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -375,8 +356,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -438,88 +419,88 @@ msgstr "Адлучыцца"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Няма"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP, 40/128-бітны ключ (Hex ці ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP, 128-бітны пароль"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "Дынамічны WEP (802.1X)"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA & WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA & WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "_Стварыць"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "Да_лучыцца"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr "Для доступу да сеткі Wi-Fi \"%s\" патрэбны пароль або ключ шыфравання."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Патрэбна ідэнтыфікацыя для сеткі Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Патрэбна ідэнтыфікацыя для сеткі Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Стварэнне новай сеткі Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Новая сетка Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Упішыце назву новай сеткі Wi-Fi."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Злучэнне са схаванай сеткай Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Схаваная сетка Wi-Fi"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -891,2601 +872,3 @@ msgstr "_Злучэнне:"
 #, fuzzy
 msgid "Wi-Fi _adapter"
 msgstr "_Адаптар Wi-Fi:"
-
-#, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "Ігнараваць сертыфікат CA"
-
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Вызначэнне сертыфіката CA"
-
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Прыватны _ключ:"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "_Пароль прыватнага ключа:"
-
-#, fuzzy, c-format
-#~ msgid "Choose %s Certificate"
-#~ msgstr "Вызначэнне сертыфіката CA"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "_Сертыфікат карыстальніка:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Вызначэнне сертыфіката CA"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "_Сертыфікат карыстальніка:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "_Паказаць паролі"
-
-#~ msgid "Manage your network connections"
-#~ msgstr "Кіраванне сеткавымі злучэннямі"
-
-#, fuzzy
-#~ msgid "Advanced Network Configuration"
-#~ msgstr "Дзейныя сеткавыя злучэнні"
-
-#~ msgid "Manage and change your network connection settings"
-#~ msgstr "Настройкі сеткавага злучэння"
-
-#, fuzzy
-#~ msgid "NetworkManager"
-#~ msgstr "Аплет NetworkManager"
-
-#, fuzzy
-#~ msgid "NetworkManager connection editor"
-#~ msgstr "Няма сеткавага злучэння"
-
-#, fuzzy
-#~ msgid "The NetworkManager Developers"
-#~ msgstr "Аплет NetworkManager"
-
-#~ msgid "802.1X authentication"
-#~ msgstr "Ідэнтыфікацыя 802.1X"
-
-#, fuzzy
-#~ msgid "ad-hoc"
-#~ msgstr "Ad-hoc"
-
-#~ msgid "Failed to add/activate connection"
-#~ msgstr "Не ўдалося дадаць/уключыць злучэнне"
-
-#~ msgid "Unknown error"
-#~ msgstr "Невядомая памылка"
-
-#~ msgid "Connection failure"
-#~ msgstr "Няўдалае злучэнне"
-
-#~ msgid "Device disconnect failed"
-#~ msgstr "Не ўдалося адлучыць прыстасаванне"
-
-#~ msgid "Disconnect failure"
-#~ msgstr "Няўдалае адлучэнне"
-
-#~ msgid "Connection activation failed"
-#~ msgstr "Не ўдалося ўключыць злучэнне"
-
-#, fuzzy
-#~ msgid "Don’t show this message again"
-#~ msgstr "Больш не паказваць гэта паведамленне"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” disconnected because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" разарвана з прычыны яго перапынення."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе з прычыны яго перапынення."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service stopped "
-#~ "unexpectedly."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе з прычыны нечаканага спынення VPN-службы."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service returned invalid "
-#~ "configuration."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе, бо VPN-служба вярнула хібную канфігурацыю "
-#~ "настроек."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the connection attempt timed out."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе, бо дасягнута максімальная колькасць спроб "
-#~ "злучэння."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service did not start in "
-#~ "time."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе, бо VPN-служба не запусцілася да часу."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе з прычыны няўдалася запуску VPN-службы."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because there were no valid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе з прычыны адсутнасці прыдатных сакрэтных "
-#~ "ключоў."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because of invalid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе праз хібныя сакрэтныя ключы."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе."
-
-#, c-format
-#~ msgid ""
-#~ "VPN connection has been successfully established.\n"
-#~ "\n"
-#~ "%s\n"
-#~ msgstr ""
-#~ "Злучэнне VPN паспяхова ўсталявана.\n"
-#~ "\n"
-#~ "%s\n"
-
-#~ msgid "VPN connection has been successfully established.\n"
-#~ msgstr "Злучэнне VPN паспяхова ўсталявана.\n"
-
-#~ msgid "VPN Login Message"
-#~ msgstr "Паведамленне VPN-уваходу"
-
-#~ msgid "VPN Connection Failed"
-#~ msgstr "Няўдалае VPN-злучэнне"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" не працуе, бо не ўдалося запусціць VPN-службу.\n"
-#~ "\n"
-#~ "%s"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Не ўдалося запусціць VPN-злучэнне \"%s\".\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "device not ready (firmware missing)"
-#~ msgstr "прыстасаванне не гатова (няма апаратнага апраграмавання)"
-
-#~ msgid "device not ready"
-#~ msgstr "прыстасаванне не гатова"
-
-#~ msgid "disconnected"
-#~ msgstr "няма злучэння"
-
-#~ msgid "Disconnect"
-#~ msgstr "Адлучыцца"
-
-#~ msgid "device not managed"
-#~ msgstr "прыстасаваннем нельга кіраваць"
-
-#~ msgid "No network devices available"
-#~ msgstr "Няма сеткавых прыстасаванняў"
-
-#~ msgid "_VPN Connections"
-#~ msgstr "VPN-з_лучэнні"
-
-#, fuzzy
-#~ msgid "_Configure VPN…"
-#~ msgstr "_Настройка VPN..."
-
-#, fuzzy
-#~ msgid "_Add a VPN connection…"
-#~ msgstr "VPN-з_лучэнні"
-
-#, fuzzy
-#~ msgid "NetworkManager is not running…"
-#~ msgstr "NetworkManager не запушчаны..."
-
-#~ msgid "Networking disabled"
-#~ msgstr "Сеткавыя паслугі выключаны"
-
-#~ msgid "Enable _Networking"
-#~ msgstr "_Уключыць сеткавыя паслугі"
-
-#~ msgid "Enable _Wi-Fi"
-#~ msgstr "_Уключыць Wi-Fi"
-
-#~ msgid "Enable _Mobile Broadband"
-#~ msgstr "Уключыць _шырокапалосную мабільную сувязь"
-
-#~ msgid "Enable N_otifications"
-#~ msgstr "Уключыць _апавяшчэнні"
-
-#~ msgid "Connection _Information"
-#~ msgstr "Інфармацыя аб _злучэнні"
-
-#, fuzzy
-#~ msgid "Edit Connections…"
-#~ msgstr "Настройка злучэнняў..."
-
-#~ msgid "_About"
-#~ msgstr "_Аб праграме"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to “%s”."
-#~ msgstr "Вы злучаны з \"%s\"."
-
-#~ msgid "Disconnected"
-#~ msgstr "Адлучана"
-
-#~ msgid "The network connection has been disconnected."
-#~ msgstr "Сеткавае злучэнне разарвана."
-
-#, fuzzy, c-format
-#~ msgid "Preparing network connection “%s”…"
-#~ msgstr "Падрыхтоўка сеткавага злучэння \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for network connection “%s”…"
-#~ msgstr ""
-#~ "Для сеткавага злучэння \"%s\" патрабуецца ідэнтыфікацыя карыстальніка..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a network address for “%s”…"
-#~ msgstr "Запыт сеткавага адрасу для \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Network connection “%s” active"
-#~ msgstr "Сеткавае злучэнне \"%s\" уключана"
-
-#, fuzzy, c-format
-#~ msgid "Starting VPN connection “%s”…"
-#~ msgstr "Запуск VPN-злучэння \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for VPN connection “%s”…"
-#~ msgstr "Для VPN-злучэння \"%s\" патрабуецца ідэнтыфікацыя карыстальніка..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a VPN address for “%s”…"
-#~ msgstr "Запыт сеткавага адрасу для VPN-злучэння \"%s\"..."
-
-#, fuzzy
-#~ msgid "VPN connection active"
-#~ msgstr "VPN-злучэнне \"%s\" уключана"
-
-#~ msgid "No network connection"
-#~ msgstr "Няма сеткавага злучэння"
-
-#~ msgid "NetworkManager Applet"
-#~ msgstr "Аплет NetworkManager"
-
-#~ msgid "Wrong PUK code; please contact your provider."
-#~ msgstr "Хібны PUK-код. Звярніцеся да правайдара паслуг."
-
-#~ msgid "Wrong PIN code; please contact your provider."
-#~ msgstr "Хібны PIN-код. Звярніцеся да правайдара паслуг."
-
-#, fuzzy
-#~ msgid "Sending unlock code…"
-#~ msgstr "Пасылка коду разблакіравання..."
-
-#, c-format
-#~ msgid "Mobile Broadband (%s)"
-#~ msgstr "Шырокапалоснае мабільнае злучэнне (%s)"
-
-#~ msgid "Mobile Broadband"
-#~ msgstr "Шырокапалоснае мабільнае злучэнне"
-
-#~ msgid "Available"
-#~ msgstr "Даступна"
-
-#, fuzzy
-#~ msgid "New Mobile Broadband connection…"
-#~ msgstr "Новае шырокапалоснае мабільнае злучэнне"
-
-#~ msgid "Connection Established"
-#~ msgstr "Злучэнне ўсталявана"
-
-#~ msgid "You are now connected to the Mobile Broadband network."
-#~ msgstr "Вы злучаны з шырокапалоснай мабільнай сеткай."
-
-#~ msgid "Mobile Broadband network."
-#~ msgstr "Шырокапалосная мабільная сетка."
-
-#~ msgid "You are now registered on the home network."
-#~ msgstr "Вы зарэгістраваны ў дамашняй сетцы."
-
-#~ msgid "You are now registered on a roaming network."
-#~ msgstr "Вы зарэгістраваны ў роўмінг-сетцы."
-
-#~ msgid "You are now connected to the mobile broadband network."
-#~ msgstr "Вы злучаны з шырокапалоснай мабільнай сеткай."
-
-#, fuzzy, c-format
-#~ msgid "Preparing mobile broadband connection “%s”…"
-#~ msgstr "Падрыхтоўка шырокапалоснага мабільнага злучэння \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring mobile broadband connection “%s”…"
-#~ msgstr "Настройка шырокапалоснага мабільнага злучэння \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for mobile broadband connection “%s”…"
-#~ msgstr ""
-#~ "Для шырокапалоснага мабільнага злучэння \"%s\" патрабуецца ідэнтыфікацыя "
-#~ "карыстальніка..."
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active"
-#~ msgstr "Шырокапалоснае мабільнае злучэнне \"%s\" уключана"
-
-#~ msgid "Auto Ethernet"
-#~ msgstr "Аўта Ethernet"
-
-#, c-format
-#~ msgid "Ethernet Networks (%s)"
-#~ msgstr "Сеткі Ethernet (%s)"
-
-#, c-format
-#~ msgid "Ethernet Network (%s)"
-#~ msgstr "Сетка Ethernet (%s)"
-
-#~ msgid "Ethernet Networks"
-#~ msgstr "Сеткі Ethernet"
-
-#~ msgid "Ethernet Network"
-#~ msgstr "Сетка Ethernet"
-
-#~ msgid "You are now connected to the ethernet network."
-#~ msgstr "Вы злучаны з сеткай Ethernet."
-
-#, fuzzy, c-format
-#~ msgid "Preparing ethernet network connection “%s”…"
-#~ msgstr "Падрыхтоўка сеткавага злучэння Ethernet \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring ethernet network connection “%s”…"
-#~ msgstr "Настройка сеткавага злучэння Ethernet \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for ethernet network connection “%s”…"
-#~ msgstr ""
-#~ "Для сеткавага злучэння Ethernet \"%s\" патрабуецца ідэнтыфікацыя "
-#~ "карыстальніка..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting an ethernet network address for “%s”…"
-#~ msgstr "Запыт сеткавага адрасу для злучэння Ethernet \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Ethernet network connection “%s” active"
-#~ msgstr "Сеткавае злучэнне Ethernet \"%s\" уключана"
-
-#~ msgid "DSL authentication"
-#~ msgstr "DSL-ідэнтыфікацыя"
-
-#, fuzzy
-#~ msgid "_Connect to Hidden Wi-Fi Network…"
-#~ msgstr "Злучэнне са схаванай сеткай Wi-Fi"
-
-#, fuzzy
-#~ msgid "Create _New Wi-Fi Network…"
-#~ msgstr "Стварэнне новай сеткі Wi-Fi"
-
-#~ msgid "(none)"
-#~ msgstr "(няма)"
-
-#~ msgid "Failed to add new connection"
-#~ msgstr "Не ўдалося дадаць новае злучэнне"
-
-#, c-format
-#~ msgid "Wi-Fi Networks (%s)"
-#~ msgstr "Сеткі Wi-Fi (%s)"
-
-#, c-format
-#~ msgid "Wi-Fi Network (%s)"
-#~ msgstr "Сетка Wi-Fi (%s)"
-
-#~ msgid "Wi-Fi Network"
-#~ msgid_plural "Wi-Fi Networks"
-#~ msgstr[0] "Сетка Wi-Fi"
-#~ msgstr[1] "Сеткі Wi-Fi"
-#~ msgstr[2] "Сеткі Wi-Fi"
-
-#~ msgid "Wi-Fi is disabled"
-#~ msgstr "Wi-Fi выключаны"
-
-#~ msgid "Wi-Fi is disabled by hardware switch"
-#~ msgstr "Wi-Fi выключаны з дапамогай апаратнага пераключальніка"
-
-#~ msgid "More networks"
-#~ msgstr "Больш сетак"
-
-#~ msgid "Wi-Fi Networks Available"
-#~ msgstr "Даступныя сеткі Wi-Fi"
-
-#~ msgid "Use the network menu to connect to a Wi-Fi network"
-#~ msgstr "Выкарыстайце меню са спісам сетак, каб злучыцца з сеткай Wi-Fi"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to the Wi-Fi network “%s”."
-#~ msgstr "Вы злучаны з сеткай Wi-Fi \"%s\"."
-
-#, fuzzy, c-format
-#~ msgid "Preparing Wi-Fi network connection “%s”…"
-#~ msgstr "Падрыхтоўка сеткавага злучэння Wi-Fi \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring Wi-Fi network connection “%s”…"
-#~ msgstr "Настройка сеткавага злучэння Wi-Fi \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for Wi-Fi network “%s”…"
-#~ msgstr ""
-#~ "Для сеткавага злучэння Wi-Fi \"%s\" патрабуецца ідэнтыфікацыя "
-#~ "карыстальніка..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a Wi-Fi network address for “%s”…"
-#~ msgstr "Запыт сеткавага адрасу для сеткі Wi-Fi \"%s\"..."
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active: %s (%d%%)"
-#~ msgstr "Сеткавае злучэнне Wi-Fi \"%s\" уключана: %s (%d%%)"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active"
-#~ msgstr "Сеткавае злучэнне Wi-Fi \"%s\" уключана"
-
-#~ msgid "Failed to activate connection"
-#~ msgstr "Не ўдалося ўключыць злучэнне"
-
-#~ msgid "Error displaying connection information:"
-#~ msgstr "Памылка паказу інфармацыі аб злучэнні:"
-
-#~ msgid "Dynamic WEP"
-#~ msgstr "Дынамічны WEP"
-
-#~ msgid "WPA/WPA2"
-#~ msgstr "WPA/WPA2"
-
-#, fuzzy
-#~ msgid "More addresses"
-#~ msgstr "Адрасы"
-
-#~ msgid "WEP"
-#~ msgstr "WEP"
-
-#~ msgctxt "Wi-Fi/Ethernet security"
-#~ msgid "None"
-#~ msgstr "Няма"
-
-#, c-format
-#~ msgid "%u Mb/s"
-#~ msgstr "%u Мбіт/с"
-
-#~ msgctxt "Speed"
-#~ msgid "Unknown"
-#~ msgstr "Невядома"
-
-#~ msgctxt "Address"
-#~ msgid "Unknown"
-#~ msgstr "Невядома"
-
-#~ msgid "IP Address"
-#~ msgstr "IP-адрас"
-
-#~ msgid "Broadcast Address"
-#~ msgstr "Адрас шырокай трансляцыі"
-
-#~ msgctxt "Subnet Mask"
-#~ msgid "Unknown"
-#~ msgstr "Невядома"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "Маска падсеткі"
-
-#, fuzzy
-#~ msgid "Primary DNS"
-#~ msgstr "Першы DNS:"
-
-#, fuzzy
-#~ msgid "Secondary DNS"
-#~ msgstr "Другі DNS:"
-
-#, fuzzy
-#~ msgid "Tertiary DNS"
-#~ msgstr "Трэці DNS:"
-
-#, c-format
-#~ msgid "Ethernet (%s)"
-#~ msgstr "Ethernet (%s)"
-
-#, c-format
-#~ msgid "802.11 Wi-Fi (%s)"
-#~ msgstr "802.11 Wi-Fi (%s)"
-
-#, c-format
-#~ msgid "GSM (%s)"
-#~ msgstr "GSM (%s)"
-
-#, c-format
-#~ msgid "CDMA (%s)"
-#~ msgstr "CDMA (%s)"
-
-#~ msgid "General"
-#~ msgstr "Агульнае"
-
-#~ msgid "Interface"
-#~ msgstr "Інтэрфейс"
-
-#~ msgid "Hardware Address"
-#~ msgstr "Апаратны адрас"
-
-#~ msgid "Driver"
-#~ msgstr "Драйвер"
-
-#~ msgid "Speed"
-#~ msgstr "Хуткасць"
-
-#, fuzzy
-#~ msgid "Security"
-#~ msgstr "Бяспека:"
-
-#~ msgid "IPv4"
-#~ msgstr "IPv4"
-
-#~ msgid "Default Route"
-#~ msgstr "Прадвызначаны маршрут"
-
-#~ msgid "IPv6"
-#~ msgstr "IPv6"
-
-#~ msgid "VPN Type"
-#~ msgstr "Тып VPN"
-
-#~ msgid "VPN Gateway"
-#~ msgstr "Сеткавая брама VPN"
-
-#~ msgid "VPN Username"
-#~ msgstr "Карыстальнік VPN"
-
-#~ msgid "VPN Banner"
-#~ msgstr "Банер VPN"
-
-#~ msgid "Base Connection"
-#~ msgstr "Асноўнае злучэнне"
-
-#~ msgid "No valid active connections found!"
-#~ msgstr "Дзейных злучэнняў не знойдзена!"
-
-#, fuzzy
-#~ msgid ""
-#~ "Copyright © 2004-2017 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2008 Novell, Inc.\n"
-#~ "and many other community contributors and translators"
-#~ msgstr ""
-#~ "Аўтарскія правы © 2004-2011 Red Hat, Inc.\n"
-#~ "Аўтарскія правы © 2005-2008 Novell, Inc.\n"
-#~ "ды іншыя ўдзельнікі праекта"
-
-#~ msgid ""
-#~ "Notification area applet for managing your network devices and "
-#~ "connections."
-#~ msgstr ""
-#~ "Аплет абшару апавяшчэння для кіравання сеткавымі прыстасаваннямі і "
-#~ "злучэннямі."
-
-#~ msgid "NetworkManager Website"
-#~ msgstr "Сеціўная пляцоўка NetworkManager"
-
-#~ msgid ""
-#~ "The NetworkManager Applet could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "Аплет NetworkManager не здолеў адшукаць некаторыя патрэбныя рэсурсы (.ui-"
-#~ "файл не знойдзены)."
-
-#~ msgid "Missing resources"
-#~ msgstr "Адсутныя рэсурсныя файлы"
-
-#~ msgid "Mobile broadband network password"
-#~ msgstr "Пароль да шырокапалоснай мабільнай сеткі"
-
-#, fuzzy, c-format
-#~ msgid "A password is required to connect to “%s”."
-#~ msgstr "Для злучэння з сеткай \"%s\" патрэбны пароль."
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "SIM PIN unlock required"
-#~ msgstr "Патрэбны код разблакіравання PIN-коду"
-
-#~ msgid "SIM PIN Unlock Required"
-#~ msgstr "Патрэбны код разблакіравання PIN-коду"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PIN code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Для выкарыстання прыстасавання шырокапалоснага мабільнага інтэрнэту \"%s"
-#~ "\" патрэбны код разблакіравання PIN-коду."
-
-#~ msgid "PIN code:"
-#~ msgstr "PIN-код:"
-
-#~ msgid "Show PIN code"
-#~ msgstr "Паказаць PIN-код"
-
-#~ msgid "SIM PUK unlock required"
-#~ msgstr "Патрэбны код разблакіравання PUK-коду"
-
-#~ msgid "SIM PUK Unlock Required"
-#~ msgstr "Патрэбны код разблакіравання PUK-коду"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PUK code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Для выкарыстання прыстасавання шырокапалоснага мабільнага інтэрнэту \"%s"
-#~ "\" патрэбны код разблакіравання PUK-коду."
-
-#~ msgid "PUK code:"
-#~ msgstr "PUK-код:"
-
-#~ msgid "New PIN code:"
-#~ msgstr "Новы PIN-код:"
-
-#~ msgid "Re-enter new PIN code:"
-#~ msgstr "Паўторна ўпішыце новы PIN-код:"
-
-#~ msgid "Show PIN/PUK codes"
-#~ msgstr "Паказаць PIN- і PUK-коды"
-
-#, fuzzy
-#~ msgid "Connection had no VPN setting"
-#~ msgstr "Інфармацыя аб злучэнні"
-
-#, fuzzy, c-format
-#~ msgid "Failed to write connection to VPN UI: %s (%d)"
-#~ msgstr "Не ўдалося стварыць DUN-злучэнне: %s"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add an IP address."
-#~ msgstr ""
-#~ "IP-адрасы вызначаюць ваш камп'ютар у сетцы. Пстрыкніце ў кнопку \"Дадаць"
-#~ "\", каб дадаць IP-адрас."
-
-#~ msgid "_Delete"
-#~ msgstr "_Выдаліць"
-
-#~ msgid "Ig_nore automatically obtained routes"
-#~ msgstr "І_гнараваць аўтаматычна атрыманыя маршруты"
-
-#~ msgid "_Use this connection only for resources on its network"
-#~ msgstr "_Выкарыстоўваць злучэнне толькі для рэсурсаў гэтай сеткі"
-
-#~ msgid ""
-#~ "If enabled, this connection will never be used as the default network "
-#~ "connection."
-#~ msgstr "Калі ўключана, гэтае злучэнне ніколі не будзе прадвызначаным."
-
-#, fuzzy
-#~ msgid "C_reate…"
-#~ msgstr "Стварыць..."
-
-#~ msgid "Choose a Connection Type"
-#~ msgstr "Выберыце тып злучэння"
-
-#~ msgid ""
-#~ "Select the type of connection you wish to create.\n"
-#~ "\n"
-#~ "If you are creating a VPN, and the VPN connection you wish to create does "
-#~ "not appear in the list, you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Выберыце тып новага злучэння.\n"
-#~ "\n"
-#~ "Калі вы ствараеце VPN-злучэнне, а патрэбнага тыпу VPN няма ў спісе, гэта "
-#~ "значыць, што ў сістэме не ўсталяваны адпаведны VPN-плугін."
-
-#, fuzzy
-#~ msgid "_Device"
-#~ msgstr "Па_слуга:"
-
-#~ msgid "XOR"
-#~ msgstr "XOR"
-
-#~ msgid "Broadcast"
-#~ msgstr "Шырокая трансляцыя"
-
-#~ msgid "802.3ad"
-#~ msgstr "802.3ad"
-
-#~ msgid "Adaptive transmit load balancing"
-#~ msgstr "Адаптыўнае балансаванне перадачы даных"
-
-#~ msgid "Adaptive load balancing"
-#~ msgstr "Адаптыўнае балансаванне нагрузкі"
-
-#~ msgid "MII (recommended)"
-#~ msgstr "MII (рэкамендавана)"
-
-#~ msgid "ARP"
-#~ msgstr "ARP"
-
-#, fuzzy
-#~ msgid "Bonded _connections"
-#~ msgstr "_Звязаныя злучэнні:"
-
-#, fuzzy
-#~ msgid "M_ode"
-#~ msgstr "_Рэжым:"
-
-#~ msgid "_Edit"
-#~ msgstr "_Змяніць"
-
-#, fuzzy
-#~ msgid "Monitoring _frequency"
-#~ msgstr "_Частата назіранняў:"
-
-#~ msgid "ms"
-#~ msgstr "мс"
-
-#, fuzzy
-#~ msgid "_Interface name"
-#~ msgstr "_Назва інтэрфейсу:"
-
-#, fuzzy
-#~ msgid "_Link Monitoring"
-#~ msgstr "_Назіранне за фізічным злучэннем:"
-
-#, fuzzy
-#~ msgid "ARP _targets"
-#~ msgstr "ARP-_мэты:"
-
-#~ msgid ""
-#~ "An IP address, or a comma-separated list of IP addresses, to look for "
-#~ "when checking the link status."
-#~ msgstr ""
-#~ "IP-адрас або спіс такіх адрасоў, падзеленых коскамі, для праверкі стану "
-#~ "фізічнага злучэння."
-
-#, fuzzy
-#~ msgid "Link _up delay"
-#~ msgstr "_Затрымка для вызначэння ўсталявання злучэння:"
-
-#, fuzzy
-#~ msgid "Link _down delay"
-#~ msgstr "З_атрымка для вызначэння знікнення злучэння:"
-
-#, fuzzy
-#~ msgid "_Primary"
-#~ msgstr "Першы DNS:"
-
-#, fuzzy
-#~ msgid "_MTU"
-#~ msgstr "_MTU:"
-
-#~ msgid "bytes"
-#~ msgstr "байтаў"
-
-#, fuzzy
-#~ msgid "Path _cost"
-#~ msgstr "_Кошт маршруту:"
-
-#, fuzzy
-#~ msgid "_Priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Bridged _connections"
-#~ msgstr "_Злучэнні моста:"
-
-#, fuzzy
-#~ msgid "_Forward delay"
-#~ msgstr "За_трымка перасылкі:"
-
-#, fuzzy
-#~ msgid "_Hello time"
-#~ msgstr "_Час прывітання:"
-
-#~ msgid "s"
-#~ msgstr "с"
-
-#, fuzzy
-#~ msgid "Enable I_GMP snooping"
-#~ msgstr "_Уключыць сеткавыя паслугі"
-
-#~ msgid "Enable _STP (Spanning Tree Protocol)"
-#~ msgstr "_Уключыць STP (Spanning Tree Protocol)"
-
-#, fuzzy
-#~ msgid "_Max age"
-#~ msgstr "_Максімальны час існавання:"
-
-#, fuzzy
-#~ msgid "_Aging time"
-#~ msgstr "_Час старэння:"
-
-#~ msgid "automatic"
-#~ msgstr "аўтаматычна"
-
-#~ msgid "default"
-#~ msgstr "прадвызначана"
-
-#, fuzzy
-#~ msgid "Stable"
-#~ msgstr "_Уключыць Wi-Fi"
-
-#, fuzzy
-#~ msgid ""
-#~ "The MAC address entered here will be used as hardware address for the "
-#~ "network device this connection is activated on. This feature is known as "
-#~ "MAC cloning or spoofing. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "Упісаны MAC-адрас будзе ўжыты як апаратны адрас сеткавага прыстасавання "
-#~ "для гэтага злучэння. Гэтую магчымасць яшчэ называюць кланіраваннем ці "
-#~ "спуфінгам MAC-адрасу. Прыклад: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "MAC address"
-#~ msgstr "Адрас"
-
-#, fuzzy
-#~ msgid "HW address"
-#~ msgstr "Адрас"
-
-#, fuzzy, c-format
-#~ msgid "invalid interface-name (%s): "
-#~ msgstr "_Назва VLAN-інтэрфейсу:"
-
-#, fuzzy
-#~ msgid "invalid hardware address"
-#~ msgstr "Апаратны адрас:"
-
-#, fuzzy
-#~ msgid "device"
-#~ msgstr "Любое прыстасаванне"
-
-#, fuzzy
-#~ msgid "_Use Data Center Bridging (DCB) for this connection"
-#~ msgstr "Ужыць _802.1X для бяспекі гэтага злучэння"
-
-#, fuzzy
-#~ msgid "Enable"
-#~ msgstr "_Уключыць Wi-Fi"
-
-#, fuzzy
-#~ msgid "Priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Priority Groups"
-#~ msgstr "_Прыярытэт:"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "4"
-#~ msgstr "4"
-
-#, fuzzy
-#~ msgid "Strict Bandwidth"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Priority Bandwidth"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Group Bandwidth"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "_Service"
-#~ msgstr "Па_слуга:"
-
-#, fuzzy
-#~ msgid "PPP _interface"
-#~ msgstr "Інтэрфейс"
-
-#, fuzzy
-#~ msgid "P_arent interface"
-#~ msgstr "_Бацькоўскі інтэрфейс:"
-
-#, fuzzy
-#~ msgid "C_laim interface"
-#~ msgstr "_Бацькоўскі інтэрфейс:"
-
-#~ msgid "Twisted Pair (TP)"
-#~ msgstr "Вітая пара (TP)"
-
-#~ msgid "Attachment Unit Interface (AUI)"
-#~ msgstr "Attachment Unit Interface (AUI)"
-
-#~ msgid "BNC"
-#~ msgstr "BNC"
-
-#~ msgid "Media Independent Interface (MII)"
-#~ msgstr "Media Independent Interface (MII)"
-
-#~ msgid "10 Mb/s"
-#~ msgstr "10 Мбіт/с"
-
-#~ msgid "100 Mb/s"
-#~ msgstr "100 Мбіт/с"
-
-#~ msgid "1 Gb/s"
-#~ msgstr "1 Гбіт/с"
-
-#~ msgid "10 Gb/s"
-#~ msgstr "10 Гбіт/с"
-
-#~ msgid "Ignore"
-#~ msgstr "Ігнараваць"
-
-#~ msgid "Manual"
-#~ msgstr "Ручныя настройкі"
-
-#, fuzzy
-#~ msgid "_Port"
-#~ msgstr "_Порт:"
-
-#, fuzzy
-#~ msgid "C_loned MAC address"
-#~ msgstr "_Кланіраваны MAC-адрас:"
-
-#, fuzzy
-#~ msgid "Wake on LAN"
-#~ msgstr "_Пароль прыватнага ключа:"
-
-#, fuzzy
-#~ msgid "De_fault"
-#~ msgstr "Прадвызначана"
-
-#, fuzzy
-#~ msgid "_Ignore"
-#~ msgstr "Ігнараваць"
-
-#, fuzzy
-#~ msgid "_Broadcast"
-#~ msgstr "Шырокая трансляцыя"
-
-#, fuzzy
-#~ msgid "_Wake on LAN password"
-#~ msgstr "_Пароль прыватнага ключа:"
-
-#, fuzzy
-#~ msgid "_Speed"
-#~ msgstr "_Хуткасць:"
-
-#, fuzzy
-#~ msgid "Duple_x"
-#~ msgstr "_Поўнадуплекснае злучэнне"
-
-#, fuzzy
-#~ msgid "No"
-#~ msgstr "Няма"
-
-#~ msgid "All _users may connect to this network"
-#~ msgstr "Усе _карыстальнікі могуць злучацца з гэтай сеткай"
-
-#, fuzzy
-#~ msgid "Automatically connect to _VPN"
-#~ msgstr "_Аўтаматычна злучацца з VPN для гэтага злучэння"
-
-#, fuzzy
-#~ msgid "Firewall _zone"
-#~ msgstr "Зона _брандмаўэра:"
-
-#, fuzzy
-#~ msgid "_Metered connection"
-#~ msgstr "_Звязаныя злучэнні:"
-
-#, fuzzy
-#~ msgid "Connect _automatically with priority"
-#~ msgstr "І_гнараваць аўтаматычна атрыманыя маршруты"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add static IP address to be configured in addition to the "
-#~ "automatic ones."
-#~ msgstr ""
-#~ "IP-адрасы вызначаюць ваш камп'ютар у сетцы. Пстрыкніце ў кнопку \"Дадаць"
-#~ "\", каб дадаць IP-адрас."
-
-#, fuzzy
-#~ msgid "Additional static addresses"
-#~ msgstr "Аўтаматычна, толькі адрасы"
-
-#~ msgid "Addresses"
-#~ msgstr "Адрасы"
-
-#~ msgid "Datagram"
-#~ msgstr "Дэйтаграмы"
-
-#~ msgid "Connected"
-#~ msgstr "Злучэнне"
-
-#, fuzzy
-#~ msgid "_Transport mode"
-#~ msgstr "_Транспартны рэжым:"
-
-#, fuzzy
-#~ msgid "Device name"
-#~ msgstr "Назва прыстасавання + нумар"
-
-#, fuzzy
-#~ msgid "Parent device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "Mode"
-#~ msgstr "_Рэжым:"
-
-#, fuzzy
-#~ msgid "MTU"
-#~ msgstr "_MTU:"
-
-#~ msgid "Automatic with manual DNS settings"
-#~ msgstr "Аўтаматычныя настройкі з уласным DNS"
-
-#~ msgid "Link-Local"
-#~ msgstr "Лакальнае злучэнне"
-
-#~ msgid "Shared to other computers"
-#~ msgstr "Даступна для іншых камп'ютараў"
-
-#, fuzzy
-#~ msgid "_Method"
-#~ msgstr "_Метад:"
-
-#, fuzzy
-#~ msgid ""
-#~ "The DHCP client identifier allows the network administrator to customize "
-#~ "your computer’s configuration. If you wish to use a DHCP client "
-#~ "identifier, enter it here."
-#~ msgstr ""
-#~ "DHCP-ідэнтыфікатар кліента дазваляе адміністратару сеткі прыстасаваць "
-#~ "пэўныя дадатковыя настройкі для вашага камп'ютара. Калі вы хочаце "
-#~ "выкарыстоўваць такі ідэнтыфікатар, упішыце яго тут."
-
-#~ msgid ""
-#~ "Domains used when resolving host names. Use commas to separate multiple "
-#~ "domains."
-#~ msgstr ""
-#~ "Дамены для вызначэння адрасоў хостаў. Можна падаць некалькі даменаў, "
-#~ "падзяліўшы іх коскамі."
-
-#, fuzzy
-#~ msgid "D_HCP client ID"
-#~ msgstr "DHCP-ідэнтыфікатар _кліента:"
-
-#, fuzzy
-#~ msgid "S_earch domains"
-#~ msgstr "_Дамены пошуку:"
-
-#, fuzzy
-#~ msgid "DNS ser_vers"
-#~ msgstr "DNS-_серверы:"
-
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses."
-#~ msgstr ""
-#~ "IP-адрасы сервераў даменных назваў для вызначэння адрасоў хостаў. Можна "
-#~ "падаць некалькі сервераў, падзяліўшы іх назвы коскамі."
-
-#~ msgid "Require IPv_4 addressing for this connection to complete"
-#~ msgstr "Вымагаць настройкі IPv_4-сеткі для паспяховага злучэння"
-
-#~ msgid ""
-#~ "When connecting to IPv6-capable networks, allows the connection to "
-#~ "complete if IPv4 configuration fails but IPv6 configuration succeeds."
-#~ msgstr "Пры злучэнні з IPv6-сеткай дазволіць злучэнне без IPv4-адрасоў."
-
-#~ msgid "_Routes…"
-#~ msgstr "М_аршруты..."
-
-#~ msgid "Disabled"
-#~ msgstr "Выключана"
-
-#, fuzzy
-#~ msgid "Stable privacy"
-#~ msgstr "_Уключыць Wi-Fi"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses. Link-local "
-#~ "addresses will be automatically scoped to the connecting interface."
-#~ msgstr ""
-#~ "IP-адрасы сервераў даменных назваў для вызначэння адрасоў хостаў. Можна "
-#~ "падаць некалькі сервераў, падзяліўшы іх назвы коскамі."
-
-#~ msgid "Require IPv_6 addressing for this connection to complete"
-#~ msgstr "Вымагаць настройкі IPv_6-сеткі для паспяховага злучэння"
-
-#~ msgid ""
-#~ "When connecting to IPv4-capable networks, allows the connection to "
-#~ "complete if IPv6 configuration fails but IPv4 configuration succeeds."
-#~ msgstr "Пры злучэнні з IPv4-сеткай дазволіць злучэнне без IPv6-адрасоў."
-
-#~ msgid "EAP"
-#~ msgstr "EAP"
-
-#, fuzzy
-#~ msgid "Strict"
-#~ msgstr "Метрыка"
-
-#, fuzzy
-#~ msgid "_Device name"
-#~ msgstr "Назва прыстасавання + нумар"
-
-#, fuzzy
-#~ msgid "_Parent device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "_Mode"
-#~ msgstr "_Рэжым:"
-
-#~ msgid "Basic"
-#~ msgstr "Просты"
-
-#, fuzzy
-#~ msgid "Nu_mber"
-#~ msgstr "_Нумар:"
-
-#~ msgid "Advanced"
-#~ msgstr "Адмысловае"
-
-#, fuzzy
-#~ msgid "_APN"
-#~ msgstr "Пункт д_оступу (APN):"
-
-#, fuzzy
-#~ msgid "N_etwork ID"
-#~ msgstr "Ідэнтыфікатар _сеткі:"
-
-#, fuzzy
-#~ msgid "Change…"
-#~ msgstr "Змяніць..."
-
-#, fuzzy
-#~ msgid "P_IN"
-#~ msgstr "PIN-к_од:"
-
-#~ msgid "Allow _roaming if home network is not available"
-#~ msgstr ""
-#~ "Дазволіць _карыстанне роўмінг-паслугамі пры недаступнасці дамашняй сеткі"
-
-#~ msgid "Authentication"
-#~ msgstr "Ідэнтыфікацыя"
-
-#, fuzzy
-#~ msgid "Allowed methods"
-#~ msgstr "Дазволеныя метады:"
-
-#~ msgid "Configure _Methods…"
-#~ msgstr "Настройка _метадаў..."
-
-#~ msgid "Compression"
-#~ msgstr "Сцісканне"
-
-#~ msgid "_Use point-to-point encryption (MPPE)"
-#~ msgstr "_Шыфраваць PPP-злучэнне (MPPE)"
-
-#~ msgid "_Require 128-bit encryption"
-#~ msgstr "_Патрабаваць 128-бітнага шыфравання"
-
-#~ msgid "Use _stateful MPPE"
-#~ msgstr "_Ужыць stateful MPPE"
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "_Дазволіць BSD-сцісканне даных"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Даз_воліць Deflate-сцісканне даных"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Сціскаць TCP-_загалоўкі"
-
-#~ msgid "Echo"
-#~ msgstr "Рэха"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Пасылаць р_эхавыя PPP-пакеты"
-
-#, fuzzy
-#~ msgid "None"
-#~ msgstr "Няма"
-
-#, fuzzy
-#~ msgid "Import script from a file…"
-#~ msgstr "Імпартаваць захаваную VPN-канфігурацыю..."
-
-#, fuzzy
-#~ msgid "Method"
-#~ msgstr "_Метад:"
-
-#, fuzzy
-#~ msgid "Ad_vanced…"
-#~ msgstr "Адмысловае"
-
-#, fuzzy
-#~ msgid "Ethernet port state"
-#~ msgstr "Сеткі Ethernet"
-
-#, fuzzy
-#~ msgid "_Port priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "_LACP port priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "LACP port _key"
-#~ msgstr "Прыватны _ключ:"
-
-#, fuzzy
-#~ msgid "_Up delay"
-#~ msgstr "_Затрымка для вызначэння ўсталявання злучэння:"
-
-#, fuzzy
-#~ msgid "_Down delay"
-#~ msgstr "З_атрымка для вызначэння знікнення злучэння:"
-
-#, fuzzy
-#~ msgid "Send _interval"
-#~ msgstr "_Бацькоўскі інтэрфейс:"
-
-#, fuzzy
-#~ msgid "_Source host"
-#~ msgstr "ARP-_мэты:"
-
-#, fuzzy
-#~ msgid "_Target host"
-#~ msgstr "ARP-_мэты:"
-
-#, fuzzy
-#~ msgid "Im_port team configuration from a file…"
-#~ msgstr "Імпартаваць захаваную VPN-канфігурацыю..."
-
-#, fuzzy
-#~ msgid "Bandwidth"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Port priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "From the team device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "_Teamed connections"
-#~ msgstr "_Звязаныя злучэнні:"
-
-#~ msgid "Ethernet"
-#~ msgstr "Ethernet"
-
-#~ msgid "VLAN"
-#~ msgstr "VLAN"
-
-#, fuzzy
-#~ msgid "IP"
-#~ msgstr "IPv4"
-
-#, fuzzy
-#~ msgid "TCP"
-#~ msgstr "GTC"
-
-#, fuzzy
-#~ msgid "_Hardware Address"
-#~ msgstr "Апаратны адрас:"
-
-#, fuzzy
-#~ msgid "_Hardware address policy"
-#~ msgstr "Апаратны адрас:"
-
-#, fuzzy
-#~ msgid "_System priority"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "Transmission _balancing interval"
-#~ msgstr "_Магутнасць перадачы:"
-
-#, fuzzy
-#~ msgid "_Transmission balancer"
-#~ msgstr "_Магутнасць перадачы:"
-
-#, fuzzy
-#~ msgid "_Parent interface"
-#~ msgstr "_Бацькоўскі інтэрфейс:"
-
-#, fuzzy
-#~ msgid "VLAN inter_face name"
-#~ msgstr "_Назва VLAN-інтэрфейсу:"
-
-#, fuzzy
-#~ msgid "Cloned MAC _address"
-#~ msgstr "_Кланіраваны MAC-адрас:"
-
-#, fuzzy
-#~ msgid "VLAN _id"
-#~ msgstr "VLAN-ід_энтыфікатар:"
-
-#~ msgid "Device name + number"
-#~ msgstr "Назва прыстасавання + нумар"
-
-#~ msgid "\"vlan\" + number"
-#~ msgstr "\"vlan\" + нумар"
-
-#, fuzzy
-#~ msgid "S_ecurity"
-#~ msgstr "_Бяспека:"
-
-#~ msgid "A (5 GHz)"
-#~ msgstr "A (5 ГГц)"
-
-#~ msgid "B/G (2.4 GHz)"
-#~ msgstr "B/G (2.4 ГГц)"
-
-#~ msgid "Ad-hoc"
-#~ msgstr "Ad-hoc"
-
-#~ msgid "mW"
-#~ msgstr "мВт"
-
-#, fuzzy
-#~ msgid "Transmission po_wer"
-#~ msgstr "_Магутнасць перадачы:"
-
-#~ msgid "Mb/s"
-#~ msgstr "Мбіт/с"
-
-#, fuzzy
-#~ msgid "_Rate"
-#~ msgstr "_Частата:"
-
-#, fuzzy
-#~ msgid "_BSSID"
-#~ msgstr "_BSSID:"
-
-#, fuzzy
-#~ msgid "C_hannel"
-#~ msgstr "_Канал:"
-
-#, fuzzy
-#~ msgid "Ban_d"
-#~ msgstr "_Паласа:"
-
-#, fuzzy
-#~ msgid "SS_ID"
-#~ msgstr "SS_ID:"
-
-#~ msgid "Allowed Authentication Methods"
-#~ msgstr "Дазволеныя метады ідэнтыфікацыі"
-
-#~ msgid "_EAP"
-#~ msgstr "_EAP"
-
-#~ msgid "Extensible Authentication Protocol"
-#~ msgstr "Extensible Authentication Protocol"
-
-#~ msgid "_PAP"
-#~ msgstr "_PAP"
-
-#~ msgid "Password Authentication Protocol"
-#~ msgstr "Password Authentication Protocol"
-
-#~ msgid "C_HAP"
-#~ msgstr "C_HAP"
-
-#~ msgid "Challenge Handshake Authentication Protocol"
-#~ msgstr "Challenge Handshake Authentication Protocol"
-
-#~ msgid "_MSCHAP"
-#~ msgstr "_MSCHAP"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol"
-#~ msgstr "Microsoft Challenge Handshake Authentication Protocol"
-
-#~ msgid "MSCHAP v_2"
-#~ msgstr "MSCHAP v_2"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol version 2"
-#~ msgstr "Microsoft Challenge Handshake Authentication Protocol version 2"
-
-#, fuzzy
-#~ msgid ""
-#~ "In most cases, the provider’s PPP servers will support all authentication "
-#~ "methods. If connections fail, try disabling support for some methods."
-#~ msgstr ""
-#~ "Звычайна PPP-серверы правайдараў падтрымліваюць усе магчымыя метады "
-#~ "ідэнтыфікацыі. Калі ж узнікаюць памылкі злучэння, паспрабуйце выключыць "
-#~ "некаторыя з метадаў."
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgid "InfiniBand"
-#~ msgstr "InfiniBand"
-
-#~ msgid "Bond"
-#~ msgstr "Bond"
-
-#~ msgid "Bridge"
-#~ msgstr "Мост"
-
-#~ msgid "VPN"
-#~ msgstr "VPN"
-
-#, fuzzy
-#~ msgid "The VPN plugin failed to import the VPN connection correctly: "
-#~ msgstr ""
-#~ "VPN-плугін не здолеў карэктна імпартаваць VPN-злучэнне.\n"
-#~ "\n"
-#~ "Памылка: тып VPN-службы не вызначаны."
-
-#~ msgid "Select file to import"
-#~ msgstr "Выберыце файл для імпартавання"
-
-#~ msgid "Hardware"
-#~ msgstr "Апаратнае"
-
-#~ msgid "Virtual"
-#~ msgstr "Віртуальнае"
-
-#, fuzzy
-#~ msgid "Import a saved VPN configuration…"
-#~ msgstr "Імпартаваць захаваную VPN-канфігурацыю..."
-
-#~ msgid ""
-#~ "The connection editor dialog could not be initialized due to an unknown "
-#~ "error."
-#~ msgstr ""
-#~ "Не ўдалося ініцыяваць дыялогавае акенца рэдактара злучэнняў з прычыны "
-#~ "невядомай памылкі."
-
-#~ msgid "Could not create new connection"
-#~ msgstr "Не ўдалося стварыць новае злучэнне"
-
-#~ msgid "Connection delete failed"
-#~ msgstr "Не ўдалося выдаліць злучэнне"
-
-#, c-format
-#~ msgid "Are you sure you wish to delete the connection %s?"
-#~ msgstr "Ці вы сапраўды хочаце выдаліць злучэнне \"%s\"?"
-
-#, fuzzy
-#~ msgid "_New Connection"
-#~ msgstr "VPN-з_лучэнні"
-
-#~ msgid "Address"
-#~ msgstr "Адрас"
-
-#~ msgid "Netmask"
-#~ msgstr "Сеткавая маска"
-
-#~ msgid "Gateway"
-#~ msgstr "Сеткавая брама"
-
-#~ msgid "Metric"
-#~ msgstr "Метрыка"
-
-#~ msgid "Prefix"
-#~ msgstr "Прэфікс"
-
-#, c-format
-#~ msgid "Editing %s"
-#~ msgstr "Змяненне %s"
-
-#~ msgid "Editing un-named connection"
-#~ msgstr "Змяненне безназоўнага злучэння"
-
-#, fuzzy
-#~ msgid "Missing connection name"
-#~ msgstr "_Назва злучэння:"
-
-#, fuzzy
-#~ msgid "Editor initializing…"
-#~ msgstr "Памылка ініцыяцыі рэдактара"
-
-#, fuzzy
-#~ msgid "Connection cannot be modified"
-#~ msgstr "Не ўдалося дадаць злучэнне"
-
-#~ msgid ""
-#~ "The connection editor could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "Рэдактар злучэнняў не здолеў адшукаць некаторыя патрэбныя рэсурсы (.ui-"
-#~ "файл не знойдзены)."
-
-#~ msgid "_Save"
-#~ msgstr "_Захаваць"
-
-#~ msgid "Save any changes made to this connection."
-#~ msgstr "Захаваць усе змены, зробленыя для гэтага злучэння."
-
-#~ msgid "Authenticate to save this connection for all users of this machine."
-#~ msgstr ""
-#~ "Ідэнтыфікуйце сябе, каб захаваць гэта злучэнне для ўсіх карыстальнікаў "
-#~ "камп'ютара."
-
-#~ msgid "Could not create connection"
-#~ msgstr "Не ўдалося стварыць злучэнне"
-
-#~ msgid "Could not edit connection"
-#~ msgstr "Не ўдалося змяніць злучэнне"
-
-#~ msgid "Unknown error creating connection editor dialog."
-#~ msgstr ""
-#~ "Невядомая памылка стварэння дыялогавага акенца для рэдактара злучэння."
-
-#~ msgid "Error initializing editor"
-#~ msgstr "Памылка ініцыяцыі рэдактара"
-
-#~ msgid "Connection add failed"
-#~ msgstr "Не ўдалося дадаць злучэнне"
-
-#, fuzzy
-#~ msgid ""
-#~ "Security labels may prevent some files from being used with certificate "
-#~ "authentication."
-#~ msgstr "Выключыць папярэджанні аб сертыфікатах CA для EAP-ідэнтыфікацыі."
-
-#, fuzzy
-#~ msgid "Connection _name"
-#~ msgstr "_Назва злучэння:"
-
-#, fuzzy
-#~ msgid "_Export…"
-#~ msgstr "_Экспартаваць..."
-
-#~ msgid "never"
-#~ msgstr "ніколі"
-
-#~ msgid "now"
-#~ msgstr "зараз"
-
-#, c-format
-#~ msgid "%d minute ago"
-#~ msgid_plural "%d minutes ago"
-#~ msgstr[0] "%d хвіліна таму"
-#~ msgstr[1] "%d хвіліны таму"
-#~ msgstr[2] "%d хвілін таму"
-
-#, c-format
-#~ msgid "%d hour ago"
-#~ msgid_plural "%d hours ago"
-#~ msgstr[0] "%d гадзіна таму"
-#~ msgstr[1] "%d гадзіны таму"
-#~ msgstr[2] "%d гадзін таму"
-
-#, c-format
-#~ msgid "%d day ago"
-#~ msgid_plural "%d days ago"
-#~ msgstr[0] "%d дзень таму"
-#~ msgstr[1] "%d дні таму"
-#~ msgstr[2] "%d дзён таму"
-
-#, c-format
-#~ msgid "%d month ago"
-#~ msgid_plural "%d months ago"
-#~ msgstr[0] "%d месяц таму"
-#~ msgstr[1] "%d месяцы таму"
-#~ msgstr[2] "%d месяцаў таму"
-
-#, c-format
-#~ msgid "%d year ago"
-#~ msgid_plural "%d years ago"
-#~ msgstr[0] "%d год таму"
-#~ msgstr[1] "%d гады таму"
-#~ msgstr[2] "%d гадоў таму"
-
-#, fuzzy
-#~ msgid "Connection cannot be deleted"
-#~ msgstr "Не ўдалося дадаць злучэнне"
-
-#, fuzzy
-#~ msgid "Select a connection to edit"
-#~ msgstr "DSL злучэнне %d"
-
-#, fuzzy
-#~ msgid "Select a connection to delete"
-#~ msgstr "DSL злучэнне %d"
-
-#~ msgid "Last Used"
-#~ msgstr "Дата апошняга выкарыстання"
-
-#~ msgid "Edit the selected connection"
-#~ msgstr "Змяніць вылучанае злучэнне"
-
-#~ msgid "Authenticate to edit the selected connection"
-#~ msgstr "Ідэнтыфікуйце сябе, каб змагчы змяняць вылучанае злучэнне"
-
-#~ msgid "Delete the selected connection"
-#~ msgstr "Выдаліць вылучанае злучэнне"
-
-#~ msgid "Authenticate to delete the selected connection"
-#~ msgstr "Ідэнтыфікуйце сябе,, каб змагчы выдаліць вылучанае злучэнне"
-
-#, fuzzy
-#~ msgid "Unrecognized connection type"
-#~ msgstr "Гэты тып шырокапалоснага мабільнага злучэння не падтрымліваецца."
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to import “%s” connections"
-#~ msgstr "Невядома, як ствараць злучэнні \"%s\""
-
-#, fuzzy
-#~ msgid "Error importing connection"
-#~ msgstr "Памылка змянення злучэння"
-
-#~ msgid "Error creating connection"
-#~ msgstr "Памылка стварэння злучэння"
-
-#, fuzzy
-#~ msgid "Connection type not specified."
-#~ msgstr "Не ўдалося дадаць злучэнне"
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to create “%s” connections"
-#~ msgstr "Невядома, як ствараць злучэнні \"%s\""
-
-#~ msgid "Error editing connection"
-#~ msgstr "Памылка змянення злучэння"
-
-#, fuzzy, c-format
-#~ msgid "Did not find a connection with UUID “%s”"
-#~ msgstr "Злучэнне з UUID \"%s\" не знойдзена"
-
-#~ msgid "Network Connections"
-#~ msgstr "Сеткавыя злучэнні"
-
-#, fuzzy
-#~ msgid "Add a new connection"
-#~ msgstr "VPN-з_лучэнні"
-
-#~ msgid "802.1X Security"
-#~ msgstr "802.1X-бяспека"
-
-#~ msgid "Could not load 802.1X Security user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "бяспекі 802.1X."
-
-#~ msgid "Use 802.1_X security for this connection"
-#~ msgstr "Ужыць _802.1X для бяспекі гэтага злучэння"
-
-#, fuzzy
-#~ msgid "Could not load Bluetooth user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "Ethernet."
-
-#, fuzzy, c-format
-#~ msgid "Bluetooth connection %d"
-#~ msgstr "Bond-злучэнне %d"
-
-#, fuzzy
-#~ msgid "Bluetooth Type"
-#~ msgstr "Bluetooth"
-
-#, fuzzy
-#~ msgid "_Personal Area Network"
-#~ msgstr "Сетка Ethernet"
-
-#, fuzzy
-#~ msgid "_Dial-Up Network"
-#~ msgstr "Сетка Wi-Fi"
-
-#~ msgid "Could not load bond user interface."
-#~ msgstr "Не ўдалося загрузіць інтэрфейс карыстальніка для bond-злучэнняў."
-
-#, fuzzy
-#~ msgid "primary"
-#~ msgstr "Першы DNS:"
-
-#, c-format
-#~ msgid "Bond connection %d"
-#~ msgstr "Bond-злучэнне %d"
-
-#~ msgid "Could not load bridge user interface."
-#~ msgstr "Не ўдалося загрузіць інтэрфейс карыстальніка для злучэнняў-мастоў."
-
-#, c-format
-#~ msgid "Bridge connection %d"
-#~ msgstr "Злучэнне-мост %d"
-
-#~ msgid "Bridge Port"
-#~ msgstr "Порт моста"
-
-#~ msgid "Could not load bridge port user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для порта злучэння-моста."
-
-#, fuzzy
-#~ msgid "Could not load DCB user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек DSL."
-
-#~ msgid "Could not load DSL user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек DSL."
-
-#, fuzzy
-#~ msgid "missing parent interface"
-#~ msgstr "_Бацькоўскі інтэрфейс:"
-
-#, c-format
-#~ msgid "DSL connection %d"
-#~ msgstr "DSL злучэнне %d"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “em1”, "
-#~ "“3C:97:0E:42:1A:19”, “em1 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "Гэтай опцыяй можна прывязаць злучэнне да пэўнага сеткавага прыстасавання, "
-#~ "вызначанага яго MAC-адрасам. Прыклад: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "ignored"
-#~ msgstr "Ігнаравана"
-
-#~ msgid "Could not load ethernet user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "Ethernet."
-
-#, fuzzy
-#~ msgid "Ethernet device"
-#~ msgstr "Ethernet"
-
-#, fuzzy
-#~ msgid "cloned MAC"
-#~ msgstr "_Кланіраваны MAC-адрас:"
-
-#, c-format
-#~ msgid "Ethernet connection %d"
-#~ msgstr "Злучэнне Ethernet %d"
-
-#~ msgid ""
-#~ "The zone defines the trust level of the connection. Default is not a "
-#~ "regular zone, selecting it results in the use of the default zone set in "
-#~ "the firewall. Only usable if firewalld is active."
-#~ msgstr ""
-#~ "Зона вызначае ўзровень даверу да злучэння. Прадвызначана гэта не "
-#~ "звычайная зона, а азначае, што будзе ўжыта прадвызначаная зона "
-#~ "брандмаўэра. Настройка будзе карыснай, толькі калі ўключаны firewalld."
-
-#~ msgid "Could not load General user interface."
-#~ msgstr "Не ўдалося загрузіць асноўны інтэрфейс карыстальніка."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “ib0”, "
-#~ "“80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65”, “ib0 "
-#~ "(80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65)”"
-#~ msgstr ""
-#~ "Гэтай опцыяй можна прывязаць злучэнне да пэўнага сеткавага прыстасавання, "
-#~ "вызначанага яго MAC-адрасам. Прыклад: 00:11:22:33:44:55"
-
-#~ msgid "Could not load InfiniBand user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "InfiniBand."
-
-#, c-format
-#~ msgid "InfiniBand connection %d"
-#~ msgstr "Злучэнне InfiniBand %d"
-
-#, fuzzy
-#~ msgid "Could not load IP tunnel user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення IPv4-настроек."
-
-#, fuzzy, c-format
-#~ msgid "IP tunnel connection %d"
-#~ msgstr "Злучэнне Ethernet %d"
-
-#~ msgid "Automatic (VPN)"
-#~ msgstr "Аўтаматычна (VPN)"
-
-#~ msgid "Automatic (VPN) addresses only"
-#~ msgstr "Толькі аўтаматычна атрыманыя адрасы (VPN)"
-
-#~ msgid "Automatic, addresses only"
-#~ msgstr "Аўтаматычна, толькі адрасы"
-
-#~ msgid "Automatic (PPPoE)"
-#~ msgstr "Аўтаматычна (PPPoE)"
-
-#~ msgid "Automatic (PPPoE) addresses only"
-#~ msgstr "Толькі аўтаматычна атрыманыя адрасы (PPPoE)"
-
-#~ msgid "Automatic (DHCP)"
-#~ msgstr "Аўтаматычна (DHCP)"
-
-#~ msgid "Automatic (DHCP) addresses only"
-#~ msgstr "Толькі аўтаматычна атрыманыя адрасы (DHCP)"
-
-#~ msgid "Link-Local Only"
-#~ msgstr "Толькі лакальнае злучэнне"
-
-#, fuzzy
-#~ msgid "Additional DNS ser_vers"
-#~ msgstr "Д_адатковыя DNS-серверы:"
-
-#, fuzzy
-#~ msgid "Additional s_earch domains"
-#~ msgstr "_Дадатковыя домены пошуку:"
-
-#, c-format
-#~ msgid "Editing IPv4 routes for %s"
-#~ msgstr "Змяненне IPv4-маршрутаў для %s"
-
-#~ msgid "IPv4 Settings"
-#~ msgstr "IPv4-настройкі"
-
-#~ msgid "Could not load IPv4 user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення IPv4-настроек."
-
-#~ msgid "Automatic, DHCP only"
-#~ msgstr "Аўтаматычна, толькі DHCP"
-
-#, c-format
-#~ msgid "Editing IPv6 routes for %s"
-#~ msgstr "Змяненне IPv6-маршрутаў для %s"
-
-#~ msgid "IPv6 Settings"
-#~ msgstr "IPv6-настройкі"
-
-#~ msgid "Could not load IPv6 user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення IPv6-настроек."
-
-#, fuzzy
-#~ msgid "Could not load MACsec user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек WiMAX."
-
-#, fuzzy, c-format
-#~ msgid "MACSEC connection %d"
-#~ msgstr "Злучэнне WiMAX %d"
-
-#, c-format
-#~ msgid "%s slave %d"
-#~ msgstr "Падпарадкаванае злучэнне %2$d (%1$s)"
-
-#~ msgid "Could not load mobile broadband user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "шырокапалоснага мабільнага злучэння."
-
-#~ msgid "Unsupported mobile broadband connection type."
-#~ msgstr "Гэты тып шырокапалоснага мабільнага злучэння не падтрымліваецца."
-
-#~ msgid "Select Mobile Broadband Provider Type"
-#~ msgstr "Выберыце тып правайдара шырокапалоснага мабільнага злучэння"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the technology your mobile broadband provider uses. If you are "
-#~ "unsure, ask your provider."
-#~ msgstr ""
-#~ "Вызначыце тэхналогію, якой карыстаецца ваш мабільны аператар. Калі вы не "
-#~ "ўпэўнены, спытайце ў яго прадстаўнікоў."
-
-#~ msgid ""
-#~ "My provider uses _GSM-based technology (i.e. GPRS, EDGE, UMTS, HSDPA)"
-#~ msgstr ""
-#~ "Мой аператар выкарыстоўвае GSM-_тэхналогію (напрыклад, GPRS, EDGE, UMTS, "
-#~ "HSDPA)"
-
-#~ msgid "My provider uses C_DMA-based technology (i.e. 1xRTT, EVDO)"
-#~ msgstr ""
-#~ "Мой аператар выкарыстоўвае CDMA-т_эхналогію (напрыклад, 1xRTT, EVDO)"
-
-#~ msgid "none"
-#~ msgstr "нічога"
-
-#, c-format
-#~ msgid "Editing PPP authentication methods for %s"
-#~ msgstr "Змяненне метадаў PPP-ідэнтыфікацыі для %s"
-
-#~ msgid "PPP Settings"
-#~ msgstr "Настройкі PPP-злучэння"
-
-#~ msgid "Could not load PPP user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек PPP-"
-#~ "злучэння."
-
-#, fuzzy
-#~ msgid "Could not load proxy user interface."
-#~ msgstr "Не ўдалося загрузіць інтэрфейс карыстальніка для bond-злучэнняў."
-
-#, fuzzy
-#~ msgid "Could not load team user interface."
-#~ msgstr "Не ўдалося загрузіць інтэрфейс карыстальніка для VLAN."
-
-#, fuzzy, c-format
-#~ msgid "Team connection %d"
-#~ msgstr "DSL злучэнне %d"
-
-#, fuzzy
-#~ msgid "Team Port"
-#~ msgstr "Порт моста"
-
-#, fuzzy
-#~ msgid "Could not load team port user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для порта злучэння-моста."
-
-#, fuzzy
-#~ msgid "New connection…"
-#~ msgstr "Няма сеткавага злучэння"
-
-#~ msgid "Could not load vlan user interface."
-#~ msgstr "Не ўдалося загрузіць інтэрфейс карыстальніка для VLAN."
-
-#, c-format
-#~ msgid "VLAN connection %d"
-#~ msgstr "VLAN-злучэнне %d"
-
-#, fuzzy, c-format
-#~ msgid "Could not load editor VPN plugin for “%s” (%s)."
-#~ msgstr "Не ўдалося адшукаць службу VPN-плугіна для \"%s\"."
-
-#, fuzzy
-#~ msgid "unknown failure"
-#~ msgstr "Няўдалае злучэнне"
-
-#~ msgid "Could not load VPN user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек VPN-"
-#~ "злучэння."
-
-#, fuzzy, c-format
-#~ msgid "Could not find VPN plugin for “%s”."
-#~ msgstr "Не ўдалося адшукаць службу VPN-плугіна для \"%s\"."
-
-#, c-format
-#~ msgid "VPN connection %d"
-#~ msgstr "VPN злучэнне %d"
-
-#~ msgid "Choose a VPN Connection Type"
-#~ msgstr "Выберыце тып VPN-злучэння"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the type of VPN you wish to use for the new connection. If the "
-#~ "type of VPN connection you wish to create does not appear in the list, "
-#~ "you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Вызначыце тып новага VPN-злучэння. Калі патрэбнага тыпу няма ў спісе, "
-#~ "гэта значыць, што ў сістэме не ўсталяваны адпаведны VPN-плугін."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the Wi-Fi access point (AP) "
-#~ "specified by the BSSID entered here. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "Гэтай опцыяй можна прывязаць злучэнне да пэўнага пункту доступу Wi-Fi, "
-#~ "вызначанага яго BSSID-ідэнтыфікатарам. Прыклад: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “wlan0”, "
-#~ "“3C:97:0E:42:1A:19”, “wlan0 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "Гэтай опцыяй можна прывязаць злучэнне да пэўнага сеткавага прыстасавання, "
-#~ "вызначанага яго MAC-адрасам. Прыклад: 00:11:22:33:44:55"
-
-#, c-format
-#~ msgid "%u (%u MHz)"
-#~ msgstr "%u (%u МГц)"
-
-#~ msgid "Could not load Wi-Fi user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек Wi-Fi."
-
-#, fuzzy
-#~ msgid "Wi-Fi device"
-#~ msgstr "Любое прыстасаванне"
-
-#, c-format
-#~ msgid "Wi-Fi connection %d"
-#~ msgstr "Злучэнне Wi-Fi %d"
-
-#~ msgid "Dynamic WEP (802.1X)"
-#~ msgstr "Дынамічны WEP (802.1X)"
-
-#~ msgid "Could not load Wi-Fi security user interface; missing Wi-Fi setting."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "бяспекі Wi-Fi. Адсутнічае настройка Wi-Fi."
-
-#~ msgid "Wi-Fi Security"
-#~ msgstr "Бяспека Wi-Fi"
-
-#~ msgid "Could not load Wi-Fi security user interface."
-#~ msgstr ""
-#~ "Не ўдалося загрузіць інтэрфейс карыстальніка для змянення настроек "
-#~ "бяспекі Wi-Fi."
-
-#, fuzzy, c-format
-#~ msgid "A file named “%s” already exists."
-#~ msgstr "Файл з назвай \"%s\" ужо існуе."
-
-#~ msgid "_Replace"
-#~ msgstr "_Замяніць"
-
-#, c-format
-#~ msgid "Do you want to replace %s with the VPN connection you are saving?"
-#~ msgstr ""
-#~ "Ці вы хочаце замяніць %s на новае VPN-злучэнне, якое вы зараз захоўваеце?"
-
-#~ msgid "Cannot export VPN connection"
-#~ msgstr "Не ўдалося экспартаваць VPN-злучэнне"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The VPN connection “%s” could not be exported to %s.\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "Не ўдалося экспартаваць VPN-злучэнне \"%s\" у %s.\n"
-#~ "\n"
-#~ "Памылка: %s."
-
-#, fuzzy
-#~ msgid "Export VPN connection…"
-#~ msgstr "Экспартаваць VPN-злучэнне..."
-
-#~ msgid "_Unlock"
-#~ msgstr "_Разблакіраваць"
-
-#~ msgid "Automatically unlock this device"
-#~ msgstr "Аўтаматычна разблакіраваць гэта прыстасаванне"
-
-#~ msgid "Connection Information"
-#~ msgstr "Інфармацыя аб злучэнні"
-
-#, fuzzy
-#~ msgid "I can’t find my provider and I wish to enter it _manually:"
-#~ msgstr "_Я не знайшоў свайго аператара і хачу вызначыць яго самастойна:"
-
-#~ msgid "Provider:"
-#~ msgstr "Аператар:"
-
-#~ msgid "Country or Region List:"
-#~ msgstr "Спіс краін і рэгіёнаў:"
-
-#~ msgid "Country or region"
-#~ msgstr "Краіна ці рэгіён"
-
-#~ msgid "Wired"
-#~ msgstr "Правадны"
-
-#~ msgid "OLPC Mesh"
-#~ msgstr "OLPC Mesh"
-
-#~ msgid "ADSL"
-#~ msgstr "ADSL"
-
-#~ msgid "PCI"
-#~ msgstr "PCI"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#, c-format
-#~ msgctxt "long device name"
-#~ msgid "%s %s"
-#~ msgstr "%s %s"
-
-#~ msgid "Wi-Fi _security:"
-#~ msgstr "_Бяспека Wi-Fi:"
-
-#~ msgid "_Network name:"
-#~ msgstr "_Назва сеткі:"
-
-#~ msgid "C_onnection:"
-#~ msgstr "_Злучэнне:"
-
-#~ msgid "Wi-Fi _adapter:"
-#~ msgstr "_Адаптар Wi-Fi:"
-
-#~ msgid "Usage:"
-#~ msgstr "Правілы карыстання:"
-
-#~ msgid ""
-#~ "This program is a component of NetworkManager (https://wiki.gnome.org/"
-#~ "Projects/NetworkManager/)."
-#~ msgstr ""
-#~ "Гэта праграма з'яўляецца складовай часткай NetworkManager (https://wiki."
-#~ "gnome.org/Projects/NetworkManager/)."
-
-#~ msgid ""
-#~ "It is not intended for command-line interaction but instead runs in the "
-#~ "GNOME desktop environment."
-#~ msgstr ""
-#~ "Яна не прызначана для запуску з загаднага радка, а выконваецца ў "
-#~ "працоўным асяроддзі GNOME."
-
-#~ msgid "EVDO"
-#~ msgstr "EVDO"
-
-#~ msgid "GPRS"
-#~ msgstr "GPRS"
-
-#~ msgid "EDGE"
-#~ msgstr "EDGE"
-
-#~ msgid "UMTS"
-#~ msgstr "UMTS"
-
-#~ msgid "HSDPA"
-#~ msgstr "HSDPA"
-
-#~ msgid "HSUPA"
-#~ msgstr "HSUPA"
-
-#~ msgid "HSPA"
-#~ msgstr "HSPA"
-
-#~ msgid "HSPA+"
-#~ msgstr "HSPA+"
-
-#~ msgid "LTE"
-#~ msgstr "LTE"
-
-#~ msgid "not enabled"
-#~ msgstr "выключана"
-
-#~ msgid "not registered"
-#~ msgstr "няма рэгістрацыі"
-
-#, c-format
-#~ msgid "Home network (%s)"
-#~ msgstr "Асноўная сетка (%s)"
-
-#~ msgid "Home network"
-#~ msgstr "Асноўная сетка"
-
-#~ msgid "searching"
-#~ msgstr "пошук"
-
-#~ msgid "registration denied"
-#~ msgstr "адмоўлена ў рэгістрацыі"
-
-#, c-format
-#~ msgid "%s (%s roaming)"
-#~ msgstr "%s (%s-роўмінг)"
-
-#, c-format
-#~ msgid "%s (roaming)"
-#~ msgstr "%s (роўмінг)"
-
-#, c-format
-#~ msgid "Roaming network (%s)"
-#~ msgstr "Роўмінг-сетка (%s)"
-
-#~ msgid "Roaming network"
-#~ msgstr "Роўмінг-сетка"
-
-#, fuzzy, c-format
-#~ msgid "PIN code for SIM card “%s” on “%s”"
-#~ msgstr "PIN-код для SIM-карты \"%s\" у \"%s\""
-
-#~ msgid "PIN code required"
-#~ msgstr "Патрэбны PIN-код"
-
-#~ msgid "PIN code is needed for the mobile broadband device"
-#~ msgstr ""
-#~ "Для выкарыстання прыстасавання шырокапалоснага мабільнага інтэрнэту "
-#~ "патрэбны PIN-код"
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active: (%d%%%s%s)"
-#~ msgstr "Шырокапалоснае мабільнае злучэнне \"%s\" уключана: (%d%%%s%s)"
-
-#~ msgid "roaming"
-#~ msgstr "роўмінг"
-
-#~ msgid "%s (default)"
-#~ msgstr "%s (прадвызначана)"
-
-#~ msgid "Ignored"
-#~ msgstr "Ігнаравана"
-
-#~ msgid "Failed to update connection secrets due to an unknown error."
-#~ msgstr ""
-#~ "З прычыны невядомай памылкі не ўдалося абнавіць сакрэтныя ключы злучэння."
-
-#, fuzzy
-#~ msgid "Priority:"
-#~ msgstr "_Прыярытэт:"
-
-#, fuzzy
-#~ msgid "2:"
-#~ msgstr "2"
-
-#, fuzzy
-#~ msgid "3:"
-#~ msgstr "3"
-
-#, fuzzy
-#~ msgid "4:"
-#~ msgstr "4"
-
-#~ msgid "_Automatically connect to this network when it is available"
-#~ msgstr "_Аўтаматычна злучацца з гэтай сеткай пры яе наяўнасці"
-
-#, fuzzy
-#~ msgid "Connection _priority for auto-activation:"
-#~ msgstr "Інфармацыя аб _злучэнні"
-
-#~ msgid "DSL"
-#~ msgstr "DSL"
-
-#~ msgid "Cannot import VPN connection"
-#~ msgstr "Не ўдалося імпартаваць VPN-злучэнне"
-
-#, fuzzy
-#~ msgid ""
-#~ "The file “%s” could not be read or does not contain recognized VPN "
-#~ "connection information\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "Немагчымы прачытаць файл \"%s\", або ён не змяшчае апазнанай інфармацыі "
-#~ "аб VPN-злучэнні\n"
-#~ "\n"
-#~ "Памылка: %s."
-
-#, fuzzy
-#~ msgid "unknown error"
-#~ msgstr "Невядомая памылка"
-
-#, fuzzy
-#~ msgid "Choose a Certificate Authority certificate"
-#~ msgstr "Выберыце сертыфікат CA..."
-
-#~ msgid "C_A certificate:"
-#~ msgstr "_Сертыфікат CA:"
-
-#, fuzzy
-#~ msgid "NetworkManager for GNOME"
-#~ msgstr "Аплет NetworkManager"
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected because the VPN service stopped."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" разарвана, бо VPN-служба была спынена."
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected."
-#~ msgstr ""
-#~ "\n"
-#~ "VPN-злучэнне \"%s\" разарвана."
-
-#~ msgid "_Disconnect VPN"
-#~ msgstr "_Адлучыцца ад VPN"
-
-#~ msgid "New Mobile Broadband connection..."
-#~ msgstr "Новае шырокапалоснае мабільнае злучэнне..."
-
-#~ msgid "_Connect to Hidden Wi-Fi Network..."
-#~ msgstr "_Злучыцца са схаванай сеткай Wi-Fi..."
-
-#~ msgid "Create _New Wi-Fi Network..."
-#~ msgstr "Стварыць _новую сетку Wi-Fi..."
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "Aut_onegotiate"
-#~ msgstr "_Аўтаматычнае дамаўленне"
-
-#~ msgid "FirewallD is not running."
-#~ msgstr "FirewallD не запушчаны."
-
-#~ msgid "New..."
-#~ msgstr "Стварыць..."
-
-#, fuzzy
-#~ msgid "invalid EAP-TLS CA certificate: %s"
-#~ msgstr "_Сертыфікат CA:"
-
-#~ msgid "Unencrypted private keys are insecure"
-#~ msgstr "Выкарыстанне незашыфраваных прыватных ключоў небяспечна"
-
-#~ msgid ""
-#~ "The selected private key does not appear to be protected by a password.  "
-#~ "This could allow your security credentials to be compromised.  Please "
-#~ "select a password-protected private key.\n"
-#~ "\n"
-#~ "(You can password-protect your private key with openssl)"
-#~ msgstr ""
-#~ "Абраны прыватны ключ не абаронены паролем. Гэта можа прывесці да "
-#~ "кампраметацыі вашага мандату на ўваход. Вызначыце прыватны ключ, "
-#~ "абаронены паролем.\n"
-#~ "\n"
-#~ "(Абараніць прыватны ключ паролем можна з дапамогай openssl)"
-
-#~ msgid "Choose your personal certificate..."
-#~ msgstr "Выберыце свой асабісты сертыфікат..."
-
-#~ msgid "Choose your private key..."
-#~ msgstr "Выберыце свой прыватны ключ..."
-
-#~ msgid "Enable WiMA_X Mobile Broadband"
-#~ msgstr "Уключыць шырокапалосную _мабільную WiMAX-сувязь"
-
-#~ msgid "_Help"
-#~ msgstr "_Дапамога"
-
-#~ msgid "New Mobile Broadband (CDMA) connection..."
-#~ msgstr "Новае шырокапалоснае мабільнае злучэнне (CDMA)..."
-
-#~ msgid "You are now connected to the CDMA network."
-#~ msgstr "Вы злучаны з CDMA-сеткай."
-
-#~ msgid "CDMA network."
-#~ msgstr "CDMA-сетка."
-
-#~ msgid "New Mobile Broadband (GSM) connection..."
-#~ msgstr "Новае шырокапалоснае мабільнае злучэнне (GSM)..."
-
-#~ msgid "You are now connected to the GSM network."
-#~ msgstr "Вы злучаны з GSM-сеткай."
-
-#~ msgid "GSM network."
-#~ msgstr "GSM-сетка."
-
-#~ msgid "WiMAX Mobile Broadband (%s)"
-#~ msgstr "Шырокапалоснае мабільнае WiMAX-злучэнне (%s)"
-
-#~ msgid "WiMAX Mobile Broadband"
-#~ msgstr "Шырокапалоснае мабільнае WiMAX-злучэнне"
-
-#~ msgid "WiMAX is disabled"
-#~ msgstr "WiMAX-прыстасаванне выключана"
-
-#~ msgid "WiMAX is disabled by hardware switch"
-#~ msgstr ""
-#~ "WiMAX-прыстасаванне выключана з дапамогай апаратнага пераключальніка"
-
-#~ msgid "You are now connected to the WiMAX network."
-#~ msgstr "Вы злучаны з WiMAX-сеткай."
-
-#~ msgid "%d dB"
-#~ msgstr "%d дБ"
-
-#~ msgctxt "WiMAX CINR"
-#~ msgid "unknown"
-#~ msgstr "невядома"
-
-#~ msgctxt "WiMAX Base Station ID"
-#~ msgid "unknown"
-#~ msgstr "невядома"
-
-#~ msgid "WiMAX (%s)"
-#~ msgstr "WiMAX (%s)"
-
-#~ msgid "CINR:"
-#~ msgstr "CINR:"
-
-#~ msgid "BSID:"
-#~ msgstr "BSID:"
-
-#~ msgid "_Device MAC address:"
-#~ msgstr "MAC-адрас _прыстасавання:"
-
-#~ msgid "Any"
-#~ msgstr "Любы"
-
-#~ msgid "3G (UMTS/HSPA)"
-#~ msgstr "3G (UMTS/HSPA)"
-
-#~ msgid "2G (GPRS/EDGE)"
-#~ msgstr "2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 3G (UMTS/HSPA)"
-#~ msgstr "Аддаваць перавагу 3G (UMTS/HSPA)"
-
-#~ msgid "Prefer 2G (GPRS/EDGE)"
-#~ msgstr "Аддаваць перавагу 2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 4G (LTE)"
-#~ msgstr "Аддаваць перавагу 4G (LTE)"
-
-#~ msgid "Use only 4G (LTE)"
-#~ msgstr "Ужыць толькі 4G (LTE)"
-
-#~ msgid "Infrastructure"
-#~ msgstr "Інфраструктура"
-
-#~ msgid "WiMAX"
-#~ msgstr "WiMAX"
-
-#~ msgid "_Save..."
-#~ msgstr "_Захаваць..."
-
-#~ msgid "Error saving connection"
-#~ msgstr "Памылка захавання злучэння"
-
-#~ msgid "The property '%s' / '%s' is invalid: %d"
-#~ msgstr "Уласцівасць \"%s\" / \"%s\" хібная: %d"
-
-#~ msgid "_Edit..."
-#~ msgstr "_Змяніць..."
-
-#~ msgid "_Delete..."
-#~ msgstr "_Выдаліць..."
-
-#~ msgid "Automatic (PPP)"
-#~ msgstr "Аўтаматычна (PPP)"
-
-#~ msgid "Automatic (PPP) addresses only"
-#~ msgstr "Толькі аўтаматычна атрыманыя адрасы (PPP)"
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (failed to connect to D-Bus: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "Немагчыма настроіць Bluetooth (не ўдалося злучыцца з D-Bus: (%s) %s)."
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (error finding NetworkManager: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "Немагчыма настроіць Bluetooth (не ўдалося знайсці NetworkManager: (%s) "
-#~ "%s)."
-
-#~ msgid "Use your mobile phone as a network device (PAN/NAP)"
-#~ msgstr "Выкарыстоўваць мабільны тэлефон як сеткавае прыстасаванне (PAN/NAP)"
-
-#~ msgid "Access the Internet using your mobile phone (DUN)"
-#~ msgstr "Злучыцца з інтэрнэтам праз мабільны тэлефон (DUN)"
-
-#~ msgid "Error: %s"
-#~ msgstr "Памылка: %s"
-
-#~ msgid "Your phone is now ready to use!"
-#~ msgstr "Цяпер вы можаце карыстацца сваім тэлефонам."
-
-#~ msgid "Mobile wizard was canceled"
-#~ msgstr "Мабільны памочнік скасаваны"
-
-#~ msgid "Unknown phone device type (not GSM or CDMA)"
-#~ msgstr "Невядомы тып тэлефона (ні GSM, ні CDMA)"
-
-#~ msgid "unknown modem type."
-#~ msgstr "невядомы тып мадэма."
-
-#~ msgid "failed to connect to the phone."
-#~ msgstr "не ўдалося злучыцца з тэлефонам."
-
-#~ msgid "unexpectedly disconnected from the phone."
-#~ msgstr "нечакана адлучана ад тэлефона."
-
-#~ msgid "timed out detecting phone details."
-#~ msgstr "вычарпаны тэрмін чакання падрабязнасцяў аб тэлефоне."
-
-#~ msgid "Detecting phone configuration..."
-#~ msgstr "Апазнанне канфігурацыі тэлефона..."
-
-#~ msgid "error getting bus connection"
-#~ msgstr "памылка ўсталявання злучэння з камунікацыйнай магістраллю"
-
-#~ msgid ""
-#~ "The default Bluetooth adapter must be enabled before setting up a Dial-Up-"
-#~ "Networking connection."
-#~ msgstr ""
-#~ "Для настройкі мадэмнага злучэння спачатку трэба ўключыць прадвызначаны "
-#~ "Bluetooth-адаптар."
-
-#~ msgid "Failed to create PAN connection: %s"
-#~ msgstr "Не ўдалося стварыць PAN-злучэнне: %s"
-
-#~ msgid "%s Network"
-#~ msgstr "Сетка %s"
-
-#~ msgid "No Certificate Authority certificate chosen"
-#~ msgstr "Сертыфікат CA не абраны"
-
-#~ msgid ""
-#~ "Not using a Certificate Authority (CA) certificate can result in "
-#~ "connections to insecure, rogue Wi-Fi networks.  Would you like to choose "
-#~ "a Certificate Authority certificate?"
-#~ msgstr ""
-#~ "Адмова ад выкарыстання сертыфіката CA можа прывесці да злучэння з нічым "
-#~ "не забяспечанымі ад несанкцыянаванага доступу сетак Wi-Fi. Вызначыць "
-#~ "сертыфікат CA?"

@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libnma 1.10.1\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-09-07 17:17+0200\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2022-09-07 18:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -18,74 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "მიერთების შეტყობინებების გამორთვა"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr "ჩართეთ ქსელთან მიერთებისას გაფრთხილების გამოსართავად."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "გათიშვის შეტყობინებების გამორთვა"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr "ჩართეთ ქსელიდან გამოერთებისას გაფრთხილების გამოსართავად."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "VPN-ის შეტყობინებების გამორთვა"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr "ჩართეთ VPN-თან მიერთების ან გამოერთებისას გაფრთხილებების გამოსართავად."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "ქსელის წვდომადობის შეტყობინებების გამორთვა"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"ჩართეთ Wi-Fi ქსელების აღმოჩენის შემთხვევაში გაფრთხილებების გამოსართავად."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "შტამპი"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"გამოიყენება დასადგენად, მოხდება პარამეტრების ახალ ვერსიაზე მიგრაცია, თუ არა."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr "Wifi -ის შექმნის გამორთვა"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr "ჩართეთ აპლეტის გამოყენებისას adhoc ქსელების შექმნის გამოსართავად."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "გაფრთხილების ზონაში აპლეტის ჩვენება"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr "გაფრთხილების ზონაში აპლეტის ჩვენების გამოსართავად დააყენეთ გამორთულზე."
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "CA სერტიფიკატის იგნორი"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -93,7 +31,7 @@ msgstr ""
 "ჩართეთ EAP ავთენტიკაციაში CA სერტიფიკატების შესახებ გაფრთხილებების "
 "გამოსართავად."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -193,33 +131,33 @@ msgstr "%s გასაღების _პაროლი"
 msgid "Sho_w passwords"
 msgstr "პაროლების _ჩვენება"
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr "გასაღები %s-ში"
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, c-format
 msgid "Certificate in %s"
 msgstr "სერტიფიკატი %s-ში"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr "აირჩიეთ"
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:323
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr "_გაუქმება"
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 msgid "(None)"
 msgstr "(არცერთი)"
 
-#: src/nma-cert-chooser-button.c:302 src/nma-pkcs11-cert-chooser-dialog.c:185
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr "(უცნობი)"
 
-#: src/nma-cert-chooser-button.c:433
+#: src/nma-cert-chooser-button.c:431
 msgid "Select from file…"
 msgstr "აირჩიეთ ფაილიდან…"
 
@@ -384,11 +322,11 @@ msgstr ""
 msgid "Confirm Mobile Broadband Settings"
 msgstr "დაადასტურეთ მობილური კავშირის პარამეტრები"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:256
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr "ჟურნალის გაგზავნის შეცდომა: "
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:278
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 msgid "Error opening a session: "
 msgstr "სესიის გახსნის შეცდომა: "
 

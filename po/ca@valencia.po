@@ -1,7 +1,7 @@
-# Catalan translation for NetworkManager
-# Copyright © 2005, 2006, 2007, The Free Software Foundation, Inc.
-# This file is distributed under the same license as the
-#   NetworkManager package.
+# Catalan translation for libnma
+# This file is distributed under the same license as the libnma package.
+#
+# Copyright (C) 2005, 2006, 2007, The Free Software Foundation, Inc.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2005, 2006, 2007.
 # David Planella Molas <david.planella@gmail.com>, 2008, 2009, 2011.
 # Jordi Estrada <jordi.estrada@gmail.com>, 2010.
@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2014-09-15 21:17+0200\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -23,86 +23,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr "Inhabilita les notificacions de connexió"
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en connectar-"
-"se a una xarxa."
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-msgid "Disable disconnected notifications"
-msgstr "Inhabilita les notificacions de desconnexió"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en "
-"desconnectar-se d'una xarxa."
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr "Inhabilita les notificacions de la VPN"
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions en connectar-"
-"se o desconnectar-se d'una VPN."
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr "No mostres les notificacions de xarxes disponibles"
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar les notificacions quan hi haja "
-"disponibles xarxes sense fil."
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr "Segell"
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-"S'utilitza per determinar si cal migrar els paràmetres a una versió nova."
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-#, fuzzy
-msgid "Disable WiFi Create"
-msgstr "Inhabilita la creació de connexions sense fil"
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-"Establiu-ho a «TRUE» (cert) per inhabilitar la creació de xarxes ad hoc en "
-"utilitzar la miniaplicació."
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr "Mostra la miniaplicació a l'àrea de notificació"
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-"Establiu-lo a «FALSE» (fals) per no mostrar la miniaplicació a l'àrea de "
-"notificació"
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 msgid "Ignore CA certificate"
 msgstr "Ignora el certificat de CA"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
@@ -110,7 +36,7 @@ msgstr ""
 "Establiu-ho a «TRUE» (cert) per inhabilitar els avisos sobre els certificats "
 "de CA en l'autenticació EAP."
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -164,30 +90,73 @@ msgstr "Contrasenya:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "No es _requereix cap certificat de CA"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "Trieu el vostre certificat personal..."
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "Certificat de l'_usuari:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "Certificat de l'_usuari:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "Trieu el vostre certificat personal..."
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "Clau _privada:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "Contrasenya de la clau _privada:"
+
+#: src/nma-cert-chooser.c:1125
+msgid "Sho_w passwords"
+msgstr "Mo_stra les contrasenyes"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "Certificat de C_A:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "(cap)"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 #, fuzzy
 msgid "(Unknown)"
 msgstr "Desconeguda"
@@ -241,7 +210,7 @@ msgstr "Qualsevol dispositiu"
 msgid "New Mobile Broadband Connection"
 msgstr "Connexió de banda ampla mòbil nova"
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
@@ -249,73 +218,73 @@ msgstr ""
 "L'auxiliar vos ajudarà a configurar una connexió de banda ampla mòbil a una "
 "xarxa cel·lular (3G) de manera fàcil."
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr "Vos caldrà la informació següent:"
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 #, fuzzy
 msgid "Your broadband provider’s name"
 msgstr "El nom del proveïdor de banda ampla"
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr "El nom del pla de facturació de banda ampla"
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 "L'APN (Access Point Name - nom del punt d'accés) del vostre pla de "
 "facturació de banda ampla (només en alguns casos)"
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr "Crea una connexió per a aques_t dispositiu de banda ampla mòbil:"
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr "Configura una connexió de banda ampla mòbil"
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 #, fuzzy
 msgid "Country or region:"
 msgstr "País o regió"
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 #, fuzzy
 msgid "Choose your Provider’s Country or Region"
 msgstr "Trieu el país o regió del vostre proveïdor"
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr "Seleccioneu el proveïdor des d'una _llista:"
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 #, fuzzy
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr "No hi ha el proveïdor i vull introduir-lo _manualment:"
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr "El proveïdor utilitza tecnologia GSM (GPRS, EDGE, UMTS, HSPA)"
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr "El proveïdor utilitza tecnologia CDMA (1xRTT, EVDO)"
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr "Trieu el proveïdor"
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr "_Seleccioneu el vostre pla:"
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr "_APN (Access Point Name - nom del punt d'accés) del pla seleccionat:"
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 #, fuzzy
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
@@ -329,30 +298,30 @@ msgstr ""
 "Si no esteu segur de quin és el vostre pla, demaneu al proveïdor que vos "
 "n'indiqui l'APN («Access Point Name», nom del punt d'accés)."
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr "Seleccioneu el pla de facturació"
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 "La connexió de banda ampla mòbil està configurada amb els paràmetres "
 "següents:"
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr "El dispositiu:"
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr "El proveïdor:"
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr "El pla:"
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 #, fuzzy
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
@@ -367,29 +336,29 @@ msgstr ""
 "voleu modificar els paràmetres de la connexió de banda ampla mòbil, trieu "
 "l'entrada «Connexions de xarxa» del menú Sistema >> Preferències."
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr "Confirmeu els paràmetres de la banda ampla mòbil"
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "S'ha produït un error en editar la connexió"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 #, fuzzy
 msgid "_Unlock token"
 msgstr "_Desbloqueja"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr "Nom"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -398,8 +367,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -461,55 +430,55 @@ msgstr "Desconnecta"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "Cap"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "Clau WEP de 40/128 bits (Hex o ASCII)"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "Contrasenya WEP de 128 bits"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr "LEAP"
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "WEP dinàmic 802.1X"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 msgid "WPA & WPA2 Personal"
 msgstr "WPA i WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA i WPA2 Enterprise"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA i WPA2 Personal"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr "C_rea"
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 #, fuzzy
 msgid "C_onnect"
 msgstr "Connectat"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, fuzzy, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
@@ -517,35 +486,35 @@ msgstr ""
 "Cal una contrasenya o claus d'encriptació per accedir a la xarxa sense fil "
 "«%s»."
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 msgid "Wi-Fi Network Authentication Required"
 msgstr "Cal autenticació per a la xarxa sense fil"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr "Cal autenticació per a la xarxa sense fil"
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 msgid "Create New Wi-Fi Network"
 msgstr "Crea una xarxa sense fil nova"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr "Xarxa sense fil nova"
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "Introduïu el nom de la xarxa sense fil que voleu crear."
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "Connecta't a la xarxa sense fil oculta"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr "Xarxa sense fil oculta"
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
 "connect to."
@@ -916,2842 +885,3 @@ msgstr "Co_nnexió:"
 #, fuzzy
 msgid "Wi-Fi _adapter"
 msgstr "_Adaptador sense fil:"
-
-#, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "No es _requereix cap certificat de CA"
-
-#, fuzzy, c-format
-#~ msgid "Choose a key for %s Certificate"
-#~ msgstr "Trieu el vostre certificat personal..."
-
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "Clau _privada:"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "Contrasenya de la clau _privada:"
-
-#, fuzzy, c-format
-#~ msgid "Choose %s Certificate"
-#~ msgstr "Trieu el vostre certificat personal..."
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "Certificat de l'_usuari:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "Trieu el vostre certificat personal..."
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "Certificat de l'_usuari:"
-
-#~ msgid "Sho_w passwords"
-#~ msgstr "Mo_stra les contrasenyes"
-
-#~ msgid "Manage your network connections"
-#~ msgstr "Gestioneu les connexions de xarxa"
-
-#, fuzzy
-#~ msgid "Advanced Network Configuration"
-#~ msgstr "Connexions de xarxa actives"
-
-#~ msgid "Manage and change your network connection settings"
-#~ msgstr "Gestioneu i modifiqueu els paràmetres de connexió de xarxa"
-
-#, fuzzy
-#~ msgid "NetworkManager"
-#~ msgstr "Miniaplicació NetworkManager"
-
-#, fuzzy
-#~ msgid "NetworkManager connection editor"
-#~ msgstr "No hi ha cap connexió de xarxa"
-
-#, fuzzy
-#~ msgid "The NetworkManager Developers"
-#~ msgstr "Miniaplicació NetworkManager"
-
-#~ msgid "802.1X authentication"
-#~ msgstr "Autenticació 802.1X"
-
-#, fuzzy
-#~ msgid "ad-hoc"
-#~ msgstr "Ad hoc"
-
-#~ msgid "Failed to add/activate connection"
-#~ msgstr "Ha fallat l'addició/activació de la connexió"
-
-#~ msgid "Unknown error"
-#~ msgstr "Error desconegut"
-
-#~ msgid "Connection failure"
-#~ msgstr "Ha fallat la connexió"
-
-#~ msgid "Device disconnect failed"
-#~ msgstr "Ha fallat la desconnexió del dispositiu"
-
-#~ msgid "Disconnect failure"
-#~ msgstr "Ha fallat la desconnexió"
-
-#~ msgid "Connection activation failed"
-#~ msgstr "Ha fallat l'activació de la connexió"
-
-#, fuzzy
-#~ msgid "Don’t show this message again"
-#~ msgstr "No tornes a mostrar este missatge"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” disconnected because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "S'ha desconnectat la connexió VPN «%s» perquè s'ha interromput la "
-#~ "connexió de xarxa."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the network connection was "
-#~ "interrupted."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè s'ha interromput la "
-#~ "connexió de xarxa."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service stopped "
-#~ "unexpectedly."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè el servei VPN s'ha "
-#~ "parat de manera inesperada."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service returned invalid "
-#~ "configuration."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè el servei VPN ha "
-#~ "retornat una configuració no vàlida."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the connection attempt timed out."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè s'ha acabat el temps "
-#~ "d'espera de l'intent de connexió."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service did not start in "
-#~ "time."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè el servei VPN no s'ha "
-#~ "iniciat en el temps establit."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè no s'ha pogut iniciar "
-#~ "el servei VPN."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because there were no valid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè no s'ha trobat cap "
-#~ "secret VPN vàlid."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because of invalid VPN secrets."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè els secrets VPN no són "
-#~ "vàlids."
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed."
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s»."
-
-#, c-format
-#~ msgid ""
-#~ "VPN connection has been successfully established.\n"
-#~ "\n"
-#~ "%s\n"
-#~ msgstr ""
-#~ "S'ha establit correctament la connexió VPN.\n"
-#~ "\n"
-#~ "%s\n"
-
-#~ msgid "VPN connection has been successfully established.\n"
-#~ msgstr "S'ha establit correctament la connexió VPN.\n"
-
-#~ msgid "VPN Login Message"
-#~ msgstr "Missatge d'entrada de la VPN"
-
-#~ msgid "VPN Connection Failed"
-#~ msgstr "No s'ha pogut establir la connexió VPN"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut establir la connexió VPN «%s» perquè no s'ha pogut iniciar "
-#~ "el servei VPN.\n"
-#~ "\n"
-#~ "%s"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "No s'ha pogut iniciar la connexió VPN «%s».\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "device not ready (firmware missing)"
-#~ msgstr "el dispositiu no està preparat (manca el microprogramari)"
-
-#~ msgid "device not ready"
-#~ msgstr "el dispositiu no està preparat"
-
-#~ msgid "disconnected"
-#~ msgstr "desconnectat"
-
-#~ msgid "Disconnect"
-#~ msgstr "Desconnecta"
-
-#~ msgid "device not managed"
-#~ msgstr "no es gestiona el dispositiu"
-
-#~ msgid "No network devices available"
-#~ msgstr "No hi ha cap dispositiu de xarxa disponible"
-
-#~ msgid "_VPN Connections"
-#~ msgstr "Connexions _VPN"
-
-#, fuzzy
-#~ msgid "_Configure VPN…"
-#~ msgstr "_Configura la VPN..."
-
-#, fuzzy
-#~ msgid "_Add a VPN connection…"
-#~ msgstr "Connexions _VPN"
-
-#, fuzzy
-#~ msgid "NetworkManager is not running…"
-#~ msgstr "No s'està executant el NetworkManager..."
-
-#~ msgid "Networking disabled"
-#~ msgstr "S'ha inhabilitat la gestió de xarxes"
-
-#~ msgid "Enable _Networking"
-#~ msgstr "Habilita la gestió de _xarxes"
-
-#~ msgid "Enable _Wi-Fi"
-#~ msgstr "Habilita el _sense fil"
-
-#~ msgid "Enable _Mobile Broadband"
-#~ msgstr "Habilita la banda ampla _mòbil"
-
-#~ msgid "Enable N_otifications"
-#~ msgstr "Habilita les n_otificacions"
-
-#~ msgid "Connection _Information"
-#~ msgstr "_Informació de la connexió"
-
-#, fuzzy
-#~ msgid "Edit Connections…"
-#~ msgstr "Edita les connexions..."
-
-#~ msgid "_About"
-#~ msgstr "_Quant a"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to “%s”."
-#~ msgstr "Esteu connectat a «%s»."
-
-#~ msgid "Disconnected"
-#~ msgstr "Desconnectat"
-
-#~ msgid "The network connection has been disconnected."
-#~ msgstr "S'ha desconnectat la connexió de xarxa."
-
-#, fuzzy, c-format
-#~ msgid "Preparing network connection “%s”…"
-#~ msgstr "S'està preparant la connexió de xarxa «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for network connection “%s”…"
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió de xarxa «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a network address for “%s”…"
-#~ msgstr "S'està sol·licitant una adreça de xarxa per a «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Network connection “%s” active"
-#~ msgstr "La connexió de xarxa «%s» és activa"
-
-#, fuzzy, c-format
-#~ msgid "Starting VPN connection “%s”…"
-#~ msgstr "S'està iniciant la connexió VPN «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for VPN connection “%s”…"
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió VPN «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a VPN address for “%s”…"
-#~ msgstr "S'està sol·licitant una adreça de xarxa per a la xarxa VPN «%s»..."
-
-#, fuzzy
-#~ msgid "VPN connection active"
-#~ msgstr "La connexió VPN «%s» és activa"
-
-#~ msgid "No network connection"
-#~ msgstr "No hi ha cap connexió de xarxa"
-
-#~ msgid "NetworkManager Applet"
-#~ msgstr "Miniaplicació NetworkManager"
-
-#~ msgid "Wrong PUK code; please contact your provider."
-#~ msgstr "El codi PUK no és correcte. Contacteu amb el vostre proveïdor."
-
-#~ msgid "Wrong PIN code; please contact your provider."
-#~ msgstr "El codi PIN no és correcte. Contacteu amb el vostre proveïdor."
-
-#, fuzzy
-#~ msgid "Sending unlock code…"
-#~ msgstr "S'està enviant el codi de desbloqueig..."
-
-#, c-format
-#~ msgid "Mobile Broadband (%s)"
-#~ msgstr "Banda ampla mòbil (%s)"
-
-#~ msgid "Mobile Broadband"
-#~ msgstr "Banda ampla mòbil"
-
-#~ msgid "Available"
-#~ msgstr "Disponible"
-
-#, fuzzy
-#~ msgid "New Mobile Broadband connection…"
-#~ msgstr "Connexió de banda ampla mòbil nova"
-
-#~ msgid "Connection Established"
-#~ msgstr "S'ha establit la connexió"
-
-#~ msgid "You are now connected to the Mobile Broadband network."
-#~ msgstr "Esteu connectat a la xarxa de banda ampla mòbil."
-
-#~ msgid "Mobile Broadband network."
-#~ msgstr "Xarxa de banda ampla mòbil."
-
-#~ msgid "You are now registered on the home network."
-#~ msgstr "Esteu registrat a la xarxa local."
-
-#~ msgid "You are now registered on a roaming network."
-#~ msgstr "Esteu registrat a una xarxa d'accés itinerant."
-
-#~ msgid "You are now connected to the mobile broadband network."
-#~ msgstr "Esteu connectat a la xarxa de banda ampla mòbil."
-
-#, fuzzy, c-format
-#~ msgid "Preparing mobile broadband connection “%s”…"
-#~ msgstr "S'està preparant la connexió de banda ampla mòbil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring mobile broadband connection “%s”…"
-#~ msgstr "S'està configurant la connexió de banda ampla mòbil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for mobile broadband connection “%s”…"
-#~ msgstr ""
-#~ "Cal l'autenticació d'usuari per a la connexió de banda ampla mòbil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active"
-#~ msgstr "La connexió de banda ampla mòbil «%s» és activa"
-
-#~ msgid "Auto Ethernet"
-#~ msgstr "Ethernet automàtic"
-
-#, c-format
-#~ msgid "Ethernet Networks (%s)"
-#~ msgstr "Xarxes amb fil (%s)"
-
-#, c-format
-#~ msgid "Ethernet Network (%s)"
-#~ msgstr "Xarxa amb fil (%s)"
-
-#~ msgid "Ethernet Networks"
-#~ msgstr "Xarxes amb fil"
-
-#~ msgid "Ethernet Network"
-#~ msgstr "Xarxa amb fil"
-
-#~ msgid "You are now connected to the ethernet network."
-#~ msgstr "Esteu connectat a la xarxa amb fil."
-
-#, fuzzy, c-format
-#~ msgid "Preparing ethernet network connection “%s”…"
-#~ msgstr "S'està preparant la connexió de xarxa amb fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring ethernet network connection “%s”…"
-#~ msgstr "S'està configurant la connexió de xarxa amb fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for ethernet network connection “%s”…"
-#~ msgstr ""
-#~ "Cal l'autenticació d'usuari per a la connexió de xarxa amb fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting an ethernet network address for “%s”…"
-#~ msgstr ""
-#~ "S'està sol·licitant una adreça de xarxa per a la xarxa amb fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Ethernet network connection “%s” active"
-#~ msgstr "La connexió de xarxa amb fil «%s» és activa"
-
-#~ msgid "DSL authentication"
-#~ msgstr "Autenticació DSL"
-
-#, fuzzy
-#~ msgid "_Connect to Hidden Wi-Fi Network…"
-#~ msgstr "Connecta't a la xarxa sense fil oculta"
-
-#, fuzzy
-#~ msgid "Create _New Wi-Fi Network…"
-#~ msgstr "Crea una xarxa sense fil nova"
-
-#~ msgid "(none)"
-#~ msgstr "(cap)"
-
-#~ msgid "Failed to add new connection"
-#~ msgstr "No s'ha pogut afegir una connexió nova"
-
-#, c-format
-#~ msgid "Wi-Fi Networks (%s)"
-#~ msgstr "Xarxes sense fil (%s)"
-
-#, c-format
-#~ msgid "Wi-Fi Network (%s)"
-#~ msgstr "Xarxa sense fil (%s)"
-
-#~ msgid "Wi-Fi Network"
-#~ msgid_plural "Wi-Fi Networks"
-#~ msgstr[0] "Xarxa sense fil"
-#~ msgstr[1] "Xarxes sense fil"
-
-#~ msgid "Wi-Fi is disabled"
-#~ msgstr "Les xarxes sense fil estan inhabilitades"
-
-#~ msgid "Wi-Fi is disabled by hardware switch"
-#~ msgstr "L'interruptor de maquinari ha inhabilitat la xarxa sense fil"
-
-#~ msgid "More networks"
-#~ msgstr "Més xarxes"
-
-#~ msgid "Wi-Fi Networks Available"
-#~ msgstr "Hi ha xarxes sense fil disponibles"
-
-#~ msgid "Use the network menu to connect to a Wi-Fi network"
-#~ msgstr "Utilitzeu el menú de xarxa per connectar-vos a una xarxa sense fil"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to the Wi-Fi network “%s”."
-#~ msgstr "Esteu connectat a la xarxa sense fil «%s»."
-
-#, fuzzy, c-format
-#~ msgid "Preparing Wi-Fi network connection “%s”…"
-#~ msgstr "S'està preparant la connexió de xarxa sense fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring Wi-Fi network connection “%s”…"
-#~ msgstr "S'està configurant la connexió de xarxa sense fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for Wi-Fi network “%s”…"
-#~ msgstr ""
-#~ "Cal l'autenticació d'usuari per a la connexió de xarxa sense fil «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting a Wi-Fi network address for “%s”…"
-#~ msgstr "S'està sol·licitant una adreça de xarxa sense fil per a «%s»..."
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active: %s (%d%%)"
-#~ msgstr "La connexió de xarxa sense fil «%s» és activa: %s (%d%%)"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active"
-#~ msgstr "La connexió de xarxa sense fil «%s» és activa"
-
-#~ msgid "Failed to activate connection"
-#~ msgstr "Ha fallat l'activació de la connexió"
-
-#~ msgid "Error displaying connection information:"
-#~ msgstr "S'ha produït un error en mostrar la informació de la connexió:"
-
-#~ msgid "Dynamic WEP"
-#~ msgstr "WEP dinàmic"
-
-#~ msgid "WPA/WPA2"
-#~ msgstr "WPA/WPA2"
-
-#, fuzzy
-#~ msgid "More addresses"
-#~ msgstr "Adreces"
-
-#~ msgid "WEP"
-#~ msgstr "WEP"
-
-#~ msgctxt "Wi-Fi/Ethernet security"
-#~ msgid "None"
-#~ msgstr "Cap"
-
-#, c-format
-#~ msgid "%u Mb/s"
-#~ msgstr "%u Mb/s"
-
-#~ msgctxt "Speed"
-#~ msgid "Unknown"
-#~ msgstr "Desconeguda"
-
-#~ msgctxt "Address"
-#~ msgid "Unknown"
-#~ msgstr "Desconeguda"
-
-#~ msgid "IP Address"
-#~ msgstr "Adreça IP"
-
-#~ msgid "Broadcast Address"
-#~ msgstr "Adreça de difusió"
-
-#~ msgctxt "Subnet Mask"
-#~ msgid "Unknown"
-#~ msgstr "Desconeguda"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "Màscara de subxarxa"
-
-#, fuzzy
-#~ msgid "Primary DNS"
-#~ msgstr "_Primària:"
-
-#, fuzzy
-#~ msgid "Secondary DNS"
-#~ msgstr "Contrasenya _secundària:"
-
-#, c-format
-#~ msgid "Ethernet (%s)"
-#~ msgstr "Ethernet (%s)"
-
-#, c-format
-#~ msgid "802.11 Wi-Fi (%s)"
-#~ msgstr "Wi-Fi 802.11 (%s)"
-
-#, c-format
-#~ msgid "GSM (%s)"
-#~ msgstr "GSM (%s)"
-
-#, c-format
-#~ msgid "CDMA (%s)"
-#~ msgstr "CDMA (%s)"
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Interface"
-#~ msgstr "Interfície"
-
-#~ msgid "Hardware Address"
-#~ msgstr "Adreça del maquinari"
-
-#~ msgid "Driver"
-#~ msgstr "Controlador"
-
-#~ msgid "Speed"
-#~ msgstr "Velocitat"
-
-#, fuzzy
-#~ msgid "Security"
-#~ msgstr "Seguretat:"
-
-#~ msgid "IPv4"
-#~ msgstr "IPv4"
-
-#~ msgid "Default Route"
-#~ msgstr "Ruta predeterminada"
-
-#~ msgid "IPv6"
-#~ msgstr "IPv6"
-
-#~ msgid "VPN Type"
-#~ msgstr "Tipus de VPN"
-
-#~ msgid "VPN Gateway"
-#~ msgstr "Passarel·la VPN"
-
-#~ msgid "VPN Username"
-#~ msgstr "Nom d'usuari de la VPN"
-
-#~ msgid "VPN Banner"
-#~ msgstr "Bàner de la VPN"
-
-#~ msgid "Base Connection"
-#~ msgstr "Connexió base"
-
-#~ msgid "No valid active connections found!"
-#~ msgstr "No s'ha trobat cap connexió activa vàlida"
-
-#, fuzzy
-#~ msgid ""
-#~ "Copyright © 2004-2017 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2008 Novell, Inc.\n"
-#~ "and many other community contributors and translators"
-#~ msgstr ""
-#~ "Copyright © 2004-2011 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2008 Novell, Inc.\n"
-#~ "i molts col·laboradors i traductors voluntaris"
-
-#~ msgid ""
-#~ "Notification area applet for managing your network devices and "
-#~ "connections."
-#~ msgstr ""
-#~ "Miniaplicació per a l'àrea de notificació per gestionar els dispositius i "
-#~ "les connexions de xarxa."
-
-#~ msgid "NetworkManager Website"
-#~ msgstr "Lloc web del NetworkManager"
-
-#~ msgid ""
-#~ "The NetworkManager Applet could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "La miniaplicació NetworkManager no ha pogut trobar alguns dels recursos "
-#~ "necessaris (no s'ha trobat el fitxer d'interfície d'usuari)."
-
-#~ msgid "Missing resources"
-#~ msgstr "Recursos que manquen"
-
-#~ msgid "Mobile broadband network password"
-#~ msgstr "Contrasenya de la xarxa de banda ampla mòbil"
-
-#, fuzzy, c-format
-#~ msgid "A password is required to connect to “%s”."
-#~ msgstr "Cal que introduïu una contrasenya per connectar-vos a «%s»."
-
-#~ msgid "Password:"
-#~ msgstr "Contrasenya:"
-
-#~ msgid "SIM PIN unlock required"
-#~ msgstr "Cal el codi PIN de desbloqueig de la SIM"
-
-#~ msgid "SIM PIN Unlock Required"
-#~ msgstr "Cal el codi PIN de desbloqueig de la SIM"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PIN code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Cal el codi PIN de la SIM per poder utilitzar el dispositiu de banda "
-#~ "ampla mòbil «%s»."
-
-#~ msgid "PIN code:"
-#~ msgstr "Codi PIN:"
-
-#~ msgid "Show PIN code"
-#~ msgstr "Mostra el codi PIN"
-
-#~ msgid "SIM PUK unlock required"
-#~ msgstr "Cal el codi PUK de desbloqueig de la SIM"
-
-#~ msgid "SIM PUK Unlock Required"
-#~ msgstr "Cal el codi PUK de desbloqueig de la SIM"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The mobile broadband device “%s” requires a SIM PUK code before it can be "
-#~ "used."
-#~ msgstr ""
-#~ "Cal el codi PUK de la SIM per poder utilitzar el dispositiu de banda "
-#~ "ampla mòbil «%s»."
-
-#~ msgid "PUK code:"
-#~ msgstr "Codi PUK:"
-
-#~ msgid "New PIN code:"
-#~ msgstr "Codi PIN nou:"
-
-#~ msgid "Re-enter new PIN code:"
-#~ msgstr "Torneu a introduir el codi PIN nou:"
-
-#~ msgid "Show PIN/PUK codes"
-#~ msgstr "Mostra els codis PIN/PUK"
-
-#, fuzzy
-#~ msgid "Connection had no VPN setting"
-#~ msgstr "Informació de la connexió"
-
-#, fuzzy, c-format
-#~ msgid "Failed to write connection to VPN UI: %s (%d)"
-#~ msgstr "No s'ha pogut crear la connexió DUN: %s"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add an IP address."
-#~ msgstr ""
-#~ "Les adreces IP identifiquen el vostre ordinador a la xarxa. Feu clic al "
-#~ "botó «Afig» per afegir una adreça IP."
-
-#~ msgid "_Delete"
-#~ msgstr "_Suprimeix"
-
-#~ msgid "Ig_nore automatically obtained routes"
-#~ msgstr "Ig_nora les rutes obtingudes automàticament"
-
-#~ msgid "_Use this connection only for resources on its network"
-#~ msgstr "_Utilitza esta connexió només per a recursos de la seua xarxa"
-
-#~ msgid ""
-#~ "If enabled, this connection will never be used as the default network "
-#~ "connection."
-#~ msgstr ""
-#~ "Si s'habilita, esta connexió no s'utilitzarà mai com a connexió de xarxa "
-#~ "predeterminada."
-
-#, fuzzy
-#~ msgid "C_reate…"
-#~ msgstr "Crea..."
-
-#~ msgid "Choose a Connection Type"
-#~ msgstr "Seleccioneu un tipus de connexió"
-
-#~ msgid ""
-#~ "Select the type of connection you wish to create.\n"
-#~ "\n"
-#~ "If you are creating a VPN, and the VPN connection you wish to create does "
-#~ "not appear in the list, you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Seleccioneu el tipus de connexió que voleu crear.\n"
-#~ "\n"
-#~ "Si voleu crear una connexió VPN i el tipus que voleu crear no apareix a "
-#~ "la llista, és probable que no tingueu el connector VPN adequat instal·lat."
-
-#, fuzzy
-#~ msgid "_Device"
-#~ msgstr "_Servei:"
-
-#~ msgid "Round-robin"
-#~ msgstr "Round-robin"
-
-#~ msgid "Active backup"
-#~ msgstr "Reserva activa"
-
-#~ msgid "XOR"
-#~ msgstr "XOR"
-
-#~ msgid "Broadcast"
-#~ msgstr "Difusió"
-
-#~ msgid "802.3ad"
-#~ msgstr "802.3ad"
-
-#~ msgid "Adaptive transmit load balancing"
-#~ msgstr "Balanceig de càrrega de transmissió adaptativa"
-
-#~ msgid "Adaptive load balancing"
-#~ msgstr "Balanceig de càrrega adaptatiu"
-
-#~ msgid "MII (recommended)"
-#~ msgstr "MII (recomanat)"
-
-#~ msgid "ARP"
-#~ msgstr "ARP"
-
-#, fuzzy
-#~ msgid "Bonded _connections"
-#~ msgstr "_Connexions vinculades:"
-
-#, fuzzy
-#~ msgid "M_ode"
-#~ msgstr "M_ode:"
-
-#~ msgid "_Edit"
-#~ msgstr "_Edita"
-
-#, fuzzy
-#~ msgid "Monitoring _frequency"
-#~ msgstr "_Freqüència de seguiment:"
-
-#~ msgid "ms"
-#~ msgstr "ms"
-
-#, fuzzy
-#~ msgid "_Interface name"
-#~ msgstr "Nom de la _interfície:"
-
-#, fuzzy
-#~ msgid "_Link Monitoring"
-#~ msgstr "Seguiment de l'_enllaç:"
-
-#, fuzzy
-#~ msgid "ARP _targets"
-#~ msgstr "_Objectius ARP:"
-
-#~ msgid ""
-#~ "An IP address, or a comma-separated list of IP addresses, to look for "
-#~ "when checking the link status."
-#~ msgstr ""
-#~ "Una adreça IP, o una llista d'adreces IP separada per comes, que es "
-#~ "comprovaran quan es comprovi l'estat de l'enllaç."
-
-#, fuzzy
-#~ msgid "Link _up delay"
-#~ msgstr "Retard de la _connexió:"
-
-#, fuzzy
-#~ msgid "Link _down delay"
-#~ msgstr "Retard de la _desconnexió:"
-
-#, fuzzy
-#~ msgid "_Primary"
-#~ msgstr "_Primària:"
-
-#~ msgid ""
-#~ "The interface name of the primary device. If set, this device will always "
-#~ "be the active slave when it is available."
-#~ msgstr ""
-#~ "El nom de la interfície del dispositiu primari. Si s'estableix, este "
-#~ "dispositiu serà sempre l'esclau actiu quan estiga disponible."
-
-#, fuzzy
-#~ msgid "_MTU"
-#~ msgstr "_MTU:"
-
-#~ msgid "bytes"
-#~ msgstr "bytes"
-
-#, fuzzy
-#~ msgid "Path _cost"
-#~ msgstr "_Cost del camí:"
-
-#, fuzzy
-#~ msgid "_Priority"
-#~ msgstr "_Prioritat:"
-
-#, fuzzy
-#~ msgid "_Hairpin mode"
-#~ msgstr "Mode de _hairpin:"
-
-#, fuzzy
-#~ msgid "Bridged _connections"
-#~ msgstr "Connexions _puntejades:"
-
-#, fuzzy
-#~ msgid "_Forward delay"
-#~ msgstr "Retard de _retransmissió:"
-
-#, fuzzy
-#~ msgid "_Hello time"
-#~ msgstr "Temps de «_Hello»:"
-
-#~ msgid "s"
-#~ msgstr "s"
-
-#, fuzzy
-#~ msgid "Enable I_GMP snooping"
-#~ msgstr "Habilita la gestió de _xarxes"
-
-#~ msgid "Enable _STP (Spanning Tree Protocol)"
-#~ msgstr "Habilita l'STP (protocol d'arbre d'abast)"
-
-#, fuzzy
-#~ msgid "_Max age"
-#~ msgstr "Edat _màxima:"
-
-#, fuzzy
-#~ msgid "_Aging time"
-#~ msgstr "Temps d'_envelliment:"
-
-#~ msgid "automatic"
-#~ msgstr "automàtic"
-
-#~ msgid "default"
-#~ msgstr "predeterminat"
-
-#, fuzzy
-#~ msgid "Stable"
-#~ msgstr "Habilita"
-
-#, fuzzy
-#~ msgid ""
-#~ "The MAC address entered here will be used as hardware address for the "
-#~ "network device this connection is activated on. This feature is known as "
-#~ "MAC cloning or spoofing. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "El dispositiu de xarxa sobre el que s'activa la connexió utilitzarà esta "
-#~ "adreça MAC com a adreça de maquinari. Este mètode es coneix com a "
-#~ "falsejament d'identitat MAC. Exemple: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "MAC address"
-#~ msgstr "Adreça"
-
-#, fuzzy
-#~ msgid "HW address"
-#~ msgstr "Adreça"
-
-#, fuzzy, c-format
-#~ msgid "invalid interface-name (%s): "
-#~ msgstr "_Nom de la interfície VLAN:"
-
-#, fuzzy
-#~ msgid "invalid hardware address"
-#~ msgstr "Adreça del maquinari:"
-
-#, fuzzy
-#~ msgid "device"
-#~ msgstr "Qualsevol dispositiu"
-
-#, fuzzy
-#~ msgid "_Use Data Center Bridging (DCB) for this connection"
-#~ msgstr "Utilitza «Data Center Bridging» (DCB) per a esta connexió"
-
-#~ msgid "FCoE"
-#~ msgstr "FCoE"
-
-#~ msgid "iSCSI"
-#~ msgstr "iSCSI"
-
-#~ msgid "FIP"
-#~ msgstr "FIP"
-
-#~ msgid "Flow Control"
-#~ msgstr "Control de flux"
-
-#~ msgid "Feature"
-#~ msgstr "Característica"
-
-#~ msgid "Enable"
-#~ msgstr "Habilita"
-
-#~ msgid "Advertise"
-#~ msgstr "Anuncia"
-
-#~ msgid "Willing"
-#~ msgstr "Willing"
-
-#~ msgid "Priority"
-#~ msgstr "Prioritat"
-
-#, fuzzy
-#~ msgid "Options…"
-#~ msgstr "Opcions..."
-
-#~ msgid "Priority Groups"
-#~ msgstr "Grups prioritaris"
-
-#~ msgid "Fabric"
-#~ msgstr "Fabric"
-
-#~ msgid "VN2VN"
-#~ msgstr "VN2VN"
-
-#~ msgid "Priority Flow Control"
-#~ msgstr "Control de prioritat de flux"
-
-#~ msgid ""
-#~ "Enable or disable priority pause transmission for each User Priority."
-#~ msgstr ""
-#~ "Habilita o inhabilita la prioritat de transmissió en pausa per a cada "
-#~ "prioritat d'usuari."
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "4"
-#~ msgstr "4"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "6"
-#~ msgstr "6"
-
-#~ msgid "7"
-#~ msgstr "7"
-
-#, fuzzy
-#~ msgid "Traffic Class"
-#~ msgstr "Classe de trànsit:"
-
-#, fuzzy
-#~ msgid "Strict Bandwidth"
-#~ msgstr "Amplada de banda estricta:"
-
-#, fuzzy
-#~ msgid "Priority Bandwidth"
-#~ msgstr "Amplada de banda prioritària:"
-
-#, fuzzy
-#~ msgid "Group Bandwidth"
-#~ msgstr "Amplada de banda del grup:"
-
-#, fuzzy
-#~ msgid "Group ID"
-#~ msgstr "Identificador de grup:"
-
-#~ msgid "Enter the priority group ID for each User Priority."
-#~ msgstr ""
-#~ "Introduïu l'identificador de grup de prioritat per cada prioritat "
-#~ "d'usuari."
-
-#, fuzzy
-#~ msgid ""
-#~ "Enter the allowed link bandwidth percent each Priority Group may use. The "
-#~ "sum of all groups must total 100%."
-#~ msgstr ""
-#~ "Introduïu l'ample de banda permés, en percentatge, que cada grup de "
-#~ "prioritat utilitzarà. La suma de tots els grups ha d'ésser 100%."
-
-#~ msgid ""
-#~ "Enter the percentage of priority group bandwidth each user priority may "
-#~ "use."
-#~ msgstr ""
-#~ "Introduïu el percentatge de l'ample de banda de prioritat de grup que "
-#~ "cada prioritat d'usuari pot utilitzar."
-
-#~ msgid "Enable or disable strict bandwidth for each user priority."
-#~ msgstr ""
-#~ "Habilita o inhabilita l'ample de banda estricte per a cada prioritat "
-#~ "d'usuari."
-
-#~ msgid "Enter the traffic class for each user priority."
-#~ msgstr "Introduïu la classe de trànsit per a cada prioritat d'usuari."
-
-#, fuzzy
-#~ msgid "_Service"
-#~ msgstr "_Servei:"
-
-#, fuzzy
-#~ msgid "PPP _interface"
-#~ msgstr "Interfície"
-
-#, fuzzy
-#~ msgid "P_arent interface"
-#~ msgstr "Interfície _pare:"
-
-#, fuzzy
-#~ msgid "C_laim interface"
-#~ msgstr "Interfície _pare:"
-
-#~ msgid "Twisted Pair (TP)"
-#~ msgstr "Parell creuat (TP)"
-
-#~ msgid "Attachment Unit Interface (AUI)"
-#~ msgstr "Connector Attachment Unit Interface (AUI)"
-
-#~ msgid "BNC"
-#~ msgstr "Connector BNC"
-
-#~ msgid "Media Independent Interface (MII)"
-#~ msgstr "Connector Media Independent Interface (MII)"
-
-#~ msgid "10 Mb/s"
-#~ msgstr "10 Mb/s"
-
-#~ msgid "100 Mb/s"
-#~ msgstr "100 Mb/s"
-
-#~ msgid "1 Gb/s"
-#~ msgstr "1 Gb/s"
-
-#~ msgid "10 Gb/s"
-#~ msgstr "10 Gb/s"
-
-#~ msgid "Ignore"
-#~ msgstr "Ignora"
-
-#~ msgid "Manual"
-#~ msgstr "Manual"
-
-#, fuzzy
-#~ msgid "_Port"
-#~ msgstr "_Port:"
-
-#, fuzzy
-#~ msgid "C_loned MAC address"
-#~ msgstr "Adreça _MAC falsejada:"
-
-#, fuzzy
-#~ msgid "Wake on LAN"
-#~ msgstr "Contrasenya de la clau _privada:"
-
-#, fuzzy
-#~ msgid "De_fault"
-#~ msgstr "Per defecte"
-
-#, fuzzy
-#~ msgid "_Ignore"
-#~ msgstr "Ignora"
-
-#, fuzzy
-#~ msgid "_Broadcast"
-#~ msgstr "Difusió"
-
-#, fuzzy
-#~ msgid "_Wake on LAN password"
-#~ msgstr "Contrasenya de la clau _privada:"
-
-#, fuzzy
-#~ msgid "_Speed"
-#~ msgstr "_Velocitat:"
-
-# FIXME (dpm)
-#, fuzzy
-#~ msgid "Duple_x"
-#~ msgstr "Dúple_x complet"
-
-#, fuzzy
-#~ msgid "No"
-#~ msgstr "Cap"
-
-#~ msgid "All _users may connect to this network"
-#~ msgstr "Tots els _usuaris es poden connectar a esta xarxa"
-
-#, fuzzy
-#~ msgid "Automatically connect to _VPN"
-#~ msgstr "Connecta automàticament la _VPN quan s'utilitze esta connexió"
-
-#, fuzzy
-#~ msgid "Firewall _zone"
-#~ msgstr "_Zona del tallafocs:"
-
-#, fuzzy
-#~ msgid "_Metered connection"
-#~ msgstr "Connexions en _equip:"
-
-#, fuzzy
-#~ msgid "Connect _automatically with priority"
-#~ msgstr "Ig_nora les rutes obtingudes automàticament"
-
-#, fuzzy
-#~ msgid ""
-#~ "IP addresses identify your computer on the network. Click the “Add” "
-#~ "button to add static IP address to be configured in addition to the "
-#~ "automatic ones."
-#~ msgstr ""
-#~ "Les adreces IP identifiquen el vostre ordinador a la xarxa. Feu clic al "
-#~ "botó «Afig» per afegir una adreça IP."
-
-#, fuzzy
-#~ msgid "Additional static addresses"
-#~ msgstr "Automàtic, només adreces"
-
-#~ msgid "Addresses"
-#~ msgstr "Adreces"
-
-#~ msgid "Datagram"
-#~ msgstr "Datagrama"
-
-#~ msgid "Connected"
-#~ msgstr "Connectat"
-
-#, fuzzy
-#~ msgid "_Transport mode"
-#~ msgstr "Mode de _transport:"
-
-#, fuzzy
-#~ msgid "Device name"
-#~ msgstr "Nom del dispositiu + número"
-
-#, fuzzy
-#~ msgid "Parent device"
-#~ msgstr "Cable"
-
-#, fuzzy
-#~ msgid "Mode"
-#~ msgstr "_Mode:"
-
-#, fuzzy
-#~ msgid "MTU"
-#~ msgstr "_MTU:"
-
-#~ msgid "Automatic with manual DNS settings"
-#~ msgstr "Automàtic amb paràmetres manuals per al DNS"
-
-# http://en.wikipedia.org/wiki/Link-local_address (dpm)
-#~ msgid "Link-Local"
-#~ msgstr "Connexió local"
-
-#~ msgid "Shared to other computers"
-#~ msgstr "Compartit a altres ordinadors"
-
-#, fuzzy
-#~ msgid "_Method"
-#~ msgstr "_Mètode:"
-
-#, fuzzy
-#~ msgid ""
-#~ "The DHCP client identifier allows the network administrator to customize "
-#~ "your computer’s configuration. If you wish to use a DHCP client "
-#~ "identifier, enter it here."
-#~ msgstr ""
-#~ "L'identificador de client DHCP permet personalitzar la configuració del "
-#~ "vostre ordinador a l'administrador de la xarxa. Si voleu utilitzar un "
-#~ "identificador de client DHCP, introduïu-lo ací."
-
-#~ msgid ""
-#~ "Domains used when resolving host names. Use commas to separate multiple "
-#~ "domains."
-#~ msgstr ""
-#~ "Dominis utilitzats en resoldre els noms d'amfitrió. Utilitzeu la coma per "
-#~ "separar múltiples dominis."
-
-#, fuzzy
-#~ msgid "D_HCP client ID"
-#~ msgstr "Identificador del client de D_HCP:"
-
-#, fuzzy
-#~ msgid "S_earch domains"
-#~ msgstr "_Dominis de cerca:"
-
-#, fuzzy
-#~ msgid "DNS ser_vers"
-#~ msgstr "Servidors _DNS:"
-
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses."
-#~ msgstr ""
-#~ "Adreces IP dels servidors de nom de domini utilitzats per resoldre els "
-#~ "noms d'amfitrió. Utilitzeu la coma per separar múltiples adreces de "
-#~ "servidor de nom de domini."
-
-#~ msgid "Require IPv_4 addressing for this connection to complete"
-#~ msgstr "Cal l'adreçament IPv_4 per completar la connexió"
-
-#~ msgid ""
-#~ "When connecting to IPv6-capable networks, allows the connection to "
-#~ "complete if IPv4 configuration fails but IPv6 configuration succeeds."
-#~ msgstr ""
-#~ "Quan es connecte a xarxes IPv6, permet completar la connexió per IPv6 en "
-#~ "cas que la configuració IPv4 falle."
-
-#~ msgid "_Routes…"
-#~ msgstr "_Rutes..."
-
-#~ msgid "Disabled"
-#~ msgstr "Inhabilitada"
-
-#~ msgid "Enabled (prefer public address)"
-#~ msgstr "Habilitat (prefereix una adreça pública)"
-
-#~ msgid "Enabled (prefer temporary address)"
-#~ msgstr "Habilitat (prefereix una adreça temporal)"
-
-#, fuzzy
-#~ msgid "Stable privacy"
-#~ msgstr "Habilita"
-
-#~ msgid ""
-#~ "IP addresses of domain name servers used to resolve host names. Use "
-#~ "commas to separate multiple domain name server addresses. Link-local "
-#~ "addresses will be automatically scoped to the connecting interface."
-#~ msgstr ""
-#~ "Les adreces IP dels servidors de nom de domini utilitzats per resoldre "
-#~ "els noms d'amfitrió. Utilitzeu la coma per separar múltiples adreces de "
-#~ "servidor de nom de domini. Les adreces «Link-local» s'inclouran a l'àmbit "
-#~ "de la interfície de connexió."
-
-#, fuzzy
-#~ msgid "IPv6 _privacy extensions"
-#~ msgstr "Extensions de _privacitat d'IPv6:"
-
-#~ msgid "Require IPv_6 addressing for this connection to complete"
-#~ msgstr "Cal l'adreçament IPv_6 per completar la connexió"
-
-#~ msgid ""
-#~ "When connecting to IPv4-capable networks, allows the connection to "
-#~ "complete if IPv6 configuration fails but IPv4 configuration succeeds."
-#~ msgstr ""
-#~ "Quan es connecte a xarxes IPv4, permet completar la connexió per IPv4 en "
-#~ "cas que la configuració IPv6 falle."
-
-#~ msgid "EAP"
-#~ msgstr "EAP"
-
-#, fuzzy
-#~ msgid "Strict"
-#~ msgstr "Mètrica"
-
-#, fuzzy
-#~ msgid "_Device name"
-#~ msgstr "Nom del dispositiu + número"
-
-#, fuzzy
-#~ msgid "_Parent device"
-#~ msgstr "Cable"
-
-#, fuzzy
-#~ msgid "_Mode"
-#~ msgstr "_Mode:"
-
-#~ msgid "Basic"
-#~ msgstr "Bàsic"
-
-#, fuzzy
-#~ msgid "Nu_mber"
-#~ msgstr "Nú_mero:"
-
-#~ msgid "Advanced"
-#~ msgstr "Avançat"
-
-#, fuzzy
-#~ msgid "_APN"
-#~ msgstr "_APN:"
-
-#, fuzzy
-#~ msgid "N_etwork ID"
-#~ msgstr "Identificador de xar_xa:"
-
-#, fuzzy
-#~ msgid "Change…"
-#~ msgstr "Canvia..."
-
-#, fuzzy
-#~ msgid "P_IN"
-#~ msgstr "P_IN:"
-
-#~ msgid "Allow _roaming if home network is not available"
-#~ msgstr "Permet la _itinerància si la xarxa domèstica no està disponible"
-
-#~ msgid "Authentication"
-#~ msgstr "Autenticació"
-
-#, fuzzy
-#~ msgid "Allowed methods"
-#~ msgstr "Mètodes admesos:"
-
-#~ msgid "Configure _Methods…"
-#~ msgstr "Configuració dels _mètodes..."
-
-#~ msgid "Compression"
-#~ msgstr "Compressió"
-
-#~ msgid "_Use point-to-point encryption (MPPE)"
-#~ msgstr "_Utilitza l'encriptació punt a punt (MPPE)"
-
-#~ msgid "_Require 128-bit encryption"
-#~ msgstr "_Cal l'encriptació de 128 bits"
-
-# FIXME (dpm)
-#~ msgid "Use _stateful MPPE"
-#~ msgstr "Utilitza l'MPPE amb _estat"
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Permet la compressió _BSD"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Permet la compressió _Deflate"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Utilitza la compressió de les _capçaleres TCP"
-
-#~ msgid "Echo"
-#~ msgstr "Eco"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Envia paquets d'_eco de PPP"
-
-#, fuzzy
-#~ msgid "None"
-#~ msgstr "Cap"
-
-#, fuzzy
-#~ msgid "Import script from a file…"
-#~ msgstr "_Importa una configuració en equip des d'un fitxer..."
-
-#, fuzzy
-#~ msgid "Method"
-#~ msgstr "_Mètode:"
-
-#, fuzzy
-#~ msgid "Ad_vanced…"
-#~ msgstr "Avançat"
-
-#, fuzzy
-#~ msgid "Ethernet port state"
-#~ msgstr "Xarxes amb fil"
-
-#, fuzzy
-#~ msgid "_Port priority"
-#~ msgstr "_Prioritat:"
-
-#, fuzzy
-#~ msgid "_LACP port priority"
-#~ msgstr "_Prioritat:"
-
-#, fuzzy
-#~ msgid "LACP port _key"
-#~ msgstr "Clau _privada:"
-
-#, fuzzy
-#~ msgid "_Up delay"
-#~ msgstr "Retard de la _connexió:"
-
-#, fuzzy
-#~ msgid "_Down delay"
-#~ msgstr "Retard de la _desconnexió:"
-
-#, fuzzy
-#~ msgid "Send _interval"
-#~ msgstr "Interfície _pare:"
-
-#, fuzzy
-#~ msgid "_Source host"
-#~ msgstr "_Objectius ARP:"
-
-#, fuzzy
-#~ msgid "_Target host"
-#~ msgstr "_Objectius ARP:"
-
-#, fuzzy
-#~ msgid "Im_port team configuration from a file…"
-#~ msgstr "_Importa una configuració en equip des d'un fitxer..."
-
-#, fuzzy
-#~ msgid "Edit _JSON configuration"
-#~ msgstr "Configuració _JSON:"
-
-#, fuzzy
-#~ msgid "Bandwidth"
-#~ msgstr "Amplada de banda del grup:"
-
-#, fuzzy
-#~ msgid "Port priority"
-#~ msgstr "Prioritat"
-
-#, fuzzy
-#~ msgid "From the team device"
-#~ msgstr "Cable"
-
-#, fuzzy
-#~ msgid "_Teamed connections"
-#~ msgstr "Connexions en _equip:"
-
-#~ msgid "Ethernet"
-#~ msgstr "Cable"
-
-#~ msgid "VLAN"
-#~ msgstr "VLAN"
-
-#, fuzzy
-#~ msgid "IP"
-#~ msgstr "FIP"
-
-#, fuzzy
-#~ msgid "TCP"
-#~ msgstr "GTC"
-
-#, fuzzy
-#~ msgid "_Hardware Address"
-#~ msgstr "Adreça del maquinari:"
-
-#, fuzzy
-#~ msgid "_Hardware address policy"
-#~ msgstr "Adreça del maquinari:"
-
-#, fuzzy
-#~ msgid "_System priority"
-#~ msgstr "_Prioritat:"
-
-#, fuzzy
-#~ msgid "Transmission _balancing interval"
-#~ msgstr "Po_tència de transmissió:"
-
-#, fuzzy
-#~ msgid "_Transmission balancer"
-#~ msgstr "Po_tència de transmissió:"
-
-#, fuzzy
-#~ msgid "_Parent interface"
-#~ msgstr "Interfície _pare:"
-
-#, fuzzy
-#~ msgid "VLAN inter_face name"
-#~ msgstr "_Nom de la interfície VLAN:"
-
-#, fuzzy
-#~ msgid "Cloned MAC _address"
-#~ msgstr "Adreça _MAC falsejada:"
-
-#, fuzzy
-#~ msgid "VLAN _id"
-#~ msgstr "_Identificador de la VLAN:"
-
-#~ msgid "Device name + number"
-#~ msgstr "Nom del dispositiu + número"
-
-#~ msgid "\"vlan\" + number"
-#~ msgstr "«vlan» + número"
-
-#, fuzzy
-#~ msgid "S_ecurity"
-#~ msgstr "_Seguretat:"
-
-#~ msgid "A (5 GHz)"
-#~ msgstr "A (5 GHz)"
-
-#~ msgid "B/G (2.4 GHz)"
-#~ msgstr "B/G (2.4 GHz)"
-
-#~ msgid "Ad-hoc"
-#~ msgstr "Ad hoc"
-
-#~ msgid "mW"
-#~ msgstr "mW"
-
-#, fuzzy
-#~ msgid "Transmission po_wer"
-#~ msgstr "Po_tència de transmissió:"
-
-#~ msgid "Mb/s"
-#~ msgstr "Mb/s"
-
-#, fuzzy
-#~ msgid "_Rate"
-#~ msgstr "_Velocitat:"
-
-#, fuzzy
-#~ msgid "_BSSID"
-#~ msgstr "_BSSID:"
-
-#, fuzzy
-#~ msgid "C_hannel"
-#~ msgstr "_Canal:"
-
-#, fuzzy
-#~ msgid "Ban_d"
-#~ msgstr "Ban_da:"
-
-#, fuzzy
-#~ msgid "SS_ID"
-#~ msgstr "SS_ID:"
-
-#~ msgid "Allowed Authentication Methods"
-#~ msgstr "Mètodes d'autenticació admesos"
-
-#~ msgid "_EAP"
-#~ msgstr "_EAP"
-
-#~ msgid "Extensible Authentication Protocol"
-#~ msgstr "Protocol d'autenticació extensible"
-
-#~ msgid "_PAP"
-#~ msgstr "_PAP"
-
-#~ msgid "Password Authentication Protocol"
-#~ msgstr "Protocol d'autenticació per contrasenya"
-
-#~ msgid "C_HAP"
-#~ msgstr "C_HAP"
-
-#~ msgid "Challenge Handshake Authentication Protocol"
-#~ msgstr "Protocol d'autenticació per desafiament mutu"
-
-#~ msgid "_MSCHAP"
-#~ msgstr "_MSCHAP"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol"
-#~ msgstr "Protocol d'autenticació per desafiament mutu de Microsoft"
-
-#~ msgid "MSCHAP v_2"
-#~ msgstr "MSCHAP v_2"
-
-#~ msgid "Microsoft Challenge Handshake Authentication Protocol version 2"
-#~ msgstr "Protocol d'autenticació per desafiament mutu de Microsoft, versió 2"
-
-#, fuzzy
-#~ msgid ""
-#~ "In most cases, the provider’s PPP servers will support all authentication "
-#~ "methods. If connections fail, try disabling support for some methods."
-#~ msgstr ""
-#~ "En la majoria dels casos, el servidor PPP del proveïdor admetrà tots els "
-#~ "mètodes d'autenticació. En cas que fallen les connexions, intenteu "
-#~ "inhabilitar-ne alguns."
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Sense fil"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
-
-#~ msgid "InfiniBand"
-#~ msgstr "InfiniBand"
-
-#~ msgid "Bond"
-#~ msgstr "Vinculada"
-
-#~ msgid "Team"
-#~ msgstr "Equip"
-
-#~ msgid "Bridge"
-#~ msgstr "Pont"
-
-#~ msgid "VPN"
-#~ msgstr "VPN"
-
-#, fuzzy
-#~ msgid "The VPN plugin failed to import the VPN connection correctly: "
-#~ msgstr ""
-#~ "El connector VPN no ha pogut importar la connexió VPN correctament\n"
-#~ "\n"
-#~ "Error: no hi ha cap tipus de servei VPN."
-
-#~ msgid "Select file to import"
-#~ msgstr "Seleccioneu el fitxer a importar"
-
-#~ msgid "Hardware"
-#~ msgstr "Maquinari"
-
-#~ msgid "Virtual"
-#~ msgstr "Virtual"
-
-#, fuzzy
-#~ msgid "Import a saved VPN configuration…"
-#~ msgstr "Importa una configuració VPN..."
-
-#~ msgid ""
-#~ "The connection editor dialog could not be initialized due to an unknown "
-#~ "error."
-#~ msgstr ""
-#~ "No s'ha pogut inicialitzar el diàleg d'edició de les connexions a causa "
-#~ "d'un error desconegut."
-
-#~ msgid "Could not create new connection"
-#~ msgstr "No s'ha pogut crear la connexió nova"
-
-#~ msgid "Connection delete failed"
-#~ msgstr "No s'ha pogut suprimir la connexió"
-
-#, c-format
-#~ msgid "Are you sure you wish to delete the connection %s?"
-#~ msgstr "Segur que voleu suprimir la connexió %s?"
-
-#, fuzzy
-#~ msgid "_New Connection"
-#~ msgstr "Connexions _VPN"
-
-#~ msgid "Address"
-#~ msgstr "Adreça"
-
-#~ msgid "Netmask"
-#~ msgstr "Màscara de xarxa"
-
-#~ msgid "Gateway"
-#~ msgstr "Passarel·la"
-
-#~ msgid "Metric"
-#~ msgstr "Mètrica"
-
-#~ msgid "Prefix"
-#~ msgstr "Prefix"
-
-#, c-format
-#~ msgid "Editing %s"
-#~ msgstr "S'està editant %s"
-
-#~ msgid "Editing un-named connection"
-#~ msgstr "S'està editant la connexió sense nom"
-
-#, fuzzy
-#~ msgid "Missing connection name"
-#~ msgstr "_Nom de la connexió:"
-
-#, fuzzy
-#~ msgid "Editor initializing…"
-#~ msgstr "S'ha produït un error en inicialitzar l'editor"
-
-#, fuzzy
-#~ msgid "Connection cannot be modified"
-#~ msgstr "No s'ha pogut afegir la connexió"
-
-#~ msgid ""
-#~ "The connection editor could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "L'editor de connexions no ha pogut trobar alguns dels recursos necessaris "
-#~ "(no s'ha trobat el fitxer d'interfície d'usuari)."
-
-#~ msgid "_Save"
-#~ msgstr "Al_ça"
-
-#~ msgid "Save any changes made to this connection."
-#~ msgstr "Guarda els canvis fets a la connexió."
-
-#~ msgid "Authenticate to save this connection for all users of this machine."
-#~ msgstr ""
-#~ "Autentiqueu-vos per guardar la connexió per a tots els usuaris de "
-#~ "l'ordinador."
-
-#~ msgid "Could not create connection"
-#~ msgstr "No s'ha pogut crear la connexió"
-
-#~ msgid "Could not edit connection"
-#~ msgstr "No s'ha pogut editar la connexió"
-
-#~ msgid "Unknown error creating connection editor dialog."
-#~ msgstr ""
-#~ "S'ha produït un error desconegut en crear el diàleg de l'editor de "
-#~ "connexions."
-
-#~ msgid "Error initializing editor"
-#~ msgstr "S'ha produït un error en inicialitzar l'editor"
-
-#~ msgid "Connection add failed"
-#~ msgstr "No s'ha pogut afegir la connexió"
-
-#, fuzzy
-#~ msgid ""
-#~ "Security labels may prevent some files from being used with certificate "
-#~ "authentication."
-#~ msgstr ""
-#~ "Establiu-ho a «TRUE» (cert) per inhabilitar els avisos sobre els "
-#~ "certificats de CA en l'autenticació EAP."
-
-#, fuzzy
-#~ msgid "Connection _name"
-#~ msgstr "_Nom de la connexió:"
-
-#, fuzzy
-#~ msgid "_Export…"
-#~ msgstr "E_xporta..."
-
-#~ msgid "never"
-#~ msgstr "mai"
-
-#~ msgid "now"
-#~ msgstr "ara"
-
-#, c-format
-#~ msgid "%d minute ago"
-#~ msgid_plural "%d minutes ago"
-#~ msgstr[0] "fa %d minut"
-#~ msgstr[1] "fa %d minuts"
-
-#, c-format
-#~ msgid "%d hour ago"
-#~ msgid_plural "%d hours ago"
-#~ msgstr[0] "fa %d hora"
-#~ msgstr[1] "fa %d hores"
-
-#, c-format
-#~ msgid "%d day ago"
-#~ msgid_plural "%d days ago"
-#~ msgstr[0] "fa %d dia"
-#~ msgstr[1] "fa %d dies"
-
-#, c-format
-#~ msgid "%d month ago"
-#~ msgid_plural "%d months ago"
-#~ msgstr[0] "fa %d mes"
-#~ msgstr[1] "fa %d mesos"
-
-#, c-format
-#~ msgid "%d year ago"
-#~ msgid_plural "%d years ago"
-#~ msgstr[0] "fa %d any"
-#~ msgstr[1] "fa %d anys"
-
-#, fuzzy
-#~ msgid "Connection cannot be deleted"
-#~ msgstr "No s'ha pogut afegir la connexió"
-
-#, fuzzy
-#~ msgid "Select a connection to edit"
-#~ msgstr "Connexió en equip %d"
-
-#, fuzzy
-#~ msgid "Select a connection to delete"
-#~ msgstr "Connexió en equip %d"
-
-#~ msgid "Last Used"
-#~ msgstr "Utilitzada per última vegada"
-
-#~ msgid "Edit the selected connection"
-#~ msgstr "Edita la connexió seleccionada"
-
-#~ msgid "Authenticate to edit the selected connection"
-#~ msgstr "Autentiqueu-vos per editar la connexió seleccionada"
-
-#~ msgid "Delete the selected connection"
-#~ msgstr "Suprimeix la connexió seleccionada"
-
-#~ msgid "Authenticate to delete the selected connection"
-#~ msgstr "Autentiqueu-vos per suprimir la connexió seleccionada"
-
-#, fuzzy
-#~ msgid "Unrecognized connection type"
-#~ msgstr "No s'admet el tipus de connexió de banda ampla mòbil."
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to import “%s” connections"
-#~ msgstr "Es desconeix com crear connexions «%s»"
-
-#, fuzzy
-#~ msgid "Error importing connection"
-#~ msgstr "S'ha produït un error en editar la connexió"
-
-#~ msgid "Error creating connection"
-#~ msgstr "S'ha produït un error en crear la connexió"
-
-#, fuzzy
-#~ msgid "Connection type not specified."
-#~ msgstr "No s'ha pogut afegir la connexió"
-
-#~ msgid "No VPN plugins are installed."
-#~ msgstr "No hi ha cap connector VPN instal·lat."
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to create “%s” connections"
-#~ msgstr "Es desconeix com crear connexions «%s»"
-
-#~ msgid "Error editing connection"
-#~ msgstr "S'ha produït un error en editar la connexió"
-
-#, fuzzy, c-format
-#~ msgid "Did not find a connection with UUID “%s”"
-#~ msgstr "No s'ha pogut trobar cap connexió amb UUID «%s»"
-
-#~ msgid "Network Connections"
-#~ msgstr "Connexions de xarxa"
-
-#, fuzzy
-#~ msgid "Add a new connection"
-#~ msgstr "Connexions _VPN"
-
-#~ msgid "802.1X Security"
-#~ msgstr "Seguretat 802.1X"
-
-#~ msgid "Could not load 802.1X Security user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la seguretat de "
-#~ "802.1X."
-
-#~ msgid "Use 802.1_X security for this connection"
-#~ msgstr "Utilitza la seguretat 802.1_X per a esta connexió"
-
-#, fuzzy
-#~ msgid "Could not load Bluetooth user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari DCB."
-
-#, fuzzy, c-format
-#~ msgid "Bluetooth connection %d"
-#~ msgstr "Connexió vinculada %d"
-
-#, fuzzy
-#~ msgid "Bluetooth Type"
-#~ msgstr "Bluetooth"
-
-#, fuzzy
-#~ msgid "_Personal Area Network"
-#~ msgstr "Xarxa amb fil"
-
-#, fuzzy
-#~ msgid "_Dial-Up Network"
-#~ msgstr "Xarxa sense fil"
-
-#~ msgid "Could not load bond user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió vinculada."
-
-#, fuzzy
-#~ msgid "primary"
-#~ msgstr "_Primària:"
-
-#, c-format
-#~ msgid "Bond connection %d"
-#~ msgstr "Connexió vinculada %d"
-
-#~ msgid "Could not load bridge user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per la connexió de pont."
-
-#, c-format
-#~ msgid "Bridge connection %d"
-#~ msgstr "Connexió de pont %d"
-
-#~ msgid "Bridge Port"
-#~ msgstr "Port del pont"
-
-#~ msgid "Could not load bridge port user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari de ponts de port."
-
-#~ msgid "DCB"
-#~ msgstr "DCB"
-
-#~ msgid "Could not load DCB user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari DCB."
-
-#~ msgid "Could not load DSL user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió DSL."
-
-#, fuzzy
-#~ msgid "missing parent interface"
-#~ msgstr "Interfície _pare:"
-
-#, c-format
-#~ msgid "DSL connection %d"
-#~ msgstr "Connexió DSL %d"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “em1”, "
-#~ "“3C:97:0E:42:1A:19”, “em1 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "L'opció bloqueja la connexió al dispositiu de xarxa especificat per "
-#~ "l'adreça MAC. Exemple: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid "ignored"
-#~ msgstr "Ignorada"
-
-#~ msgid "Could not load ethernet user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió amb fil."
-
-#, fuzzy
-#~ msgid "Ethernet device"
-#~ msgstr "Cable"
-
-#, fuzzy
-#~ msgid "cloned MAC"
-#~ msgstr "Adreça _MAC falsejada:"
-
-#, c-format
-#~ msgid "Ethernet connection %d"
-#~ msgstr "Connexió de xarxa amb fil %d"
-
-#~ msgid ""
-#~ "The zone defines the trust level of the connection. Default is not a "
-#~ "regular zone, selecting it results in the use of the default zone set in "
-#~ "the firewall. Only usable if firewalld is active."
-#~ msgstr ""
-#~ "La zona defineix el nivell de confiança de la connexió. Per defecte no és "
-#~ "una zona regular, si la seleccioneu el tallafocs utilitzarà la zona per "
-#~ "defecte. Només és útil si el firewallD està actiu."
-
-#~ msgid "Could not load General user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari general."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “ib0”, "
-#~ "“80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65”, “ib0 "
-#~ "(80:00:00:48:fe:80:00:00:00:00:00:00:00:02:c9:03:00:00:0f:65)”"
-#~ msgstr ""
-#~ "L'opció bloqueja la connexió al dispositiu de xarxa especificat per "
-#~ "l'adreça MAC. Exemple: 00:11:22:33:44:55"
-
-#~ msgid "Could not load InfiniBand user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió "
-#~ "InfiniBand."
-
-#, c-format
-#~ msgid "InfiniBand connection %d"
-#~ msgstr "Connexió InfiniBand %d"
-
-#, fuzzy
-#~ msgid "Could not load IP tunnel user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió IPv4."
-
-#, fuzzy, c-format
-#~ msgid "IP tunnel connection %d"
-#~ msgstr "Connexió de xarxa amb fil %d"
-
-#~ msgid "Automatic (VPN)"
-#~ msgstr "Automàtic (VPN)"
-
-#~ msgid "Automatic (VPN) addresses only"
-#~ msgstr "Només adreces (VPN) automàtiques"
-
-#~ msgid "Automatic, addresses only"
-#~ msgstr "Automàtic, només adreces"
-
-#~ msgid "Automatic (PPPoE)"
-#~ msgstr "Automàtic (PPPoE)"
-
-#~ msgid "Automatic (PPPoE) addresses only"
-#~ msgstr "Només adreces (PPPoE) automàtiques"
-
-#~ msgid "Automatic (DHCP)"
-#~ msgstr "Automàtic (DHCP)"
-
-#~ msgid "Automatic (DHCP) addresses only"
-#~ msgstr "Només adreces (DHCP) automàtiques"
-
-# http://en.wikipedia.org/wiki/Link-local_address (dpm)
-#~ msgid "Link-Local Only"
-#~ msgstr "Només adreces de connexió local"
-
-#, fuzzy
-#~ msgid "Additional DNS ser_vers"
-#~ msgstr "Servidors _DNS addicionals:"
-
-#, fuzzy
-#~ msgid "Additional s_earch domains"
-#~ msgstr "Dominis de _cerca addicionals:"
-
-#, c-format
-#~ msgid "Editing IPv4 routes for %s"
-#~ msgstr "Edició de les rutes IPv4 per a %s"
-
-#~ msgid "IPv4 Settings"
-#~ msgstr "Paràmetres IPv4"
-
-#~ msgid "Could not load IPv4 user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió IPv4."
-
-#~ msgid "Automatic, DHCP only"
-#~ msgstr "Automàtic, només DHCP"
-
-#, c-format
-#~ msgid "Editing IPv6 routes for %s"
-#~ msgstr "Edició de les rutes IPv6 per a %s"
-
-#~ msgid "IPv6 Settings"
-#~ msgstr "Paràmetres IPv6"
-
-#~ msgid "Could not load IPv6 user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió IPv6."
-
-#, fuzzy
-#~ msgid "Could not load MACsec user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió WiMAX."
-
-#, fuzzy, c-format
-#~ msgid "MACSEC connection %d"
-#~ msgstr "Connexió WiMAX %d"
-
-#~ msgid "Duplicate slaves"
-#~ msgstr "Duplica els esclaus"
-
-#, fuzzy, c-format
-#~ msgid "Slaves “%s” and “%s” both apply to device “%s”"
-#~ msgstr "Els esclaus «%s» i «%s» s'apliquen tots dos al dispositiu «%s»"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "Slaves “%s” and “%s” apply to different virtual ports (“%s” and “%s”) of "
-#~ "the same physical device."
-#~ msgstr ""
-#~ "Els esclaus «%s» i «%s» s'apliquen a diferents ports virtuals («%s» i "
-#~ "«%s») del mateix dispositiu físic."
-
-#, c-format
-#~ msgid "%s slave %d"
-#~ msgstr "%s esclava %d"
-
-#~ msgid "Could not load mobile broadband user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió de banda "
-#~ "ampla mòbil."
-
-#~ msgid "Unsupported mobile broadband connection type."
-#~ msgstr "No s'admet el tipus de connexió de banda ampla mòbil."
-
-#~ msgid "Select Mobile Broadband Provider Type"
-#~ msgstr "Seleccioneu el tipus de proveïdor de banda ampla mòbil"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the technology your mobile broadband provider uses. If you are "
-#~ "unsure, ask your provider."
-#~ msgstr ""
-#~ "Seleccioneu la tecnologia que utilitza el vostre proveïdor de banda ampla "
-#~ "mòbil. Si no n'esteu segur, demaneu-ho al vostre proveïdor."
-
-#~ msgid ""
-#~ "My provider uses _GSM-based technology (i.e. GPRS, EDGE, UMTS, HSDPA)"
-#~ msgstr ""
-#~ "El meu proveïdor utilitza tecnologia basada en _GSM (és a dir, GPRS, "
-#~ "EDGE, UMTS, HSDPA)"
-
-#~ msgid "My provider uses C_DMA-based technology (i.e. 1xRTT, EVDO)"
-#~ msgstr ""
-#~ "El meu proveïdor utilitza tecnologia basada en C_DMA (és a dir, 1xRTT, "
-#~ "EVDO)"
-
-#~ msgid "none"
-#~ msgstr "cap"
-
-#, c-format
-#~ msgid "Editing PPP authentication methods for %s"
-#~ msgstr "Edició dels mètodes d'autenticació PPP per a %s"
-
-#~ msgid "PPP Settings"
-#~ msgstr "Paràmetres PPP"
-
-#~ msgid "Could not load PPP user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió PPP."
-
-#, fuzzy
-#~ msgid "Could not load proxy user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió vinculada."
-
-#, fuzzy
-#~ msgid "Error: file doesn’t contain a valid JSON configuration"
-#~ msgstr "Error: el fitxer no conté una configuració JSON vàlida"
-
-#~ msgid "Could not load team user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari de l'equip."
-
-#, c-format
-#~ msgid "Team connection %d"
-#~ msgstr "Connexió en equip %d"
-
-#~ msgid "Team Port"
-#~ msgstr "Port de l'equip"
-
-#~ msgid "Could not load team port user interface."
-#~ msgstr "No s'ha pogut carregar la interfície d'usuari del port de l'equip."
-
-#, fuzzy, c-format
-#~ msgid "%s (via “%s”)"
-#~ msgstr "%s (via «%s»)"
-
-#, fuzzy
-#~ msgid "New connection…"
-#~ msgstr "No hi ha cap connexió de xarxa"
-
-#~ msgid "Could not load vlan user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió VLAN."
-
-#, c-format
-#~ msgid "VLAN connection %d"
-#~ msgstr "Connexió VLAN %d"
-
-#, fuzzy, c-format
-#~ msgid "Could not load editor VPN plugin for “%s” (%s)."
-#~ msgstr "No s'ha trobat cap servei de connector VPN per a «%s»."
-
-#, fuzzy
-#~ msgid "unknown failure"
-#~ msgstr "Ha fallat la connexió"
-
-#~ msgid "Could not load VPN user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió VPN."
-
-#, fuzzy, c-format
-#~ msgid "Could not find VPN plugin for “%s”."
-#~ msgstr "No s'ha trobat cap servei de connector VPN per a «%s»."
-
-#, c-format
-#~ msgid "VPN connection %d"
-#~ msgstr "Connexió VPN %d"
-
-#~ msgid "Choose a VPN Connection Type"
-#~ msgstr "Seleccioneu un tipus de connexió VPN"
-
-#, fuzzy
-#~ msgid ""
-#~ "Select the type of VPN you wish to use for the new connection. If the "
-#~ "type of VPN connection you wish to create does not appear in the list, "
-#~ "you may not have the correct VPN plugin installed."
-#~ msgstr ""
-#~ "Seleccioneu el tipus de VPN que vulgueu utilitzar per a la connexió nova. "
-#~ "Si el tipus de connexió VPN que voleu crear no apareix a la llista, és "
-#~ "probable que no tingueu el connector VPN adequat instal·lat."
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the Wi-Fi access point (AP) "
-#~ "specified by the BSSID entered here. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "Esta opció bloqueja la connexió al punt d'accés sense fil (AP) "
-#~ "especificat per l'identificador BSSID.  Exemple: 00:11:22:33:44:55"
-
-#, fuzzy
-#~ msgid ""
-#~ "This option locks this connection to the network device specified either "
-#~ "by its interface name or permanent MAC or both. Examples: “wlan0”, "
-#~ "“3C:97:0E:42:1A:19”, “wlan0 (3C:97:0E:42:1A:19)”"
-#~ msgstr ""
-#~ "L'opció bloqueja la connexió al dispositiu de xarxa especificat per "
-#~ "l'adreça MAC. Exemple: 00:11:22:33:44:55"
-
-#, c-format
-#~ msgid "%u (%u MHz)"
-#~ msgstr "%u (%u MHz)"
-
-#~ msgid "Could not load Wi-Fi user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la connexió sense fil."
-
-#, fuzzy
-#~ msgid "Wi-Fi device"
-#~ msgstr "Qualsevol dispositiu"
-
-#, c-format
-#~ msgid "Wi-Fi connection %d"
-#~ msgstr "Connexió de xarxa sense fil %d"
-
-#~ msgid "Dynamic WEP (802.1X)"
-#~ msgstr "WEP dinàmic 802.1X"
-
-#~ msgid "Could not load Wi-Fi security user interface; missing Wi-Fi setting."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la seguretat de la "
-#~ "connexió sense fil. Manca un paràmetre de la connexió sense fil."
-
-#~ msgid "Wi-Fi Security"
-#~ msgstr "Seguretat de la xarxa sense fil"
-
-#~ msgid "Could not load Wi-Fi security user interface."
-#~ msgstr ""
-#~ "No s'ha pogut carregar la interfície d'usuari per a la seguretat de la "
-#~ "connexió sense fil."
-
-#, fuzzy, c-format
-#~ msgid "A file named “%s” already exists."
-#~ msgstr "Ja existeix un fitxer anomenat «%s»."
-
-#~ msgid "_Replace"
-#~ msgstr "_Reemplaça"
-
-#, c-format
-#~ msgid "Do you want to replace %s with the VPN connection you are saving?"
-#~ msgstr "Voleu reemplaçar %s per la connexió VPN que esteu guardant?"
-
-#~ msgid "Cannot export VPN connection"
-#~ msgstr "No es pot exportar la connexió VPN"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The VPN connection “%s” could not be exported to %s.\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "No s'ha pogut exportar la connexió VPN «%s» a %s.\n"
-#~ "\n"
-#~ "Error: %s."
-
-#, fuzzy
-#~ msgid "Export VPN connection…"
-#~ msgstr "Exporta una connexió VPN..."
-
-#~ msgid "_Unlock"
-#~ msgstr "_Desbloqueja"
-
-#~ msgid "Automatically unlock this device"
-#~ msgstr "Desbloqueja automàticament este dispositiu"
-
-#~ msgid "Connection Information"
-#~ msgstr "Informació de la connexió"
-
-#, fuzzy
-#~ msgid "I can’t find my provider and I wish to enter it _manually:"
-#~ msgstr "No hi ha el proveïdor i vull introduir-lo _manualment:"
-
-#~ msgid "Provider:"
-#~ msgstr "Proveïdor:"
-
-#~ msgid "Country or Region List:"
-#~ msgstr "Llista de països o regions:"
-
-#~ msgid "Country or region"
-#~ msgstr "País o regió"
-
-#~ msgid "Wired"
-#~ msgstr "Amb fil"
-
-#~ msgid "OLPC Mesh"
-#~ msgstr "Malla d'OLPC"
-
-#~ msgid "ADSL"
-#~ msgstr "ADSL"
-
-#~ msgid "PCI"
-#~ msgstr "PCI"
-
-#~ msgid "USB"
-#~ msgstr "USB"
-
-#, c-format
-#~ msgctxt "long device name"
-#~ msgid "%s %s"
-#~ msgstr "%s %s"
-
-#~ msgid "Wi-Fi _security:"
-#~ msgstr "Seguretat de la _xarxa sense fil:"
-
-#~ msgid "_Network name:"
-#~ msgstr "Nom de _xarxa:"
-
-#~ msgid "C_onnection:"
-#~ msgstr "Co_nnexió:"
-
-#~ msgid "Wi-Fi _adapter:"
-#~ msgstr "_Adaptador sense fil:"
-
-#~ msgid "Usage:"
-#~ msgstr "Ús:"
-
-#~ msgid ""
-#~ "This program is a component of NetworkManager (https://wiki.gnome.org/"
-#~ "Projects/NetworkManager/)."
-#~ msgstr ""
-#~ "Este programa és un component del NetworkManager (https://wiki.gnome.org/"
-#~ "Projects/NetworkManager/)."
-
-#~ msgid ""
-#~ "It is not intended for command-line interaction but instead runs in the "
-#~ "GNOME desktop environment."
-#~ msgstr ""
-#~ "No es pretén que hi interaccioneu des de la línia d'ordes, sinó que "
-#~ "s'executa en l'entorn d'escriptori GNOME."
-
-#~ msgid "EVDO"
-#~ msgstr "EVDO"
-
-#~ msgid "GPRS"
-#~ msgstr "GPRS"
-
-#~ msgid "EDGE"
-#~ msgstr "EDGE"
-
-#~ msgid "UMTS"
-#~ msgstr "UMTS"
-
-#~ msgid "HSDPA"
-#~ msgstr "HSDPA"
-
-#~ msgid "HSUPA"
-#~ msgstr "HSUPA"
-
-#~ msgid "HSPA"
-#~ msgstr "HSPA"
-
-#~ msgid "HSPA+"
-#~ msgstr "HSPA+"
-
-#~ msgid "LTE"
-#~ msgstr "LTE"
-
-#~ msgid "not enabled"
-#~ msgstr "no està habilitat"
-
-#~ msgid "not registered"
-#~ msgstr "no està registrat"
-
-#, c-format
-#~ msgid "Home network (%s)"
-#~ msgstr "Xarxa domèstica (%s)"
-
-#~ msgid "Home network"
-#~ msgstr "Xarxa domèstica"
-
-#~ msgid "searching"
-#~ msgstr "s'està cercant"
-
-#~ msgid "registration denied"
-#~ msgstr "s'ha denegat el registre"
-
-#, c-format
-#~ msgid "%s (%s roaming)"
-#~ msgstr "%s (%s itinerant)"
-
-#, c-format
-#~ msgid "%s (roaming)"
-#~ msgstr "%s (itinerant)"
-
-#, c-format
-#~ msgid "Roaming network (%s)"
-#~ msgstr "Xarxa itinerant (%s)"
-
-#~ msgid "Roaming network"
-#~ msgstr "Xarxa itinerant"
-
-#, fuzzy, c-format
-#~ msgid "PIN code for SIM card “%s” on “%s”"
-#~ msgstr "Codi PIN per la targeta SIM «%s» a «%s»"
-
-#~ msgid "PIN code required"
-#~ msgstr "Cal que introduïu el codi PIN"
-
-#~ msgid "PIN code is needed for the mobile broadband device"
-#~ msgstr ""
-#~ "Cal que introduïu un codi PIN per al dispositiu de banda ampla mòbil"
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active: (%d%%%s%s)"
-#~ msgstr "La connexió de banda ampla mòbil «%s» és activa: (%d%%%s%s)"
-
-#~ msgid "roaming"
-#~ msgstr "itinerància"
-
-#~ msgid "%s (default)"
-#~ msgstr "%s (predeterminat)"
-
-#~ msgid "Ignored"
-#~ msgstr "Ignorada"
-
-#~ msgid "Failed to update connection secrets due to an unknown error."
-#~ msgstr ""
-#~ "No s'han pogut actualitzar els secrets de la connexió degut a un error "
-#~ "desconegut."
-
-#~ msgid "Priority:"
-#~ msgstr "Prioritat:"
-
-#~ msgid "0:"
-#~ msgstr "0:"
-
-#~ msgid "1:"
-#~ msgstr "1:"
-
-#~ msgid "2:"
-#~ msgstr "2:"
-
-#~ msgid "3:"
-#~ msgstr "3:"
-
-#~ msgid "4:"
-#~ msgstr "4:"
-
-#~ msgid "5:"
-#~ msgstr "5:"
-
-#~ msgid "6:"
-#~ msgstr "6:"
-
-#~ msgid "7:"
-#~ msgstr "7:"
-
-#~ msgid "_Automatically connect to this network when it is available"
-#~ msgstr "Connecta't _automàticament a esta xarxa quan estiga disponible"
-
-#, fuzzy
-#~ msgid "Connection _priority for auto-activation:"
-#~ msgstr "_Informació de la connexió"
-
-#~ msgid "DSL"
-#~ msgstr "DSL"
-
-#~ msgid "Cannot import VPN connection"
-#~ msgstr "No es pot importar la connexió VPN"
-
-#, fuzzy
-#~ msgid ""
-#~ "The file “%s” could not be read or does not contain recognized VPN "
-#~ "connection information\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr ""
-#~ "No s'ha pogut llegir el fitxer «%s» o bé no conté cap informació de "
-#~ "connexió VPN que es puga reconèixer\n"
-#~ "\n"
-#~ "Error: %s."
-
-#, fuzzy
-#~ msgid "unknown error"
-#~ msgstr "Error desconegut"
-
-#, fuzzy
-#~ msgid "Choose a Certificate Authority certificate"
-#~ msgstr "Trieu un certificat d'autoritat de certificació (CA)..."
-
-#~ msgid "C_A certificate:"
-#~ msgstr "Certificat de C_A:"
-
-#, fuzzy
-#~ msgid "NetworkManager for GNOME"
-#~ msgstr "Miniaplicació NetworkManager"
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected because the VPN service stopped."
-#~ msgstr ""
-#~ "\n"
-#~ "S'ha desconnectat la connexió VPN «%s» perquè s'ha parat el servei VPN."
-
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected."
-#~ msgstr ""
-#~ "\n"
-#~ "S'ha desconnectat la connexió VPN «%s»."
-
-#~ msgid "_Disconnect VPN"
-#~ msgstr "_Desconnecta la VPN"
-
-#~ msgid "New Mobile Broadband connection..."
-#~ msgstr "Connexió de banda ampla mòbil nova..."
-
-#~ msgid "_Connect to Hidden Wi-Fi Network..."
-#~ msgstr "_Connecta a una xarxa sense fil oculta..."
-
-#~ msgid "Create _New Wi-Fi Network..."
-#~ msgstr "Crea una xarxa sense fil _nova..."
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "15"
-#~ msgstr "15"
-
-#~ msgid "Aut_onegotiate"
-#~ msgstr "Negociació aut_omàtica"
-
-#~ msgid "FirewallD is not running."
-#~ msgstr "El FirewallD no s'està executant."
-
-#~ msgid "New..."
-#~ msgstr "Nova..."
-
-#, fuzzy
-#~ msgid "invalid EAP-TLS CA certificate: %s"
-#~ msgstr "Certificat de C_A:"
-
-#~ msgid "Unencrypted private keys are insecure"
-#~ msgstr "Les claus privades sense encriptar no són segures"
-
-#~ msgid ""
-#~ "The selected private key does not appear to be protected by a password.  "
-#~ "This could allow your security credentials to be compromised.  Please "
-#~ "select a password-protected private key.\n"
-#~ "\n"
-#~ "(You can password-protect your private key with openssl)"
-#~ msgstr ""
-#~ "La clau privada seleccionada no està protegida per una contrasenya i les "
-#~ "vostres credencials de seguretat podrien veure's compromeses.  "
-#~ "Seleccioneu una clau privada protegida per contrasenya.\n"
-#~ "\n"
-#~ "(Podeu utilitzar l'OpenSSL per protegir la vostra clau privada)"
-
-#~ msgid "Choose your private key..."
-#~ msgstr "Trieu la vostra clau privada..."
-
-#~ msgid "Enable WiMA_X Mobile Broadband"
-#~ msgstr "Habilita la banda ampla mòbil WiMA_X"
-
-#~ msgid "_Help"
-#~ msgstr "A_juda"
-
-#~ msgid "You are now connected to the bonded network."
-#~ msgstr "Esteu connectat a la xarxa vinculada."
-
-#~ msgid "Preparing bond connection '%s'..."
-#~ msgstr "S'està preparant la connexió vinculada «%s»..."
-
-#~ msgid "Configuring bond connection '%s'..."
-#~ msgstr "S'està configurant la connexió vinculada «%s»..."
-
-#~ msgid "User authentication required for bond connection '%s'..."
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió vinculada «%s»..."
-
-#~ msgid "Requesting address for '%s'..."
-#~ msgstr "S'està sol·licitant una adreça per a «%s»..."
-
-#~ msgid "Bond connection '%s' active"
-#~ msgstr "La connexió vinculada «%s» és activa"
-
-#~ msgid "You are now connected to the bridged network."
-#~ msgstr "Esteu connectat a la xarxa puntejada."
-
-#~ msgid "Preparing bridge connection '%s'..."
-#~ msgstr "S'està preparant la connexió puntejada «%s»..."
-
-#~ msgid "Configuring bridge connection '%s'..."
-#~ msgstr "S'està configurant la connexió puntejada «%s»..."
-
-#~ msgid "User authentication required for bridge connection '%s'..."
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió puntejada «%s»..."
-
-#~ msgid "Bridge connection '%s' active"
-#~ msgstr "La connexió puntejada «%s» és activa"
-
-#~ msgid "New Mobile Broadband (CDMA) connection..."
-#~ msgstr "Connexió de banda ampla mòbil (CDMA) nova..."
-
-#~ msgid "You are now connected to the CDMA network."
-#~ msgstr "Esteu connectat a la xarxa CDMA."
-
-#~ msgid "CDMA network."
-#~ msgstr "Xarxa CDMA."
-
-#~ msgid "New Mobile Broadband (GSM) connection..."
-#~ msgstr "Connexió de banda ampla mòbil (GSM) nova..."
-
-#~ msgid "You are now connected to the GSM network."
-#~ msgstr "Esteu connectat a la xarxa GSM."
-
-#~ msgid "GSM network."
-#~ msgstr "Xarxa GSM."
-
-#~ msgid "Auto InfiniBand"
-#~ msgstr "InfiniBand automàtic"
-
-#~ msgid "InfiniBand Networks (%s)"
-#~ msgstr "Xarxes InfiniBand (%s)"
-
-#~ msgid "InfiniBand Network (%s)"
-#~ msgstr "Xarxa InfiniBand (%s)"
-
-#~ msgid "InfiniBand Networks"
-#~ msgstr "Xarxes InfiniBand"
-
-#~ msgid "InfiniBand Network"
-#~ msgstr "Xarxa InfiniBand"
-
-#~ msgid "You are now connected to the InfiniBand network."
-#~ msgstr "Esteu connectat a la xarxa InfiniBand."
-
-#~ msgid "Preparing InfiniBand connection '%s'..."
-#~ msgstr "S'està preparant la connexió InfiniBand «%s»..."
-
-#~ msgid "Configuring InfiniBand connection '%s'..."
-#~ msgstr "S'està configurant la connexió InfiniBand «%s»..."
-
-#~ msgid "User authentication required for InfiniBand connection '%s'..."
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió InfiniBand «%s»..."
-
-#~ msgid "InfiniBand connection '%s' active"
-#~ msgstr "La connexió InfiniBand «%s» és activa"
-
-#~ msgid "You are now connected to the teamed network."
-#~ msgstr "Esteu connectat a la xarxa en equip."
-
-#~ msgid "Preparing team connection '%s'..."
-#~ msgstr "S'està preparant la connexió en equip «%s»..."
-
-#~ msgid "Configuring team connection '%s'..."
-#~ msgstr "S'està configurant la connexió en equip «%s»..."
-
-#~ msgid "User authentication required for team connection '%s'..."
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió en equip «%s»..."
-
-#~ msgid "Team connection '%s' active"
-#~ msgstr "La connexió en equip «%s» és activa"
-
-#~ msgid "You are now connected to the VLAN."
-#~ msgstr "Esteu connectat a la VLAN."
-
-#~ msgid "Preparing VLAN connection '%s'..."
-#~ msgstr "S'està preparant la connexió VLAN «%s»..."
-
-#~ msgid "Configuring VLAN connection '%s'..."
-#~ msgstr "S'està configurant la connexió VLAN «%s»..."
-
-#~ msgid "User authentication required for VLAN connection '%s'..."
-#~ msgstr "Cal l'autenticació d'usuari per a la connexió VLAN «%s»..."
-
-#~ msgid "VLAN connection '%s' active"
-#~ msgstr "La connexió VLAN «%s» és activa"
-
-#~ msgid "WiMAX Mobile Broadband (%s)"
-#~ msgstr "Banda ampla mòbil WiMAX (%s)"
-
-#~ msgid "WiMAX Mobile Broadband"
-#~ msgstr "Banda ampla mòbil WiMAX"
-
-#~ msgid "WiMAX is disabled"
-#~ msgstr "La xarxa WiMAX està inhabilitada"
-
-#~ msgid "WiMAX is disabled by hardware switch"
-#~ msgstr "L'interruptor de maquinari ha inhabilitat la xarxa WiMAX"
-
-#~ msgid "You are now connected to the WiMAX network."
-#~ msgstr "Esteu connectat a la xarxa WiMAX."
-
-#~ msgid "%d dB"
-#~ msgstr "%d dB"
-
-#~ msgctxt "WiMAX CINR"
-#~ msgid "unknown"
-#~ msgstr "desconeguda"
-
-#~ msgctxt "WiMAX Base Station ID"
-#~ msgid "unknown"
-#~ msgstr "desconegut"
-
-#~ msgid "WiMAX (%s)"
-#~ msgstr "WiMAX (%s)"
-
-#~ msgid "CINR:"
-#~ msgstr "CINR:"
-
-#~ msgid "BSID:"
-#~ msgstr "BSSID:"
-
-#~ msgid "_Device MAC address:"
-#~ msgstr "Adreça _MAC del dispositiu:"
-
-#~ msgid "Any"
-#~ msgstr "Qualsevol"
-
-#~ msgid "3G (UMTS/HSPA)"
-#~ msgstr "3G (UMTS/HSPA)"
-
-#~ msgid "2G (GPRS/EDGE)"
-#~ msgstr "2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 3G (UMTS/HSPA)"
-#~ msgstr "Prefereix 3G (UMTS/HSPA)"
-
-#~ msgid "Prefer 2G (GPRS/EDGE)"
-#~ msgstr "Prefereix 2G (GPRS/EDGE)"
-
-#~ msgid "Prefer 4G (LTE)"
-#~ msgstr "Prefereix 4G (LTE)"
-
-#~ msgid "Use only 4G (LTE)"
-#~ msgstr "Utilitza només 4G (LTE)"
-
-#~ msgid "I_mport team configuration from a file..."
-#~ msgstr "I_mporta una configuració en equip des d'un fiter..."
-
-#~ msgid "Infrastructure"
-#~ msgstr ""
-#~ "Infraestructura\n"
-#~ "Ad hoc"
-
-#~ msgid "WiMAX"
-#~ msgstr "WiMAX"
-
-#~ msgid "Error saving connection"
-#~ msgstr "S'ha produït un error en guardar la connexió"
-
-#~ msgid "The property '%s' / '%s' is invalid: %d"
-#~ msgstr "La propietat «%s» / «%s» no és vàlida: %d"
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (failed to connect to D-Bus: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "No s'ha pogut configurar el Bluetooth (no s'ha pogut connectar al D-Bus: "
-#~ "(%s) %s)."
-
-#~ msgid ""
-#~ "Bluetooth configuration not possible (error finding NetworkManager: (%s) "
-#~ "%s)."
-#~ msgstr ""
-#~ "No s'ha pogut configurar el Bluetooth (no s'ha pogut trobar el "
-#~ "NetworkManager: (%s) %s)."
-
-#~ msgid "Use your mobile phone as a network device (PAN/NAP)"
-#~ msgstr "Utilitzeu el telèfon mòbil com a dispositiu de xarxa (PAN/NAP)"
-
-#~ msgid "Access the Internet using your mobile phone (DUN)"
-#~ msgstr "Accediu a Internet a través del telèfon mòbil (DUN)"
-
-#~ msgid "Error: %s"
-#~ msgstr "Error: %s"
-
-#~ msgid "Your phone is now ready to use!"
-#~ msgstr "Ja podeu utilitzar el telèfon."
-
-#~ msgid "Mobile wizard was canceled"
-#~ msgstr "S'ha cancel·lat l'auxiliar per a connexions mòbils"
-
-#~ msgid "Unknown phone device type (not GSM or CDMA)"
-#~ msgstr "Tipus de dispositiu de telèfon desconegut (ni GSM ni CDMA)"
-
-#~ msgid "unknown modem type."
-#~ msgstr "es desconeix el tipus de mòdem."
-
-#~ msgid "failed to connect to the phone."
-#~ msgstr "no s'ha pogut connectar al telèfon."
-
-#~ msgid "error getting bus connection"
-#~ msgstr "s'ha produït un error en obtindre la connexió de bus"
-
-#~ msgid "unexpectedly disconnected from the phone."
-#~ msgstr "el telèfon s'ha desconnectat de manera inesperada."
-
-#~ msgid "timed out detecting phone details."
-#~ msgstr ""
-#~ "s'ha acabat el temps d'espera de la detecció dels detalls del telèfon."
-
-#~ msgid "Detecting phone configuration..."
-#~ msgstr "S'està detectant la configuració del telèfon..."
-
-#~ msgid ""
-#~ "The default Bluetooth adapter must be enabled before setting up a Dial-Up-"
-#~ "Networking connection."
-#~ msgstr ""
-#~ "Cal habilitar l'adaptador de Bluetooth abans d'editar una connexió de "
-#~ "xarxa de marcatge directe."
-
-#~ msgid "Failed to create PAN connection: %s"
-#~ msgstr "Ha fallat la creació de la connexió PAN: %s"
-
-#~ msgid "%s Network"
-#~ msgstr "Xarxa %s"
-
-#~ msgid "Automatic (PPP)"
-#~ msgstr "Automàtic (PPP)"
-
-#~ msgid "Automatic (PPP) addresses only"
-#~ msgstr "Només adreces (PPP) automàtiques"

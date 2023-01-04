@@ -1,14 +1,13 @@
-# translation of network-manager-applet.network-manager-applet-0-6.ne.po to Nepali
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# translation of libnma to Nepali
+# This file is distributed under the same license as the libnma package.
 #
 # Jyotsna Shrestha <jyoshrestha@hotmail.com>, 2005.
 # Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-applet.network-manager-applet-0-6.ne\n"
+"Project-Id-Version: libnma\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libnma/\n"
-"POT-Creation-Date: 2022-03-24 13:42+0100\n"
+"POT-Creation-Date: 2022-11-22 13:08+0100\n"
 "PO-Revision-Date: 2007-11-13 20:36+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -19,80 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n !=1\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: org.gnome.nm-applet.gschema.xml.in:6
-msgid "Disable connected notifications"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:7
-msgid "Set this to true to disable notifications when connecting to a network."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:11
-#, fuzzy
-msgid "Disable disconnected notifications"
-msgstr "जडान विच्छेदन भयो"
-
-#: org.gnome.nm-applet.gschema.xml.in:12
-msgid ""
-"Set this to true to disable notifications when disconnecting from a network."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:16
-msgid "Disable VPN notifications"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:17
-msgid ""
-"Set this to true to disable notifications when connecting to or "
-"disconnecting from a VPN."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:21
-msgid "Suppress networks available notifications"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:22
-msgid ""
-"Set this to true to disable notifications when Wi-Fi networks are available."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:26
-msgid "Stamp"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:27
-msgid "Used to determine whether settings should be migrated to a new version."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:31
-msgid "Disable WiFi Create"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:32
-msgid ""
-"Set to true to disable creation of adhoc networks when using the applet."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:36
-msgid "Show the applet in notification area"
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:37
-msgid "Set to FALSE to disable displaying the applet in the notification area."
-msgstr ""
-
-#: org.gnome.nm-applet.gschema.xml.in:43 org.gnome.nm-applet.gschema.xml.in:48
+#: org.gnome.nm-applet.eap.gschema.xml.in:6
+#: org.gnome.nm-applet.eap.gschema.xml.in:11
 #, fuzzy
 msgid "Ignore CA certificate"
 msgstr "सीए प्रमाणपत्र फाइल:"
 
-#: org.gnome.nm-applet.gschema.xml.in:44
+#: org.gnome.nm-applet.eap.gschema.xml.in:7
 msgid ""
 "Set this to true to disable warnings about CA certificates in EAP "
 "authentication."
 msgstr ""
 
-#: org.gnome.nm-applet.gschema.xml.in:49
+#: org.gnome.nm-applet.eap.gschema.xml.in:12
 msgid ""
 "Set this to true to disable warnings about CA certificates in phase 2 of EAP "
 "authentication."
@@ -145,30 +83,74 @@ msgstr "पासवर्ड:"
 msgid "Scan with your phone or <a href=\"nma:print\">Print</a>"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:179
+#: src/nma-cert-chooser.c:513
+#, fuzzy
+msgid "No certificate set"
+msgstr "सीए प्रमाणपत्र फाइल:"
+
+#: src/nma-cert-chooser.c:537
+msgid "No key set"
+msgstr ""
+
+#: src/nma-cert-chooser.c:860
+#, fuzzy, c-format
+msgid "Choose a %s Certificate"
+msgstr "सीए प्रमाणपत्र फाइल:"
+
+#: src/nma-cert-chooser.c:864
+#, fuzzy, c-format
+msgid "%s _certificate"
+msgstr "सीए प्रमाणपत्र फाइल:"
+
+#: src/nma-cert-chooser.c:868
+#, fuzzy, c-format
+msgid "%s certificate _password"
+msgstr "सीए प्रमाणपत्र फाइल:"
+
+#: src/nma-cert-chooser.c:887
+#, fuzzy, c-format
+msgid "Choose a key for %s Certificate"
+msgstr "सीए प्रमाणपत्र फाइल:"
+
+#: src/nma-cert-chooser.c:891
+#, fuzzy, c-format
+msgid "%s private _key"
+msgstr "निजी कुञ्जी फाइल:"
+
+#: src/nma-cert-chooser.c:895
+#, fuzzy, c-format
+msgid "%s key _password"
+msgstr "निजी कुञ्जी पासवर्ड:"
+
+#: src/nma-cert-chooser.c:1125
+#, fuzzy
+msgid "Sho_w passwords"
+msgstr "पासवर्ड देखाउनुहोस्"
+
+#: src/nma-cert-chooser-button.c:177
 #, c-format
 msgid "Key in %s"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:180
+#: src/nma-cert-chooser-button.c:178
 #, fuzzy, c-format
 msgid "Certificate in %s"
 msgstr "सीए प्रमाणपत्र फाइल:"
 
-#: src/nma-cert-chooser-button.c:211 src/nma-cert-chooser-button.c:321
+#: src/nma-cert-chooser-button.c:209 src/nma-cert-chooser-button.c:320
 msgid "Select"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:212 src/nma-cert-chooser-button.c:322
+#: src/nma-cert-chooser-button.c:210 src/nma-cert-chooser-button.c:321
 msgid "Cancel"
 msgstr ""
 
-#: src/nma-cert-chooser-button.c:279 src/nma-ws/nma-eap-fast.c:330
+#: src/nma-cert-chooser-button.c:277 src/nma-ws/nma-eap-fast.c:330
 #, fuzzy
 msgid "(None)"
 msgstr "कुनै पनि होइन"
 
-#: src/nma-cert-chooser-button.c:298 src/nma-pkcs11-cert-chooser-dialog.c:184
+#: src/nma-cert-chooser-button.c:300 src/nma-pkcs11-cert-chooser-dialog.c:189
 msgid "(Unknown)"
 msgstr ""
 
@@ -221,73 +203,73 @@ msgstr ""
 msgid "New Mobile Broadband Connection"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:69
+#: src/nma-mobile-wizard.ui:66
 msgid ""
 "This assistant helps you easily set up a mobile broadband connection to a "
 "cellular (3G) network."
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:84
+#: src/nma-mobile-wizard.ui:81
 msgid "You will need the following information:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:99
+#: src/nma-mobile-wizard.ui:96
 msgid "Your broadband provider’s name"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:113
+#: src/nma-mobile-wizard.ui:110
 msgid "Your broadband billing plan name"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:127
+#: src/nma-mobile-wizard.ui:124
 msgid "(in some cases) Your broadband billing plan APN (Access Point Name)"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:141
+#: src/nma-mobile-wizard.ui:138
 msgid "Create a connection for _this mobile broadband device:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:168
+#: src/nma-mobile-wizard.ui:164
 msgid "Set up a Mobile Broadband Connection"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:186
+#: src/nma-mobile-wizard.ui:182
 msgid "Country or region:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:226
+#: src/nma-mobile-wizard.ui:220
 msgid "Choose your Provider’s Country or Region"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:241
+#: src/nma-mobile-wizard.ui:235
 msgid "Select your provider from a _list:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:286
+#: src/nma-mobile-wizard.ui:277
 msgid "I can’t find my provider and I wish to set up the connection _manually:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:307
+#: src/nma-mobile-wizard.ui:298
 msgid "My provider uses GSM technology (GPRS, EDGE, UMTS, HSPA)"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:308
+#: src/nma-mobile-wizard.ui:299
 msgid "My provider uses CDMA technology (1xRTT, EVDO)"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:319
+#: src/nma-mobile-wizard.ui:310
 msgid "Choose your Provider"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:336
+#: src/nma-mobile-wizard.ui:327
 msgid "_Select your plan:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:363
+#: src/nma-mobile-wizard.ui:353
 msgid "Selected plan _APN (Access Point Name):"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:413
+#: src/nma-mobile-wizard.ui:401
 msgid ""
 "Warning: Selecting an incorrect plan may result in billing issues for your "
 "broadband account or may prevent connectivity.\n"
@@ -295,28 +277,28 @@ msgid ""
 "If you are unsure of your plan please ask your provider for your plan’s APN."
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:434
+#: src/nma-mobile-wizard.ui:422
 msgid "Choose your Billing Plan"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:452
+#: src/nma-mobile-wizard.ui:440
 msgid ""
 "Your mobile broadband connection is configured with the following settings:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:466
+#: src/nma-mobile-wizard.ui:454
 msgid "Your Device:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:492
+#: src/nma-mobile-wizard.ui:480
 msgid "Your Provider:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:518
+#: src/nma-mobile-wizard.ui:506
 msgid "Your Plan:"
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:573
+#: src/nma-mobile-wizard.ui:561
 msgid ""
 "A connection will now be made to your mobile broadband provider using the "
 "settings you selected. If the connection fails or you cannot access network "
@@ -325,28 +307,28 @@ msgid ""
 "Preferences menu."
 msgstr ""
 
-#: src/nma-mobile-wizard.ui:587
+#: src/nma-mobile-wizard.ui:575
 msgid "Confirm Mobile Broadband Settings"
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:255
+#: src/nma-pkcs11-cert-chooser-dialog.c:260
 msgid "Error logging in: "
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.c:277
+#: src/nma-pkcs11-cert-chooser-dialog.c:282
 #, fuzzy
 msgid "Error opening a session: "
 msgstr "जडान जानकारी प्रदर्शन गर्दा त्रुटि:"
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:19
+#: src/nma-pkcs11-cert-chooser-dialog.ui:18
 msgid "_Unlock token"
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:115
+#: src/nma-pkcs11-cert-chooser-dialog.ui:99
 msgid "Name"
 msgstr ""
 
-#: src/nma-pkcs11-cert-chooser-dialog.ui:125
+#: src/nma-pkcs11-cert-chooser-dialog.ui:109
 msgid "Issued By"
 msgstr ""
 
@@ -355,8 +337,8 @@ msgstr ""
 msgid "Enter %s PIN"
 msgstr ""
 
-#: src/nma-pkcs11-token-login-dialog.ui:18 src/nma-vpn-password-dialog.ui:28
-#: src/nma-wifi-dialog.c:1115 src/nma-ws/nma-eap-fast.ui:27
+#: src/nma-pkcs11-token-login-dialog.ui:19 src/nma-vpn-password-dialog.ui:28
+#: src/nma-wifi-dialog.c:1127 src/nma-ws/nma-eap-fast.ui:27
 msgid "_Cancel"
 msgstr ""
 
@@ -417,96 +399,96 @@ msgstr "तारसहित सञ्जाल जडान"
 msgid "New…"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:927
+#: src/nma-wifi-dialog.c:939
 #, fuzzy
 msgctxt "Wifi/wired security"
 msgid "None"
 msgstr "कुनै पनि होइन"
 
-#: src/nma-wifi-dialog.c:943
+#: src/nma-wifi-dialog.c:955
 #, fuzzy
 msgid "WEP 40/128-bit Key (Hex or ASCII)"
 msgstr "WEP 64/128-bit ASCII"
 
-#: src/nma-wifi-dialog.c:950
+#: src/nma-wifi-dialog.c:962
 msgid "WEP 128-bit Passphrase"
 msgstr "WEP 128-bit पासफ्रेज"
 
-#: src/nma-wifi-dialog.c:965 src/nma-ws/nma-ws-802-1x.c:367
+#: src/nma-wifi-dialog.c:977 src/nma-ws/nma-ws-802-1x.c:367
 msgid "LEAP"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:976
+#: src/nma-wifi-dialog.c:988
 #, fuzzy
 msgid "Dynamic WEP (802.1x)"
 msgstr "गतिशील WEP"
 
-#: src/nma-wifi-dialog.c:988
+#: src/nma-wifi-dialog.c:1000
 #, fuzzy
 msgid "WPA & WPA2 Personal"
 msgstr "WPA2 व्यक्तिगत"
 
-#: src/nma-wifi-dialog.c:1004
+#: src/nma-wifi-dialog.c:1016
 #, fuzzy
 msgid "WPA & WPA2 Enterprise"
 msgstr "WPA2 उद्यमशिलता"
 
-#: src/nma-wifi-dialog.c:1015
+#: src/nma-wifi-dialog.c:1027
 #, fuzzy
 msgid "WPA3 Personal"
 msgstr "WPA व्यक्तिगत"
 
-#: src/nma-wifi-dialog.c:1026
+#: src/nma-wifi-dialog.c:1038
 msgid "Enhanced Open"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1119
+#: src/nma-wifi-dialog.c:1131
 msgid "C_reate"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1121
+#: src/nma-wifi-dialog.c:1133
 msgid "C_onnect"
 msgstr "जडान गर्नुहोस्"
 
-#: src/nma-wifi-dialog.c:1199
+#: src/nma-wifi-dialog.c:1211
 #, c-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network “%s”."
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1201
+#: src/nma-wifi-dialog.c:1213
 #, fuzzy
 msgid "Wi-Fi Network Authentication Required"
 msgstr "ताररहित सञ्जाल कुञ्जी चाहियो"
 
-#: src/nma-wifi-dialog.c:1203
+#: src/nma-wifi-dialog.c:1215
 msgid "Authentication required by Wi-Fi network"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1208
+#: src/nma-wifi-dialog.c:1220
 #, fuzzy
 msgid "Create New Wi-Fi Network"
 msgstr "नयाँ ताररहित सञ्जाल सिर्जना गर्नुहोस्"
 
-#: src/nma-wifi-dialog.c:1210
+#: src/nma-wifi-dialog.c:1222
 msgid "New Wi-Fi network"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1211
+#: src/nma-wifi-dialog.c:1223
 #, fuzzy
 msgid "Enter a name for the Wi-Fi network you wish to create."
 msgstr "तपाईँले जडान गर्न चाहनुभएको ताररहित सञ्जालको नाम प्रविष्ट गर्नुहोस् ।"
 
-#: src/nma-wifi-dialog.c:1213
+#: src/nma-wifi-dialog.c:1225
 #, fuzzy
 msgid "Connect to Hidden Wi-Fi Network"
 msgstr "अन्य ताररहित सञ्जालमा जडान गर्नुहोस्"
 
-#: src/nma-wifi-dialog.c:1215
+#: src/nma-wifi-dialog.c:1227
 msgid "Hidden Wi-Fi network"
 msgstr ""
 
-#: src/nma-wifi-dialog.c:1216
+#: src/nma-wifi-dialog.c:1228
 #, fuzzy
 msgid ""
 "Enter the name and security details of the hidden Wi-Fi network you wish to "
@@ -881,1275 +863,3 @@ msgstr "जडान गर्नुहोस्"
 #, fuzzy
 msgid "Wi-Fi _adapter"
 msgstr "ताररहित एडप्टर:"
-
-#, fuzzy
-#~ msgid "No certificate set"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy, c-format
-#~ msgid "%s private _key"
-#~ msgstr "निजी कुञ्जी फाइल:"
-
-#, fuzzy, c-format
-#~ msgid "%s key _password"
-#~ msgstr "निजी कुञ्जी पासवर्ड:"
-
-#, fuzzy, c-format
-#~ msgid "Choose %s Certificate"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy, c-format
-#~ msgid "%s _certificate"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy, c-format
-#~ msgid "Choose a %s Certificate"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy, c-format
-#~ msgid "%s certificate _password"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy
-#~ msgid "Sho_w passwords"
-#~ msgstr "पासवर्ड देखाउनुहोस्"
-
-#, fuzzy
-#~ msgid "Manage your network connections"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Advanced Network Configuration"
-#~ msgstr "भीपीएन कन्फिगरेसन त्रुटि"
-
-#, fuzzy
-#~ msgid "NetworkManager"
-#~ msgstr "सञ्जालप्रबन्धक एप्लेट"
-
-#, fuzzy
-#~ msgid "NetworkManager connection editor"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "The NetworkManager Developers"
-#~ msgstr "सञ्जालप्रबन्धक एप्लेट"
-
-#, fuzzy
-#~ msgid "802.1X authentication"
-#~ msgstr "प्रमाणीकरण:"
-
-#, fuzzy
-#~ msgid "Failed to add/activate connection"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "Connection failure"
-#~ msgstr "भीपीएन जडान असफलता"
-
-#, fuzzy
-#~ msgid "Disconnect failure"
-#~ msgstr "जडान विच्छेदन भयो"
-
-#, fuzzy
-#~ msgid "Connection activation failed"
-#~ msgstr "तार भएको सञ्जालमा जडान असफल भयो ।"
-
-#, fuzzy
-#~ msgid "Don’t show this message again"
-#~ msgstr "मलाई फेरि नसम्झाउनुहोस्"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” disconnected because the network connection was "
-#~ "interrupted."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the network connection was "
-#~ "interrupted."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service stopped "
-#~ "unexpectedly."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service returned invalid "
-#~ "configuration."
-#~ msgstr ""
-#~ "भीपीएन जडान '%s' सुरु गर्न सकेन किनभने भीपीएन सर्भरले एउटा उपयुक्त सञ्जाल कन्फिगरेसन "
-#~ "फर्काउन सकेन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the connection attempt timed out."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service did not start in "
-#~ "time."
-#~ msgstr ""
-#~ "भीपीएन जडान '%s' सुरु गर्न सकेन किनभने भीपीएन सर्भरले एउटा उपयुक्त सञ्जाल कन्फिगरेसन "
-#~ "फर्काउन सकेन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start."
-#~ msgstr ""
-#~ "भीपीएन जडान '%s' सुरु गर्न सकेन किनभने भीपीएन सर्भरले एउटा उपयुक्त सञ्जाल कन्फिगरेसन "
-#~ "फर्काउन सकेन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because there were no valid VPN secrets."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because of invalid VPN secrets."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed."
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#~ msgid "VPN Login Message"
-#~ msgstr "भीपीएन लगइन सन्देश"
-
-#, fuzzy
-#~ msgid "VPN Connection Failed"
-#~ msgstr "भीपीएन जडान असफलता"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed because the VPN service failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "भीपीएन जडान '%s' सुरु गर्न सकेन किनभने भीपीएन सर्भरले एउटा उपयुक्त सञ्जाल कन्फिगरेसन "
-#~ "फर्काउन सकेन ।"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection “%s” failed to start.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy
-#~ msgid "disconnected"
-#~ msgstr "जडान विच्छेदन भयो"
-
-#, fuzzy
-#~ msgid "Disconnect"
-#~ msgstr "जडान विच्छेदन भयो"
-
-#, fuzzy
-#~ msgid "No network devices available"
-#~ msgstr "सञ्जाल यन्त्र फेला परेन"
-
-#~ msgid "_VPN Connections"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "_Configure VPN…"
-#~ msgstr "भीपीएन कन्फिगर गर्नुहोस्..."
-
-#, fuzzy
-#~ msgid "_Add a VPN connection…"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "NetworkManager is not running…"
-#~ msgstr "सञ्जालप्रबन्धक संचालन भइरहेको छैन ।"
-
-#~ msgid "Networking disabled"
-#~ msgstr "सञ्जालीकरण अक्षम गरियो"
-
-#~ msgid "Enable _Networking"
-#~ msgstr "सञ्जालीकरण सक्षम पार्नुहोस्"
-
-#, fuzzy
-#~ msgid "Enable _Wi-Fi"
-#~ msgstr "ताररहित सक्षम पार्नुहोस्"
-
-#~ msgid "Connection _Information"
-#~ msgstr "जडान जानकारी"
-
-#, fuzzy
-#~ msgid "Edit Connections…"
-#~ msgstr "भीपीएन जडान"
-
-#~ msgid "_About"
-#~ msgstr "बारेमा"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to “%s”."
-#~ msgstr "तपाईँ हाल अहिले ताररहित सञ्जाल '%s' मा जडान हुनुभयो ।"
-
-#~ msgid "Disconnected"
-#~ msgstr "जडान विच्छेदन भयो"
-
-#~ msgid "The network connection has been disconnected."
-#~ msgstr "सञ्जाल जडान विच्छेदन भयो ।"
-
-#, fuzzy, c-format
-#~ msgid "Preparing network connection “%s”…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Requesting a network address for “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' बाट सञ्जाल ठेगाना अनुरोध गर्दैछ..."
-
-#, fuzzy, c-format
-#~ msgid "Network connection “%s” active"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy, c-format
-#~ msgid "Starting VPN connection “%s”…"
-#~ msgstr "भीपीएन जडान '%s' सुरुआत गर्न सक्दैन"
-
-#, fuzzy, c-format
-#~ msgid "Requesting a VPN address for “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' बाट सञ्जाल ठेगाना अनुरोध गर्दैछ..."
-
-#, fuzzy
-#~ msgid "VPN connection active"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#~ msgid "No network connection"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#~ msgid "NetworkManager Applet"
-#~ msgstr "सञ्जालप्रबन्धक एप्लेट"
-
-#, fuzzy
-#~ msgid "New Mobile Broadband connection…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#~ msgid "Connection Established"
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy
-#~ msgid "You are now connected to the Mobile Broadband network."
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy
-#~ msgid "You are now registered on the home network."
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy
-#~ msgid "You are now registered on a roaming network."
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy
-#~ msgid "You are now connected to the mobile broadband network."
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy, c-format
-#~ msgid "Preparing mobile broadband connection “%s”…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Configuring mobile broadband connection “%s”…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active"
-#~ msgstr "'%s' (%d%%) मा ताररहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Ethernet Networks (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy, c-format
-#~ msgid "Ethernet Network (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy
-#~ msgid "Ethernet Networks"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "Ethernet Network"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "You are now connected to the ethernet network."
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy, c-format
-#~ msgid "Preparing ethernet network connection “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' का लागि %s यन्त्र तयार गरिँदैछ..."
-
-#, fuzzy, c-format
-#~ msgid "Configuring ethernet network connection “%s”…"
-#~ msgstr "'%s' (%d%%) मा ताररहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "User authentication required for ethernet network connection “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' का लागि %s यन्त्र तयार गरिँदैछ..."
-
-#, fuzzy, c-format
-#~ msgid "Requesting an ethernet network address for “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' बाट सञ्जाल ठेगाना अनुरोध गर्दैछ..."
-
-#, fuzzy, c-format
-#~ msgid "Ethernet network connection “%s” active"
-#~ msgstr "'%s' (%d%%) मा ताररहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "DSL authentication"
-#~ msgstr "प्रमाणीकरण:"
-
-#, fuzzy
-#~ msgid "_Connect to Hidden Wi-Fi Network…"
-#~ msgstr "अन्य ताररहित सञ्जालमा जडान गर्नुहोस्"
-
-#, fuzzy
-#~ msgid "Create _New Wi-Fi Network…"
-#~ msgstr "नयाँ ताररहित सञ्जाल सिर्जना गर्नुहोस्"
-
-#, fuzzy
-#~ msgid "Failed to add new connection"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi Networks (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi Network (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy
-#~ msgid "Wi-Fi Network"
-#~ msgid_plural "Wi-Fi Networks"
-#~ msgstr[0] "तार भएको सञ्जाल"
-#~ msgstr[1] "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "More networks"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "Wi-Fi Networks Available"
-#~ msgstr "सञ्जालीकरण अक्षम गरियो"
-
-#, fuzzy, c-format
-#~ msgid "You are now connected to the Wi-Fi network “%s”."
-#~ msgstr "तपाईँ हाल अहिले ताररहित सञ्जाल '%s' मा जडान हुनुभयो ।"
-
-#, fuzzy, c-format
-#~ msgid "Preparing Wi-Fi network connection “%s”…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Configuring Wi-Fi network connection “%s”…"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Requesting a Wi-Fi network address for “%s”…"
-#~ msgstr "ताररहित सञ्जाल '%s' बाट सञ्जाल ठेगाना अनुरोध गर्दैछ..."
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active: %s (%d%%)"
-#~ msgstr "'%s' (%d%%) मा ताररहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi network connection “%s” active"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "Failed to activate connection"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#~ msgid "Error displaying connection information:"
-#~ msgstr "जडान जानकारी प्रदर्शन गर्दा त्रुटि:"
-
-#~ msgid "Dynamic WEP"
-#~ msgstr "गतिशील WEP"
-
-#, fuzzy
-#~ msgctxt "Wi-Fi/Ethernet security"
-#~ msgid "None"
-#~ msgstr "कुनै पनि होइन"
-
-#~ msgid "IP Address"
-#~ msgstr "आईपी ठेगाना"
-
-#~ msgid "Broadcast Address"
-#~ msgstr "प्रशारण ठेगाना"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "सबनेट मास्क"
-
-#, fuzzy
-#~ msgid "Primary DNS"
-#~ msgstr "प्राथमिक डीएनएस:"
-
-#, fuzzy
-#~ msgid "Secondary DNS"
-#~ msgstr "गौण डीएनएस:"
-
-#, fuzzy, c-format
-#~ msgid "Ethernet (%s)"
-#~ msgstr "तार भएको इथरनेट (%s)"
-
-#~ msgid "Interface"
-#~ msgstr "इन्टरफेस"
-
-#~ msgid "Hardware Address"
-#~ msgstr "हार्डवेयर ठेगाना"
-
-#~ msgid "Driver"
-#~ msgstr "ड्राइभर"
-
-#~ msgid "Speed"
-#~ msgstr "गति"
-
-#, fuzzy
-#~ msgid "Security"
-#~ msgstr "ताररहित सुरक्षा:"
-
-#~ msgid "Default Route"
-#~ msgstr "पूर्वनिर्धारित राउट"
-
-#, fuzzy
-#~ msgid "VPN Type"
-#~ msgstr "प्रकार:"
-
-#, fuzzy
-#~ msgid "VPN Username"
-#~ msgstr "प्रयोगकर्ता नाम:"
-
-#, fuzzy
-#~ msgid "Base Connection"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "No valid active connections found!"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid ""
-#~ "Copyright © 2004-2017 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2008 Novell, Inc.\n"
-#~ "and many other community contributors and translators"
-#~ msgstr ""
-#~ "Copyright © 2004-2006 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2006 Novell, Inc."
-
-#~ msgid ""
-#~ "Notification area applet for managing your network devices and "
-#~ "connections."
-#~ msgstr "तपाईको सञ्जाल यन्त्रहरू र जडानहरू प्रबन्धको लागि सूचना क्षेत्र एप्लेट ।"
-
-#, fuzzy
-#~ msgid "NetworkManager Website"
-#~ msgstr "सञ्जालप्रबन्धक एप्लेट"
-
-#~ msgid "translator-credits"
-#~ msgstr "श्यामकृष्ण बल"
-
-#, fuzzy
-#~ msgid ""
-#~ "The NetworkManager Applet could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "सञ्जाल प्रबन्धक एप्लेटले केही आवश्यक संसाधानहरू फेला पार्न सकेन (ग्लेड फाइल फेला परेन) ।"
-
-#~ msgid "Password:"
-#~ msgstr "पासवर्ड:"
-
-#, fuzzy
-#~ msgid "Connection had no VPN setting"
-#~ msgstr "जडान जानकारी"
-
-#, fuzzy, c-format
-#~ msgid "Failed to write connection to VPN UI: %s (%d)"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "Broadcast"
-#~ msgstr "प्रशारण ठेगाना:"
-
-#, fuzzy
-#~ msgid "ARP"
-#~ msgstr "PAP"
-
-#, fuzzy
-#~ msgid "Bonded _connections"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "_Interface name"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "_Primary"
-#~ msgstr "प्राथमिक डीएनएस:"
-
-#, fuzzy
-#~ msgid "_Priority"
-#~ msgstr "प्राथमिक डीएनएस:"
-
-#, fuzzy
-#~ msgid "Bridged _connections"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "Enable I_GMP snooping"
-#~ msgstr "सञ्जालीकरण सक्षम पार्नुहोस्"
-
-#, fuzzy
-#~ msgid "MAC address"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "HW address"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "invalid hardware address"
-#~ msgstr "हार्डवेयर ठेगाना:"
-
-#, fuzzy
-#~ msgid "PPP _interface"
-#~ msgstr "इन्टरफेस"
-
-#, fuzzy
-#~ msgid "P_arent interface"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "C_laim interface"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "C_loned MAC address"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "De_fault"
-#~ msgstr "पूर्वनिर्धारित राउट:"
-
-#, fuzzy
-#~ msgid "_Broadcast"
-#~ msgstr "प्रशारण ठेगाना:"
-
-#, fuzzy
-#~ msgid "_Wake on LAN password"
-#~ msgstr "पासवर्ड देखाउनुहोस्"
-
-#, fuzzy
-#~ msgid "_Speed"
-#~ msgstr "गति:"
-
-#, fuzzy
-#~ msgid "No"
-#~ msgstr "कुनै पनि होइन"
-
-#, fuzzy
-#~ msgid "All _users may connect to this network"
-#~ msgstr "तपाईँ हाल अहिले तार भएको सञ्जालमा जडान हुनुभयो ।"
-
-#, fuzzy
-#~ msgid "_Metered connection"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "Addresses"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "Connected"
-#~ msgstr "जडान गर्नुहोस्"
-
-#, fuzzy
-#~ msgid "Parent device"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "_Method"
-#~ msgstr "ईएपी विधि:"
-
-#, fuzzy
-#~ msgid "EAP"
-#~ msgstr "PEAP"
-
-#, fuzzy
-#~ msgid "_Device name"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "_Parent device"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "N_etwork ID"
-#~ msgstr "सञ्जाल नाम:"
-
-#, fuzzy
-#~ msgid "Authentication"
-#~ msgstr "प्रमाणीकरण:"
-
-#, fuzzy
-#~ msgid "Allowed methods"
-#~ msgstr "प्रमाणीकरण:"
-
-#, fuzzy
-#~ msgid "None"
-#~ msgstr "कुनै पनि होइन"
-
-#, fuzzy
-#~ msgid "Method"
-#~ msgstr "ईएपी विधि:"
-
-#, fuzzy
-#~ msgid "Ethernet port state"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "_LACP port priority"
-#~ msgstr "निजी कुञ्जी फाइल:"
-
-#, fuzzy
-#~ msgid "LACP port _key"
-#~ msgstr "निजी कुञ्जी फाइल:"
-
-#, fuzzy
-#~ msgid "Send _interval"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "Edit _JSON configuration"
-#~ msgstr "भीपीएन कन्फिगरेसन त्रुटि"
-
-#, fuzzy
-#~ msgid "Raw Configuration"
-#~ msgstr "भीपीएन कन्फिगरेसन त्रुटि"
-
-#, fuzzy
-#~ msgid "_Teamed connections"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "IP"
-#~ msgstr "TKIP"
-
-#, fuzzy
-#~ msgid "TCP"
-#~ msgstr "GTC"
-
-#, fuzzy
-#~ msgid "_Hardware Address"
-#~ msgstr "हार्डवेयर ठेगाना:"
-
-#, fuzzy
-#~ msgid "_Hardware address policy"
-#~ msgstr "हार्डवेयर ठेगाना:"
-
-#, fuzzy
-#~ msgid "_Parent interface"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "VLAN inter_face name"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy
-#~ msgid "Cloned MAC _address"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "S_ecurity"
-#~ msgstr "ताररहित सुरक्षा:"
-
-#, fuzzy
-#~ msgid "Allowed Authentication Methods"
-#~ msgstr "प्रमाणीकरण:"
-
-#, fuzzy
-#~ msgid "_MSCHAP"
-#~ msgstr "MSCHAP"
-
-#, fuzzy
-#~ msgid "MSCHAP v_2"
-#~ msgstr "MSCHAPV2"
-
-#, fuzzy
-#~ msgid "Hardware"
-#~ msgstr "हार्डवेयर ठेगाना:"
-
-#, fuzzy
-#~ msgid "Could not create new connection"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Connection delete failed"
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy
-#~ msgid "_New Connection"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Address"
-#~ msgstr "आईपी ठेगाना:"
-
-#, fuzzy
-#~ msgid "Missing connection name"
-#~ msgstr "जडान जानकारी प्रदर्शन गर्दा त्रुटि:"
-
-#, fuzzy
-#~ msgid "Connection cannot be modified"
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy
-#~ msgid ""
-#~ "The connection editor could not find some required resources (the .ui "
-#~ "file was not found)."
-#~ msgstr ""
-#~ "सञ्जाल प्रबन्धक एप्लेटले केही आवश्यक संसाधानहरू फेला पार्न सकेन (ग्लेड फाइल फेला परेन) ।"
-
-#, fuzzy
-#~ msgid "Could not create connection"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Could not edit connection"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Connection add failed"
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy
-#~ msgid "Connection _name"
-#~ msgstr "जडान जानकारी"
-
-#, fuzzy
-#~ msgid "Connection cannot be deleted"
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy
-#~ msgid "Select a connection to edit"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Select a connection to delete"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Edit the selected connection"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "Unrecognized connection type"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to import “%s” connections"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Error importing connection"
-#~ msgstr "जडान जानकारी प्रदर्शन गर्दा त्रुटि:"
-
-#, fuzzy
-#~ msgid "Error creating connection"
-#~ msgstr "सक्रिय जडान छैन!"
-
-#, fuzzy
-#~ msgid "Connection type not specified."
-#~ msgstr "जडान स्थापना भयो"
-
-#, fuzzy, c-format
-#~ msgid "Don’t know how to create “%s” connections"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Error editing connection"
-#~ msgstr "जडान जानकारी प्रदर्शन गर्दा त्रुटि:"
-
-#, fuzzy
-#~ msgid "Network Connections"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "Add a new connection"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy, c-format
-#~ msgid "Bluetooth connection %d"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy
-#~ msgid "_Personal Area Network"
-#~ msgstr "सञ्जालमा लगइन गर्नुहोस्"
-
-#, fuzzy
-#~ msgid "_Dial-Up Network"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy
-#~ msgid "primary"
-#~ msgstr "प्राथमिक डीएनएस:"
-
-#, fuzzy, c-format
-#~ msgid "Bond connection %d"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy, c-format
-#~ msgid "Bridge connection %d"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "missing parent interface"
-#~ msgstr "इन्टरफेस:"
-
-#, fuzzy, c-format
-#~ msgid "DSL connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Wake-on-LAN password"
-#~ msgstr "पासवर्ड देखाउनुहोस्"
-
-#, fuzzy, c-format
-#~ msgid "Ethernet connection %d"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy, c-format
-#~ msgid "IP tunnel connection %d"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "Automatic (VPN)"
-#~ msgstr "स्वचालित (पूर्वानिर्धारण)"
-
-#, fuzzy
-#~ msgid "Automatic (PPPoE)"
-#~ msgstr "स्वचालित (पूर्वानिर्धारण)"
-
-#, fuzzy
-#~ msgid "Automatic (DHCP)"
-#~ msgstr "स्वचालित (पूर्वानिर्धारण)"
-
-#, fuzzy
-#~ msgid "Automatic, DHCP only"
-#~ msgstr "स्वचालित (पूर्वानिर्धारण)"
-
-#, fuzzy, c-format
-#~ msgid "MACSEC connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy, c-format
-#~ msgid "Team connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "New connection…"
-#~ msgstr "सञ्जाल जडान छैन"
-
-#, fuzzy, c-format
-#~ msgid "VLAN connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "unknown failure"
-#~ msgstr "भीपीएन जडान असफलता"
-
-#, fuzzy, c-format
-#~ msgid "VPN connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Choose a VPN Connection Type"
-#~ msgstr "भीपीएन जडान"
-
-#, fuzzy, c-format
-#~ msgid "Wi-Fi connection %d"
-#~ msgstr "'%s' लाई भीपीएन जडान"
-
-#, fuzzy
-#~ msgid "Dynamic WEP (802.1X)"
-#~ msgstr "गतिशील WEP"
-
-#, fuzzy
-#~ msgid "Wi-Fi Security"
-#~ msgstr "ताररहित सुरक्षा:"
-
-#, fuzzy
-#~ msgid "Cannot export VPN connection"
-#~ msgstr "भीपीएन जडान '%s' सुरुआत गर्न सक्दैन"
-
-#, fuzzy, c-format
-#~ msgid ""
-#~ "The VPN connection “%s” could not be exported to %s.\n"
-#~ "\n"
-#~ "Error: %s."
-#~ msgstr "भीपीएन जडान '%s' सही तरीकाले कन्फिगर गरिएको थिएन ।"
-
-#, fuzzy
-#~ msgid "Export VPN connection…"
-#~ msgstr "भीपीएन जडान"
-
-#~ msgid "Connection Information"
-#~ msgstr "जडान जानकारी"
-
-#, fuzzy
-#~ msgid "Wi-Fi _security:"
-#~ msgstr "ताररहित सुरक्षा:"
-
-#, fuzzy
-#~ msgid "_Network name:"
-#~ msgstr "सञ्जाल नाम:"
-
-#, fuzzy
-#~ msgid "C_onnection:"
-#~ msgstr "जडान गर्नुहोस्"
-
-#, fuzzy
-#~ msgid "Wi-Fi _adapter:"
-#~ msgstr "ताररहित एडप्टर:"
-
-#, fuzzy, c-format
-#~ msgid "Home network (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy
-#~ msgid "Home network"
-#~ msgstr "तार भएको सञ्जाल"
-
-#, fuzzy, c-format
-#~ msgid "Roaming network (%s)"
-#~ msgstr "तार भएको सञ्जाल (%s)"
-
-#, fuzzy
-#~ msgid "Roaming network"
-#~ msgstr "सञ्जालमा लगइन गर्नुहोस्"
-
-#, fuzzy, c-format
-#~ msgid "Mobile broadband connection “%s” active: (%d%%%s%s)"
-#~ msgstr "'%s' (%d%%) मा ताररहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "%s (default)"
-#~ msgstr "कुनै पनि होइन (पूर्वानिर्धारित)"
-
-#, fuzzy
-#~ msgid "Failed to update connection secrets due to an unknown error."
-#~ msgstr "जडान त्रुटिका कारण भीपीएन जडान '%s' सुरु गर्न सकेन ।"
-
-#, fuzzy
-#~ msgid "Connection _priority for auto-activation:"
-#~ msgstr "जडान जानकारी"
-
-#, fuzzy
-#~ msgid "Cannot import VPN connection"
-#~ msgstr "भीपीएन जडान '%s' सुरुआत गर्न सक्दैन"
-
-#, fuzzy
-#~ msgid "Active Network Connections"
-#~ msgstr "तारसहित सञ्जाल जडान"
-
-#, fuzzy
-#~ msgid "C_A certificate:"
-#~ msgstr "सीए प्रमाणपत्र फाइल:"
-
-#, fuzzy
-#~ msgid "NetworkManager for GNOME"
-#~ msgstr "सञ्जालप्रबन्धक एप्लेट"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "The VPN connection '%s' disconnected."
-#~ msgstr "सञ्जाल जडान विच्छेदन भयो ।"
-
-#, fuzzy
-#~ msgid "_Disconnect VPN"
-#~ msgstr "भीपीएन विच्छेदन गर्नुहोस्..."
-
-#~ msgid "NetworkManager is not running..."
-#~ msgstr "सञ्जालप्रबन्धक चलिरहेको छैन..."
-
-#, fuzzy
-#~ msgid "_Connect to Hidden Wi-Fi Network..."
-#~ msgstr "अन्य ताररहित सञ्जालमा जडान गर्नुहोस्..."
-
-#, fuzzy
-#~ msgid "Create _New Wi-Fi Network..."
-#~ msgstr "नयाँ ताररहित सञ्जाल सिर्जना गर्नुहोस्..."
-
-#~ msgid " "
-#~ msgstr " "
-
-#, fuzzy
-#~ msgid "FirewallD is not running."
-#~ msgstr "सञ्जालप्रबन्धक चलिरहेको छैन..."
-
-#~ msgid "Passphrase for wireless network %s"
-#~ msgstr "ताररहित सञ्जाल %s का लागि पासफ्रेज"
-
-#~ msgid "You are now connected to the Ad-Hoc wireless network '%s'."
-#~ msgstr "तपाईँ हाल अहिले एड-हक ताररहित सञ्जाल '%s' मा जडान हुनुभयो ।"
-
-#~ msgid "Connection to the wireless network '%s' failed."
-#~ msgstr "ताररहित सञ्जाल '%s' मा जडान असफल भयो ।"
-
-#~ msgid "Could not find some required resources (the glade file)!"
-#~ msgstr "केही आवश्यक संसाधनहरू फेला पार्न सकेन (ग्लेड फाइल)!"
-
-#~ msgid "Wireless Ethernet (%s)"
-#~ msgstr "ताररहित इथरनेट (%s)"
-
-#~ msgid ""
-#~ "Copyright © 2004-2005 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2006 Novell, Inc."
-#~ msgstr ""
-#~ "Copyright © 2004-2005 Red Hat, Inc.\n"
-#~ "Copyright © 2005-2006 Novell, Inc."
-
-#~ msgid "VPN Login Failure"
-#~ msgstr "भीपीएन लगइन असफलता"
-
-#~ msgid "Could not start the VPN connection '%s' due to a login failure."
-#~ msgstr "लगइन असफलताको कारणले भीपीएन जडान '%s' सुरु गर्न सकेन ।"
-
-#~ msgid "VPN Start Failure"
-#~ msgstr "भीपीएन सुरुआत असफलता"
-
-#~ msgid ""
-#~ "Could not start the VPN connection '%s' due to a failure launching the "
-#~ "VPN program."
-#~ msgstr ""
-#~ "भीपीएन कार्यक्रम सुरुआत गर्दा असफलताका कारण भीपीएन जडान '%s' सुरु गर्न सकेन ।"
-
-#~ msgid "The network device \"%s (%s)\" does not support wireless scanning."
-#~ msgstr "सञ्जाल यन्त्र \"%s (%s)\" ले ताररहित स्क्यानिङलाई समर्थन गरेन ।"
-
-#~ msgid "The network device \"%s (%s)\" does not support link detection."
-#~ msgstr "सञ्जाल यन्त्र \"%s (%s)\" ले लिङ्क अन्वेषणलाई समर्थन गरेन ।"
-
-#~ msgid "Preparing device %s for the wired network..."
-#~ msgstr "तार भएको सञ्जालका लागि यन्त्र %s तयार गरिँदैछ..."
-
-#~ msgid "Configuring device %s for the wired network..."
-#~ msgstr "तार भएको सञ्जालका लागि यन्त्र %s कन्फिगर गरिँदैछ..."
-
-#~ msgid "Attempting to join the wireless network '%s'..."
-#~ msgstr "ताररहित सञ्जाल '%s' जडान गर्न प्रयास गरिँदैछ..."
-
-#~ msgid "Waiting for Network Key for the wireless network '%s'..."
-#~ msgstr "ताररहित सञ्जाल '%s' का लागि सञ्जाल कुञ्जीका लागि प्रतिक्षा गर्देछ..."
-
-#~ msgid "Requesting a network address from the wired network..."
-#~ msgstr "तार भएको सञ्जालबाट सञ्जाल ठेगाना अनुरोध गर्दैछ..."
-
-#~ msgid "Finishing connection to the wired network..."
-#~ msgstr "तार भएको सञ्जालमा जडान समाप्त गर्दैछ..."
-
-#~ msgid "Finishing connection to the wireless network '%s'..."
-#~ msgstr "ताररहित सञ्जाल '%s' मा जडान समाप्त गर्दैछ..."
-
-#~ msgid "Connected to an Ad-Hoc wireless network"
-#~ msgstr "एउटा एड-हक ताररहित सञ्जालमा सम्पर्क स्थापना गरियो ।"
-
-#~ msgid "VPN connecting to '%s'"
-#~ msgstr "'%s' मा भीपीएन जडान गर्दै"
-
-#~ msgid "_Dial Up Connections"
-#~ msgstr "जडान डायलअप गर्नुहोस्"
-
-#~ msgid "Connect to %s..."
-#~ msgstr "%s मा जडान गर्नुहोस्..."
-
-#~ msgid "Disconnect from %s..."
-#~ msgstr "%s बाट विच्छेदन गर्नुहोस्..."
-
-#~ msgid "_Help"
-#~ msgstr "मद्दत"
-
-#~ msgid ""
-#~ "The NetworkManager applet could not find some required resources.  It "
-#~ "cannot continue.\n"
-#~ msgstr ""
-#~ "सञ्जालप्रबन्धक एप्लेटले केही आवश्यक संसाधन फेला पार्न सकेन । यसले जारी राख्न सक्दैन ।\n"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Active Connection Information</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">जडान जानकारी सक्रिय पार्नुहोस्</span>"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Passphrase Required by Wireless "
-#~ "Network</span>\n"
-#~ "\n"
-#~ "A passphrase or encryption key is required to access the wireless network "
-#~ "'%s'."
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">ताररहित सञ्जालद्वारा आवश्यक पासफ्रेज</"
-#~ "span>\n"
-#~ "\n"
-#~ "ताररहित सञ्जाल'%s' पहुँच गर्न एउटा पासफ्रेज वा गुप्तिकरण कुञ्जीको आवश्यक पर्दछ ।"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Reduced Network Functionality</"
-#~ "span>\n"
-#~ "\n"
-#~ "%s  It will not be completely functional."
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">सञ्जाल कार्यात्मकता </span> घटाउछ\n"
-#~ "\n"
-#~ "%s  यो पूर्ण कार्यात्मकता हुने छैन।"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Wireless Network Login "
-#~ "Confirmation</span>\n"
-#~ "\n"
-#~ "You have chosen to log in to the wireless network '%s'.  If you are sure "
-#~ "that this wireless network is secure, click the checkbox below and "
-#~ "NetworkManager will not require confirmation on subsequent log ins."
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">ताररहित सञ्जाल लगइन स्वीकृति</span>\n"
-#~ "\n"
-#~ "तपाईले ताररहित सञ्जाल '%s' मा लगइन छान्नु भएको छ। यदि तपाई निश्चिन्त हुनुहुन्छ कि "
-#~ "ताररहित सञ्जाल सुरक्षित छ, तलको जाँच बाकसमा क्लिक गर्नुहोस् र सञ्जाल प्रबन्धकलाई "
-#~ "अनुवर्ती लगइनहरूमा स्वीकृति आवश्यक पर्ने छैन ।"
-
-#~ msgid "Client Certificate File:"
-#~ msgstr "क्लाइन्ट प्रमाणपत्र फाइल:"
-
-#~ msgid "Destination Address:"
-#~ msgstr "गन्तब्य ठेगाना:"
-
-#~ msgid "Key Type:"
-#~ msgstr "कुञ्जी प्रकार:"
-
-#~ msgid "Key management:"
-#~ msgstr "कुञ्जी व्यवस्थापन:"
-
-#~ msgid ""
-#~ "None\n"
-#~ "WEP 128-bit Passphrase\n"
-#~ "WEP 64/128-bit Hex\n"
-#~ "WEP 64/128-bit ASCII\n"
-#~ msgstr ""
-#~ "कुनै पनि होइन\n"
-#~ "WEP 128-bit पासफ्रेज\n"
-#~ "WEP 64/128-bit हेक्स\n"
-#~ "WEP 64/128-bit ASCII\n"
-
-#~ msgid ""
-#~ "Open System\n"
-#~ "Shared Key"
-#~ msgstr ""
-#~ "खुल्ला प्रणाली\n"
-#~ "साझेदारी कुञ्जी"
-
-#~ msgid "Other Wireless Network..."
-#~ msgstr "अन्य ताररहित सञ्जाल..."
-
-#~ msgid "Passphrase:"
-#~ msgstr "पासफ्रेज:"
-
-#~ msgid "Phase2 Type:"
-#~ msgstr "चरण २ प्रकार:"
-
-#~ msgid "Select the Client Certificate File"
-#~ msgstr "क्लाइन्ट प्रमाणपत्र फाइल चयन गर्नुहोस्"
-
-#~ msgid "Select the Private Key File"
-#~ msgstr "निजी कुञ्जी फाइल चयन गर्नुहोस्"
-
-#~ msgid "_Always Trust this Wireless Network"
-#~ msgstr "सधै यो ताररहित सञ्जाललाई विश्वास गर्नुहोस्"
-
-#~ msgid "Orientation"
-#~ msgstr "अभिमुखीकरण"
-
-#~ msgid "The orientation of the tray."
-#~ msgstr "ट्रेको अभिमुखीकरण ।"
-
-#~ msgid "Wireless Network (%s)"
-#~ msgid_plural "Wireless Networks (%s)"
-#~ msgstr[0] "ताररहित सञ्जाल (%s)"
-#~ msgstr[1] "ताररहित सञ्जालहरू (%s)"
-
-#~ msgid "Wireless Network"
-#~ msgid_plural "Wireless Networks"
-#~ msgstr[0] "ताररहित सञ्जाल"
-#~ msgstr[1] "ताररहित सञ्जालहरू"
-
-#~ msgid " (invalid Unicode)"
-#~ msgstr " (अवैध युनिकोड)"
-
-#~ msgid ""
-#~ "By default, the wireless network's name is set to your computer's name, "
-#~ "%s, with no encryption enabled"
-#~ msgstr ""
-#~ "पूर्वानिर्धारित रूपमा, गुप्तिकरण सक्षम नपारीकन, ताररहित सञ्जालको नाम तपाईँको "
-#~ "कम्प्युटरको नाममा सेट गरिन्छ, %s"
-
-#~ msgid "Create new wireless network"
-#~ msgstr "नयाँ ताररहित सञ्जाल सिर्जना गर्नुहोस्"
-
-#~ msgid "Existing wireless network"
-#~ msgstr "ताररहित सञ्जाल अवस्थित गर्दै"
-
-#~ msgid "Error connecting to wireless network"
-#~ msgstr "ताररहित सञ्जालमा जडान गर्दा त्रुटि"
-
-#~ msgid ""
-#~ "The requested wireless network requires security capabilities unsupported "
-#~ "by your hardware."
-#~ msgstr ""
-#~ "अनुरोध गरिएको ताररहित सञ्जाललाई सुरक्षा क्षमताको आवश्यक पर्दछ जुन तपाईँको "
-#~ "हार्डवेयरद्वारा असमर्थित छ ।"
-
-#~ msgid ""
-#~ "Could not find the authentication dialog for VPN connection type '%s'. "
-#~ "Contact your system administrator."
-#~ msgstr ""
-#~ "भीपीएन जडान प्रकार '%s' का लागि प्रमाणीकरण संवाद फेला पार्न सकेन । तपाईँको "
-#~ "प्रणाली प्रशासकलाई सम्पर्क गर्नुहोस् ।"
-
-#~ msgid ""
-#~ "There was a problem launching the authentication dialog for VPN "
-#~ "connection type '%s'. Contact your system administrator."
-#~ msgstr ""
-#~ "त्यहाँ भीपीएन जडान प्रकार '%s' का लागि प्रमाणीकरण संवाद सुरुआत गर्दा त्रुटि थियो । "
-#~ "तपाईँको प्रणाली प्रशासकलाई सम्पर्क गर्नुहोस् ।"
-
-#~ msgid "AES-CCMP"
-#~ msgstr "AES-CCMP"
-
-#~ msgid "WEP 64/128-bit Hex"
-#~ msgstr "WEP 64/128-bit हेक्स"
-
-#~ msgid "TTLS"
-#~ msgstr "TTLS"
-
-#~ msgid "WPA Enterprise"
-#~ msgstr "WPA उद्यमशीलता"
