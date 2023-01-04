@@ -156,8 +156,6 @@ assistant_closed (GtkButton *button, gpointer user_data)
 			wiz_method->plan_name = g_strdup (nma_mobile_access_method_get_name (method));
 			wiz_method->username = g_strdup (nma_mobile_access_method_get_username (method));
 			wiz_method->password = g_strdup (nma_mobile_access_method_get_password (method));
-			if (family == NMA_MOBILE_FAMILY_3GPP)
-				wiz_method->gsm_apn = g_strdup (nma_mobile_access_method_get_3gpp_apn (method));
 		} else {
 			if (priv->provider_only_cdma) {
 				GSList *methods;
@@ -173,9 +171,15 @@ assistant_closed (GtkButton *button, gpointer user_data)
 				}
 			} else {
 				family = NMA_MOBILE_FAMILY_3GPP;
-				wiz_method->gsm_apn = g_strdup (gtk_editable_get_text (priv->plan_apn_entry));
 			}
 		}
+	}
+
+	if (family == NMA_MOBILE_FAMILY_3GPP) {
+		if (provider && method)
+			wiz_method->gsm_apn = g_strdup (nma_mobile_access_method_get_3gpp_apn (method));
+		else
+			wiz_method->gsm_apn = g_strdup (gtk_editable_get_text (priv->plan_apn_entry));
 	}
 
 	switch (family) {
