@@ -6,8 +6,8 @@
  * Copyright (C) 2015,2017 Red Hat, Inc.
  */
 
-#ifndef NMA_CERT_CHOOSER_H
-#define NMA_CERT_CHOOSER_H
+#ifndef __NMA_CERT_CHOOSER_H__
+#define __NMA_CERT_CHOOSER_H__
 
 #include <gtk/gtk.h>
 #include <NetworkManager.h>
@@ -51,6 +51,10 @@ typedef struct _NMACertChooser NMACertChooser;
 
 NMA_AVAILABLE_IN_1_8
 typedef struct _NMACertChooserClass NMACertChooserClass;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMACertChooser, g_object_unref)
+#endif
 
 NMA_AVAILABLE_IN_1_8
 GType                nma_cert_chooser_get_type                     (void);
@@ -150,4 +154,4 @@ NMSettingSecretFlags nma_cert_chooser_get_key_password_flags       (NMACertChoos
 
 G_END_DECLS
 
-#endif /* NMA_CERT_CHOOSER_H */
+#endif /* __NMA_CERT_CHOOSER_H__ */

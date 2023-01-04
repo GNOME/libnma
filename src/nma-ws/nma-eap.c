@@ -7,12 +7,6 @@
 
 #include "nm-default.h"
 
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-
 #include "nma-eap.h"
 #include "nm-utils.h"
 #include "utils.h"

@@ -15,6 +15,10 @@ G_BEGIN_DECLS
 typedef struct _NMAWsDynamicWep NMAWsDynamicWep;
 typedef struct _NMAWsDynamicWepClass NMAWsDynamicWepClass;
 
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAWsDynamicWep, g_object_unref)
+#endif
+
 #define NMA_TYPE_WS_DYNAMIC_WEP            (nma_ws_dynamic_wep_get_type ())
 #define NMA_WS_DYNAMIC_WEP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NMA_TYPE_WS_SAE, NMAWsDynamicWep))
 #define NMA_WS_DYNAMIC_WEP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NMA_TYPE_WS_SAE, NMAWsDynamicWepClass))

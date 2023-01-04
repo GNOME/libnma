@@ -10,8 +10,6 @@
 #include "nma-private.h"
 
 #include <string.h>
-#include <netinet/ether.h>
-
 #include <NetworkManager.h>
 
 #include "nma-wifi-dialog.h"

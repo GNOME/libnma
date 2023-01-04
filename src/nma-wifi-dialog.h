@@ -6,8 +6,8 @@
  * Copyright 2007 - 2014 Red Hat, Inc.
  */
 
-#ifndef NMA_WIFI_DIALOG_H
-#define NMA_WIFI_DIALOG_H
+#ifndef __NMA_WIFI_DIALOG_H__
+#define __NMA_WIFI_DIALOG_H__
 
 #include <gtk/gtk.h>
 #include <glib.h>
@@ -65,5 +65,5 @@ gboolean nma_wifi_dialog_get_nag_ignored (NMAWifiDialog *self);
 NMA_DEPRECATED_IN_1_2_FOR(nma_wifi_dialog_new_for_hidden)
 GtkWidget *nma_wifi_dialog_new_for_other (NMClient *client);
 
-#endif	/* NMA_WIFI_DIALOG_H */
+#endif	/* __NMA_WIFI_DIALOG_H__ */
 

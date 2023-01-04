@@ -6,8 +6,6 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
-#include <string.h>
-
 #include "nma-ui-utils.h"
 
 /*---------------------------------------------------------------------------*/

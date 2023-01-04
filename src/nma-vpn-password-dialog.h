@@ -17,10 +17,12 @@
  *          Dan Williams <dcbw@redhat.com>
  */
 
-#ifndef NMA_VPN_PASSWORD_DIALOG_H
-#define NMA_VPN_PASSWORD_DIALOG_H
+#ifndef __NMA_VPN_PASSWORD_DIALOG_H__
+#define __NMA_VPN_PASSWORD_DIALOG_H__
 
 #include <gtk/gtk.h>
+
+#include "nma-version.h"
 
 G_BEGIN_DECLS
 
@@ -32,6 +34,10 @@ G_BEGIN_DECLS
 
 typedef struct NMAVpnPasswordDialog        NMAVpnPasswordDialog;
 typedef struct NMAVpnPasswordDialogClass   NMAVpnPasswordDialogClass;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAVpnPasswordDialog, g_object_unref)
+#endif
 
 struct NMAVpnPasswordDialog {
 	GtkDialog parent;
@@ -82,4 +88,4 @@ const char *nma_vpn_password_dialog_get_password_ternary (NMAVpnPasswordDialog *
 
 G_END_DECLS
 
-#endif /* NMA_VPN_PASSWORD_DIALOG_H */
+#endif /* __NMA_VPN_PASSWORD_DIALOG_H__ */

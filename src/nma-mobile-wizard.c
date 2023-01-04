@@ -10,8 +10,6 @@
 #include "nm-default.h"
 #include "nma-private.h"
 
-#include <stdlib.h>
-
 #ifdef GDK_WINDOWING_X11
 #if GTK_CHECK_VERSION(4,0,0)
 #include <gdk/x11/gdkx.h>

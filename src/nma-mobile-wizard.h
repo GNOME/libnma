@@ -7,15 +7,21 @@
  * (C) Copyright 2008 - 2018 Red Hat, Inc.
  */
 
-#ifndef MOBILE_WIZARD_H
-#define MOBILE_WIZARD_H
+#ifndef __NMA_MOBILE_WIZARD_H__
+#define __NMA_MOBILE_WIZARD_H__
 
 #include <glib.h>
 #include <NetworkManager.h>
 #include <nm-device.h>
 
+#include "nma-version.h"
+
 typedef struct _NMAMobileWizard NMAMobileWizard;
 typedef struct _NMAMobileWizardClass NMAMobileWizardClass;
+
+#if defined(G_DEFINE_AUTOPTR_CLEANUP_FUNC) && NMA_VERSION_MIN_REQUIRED >= NMA_VERSION_1_10_6
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(NMAMobileWizard, g_object_unref)
+#endif
 
 /**
  * NMAMobileWizardAccessMethod:
@@ -62,4 +68,4 @@ void nma_mobile_wizard_present (NMAMobileWizard *wizard);
 
 void nma_mobile_wizard_destroy (NMAMobileWizard *self);
 
-#endif /* MOBILE_WIZARD_H */
+#endif /* __NMA_MOBILE_WIZARD_H__ */
