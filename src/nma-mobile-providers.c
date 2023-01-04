@@ -550,20 +550,6 @@ typedef struct {
 	MobileContextState state;
 } MobileParser;
 
-static NMACountryInfo *
-lookup_country (GHashTable *table, const char *country_code)
-{
-	NMACountryInfo *country_info;
-
-	country_info = g_hash_table_lookup (table, country_code);
-	if (!country_info) {
-		g_warning ("%s: adding providers for unknown country '%s'", __func__, country_code);
-		country_info = g_hash_table_lookup (table, "");
-	}
-
-	return country_info;
-}
-
 static void
 parser_toplevel_start (MobileParser *parser,
                        const char *name,
@@ -588,7 +574,7 @@ parser_toplevel_start (MobileParser *parser,
 			if (!strcmp (attribute_names[i], "code")) {
 				g_free (parser->country_code);
 				parser->country_code = g_ascii_strup (attribute_values[i], -1);
-				parser->current_country = lookup_country (parser->table, parser->country_code);
+				parser->current_country = g_hash_table_lookup (parser->table, parser->country_code);
 				parser->state = PARSER_COUNTRY;
 				break;
 			}
@@ -730,7 +716,17 @@ static void
 parser_country_end (MobileParser *parser,
                     const char *name)
 {
-	if (!strcmp (name, "country")) {
+	if (!strcmp (name, "name")) {
+		if (!parser->current_country) {
+			g_debug ("%s: code '%s' unknown, falling back to '%s'", __func__,
+				 parser->country_code, parser->text_buffer);
+			parser->current_country = country_info_new (parser->country_code,
+								    parser->text_buffer);
+			g_hash_table_insert (parser->table,
+					     g_strdup (parser->country_code),
+					     parser->current_country);
+		}
+	} else if (!strcmp (name, "country")) {
 		parser->current_country = NULL;
 		g_free (parser->country_code);
 		parser->country_code = NULL;
@@ -744,6 +740,14 @@ static void
 parser_provider_end (MobileParser *parser,
                      const char *name)
 {
+	if (!parser->current_country) {
+		if (g_hash_table_size (parser->table) > 1) {
+			g_warning ("%s: adding providers for unknown country '%s'",
+			           __func__, parser->country_code);
+		}
+		parser->current_country = g_hash_table_lookup (parser->table, "");
+	}
+
 	if (!strcmp (name, "name")) {
 		if (!parser->current_provider->name) {
 			/* Use the first one. */
@@ -991,7 +995,7 @@ mobile_providers_parse_sync (const gchar *country_codes,
 	char *path;
 	const gchar * const *dirs;
 	int i;
-	gboolean success;
+	gboolean success = FALSE;
 
 	dirs = g_get_system_data_dirs ();
 	countries = g_hash_table_new_full (g_str_hash,
@@ -1023,6 +1027,22 @@ mobile_providers_parse_sync (const gchar *country_codes,
 			g_warning ("Could not find the country codes file (%s): check your installation\n",
 			           ISO_3166_COUNTRY_CODES);
 		}
+	}
+
+	/*
+	 * The areas where mobile operators operate, the areas where ITU
+	 * recognizes the use of a MCC and ISO 3166-1 country codes
+	 * generally overlap very well, which allows use to use ISO 3166-1
+	 * codes to identify the area in the mobile-broadband-database.
+	 *
+	 * Kosovo seems to be an exception. There are operators specific
+	 * to the area, use a Kosovo-specific MCC, but there's no
+	 * ISO 3166-1 code. Until it gets one, let's use a provisional one
+	 * that seems to be in common use.
+	 */
+	if (success) {
+		g_hash_table_insert (countries, g_strdup ("XK"),
+				     country_info_new ("XK", _("Kosovo")));
 	}
 
 	if (service_providers) {
