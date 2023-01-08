@@ -1,4 +1,20 @@
 =======================================
+libnma-1.10.6
+Overview of changes since libnma-1.10.4
+=======================================
+
+* Fix the path and translation domains of GSchema files.
+* Removed strings that don't match our conscious language standards from
+  the translation files.
+* Added autoptr support.
+* Fix translations of country and territory names in the mobile broadband
+  dialog.
+* Honor explicitly set APN if provider was not present in the mobile
+  broadband dialog.
+* Make sure Kosovar operators are ordered properly in the mobile broadband
+  dialog.
+
+=======================================
 libnma-1.10.4
 Overview of changes since libnma-1.10.2
 =======================================
