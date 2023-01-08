@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.nm-applet" path="/org/gnome/nm-applet/" gettext-domain="@GETTEXT_PACKAGE@">
+  <schema id="org.gnome.nm-applet" path="/org/gnome/nm-applet/" gettext-domain="nm-applet">
     <key name="disable-connected-notifications" type="b">
       <default>false</default>
       <summary>Disable connected notifications</summary>
