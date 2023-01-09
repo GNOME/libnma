@@ -170,6 +170,14 @@ update_secrets (NMAWs *ws, NMConnection *connection)
 }
 
 static void
+focus_secrets_default(NMAWs *ws)
+{
+	NMAWsWpaPsk *self = NMA_WS_WPA_PSK (ws);
+
+	gtk_widget_grab_focus (self->wpa_psk_entry);
+}
+
+static void
 get_property (GObject *object,
               guint prop_id,
               GValue *value,
@@ -223,6 +231,7 @@ nma_ws_interface_init (NMAWsInterface *iface)
 	iface->validate = validate;
 	iface->add_to_size_group = add_to_size_group;
 	iface->fill_connection = fill_connection;
+	iface->focus_secrets_default = focus_secrets_default;
 	iface->update_secrets = update_secrets;
 	iface->adhoc_compatible = TRUE;
 	iface->hotspot_compatible = TRUE;

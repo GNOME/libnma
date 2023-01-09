@@ -69,6 +69,18 @@ nma_ws_fill_connection (NMAWs *self,
 }
 
 void
+nma_ws_focus_secrets_default (NMAWs *self)
+{
+	NMAWsInterface *iface;
+
+	g_return_if_fail (self != NULL);
+
+	iface = NMA_WS_GET_INTERFACE (self);
+	if (iface->focus_secrets_default)
+		iface->focus_secrets_default (self);
+}
+
+void
 nma_ws_update_secrets (NMAWs *self, NMConnection *connection)
 {
 	NMAWsInterface *iface;

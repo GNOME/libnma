@@ -184,6 +184,26 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 }
 
 static void
+focus_secrets_default (NMAEap *parent)
+{
+	GtkComboBox *combo;
+	NMAEap *eap = NULL;
+	GtkTreeModel *model;
+	GtkTreeIter iter;
+
+	combo = GTK_COMBO_BOX (gtk_builder_get_object (parent->builder, "eap_ttls_inner_auth_combo"));
+	g_assert (combo);
+	model = gtk_combo_box_get_model (combo);
+	gtk_combo_box_get_active_iter (combo, &iter);
+	gtk_tree_model_get (model, &iter, I_METHOD_COLUMN, &eap, -1);
+
+	if (!eap)
+		return;
+
+	nma_eap_focus_secrets_default (eap);
+}
+
+static void
 inner_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
 	NMAEap *parent = (NMAEap *) user_data;
@@ -406,6 +426,7 @@ nma_eap_ttls_new (NMAWs8021x *ws_8021x,
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
+	                       focus_secrets_default,
 	                       update_secrets,
 	                       destroy,
 	                       "/org/gnome/libnma/nma-eap-ttls.ui",

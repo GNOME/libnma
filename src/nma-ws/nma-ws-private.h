@@ -11,10 +11,11 @@
 struct _NMAWsInterface {
 	GTypeInterface parent;
 
-	void (*add_to_size_group) (NMAWs *self, GtkSizeGroup *group);
-	void (*fill_connection)   (NMAWs *self, NMConnection *connection);
-	void (*update_secrets)    (NMAWs *self, NMConnection *connection);
-	gboolean (*validate)      (NMAWs *self, GError **error);
+	void (*add_to_size_group)     (NMAWs *self, GtkSizeGroup *group);
+	void (*fill_connection)       (NMAWs *self, NMConnection *connection);
+	void (*focus_secrets_default) (NMAWs *self);
+	void (*update_secrets)        (NMAWs *self, NMConnection *connection);
+	gboolean (*validate)          (NMAWs *self, GError **error);
 
 	gboolean adhoc_compatible;
 	gboolean hotspot_compatible;

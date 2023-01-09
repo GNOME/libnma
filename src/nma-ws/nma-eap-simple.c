@@ -237,6 +237,17 @@ fill_connection (NMAEap *parent, NMConnection *connection)
 }
 
 static void
+focus_secrets_default (NMAEap *parent)
+{
+	NMAEapSimple *method = (NMAEapSimple *)parent;
+
+	if (method->password_requested)
+		gtk_widget_grab_focus (GTK_WIDGET(method->password_entry));
+	else if (method->pkey_passphrase_requested)
+		gtk_widget_grab_focus (GTK_WIDGET(method->pkey_passphrase_entry));
+}
+
+static void
 update_secrets (NMAEap *parent, NMConnection *connection)
 {
 	nma_ws_helper_fill_secret_entry (connection,
@@ -364,6 +375,7 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
+	                       focus_secrets_default,
 	                       update_secrets,
 	                       destroy,
 	                       "/org/gnome/libnma/nma-eap-simple.ui",

@@ -139,3 +139,7 @@ libnma_1_8_36 {
 	nma_ws_owe_get_type;
 	nma_ws_owe_new;
 } libnma_1_8_28;
+
+libnma_1_10_8 {
+	nma_ws_focus_secrets_default;
+} libnma_1_8_28;

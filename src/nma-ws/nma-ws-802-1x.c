@@ -220,6 +220,24 @@ update_secrets (NMAWs *ws, NMConnection *connection)
 }
 
 static void
+focus_secrets_default(NMAWs *ws)
+{
+	NMAWs8021x *self = NMA_WS_802_1X (ws);
+	NMAEap *eap = NULL;
+	GtkTreeModel *model;
+	GtkTreeIter iter;
+	const char *name = NULL;
+
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (self->eap_auth_combo));
+	gtk_combo_box_get_active_iter (GTK_COMBO_BOX (self->eap_auth_combo), &iter);
+	gtk_tree_model_get (model, &iter, AUTH_METHOD_COLUMN, &eap, -1);
+	gtk_tree_model_get (model, &iter, AUTH_NAME_COLUMN, &name, -1);
+	g_return_if_fail (eap);
+
+	nma_eap_focus_secrets_default (eap);
+}
+
+static void
 get_property (GObject *object,
               guint prop_id,
               GValue *value,
@@ -285,6 +303,7 @@ nma_ws_interface_init (NMAWsInterface *iface)
 	iface->validate = validate;
 	iface->add_to_size_group = add_to_size_group;
 	iface->fill_connection = nma_ws_802_1x_fill_connection;
+	iface->focus_secrets_default = focus_secrets_default;
 	iface->update_secrets = update_secrets;
 	iface->adhoc_compatible = FALSE;
 	iface->hotspot_compatible = FALSE;

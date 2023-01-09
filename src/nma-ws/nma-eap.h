@@ -10,11 +10,12 @@
 
 typedef struct _NMAEap NMAEap;
 
-typedef void        (*NMAEapAddToSizeGroupFunc) (NMAEap *method, GtkSizeGroup *group);
-typedef void        (*NMAEapFillConnectionFunc) (NMAEap *method, NMConnection *connection);
-typedef void        (*NMAEapUpdateSecretsFunc)  (NMAEap *method, NMConnection *connection);
-typedef void        (*NMAEapDestroyFunc)        (NMAEap *method);
-typedef gboolean    (*NMAEapValidateFunc)       (NMAEap *method, GError **error);
+typedef void        (*NMAEapAddToSizeGroupFunc)      (NMAEap *method, GtkSizeGroup *group);
+typedef void        (*NMAEapFillConnectionFunc)      (NMAEap *method, NMConnection *connection);
+typedef void        (*NMAEapFocusSecretsDefaultFunc) (NMAEap *method);
+typedef void        (*NMAEapUpdateSecretsFunc)       (NMAEap *method, NMConnection *connection);
+typedef void        (*NMAEapDestroyFunc)             (NMAEap *method);
+typedef gboolean    (*NMAEapValidateFunc)            (NMAEap *method, GError **error);
 
 struct _NMAEap {
 	guint32 refcount;
@@ -30,6 +31,7 @@ struct _NMAEap {
 
 	NMAEapAddToSizeGroupFunc add_to_size_group;
 	NMAEapFillConnectionFunc fill_connection;
+	NMAEapFocusSecretsDefaultFunc focus_secrets_default;
 	NMAEapUpdateSecretsFunc update_secrets;
 	NMAEapValidateFunc validate;
 	NMAEapDestroyFunc destroy;
@@ -46,6 +48,8 @@ void nma_eap_add_to_size_group (NMAEap *method, GtkSizeGroup *group);
 
 void nma_eap_fill_connection (NMAEap *method,
                               NMConnection *connection);
+
+void nma_eap_focus_secrets_default (NMAEap *method);
 
 void nma_eap_update_secrets (NMAEap *method, NMConnection *connection);
 
@@ -69,6 +73,7 @@ NMAEap *nma_eap_init (gsize obj_size,
                       NMAEapValidateFunc validate,
                       NMAEapAddToSizeGroupFunc add_to_size_group,
                       NMAEapFillConnectionFunc fill_connection,
+                      NMAEapFocusSecretsDefaultFunc focus_secrets_default,
                       NMAEapUpdateSecretsFunc update_secrets,
                       NMAEapDestroyFunc destroy,
                       const char *ui_resource,

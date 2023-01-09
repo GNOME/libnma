@@ -140,6 +140,14 @@ fill_connection (NMAWs *ws, NMConnection *connection)
 }
 
 static void
+focus_secrets_default(NMAWs *ws)
+{
+	NMAWsSae *self = NMA_WS_SAE (ws);
+
+	gtk_widget_grab_focus (self->psk_entry);
+}
+
+static void
 update_secrets (NMAWs *ws, NMConnection *connection)
 {
 	NMAWsSae *self = NMA_WS_SAE (ws);
@@ -204,6 +212,7 @@ nma_ws_interface_init (NMAWsInterface *iface)
 	iface->validate = validate;
 	iface->add_to_size_group = add_to_size_group;
 	iface->fill_connection = fill_connection;
+	iface->focus_secrets_default = focus_secrets_default;
 	iface->update_secrets = update_secrets;
 	iface->adhoc_compatible = TRUE;
 	iface->hotspot_compatible = TRUE;
