@@ -246,16 +246,11 @@ security_combo_changed (GtkWidget *combo,
 	/* Re-validate */
 	stuff_changed_cb (priv->ws, self);
 
-#if 0
 	/* Set focus to the security method's default widget, but only if the
 	 * network name entry should not be focused.
 	 */
-	if (!priv->network_name_focus && sec->default_field) {
-		def_widget = GTK_WIDGET (gtk_builder_get_object (sec->builder, sec->default_field));
-		if (def_widget)
-			gtk_widget_grab_focus (def_widget);
-	}
-#endif
+	if (!priv->network_name_focus)
+		nma_ws_focus_secrets_default (priv->ws);
 
 	g_object_unref (priv->ws);
 }
