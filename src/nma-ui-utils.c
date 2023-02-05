@@ -58,6 +58,7 @@ change_password_storage_icon (GtkWidget *passwd_entry, MenuItem item)
 {
 	PasswordStorageData *data;
 	const char *old_pwd;
+	int changed;
 
 	g_return_if_fail (item >= 0 && item <= ITEM_STORAGE_MAX);
 
@@ -83,14 +84,19 @@ change_password_storage_icon (GtkWidget *passwd_entry, MenuItem item)
 		if (old_pwd && *old_pwd)
 			g_object_set_data_full (G_OBJECT (passwd_entry), "password-old",
 		                                g_strdup (old_pwd), g_free_str0);
-		gtk_editable_set_text (GTK_EDITABLE (passwd_entry), "");
+
+		changed = g_strcmp0 (gtk_editable_get_text (GTK_EDITABLE (passwd_entry)), "") != 0;
+		if (changed)
+			gtk_editable_set_text (GTK_EDITABLE (passwd_entry), "");
+
 		if (gtk_widget_is_focus (passwd_entry))
 			gtk_widget_child_focus (((GtkWidget *)gtk_widget_get_root (passwd_entry)), GTK_DIR_TAB_BACKWARD);
 		gtk_widget_set_can_focus (passwd_entry, FALSE);
 	} else {
 		/* Set the old password to the entry */
 		old_pwd = g_object_get_data (G_OBJECT (passwd_entry), "password-old");
-		if (old_pwd && *old_pwd)
+		changed = g_strcmp0 (gtk_editable_get_text (GTK_EDITABLE (passwd_entry)), old_pwd) != 0;
+		if (old_pwd && *old_pwd && changed)
 			gtk_editable_set_text (GTK_EDITABLE (passwd_entry), old_pwd);
 		g_object_set_data (G_OBJECT (passwd_entry), "password-old", NULL);
 
