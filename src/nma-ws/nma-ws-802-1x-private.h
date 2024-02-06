@@ -6,6 +6,11 @@
 #ifndef NMA_WS_802_1X_PRIVATE_H
 #define NMA_WS_802_1X_PRIVATE_H
 
+#include <gtk/gtk.h>
+#include <glib.h>
+
+#include <NetworkManager.h>
+
 struct _NMAWs8021xClass {
 	GtkGridClass parent;
 };

@@ -8,6 +8,9 @@
 #ifndef NMA_EAP_SIMPLE_H
 #define NMA_EAP_SIMPLE_H
 
+#include <glib.h>
+#include <NetworkManager.h>
+
 #include "nma-ws.h"
 
 typedef enum {

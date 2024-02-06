@@ -8,6 +8,12 @@
 #ifndef _NMA_WS_HELPERS_H_
 #define _NMA_WS_HELPERS_H_
 
+
+#include <gtk/gtk.h>
+#include <glib.h>
+#include <glib-object.h>
+#include <NetworkManager.h>
+
 typedef const char * (*HelperSecretFunc)(NMSetting *);
 
 void nma_ws_helper_fill_secret_entry (NMConnection *connection,

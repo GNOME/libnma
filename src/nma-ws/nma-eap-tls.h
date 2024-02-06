@@ -8,6 +8,9 @@
 #ifndef NMA_EAP_TLS_H
 #define NMA_EAP_TLS_H
 
+#include <glib.h>
+#include <NetworkManager.h>
+
 #include "nma-ws-802-1x.h"
 
 typedef struct _NMAEapTls NMAEapTls;
