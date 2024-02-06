@@ -8,6 +8,11 @@
 #ifndef NMA_EAP_H
 #define NMA_EAP_H
 
+#include <gtk/gtk.h>
+#include <glib.h>
+#include <glib-object.h>
+#include <NetworkManager.h>
+
 typedef struct _NMAEap NMAEap;
 
 typedef void        (*NMAEapAddToSizeGroupFunc) (NMAEap *method, GtkSizeGroup *group);

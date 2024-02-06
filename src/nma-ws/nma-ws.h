@@ -8,6 +8,12 @@
 #ifndef NMA_WS_H
 #define NMA_WS_H
 
+#include <gtk/gtk.h>
+#include <glib.h>
+#include <glib-object.h>
+
+#include <NetworkManager.h>
+
 #include "nma-version.h"
 
 G_BEGIN_DECLS

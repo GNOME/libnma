@@ -10,6 +10,8 @@
 #define __NMA_CERT_CHOOSER_H__
 
 #include <gtk/gtk.h>
+#include <glib.h>
+#include <glib-object.h>
 #include <NetworkManager.h>
 
 #include "nma-version.h"

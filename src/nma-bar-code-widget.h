@@ -18,6 +18,7 @@
 #ifndef __NMA_BAR_CODE_WIDGET_H__
 #define __NMA_BAR_CODE_WIDGET_H__
 
+#include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
 #include <NetworkManager.h>

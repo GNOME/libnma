@@ -8,6 +8,12 @@
 #ifndef NMA_WS_PRIVATE_H
 #define NMA_WS_PRIVATE_H
 
+#include <gtk/gtk.h>
+#include <glib.h>
+#include <glib-object.h>
+
+#include <NetworkManager.h>
+
 struct _NMAWsInterface {
 	GTypeInterface parent;
 

@@ -6,6 +6,11 @@
 #ifndef NMA_WS_802_1X_H
 #define NMA_WS_802_1X_H
 
+#include <glib.h>
+#include <glib-object.h>
+
+#include <NetworkManager.h>
+
 #include "nma-version.h"
 
 G_BEGIN_DECLS
