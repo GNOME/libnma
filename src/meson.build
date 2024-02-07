@@ -33,6 +33,7 @@ built_sources = gnome.compile_resources(
 )
 
 gir_headers = nma_ws_headers + files(
+  'nma.h',
   'nma-bar-code-widget.h',
   'nma-bar-code.h',
   'nma-cert-chooser.h',
@@ -231,6 +232,7 @@ if enable_introspection
     sources: gir_sources + gir_headers,
     nsversion: nma_gir_version,
     namespace: 'NMA',
+    header: 'nma.h',
     includes: [ 'Gtk-3.0', 'NM-1.0' ],
     identifier_prefix: nma_gir_prefix,
     symbol_prefix: nma_gir_prefix.to_lower(),
@@ -246,6 +248,7 @@ if enable_introspection
       sources: gir_sources + gir_headers,
       nsversion: nma_gir_version,
       namespace: 'NMA4',
+      header: 'nma.h',
       includes: [ 'Gtk-4.0', 'NM-1.0' ],
       identifier_prefix: nma_gir_prefix,
       symbol_prefix: nma_gir_prefix.to_lower(),

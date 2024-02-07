@@ -180,6 +180,7 @@ libnma_gtk4_c_gen = \
 	src/libnma-gtk4/nma-resources.c
 
 libnma_h_pub = \
+	src/nma.h \
 	src/nma-version.h \
 	src/nma-wifi-dialog.h \
 	src/nma-mobile-wizard.h \
@@ -319,6 +320,7 @@ src_NMA_1_0_gir_INCLUDES = NM-1.0 Gtk-3.0
 src_NMA_1_0_gir_EXPORT_PACKAGES = libnma
 src_NMA_1_0_gir_CFLAGS = $(src_libnma_la_CFLAGS)
 src_NMA_1_0_gir_LIBS = src/libnma.la
+src_NMA_1_0_gir_C_INCLUDES = nma.h
 src_NMA_1_0_gir_FILES = \
 	$(libnma_h_pub) \
 	$(libnma_c_real)
@@ -532,6 +534,7 @@ src_NMA4_1_0_gir_INCLUDES = NM-1.0 Gtk-4.0
 src_NMA4_1_0_gir_EXPORT_PACKAGES = libnma-gtk4
 src_NMA4_1_0_gir_CFLAGS = $(src_libnma_gtk4_la_CFLAGS)
 src_NMA4_1_0_gir_LIBS = src/libnma-gtk4.la
+src_NMA4_1_0_gir_C_INCLUDES = nma.h
 src_NMA4_1_0_gir_FILES = \
 	$(libnma_h_pub) \
 	$(libnma_c_real)
