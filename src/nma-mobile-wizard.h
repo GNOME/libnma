@@ -11,6 +11,7 @@
 #define __NMA_MOBILE_WIZARD_H__
 
 #include <glib.h>
+#include <gtk/gtk.h>
 #include <NetworkManager.h>
 #include <nm-device.h>
 
