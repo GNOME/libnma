@@ -94,6 +94,9 @@
     - dnf -y install make
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
+    # Sometimes the CI builder clocks are skewed.
+    # Make sure the dst files are not from future.
+    - find |xargs touch
     - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=no
@@ -118,6 +121,9 @@
     - dnf -y install make
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
+    # Sometimes the CI builder clocks are skewed.
+    # Make sure the dst files are not from future.
+    - find |xargs touch
     - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=yes
@@ -235,6 +241,9 @@ centos7:
   script:
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
+    # Sometimes the CI builder clocks are skewed.
+    # Make sure the dst files are not from future.
+    - find |xargs touch
     - ./configure
       --disable-silent-rules
       --with-more-asserts=yes
@@ -263,6 +272,9 @@ pages:
     - dnf -y install make
     - tar xJf libnma-*.tar.xz
     - cd libnma-*/
+    # Sometimes the CI builder clocks are skewed.
+    # Make sure the dst files are not from future.
+    - find |xargs touch
     - ./configure
       --disable-silent-rules
       --enable-gtk-doc
