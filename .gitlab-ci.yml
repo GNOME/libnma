@@ -219,6 +219,8 @@ f37_autotools_gcr3:
 centos7:
   <<: *dist
   before_script:
+    - sed 's/^mirrorlist=/#&/;s,^#baseurl=http://mirror.centos.org/,baseurl=https://vault.centos.org/,'
+      -i /etc/yum.repos.d/*.repo
     - yum -y install
       file
       findutils
