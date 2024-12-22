@@ -27,6 +27,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -43,6 +44,7 @@
         <property name="hexpand">True</property>
         <property name="use_underline">True</property>
         <property name="draw_indicator">True</property>
+        <signal name="toggled" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -70,6 +72,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>

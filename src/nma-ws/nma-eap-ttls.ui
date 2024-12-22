@@ -24,6 +24,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -52,6 +53,7 @@
         <property name="can_focus">False</property>
         <property name="hexpand">True</property>
         <property name="model">model6</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
         <child>
           <object class="GtkCellRendererText" id="renderer6"/>
           <attributes>
@@ -88,6 +90,7 @@
         <property name="hexpand">True</property>
         <property name="use_underline">True</property>
         <property name="draw_indicator">True</property>
+        <signal name="toggled" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -100,6 +103,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>

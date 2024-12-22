@@ -311,10 +311,7 @@ destroy (NMAEap *parent)
 	g_assert (widget);
 	g_signal_handlers_disconnect_by_data (widget, method);
 
-	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_8021x);
-	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->password_entry, method);
-	g_signal_handlers_disconnect_by_data (method->pkey_passphrase_entry, method->ws_8021x);
 
 	nm_clear_g_source (&method->idle_func_id);
 }
@@ -381,9 +378,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_entry"));
 	g_assert (widget);
 	method->username_entry = GTK_ENTRY (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	if (   (method->flags & NMA_EAP_SIMPLE_FLAG_SECRETS_ONLY)
 	    && !method->username_requested)
@@ -392,9 +386,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_password_entry"));
 	g_assert (widget);
 	method->password_entry = GTK_ENTRY (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
 	if (connection)
@@ -413,9 +404,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_entry"));
 	g_assert (widget);
 	method->pkey_passphrase_entry = GTK_ENTRY (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_entry"));
 	if (!method->username_requested)

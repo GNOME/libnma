@@ -160,9 +160,6 @@ destroy (NMAEap *parent)
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_leap_grid"));
 	g_assert (widget);
 	g_signal_handlers_disconnect_by_data (widget, method);
-
-	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_8021x);
-	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_8021x);
 }
 
 NMAEapLeap *
@@ -206,9 +203,6 @@ nma_eap_leap_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_leap_username_entry"));
 	g_assert (widget);
 	method->username_entry = GTK_ENTRY (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	if (secrets_only)
 		gtk_widget_set_sensitive (widget, FALSE);
@@ -216,9 +210,6 @@ nma_eap_leap_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_leap_password_entry"));
 	g_assert (widget);
 	method->password_entry = GTK_ENTRY (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	/* Create password-storage popup menu for password entry under entry's secondary icon */
 	if (connection)

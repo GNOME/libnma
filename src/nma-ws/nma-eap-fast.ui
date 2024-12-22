@@ -104,6 +104,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="activates_default">True</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>
@@ -200,6 +201,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="model">model8</property>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
         <child>
           <object class="GtkCellRendererText" id="renderer8"/>
           <attributes>
@@ -220,6 +222,7 @@
         <property name="receives_default">False</property>
         <property name="use_underline">True</property>
         <property name="draw_indicator">True</property>
+        <signal name="toggled" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -232,6 +235,7 @@
         <property name="can_focus">False</property>
         <property name="model">model9</property>
         <property name="sensitive" bind-source="eap_fast_pac_provision_checkbutton" bind-property="active" bind-flags="sync-create"/>
+        <signal name="changed" handler="nma_ws_changed_cb" object="NMAWs" swapped="no"/>
         <child>
           <object class="GtkCellRendererText" id="renderer9"/>
           <attributes>

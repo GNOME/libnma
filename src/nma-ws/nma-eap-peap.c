@@ -409,9 +409,6 @@ nma_eap_peap_new (NMAWs8021x *ws_8021x,
 	g_object_bind_property (widget, "active",
 	                        method->ca_cert_chooser, "sensitive",
 	                        G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	widget = inner_auth_combo_init (method, connection, s_8021x, secrets_only);
@@ -432,23 +429,14 @@ nma_eap_peap_new (NMAWs8021x *ws_8021x,
 				gtk_combo_box_set_active (GTK_COMBO_BOX (widget), 2);
 		}
 	}
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_domain_entry"));
 	if (s_8021x && nm_setting_802_1x_get_domain_suffix_match (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_domain_suffix_match (s_8021x));
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	if (secrets_only) {
 		widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_peap_anon_identity_entry"));

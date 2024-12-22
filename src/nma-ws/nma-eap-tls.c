@@ -366,17 +366,11 @@ nma_eap_tls_new (NMAWs8021x *ws_8021x,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 	if (s_8021x && nm_setting_802_1x_get_identity (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_identity (s_8021x));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_domain_entry"));
 	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 	if (phase2) {
 		if (s_8021x && nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x))
 			gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_phase2_domain_suffix_match (s_8021x));
@@ -467,9 +461,6 @@ nma_eap_tls_new (NMAWs8021x *ws_8021x,
 	g_object_bind_property (widget, "active",
 	                        method->ca_cert_chooser, "sensitive",
 	                        G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	/* Create password-storage popup menus for password entries under their secondary icon */

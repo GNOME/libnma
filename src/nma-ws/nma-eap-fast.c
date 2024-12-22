@@ -277,10 +277,6 @@ inner_auth_combo_init (NMAEapFast *method,
 	gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (auth_model));
 	g_object_unref (G_OBJECT (auth_model));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active);
-
-	g_signal_connect (G_OBJECT (combo), "changed",
-	                  (GCallback) inner_auth_combo_changed_cb,
-	                  method);
 	return combo;
 }
 
@@ -401,22 +397,13 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 		}
 	}
 	gtk_widget_set_sensitive (widget, provisioning_enabled);
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
 	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), provisioning_enabled);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))
 		gtk_editable_set_text (GTK_EDITABLE (widget), nm_setting_802_1x_get_anonymous_identity (s_8021x));
-	g_signal_connect (G_OBJECT (widget), "changed",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_file_button"));
 	g_assert (widget);
