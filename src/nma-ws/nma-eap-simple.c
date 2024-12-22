@@ -35,27 +35,8 @@ struct _NMAEapSimple {
 	GtkEntry *password_entry;
 	GtkCheckButton *show_password;
 	GtkEntry *pkey_passphrase_entry;
-	GtkCheckButton *show_pkey_passphrase;
 	guint idle_func_id;
 };
-
-static void
-show_password_toggled_cb (GtkCheckButton *button, NMAEapSimple *method)
-{
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (button);
-	gtk_entry_set_visibility (method->password_entry, visible);
-}
-
-static void
-show_pkey_passphrase_toggled_cb (GtkCheckButton *button, NMAEapSimple *method)
-{
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (button);
-	gtk_entry_set_visibility (method->pkey_passphrase_entry, visible);
-}
 
 static gboolean
 always_ask_selected (GtkEntry *passwd_entry)
@@ -333,9 +314,7 @@ destroy (NMAEap *parent)
 	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->password_entry, method);
-	g_signal_handlers_disconnect_by_data (method->show_password, method);
 	g_signal_handlers_disconnect_by_data (method->pkey_passphrase_entry, method->ws_8021x);
-	g_signal_handlers_disconnect_by_data (method->show_pkey_passphrase, method);
 
 	nm_clear_g_source (&method->idle_func_id);
 }
@@ -437,9 +416,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_eapsimple"));
 	g_assert (widget);
 	method->show_password = GTK_CHECK_BUTTON (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) show_password_toggled_cb,
-	                  method);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_entry"));
 	g_assert (widget);
@@ -447,13 +423,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	g_signal_connect (G_OBJECT (widget), "changed",
 	                  (GCallback) nma_ws_changed_cb,
 	                  ws_8021x);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_show_pkey_passphrase_checkbutton"));
-	g_assert (widget);
-	method->show_pkey_passphrase = GTK_CHECK_BUTTON (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) show_pkey_passphrase_toggled_cb,
-	                  method);
 
 	widget_row[0] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_label"));
 	widget_row[1] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_entry"));

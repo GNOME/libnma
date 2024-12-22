@@ -67,15 +67,6 @@ validate (NMAEap *parent, GError **error)
 }
 
 static void
-ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
-{
-	NMAEapTtls *method = (NMAEapTtls *) user_data;
-
-	gtk_widget_set_sensitive (method->ca_cert_chooser,
-	                          !gtk_check_button_get_active (GTK_CHECK_BUTTON (button)));
-}
-
-static void
 add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 {
 	NMAEapTtls *method = (NMAEapTtls *) parent;
@@ -467,9 +458,9 @@ nma_eap_ttls_new (NMAWs8021x *ws_8021x,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_ttls_ca_cert_not_required_checkbox"));
 	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) ca_cert_not_required_toggled,
-	                  parent);
+	g_object_bind_property (widget, "active",
+	                        method->ca_cert_chooser, "sensitive",
+	                        G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) nma_ws_changed_cb,
 	                  ws_8021x);

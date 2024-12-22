@@ -22,7 +22,6 @@ struct _NMAWsWepKey {
 	GtkWidget *auth_method_label;
 	GtkWidget *key_index_combo;
 	GtkWidget *key_index_label;
-	GtkWidget *show_checkbutton_wep;
 	GtkWidget *wep_key_entry;
 	GtkWidget *wep_key_label;
 
@@ -52,16 +51,6 @@ enum {
 	PROP_ADHOC_CREATE,
 	PROP_LAST
 };
-
-static void
-show_toggled_cb (GtkCheckButton *button, gpointer user_data)
-{
-	NMAWsWepKey *self = NMA_WS_WEP_KEY (user_data);
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (self->wep_key_entry), visible);
-}
 
 static void
 key_index_combo_changed_cb (GtkWidget *combo, NMAWs *ws)
@@ -453,12 +442,10 @@ nma_ws_wep_key_class_init (NMAWsWepKeyClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, auth_method_label);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, key_index_combo);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, key_index_label);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, show_checkbutton_wep);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, wep_key_entry);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWepKey, wep_key_label);
 
 	gtk_widget_class_bind_template_callback (widget_class, key_index_combo_changed_cb);
 	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
-	gtk_widget_class_bind_template_callback (widget_class, show_toggled_cb);
 	gtk_widget_class_bind_template_callback (widget_class, wep_entry_filter_cb);
 }

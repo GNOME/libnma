@@ -784,18 +784,6 @@ cert_changed_cb (NMACertChooserButton *button, gpointer user_data)
 }
 
 static void
-show_toggled_cb (GtkCheckButton *button, gpointer user_data)
-{
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
-	gboolean active;
-
-	active = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (priv->cert_password), active);
-	if (priv->key_password)
-		gtk_entry_set_visibility (GTK_ENTRY (priv->key_password), active);
-}
-
-static void
 cert_password_changed_cb (GtkEntry *entry, gpointer user_data)
 {
 	g_signal_emit_by_name (user_data, "changed");
@@ -1126,8 +1114,6 @@ nma_cert_chooser_init (NMACertChooser *cert_chooser)
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->show_password, 1, 2, 1, 1);
 	gtk_widget_show (priv->show_password);
 	gtk3_widget_set_no_show_all (priv->show_password, TRUE);
-	g_signal_connect (priv->show_password, "toggled",
-	                  G_CALLBACK (show_toggled_cb), cert_chooser);
 
 	/* The key chooser row */
 
@@ -1151,6 +1137,9 @@ nma_cert_chooser_init (NMACertChooser *cert_chooser)
 	gtk_widget_set_sensitive (priv->key_password, FALSE);
 	gtk_widget_show (priv->key_password);
 	gtk3_widget_set_no_show_all (priv->key_password, TRUE);
+	g_object_bind_property (priv->show_password, "active",
+	                        priv->key_password, "visibility",
+	                        G_BINDING_SYNC_CREATE);
 
 	g_signal_connect (priv->key_password, "changed",
 	                  G_CALLBACK (key_password_changed_cb), cert_chooser);
@@ -1184,6 +1173,9 @@ nma_cert_chooser_init (NMACertChooser *cert_chooser)
 	gtk_widget_set_sensitive (priv->cert_password, FALSE);
 	gtk_widget_show (priv->cert_password);
 	gtk3_widget_set_no_show_all (priv->cert_password, TRUE);
+	g_object_bind_property (priv->show_password, "active",
+	                        priv->cert_password, "visibility",
+	                        G_BINDING_SYNC_CREATE);
 
 	g_signal_connect (priv->cert_password, "changed",
 	                  G_CALLBACK (cert_password_changed_cb), cert_chooser);

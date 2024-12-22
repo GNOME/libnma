@@ -22,7 +22,6 @@ struct _NMAWsSae {
 	GtkWidget *sae_label;
 	GtkWidget *sae_type_combo;
 	GtkWidget *sae_type_label;
-	GtkWidget *show_checkbutton_sae;
 
 	NMConnection *connection;
 	gboolean secrets_only;
@@ -43,16 +42,6 @@ enum {
 	PROP_SECRETS_ONLY,
 	PROP_LAST
 };
-
-static void
-show_toggled_cb (GtkCheckButton *button, gpointer user_data)
-{
-	NMAWsSae *self = NMA_WS_SAE (user_data);
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (self->psk_entry), visible);
-}
 
 static gboolean
 validate (NMAWs *ws, GError **error)
@@ -279,8 +268,6 @@ nma_ws_sae_class_init (NMAWsSaeClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_label);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_combo);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_label);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, show_checkbutton_sae);
 
 	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
-	gtk_widget_class_bind_template_callback (widget_class, show_toggled_cb);
 }

@@ -231,6 +231,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="model">model9</property>
+        <property name="sensitive" bind-source="eap_fast_pac_provision_checkbutton" bind-property="active" bind-flags="sync-create"/>
         <child>
           <object class="GtkCellRendererText" id="renderer9"/>
           <attributes>

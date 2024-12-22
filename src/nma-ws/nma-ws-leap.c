@@ -24,7 +24,6 @@ struct _NMAWsLeap {
 	GtkWidget *leap_password_entry;
 	GtkWidget *leap_username_label;
 	GtkWidget *leap_password_label;
-	GtkWidget *show_checkbutton_leap;
 
 	NMConnection *connection;
 	gboolean secrets_only;
@@ -45,16 +44,6 @@ enum {
 	PROP_SECRETS_ONLY,
 	PROP_LAST
 };
-
-static void
-show_toggled_cb (GtkCheckButton *button, gpointer user_data)
-{
-	NMAWsLeap *self = NMA_WS_LEAP (user_data);
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (self->leap_password_entry), visible);
-}
 
 static gboolean
 validate (NMAWs *ws, GError **error)
@@ -287,8 +276,6 @@ nma_ws_leap_class_init (NMAWsLeapClass *klass)
 	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_password_entry);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_username_label);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, leap_password_label);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsLeap, show_checkbutton_leap);
 
 	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
-	gtk_widget_class_bind_template_callback (widget_class, show_toggled_cb);
 }

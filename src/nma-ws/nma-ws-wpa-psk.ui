@@ -27,7 +27,7 @@
         <property name="can_focus">True</property>
         <property name="hexpand">True</property>
         <property name="max_length">64</property>
-        <property name="visibility">False</property>
+        <property name="visibility" bind-source="show_checkbutton_wpa" bind-property="active" bind-flags="sync-create"/>
         <property name="activates_default">True</property>
         <signal name="changed" handler="nma_ws_changed_cb" swapped="no"/>
       </object>
@@ -59,7 +59,6 @@
         <property name="hexpand">True</property>
         <property name="use_underline">True</property>
         <property name="draw_indicator">True</property>
-        <signal name="toggled" handler="show_toggled_cb" swapped="no"/>
       </object>
       <packing>
         <property name="left_attach">1</property>

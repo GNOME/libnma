@@ -294,24 +294,6 @@ update_secrets (NMAEap *parent, NMConnection *connection)
 }
 
 static void
-pac_toggled_cb (GtkWidget *widget, gpointer user_data)
-{
-	NMAEap *parent = (NMAEap *) user_data;
-	NMAEapFast *method = (NMAEapFast *) parent;
-	gboolean enabled = FALSE;
-	GtkWidget *provision_combo;
-
-	provision_combo = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_combo"));
-	g_return_if_fail (provision_combo);
-
-	enabled = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
-
-	gtk_widget_set_sensitive (provision_combo, enabled);
-
-	nma_ws_changed_cb (widget, method->ws_8021x);
-}
-
-static void
 update_pac_chooser_button_label (NMAEap *parent, GtkWidget *chooser)
 {
 	NMAEapFast *method = (NMAEapFast *) parent;
@@ -424,7 +406,9 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_pac_provision_checkbutton"));
 	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), provisioning_enabled);
-	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (pac_toggled_cb), parent);
+	g_signal_connect (G_OBJECT (widget), "toggled",
+	                  (GCallback) nma_ws_changed_cb,
+	                  ws_8021x);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_fast_anon_identity_entry"));
 	if (s_8021x && nm_setting_802_1x_get_anonymous_identity (s_8021x))

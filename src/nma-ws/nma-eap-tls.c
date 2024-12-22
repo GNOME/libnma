@@ -58,15 +58,6 @@ validate (NMAEap *parent, GError **error)
 }
 
 static void
-ca_cert_not_required_toggled (GtkWidget *button, gpointer user_data)
-{
-	NMAEapTls *method = (NMAEapTls *) user_data;
-
-	gtk_widget_set_sensitive (method->ca_cert_chooser,
-	                          !gtk_check_button_get_active (GTK_CHECK_BUTTON (button)));
-}
-
-static void
 add_to_size_group (NMAEap *parent, GtkSizeGroup *group)
 {
 	NMAEapTls *method = (NMAEapTls *) parent;
@@ -372,15 +363,6 @@ nma_eap_tls_new (NMAWs8021x *ws_8021x,
 	if (connection)
 		s_8021x = nm_connection_get_setting_802_1x (connection);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_ca_cert_not_required_checkbox"));
-	g_assert (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) ca_cert_not_required_toggled,
-	                  parent);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) nma_ws_changed_cb,
-	                  ws_8021x);
-
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_identity_entry"));
 	g_assert (widget);
 	g_signal_connect (G_OBJECT (widget), "changed",
@@ -480,6 +462,13 @@ nma_eap_tls_new (NMAWs8021x *ws_8021x,
 	                            phase2 ? nm_setting_802_1x_get_phase2_private_key_password : nm_setting_802_1x_get_private_key_password);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_tls_ca_cert_not_required_checkbox"));
+	g_assert (widget);
+	g_object_bind_property (widget, "active",
+	                        method->ca_cert_chooser, "sensitive",
+	                        G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
+	g_signal_connect (G_OBJECT (widget), "toggled",
+	                  (GCallback) nma_ws_changed_cb,
+	                  ws_8021x);
 	gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), ca_not_required);
 
 	/* Create password-storage popup menus for password entries under their secondary icon */

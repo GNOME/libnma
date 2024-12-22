@@ -30,15 +30,6 @@ struct _NMAEapLeap {
 	GtkCheckButton *show_password;
 };
 
-static void
-show_toggled_cb (GtkCheckButton *button, NMAEapLeap *method)
-{
-	gboolean visible;
-
-	visible = gtk_check_button_get_active (button);
-	gtk_entry_set_visibility (method->password_entry, visible);
-}
-
 static gboolean
 validate (NMAEap *parent, GError **error)
 {
@@ -172,7 +163,6 @@ destroy (NMAEap *parent)
 
 	g_signal_handlers_disconnect_by_data (method->username_entry, method->ws_8021x);
 	g_signal_handlers_disconnect_by_data (method->password_entry, method->ws_8021x);
-	g_signal_handlers_disconnect_by_data (method->show_password, method);
 }
 
 NMAEapLeap *
@@ -238,9 +228,6 @@ nma_eap_leap_new (NMAWs8021x *ws_8021x,
 	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_eapleap"));
 	g_assert (widget);
 	method->show_password = GTK_CHECK_BUTTON (widget);
-	g_signal_connect (G_OBJECT (widget), "toggled",
-	                  (GCallback) show_toggled_cb,
-	                  parent);
 
 	/* Initialize the UI fields with the security settings from method->ws_8021x.
 	 * This will be done again when the widget gets realized. It must be done here as well,
