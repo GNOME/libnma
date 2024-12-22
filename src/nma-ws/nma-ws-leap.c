@@ -224,7 +224,6 @@ constructed (GObject *object)
 	}
 
 	if (self->secrets_only) {
-		gtk_widget_hide (self->leap_username_label);
 		gtk_widget_hide (self->leap_username_entry);
 	}
 

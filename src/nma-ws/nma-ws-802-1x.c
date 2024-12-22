@@ -451,7 +451,6 @@ constructed (GObject *object)
 
 	if (self->secrets_only) {
 		gtk_widget_hide (self->eap_auth_combo);
-		gtk_widget_hide (self->eap_auth_label);
 	}
 
 	G_OBJECT_CLASS (nma_ws_802_1x_parent_class)->constructed (object);

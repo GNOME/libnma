@@ -43,7 +43,7 @@
     <property name="column_spacing">6</property>
     <child>
       <object class="GtkLabel" id="wep_key_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="wep_key_entry" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">_Key</property>
         <property name="use_underline">True</property>
@@ -89,7 +89,7 @@
     </child>
     <child>
       <object class="GtkLabel" id="auth_method_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="auth_method_combo" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">Au_thentication</property>
         <property name="use_underline">True</property>
@@ -122,7 +122,7 @@
     </child>
     <child>
       <object class="GtkLabel" id="key_index_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="key_index_combo" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">WEP inde_x</property>
         <property name="use_underline">True</property>

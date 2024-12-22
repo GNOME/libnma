@@ -319,13 +319,6 @@ destroy (NMAEap *parent)
 	nm_clear_g_source (&method->idle_func_id);
 }
 
-static void
-hide_row (GtkWidget **widgets, size_t num)
-{
-	while (num--)
-		gtk_widget_hide (*widgets++);
-}
-
 NMAEapSimple *
 nma_eap_simple_new (NMAWs8021x *ws_8021x,
                     NMConnection *connection,
@@ -337,7 +330,6 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	NMAEapSimple *method;
 	GtkWidget *widget;
 	NMSetting8021x *s_8021x = NULL;
-	GtkWidget *widget_row[10];
 
 	parent = nma_eap_init (sizeof (NMAEapSimple),
 	                       validate,
@@ -424,22 +416,17 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	                  (GCallback) nma_ws_changed_cb,
 	                  ws_8021x);
 
-	widget_row[0] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_label"));
-	widget_row[1] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_entry"));
+	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_username_entry"));
 	if (!method->username_requested)
-		hide_row (widget_row, 2);
+		gtk_widget_hide (widget);
 
-	widget_row[0] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_password_label"));
-	widget_row[1] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_password_entry"));
-	widget_row[2] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "show_checkbutton_eapsimple"));
+	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_password_entry"));
 	if (!method->password_requested)
-		hide_row (widget_row, 3);
+		gtk_widget_hide (widget);
 
-	widget_row[0] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_label"));
-	widget_row[1] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_entry"));
-	widget_row[2] = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_show_pkey_passphrase_checkbutton"));
+	widget = GTK_WIDGET (gtk_builder_get_object (parent->builder, "eap_simple_pkey_passphrase_entry"));
 	if (!method->pkey_passphrase_requested)
-		hide_row (widget_row, 3);
+		gtk_widget_hide (widget);
 
 	/* Initialize the UI fields with the security settings from method->ws_8021x.
 	 * This will be done again when the widget gets realized. It must be done here as well,

@@ -232,7 +232,6 @@ nma_vpn_password_dialog_set_show_password (NMAVpnPasswordDialog *dialog, gboolea
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_widget_set_visible (priv->password_label, show);
 	gtk_widget_set_visible (priv->password_entry, show);
 }
 
@@ -246,7 +245,6 @@ nma_vpn_password_dialog_set_show_password_secondary (NMAVpnPasswordDialog *dialo
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_widget_set_visible (priv->password_label_secondary, show);
 	gtk_widget_set_visible (priv->password_entry_secondary, show);
 }
 
@@ -260,7 +258,6 @@ nma_vpn_password_dialog_set_show_password_ternary (NMAVpnPasswordDialog *dialog,
 	g_return_if_fail (NMA_VPN_IS_PASSWORD_DIALOG (dialog));
 
 	priv = NMA_VPN_PASSWORD_DIALOG_GET_PRIVATE (dialog);
-	gtk_widget_set_visible (priv->password_label_tertiary, show);
 	gtk_widget_set_visible (priv->password_entry_tertiary, show);
 }
 

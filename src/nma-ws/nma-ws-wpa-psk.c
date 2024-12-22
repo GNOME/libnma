@@ -239,7 +239,6 @@ constructed (GObject *object)
 	 * supplicant when connecting to the AP.
 	 */
 	gtk_widget_hide (self->wpa_psk_type_combo);
-	gtk_widget_hide (self->wpa_psk_type_label);
 
 	G_OBJECT_CLASS (nma_ws_wpa_psk_parent_class)->constructed (object);
 }

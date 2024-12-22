@@ -352,7 +352,6 @@ constructed (GObject *object)
 	/* Key index is useless with adhoc networks */
 	if (is_adhoc || self->secrets_only) {
 		gtk_widget_hide (self->key_index_combo);
-		gtk_widget_hide (self->key_index_label);
 	}
 
 	/* Fill the key entry with the key for that index */
@@ -370,7 +369,6 @@ constructed (GObject *object)
 		if (is_adhoc)
 			gtk_combo_box_set_active (GTK_COMBO_BOX (self->auth_method_combo), 0);
 		gtk_widget_hide (self->auth_method_combo);
-		gtk_widget_hide (self->auth_method_label);
 	}
 
 	gtk_widget_grab_focus (self->wep_key_entry);

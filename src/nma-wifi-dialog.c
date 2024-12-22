@@ -369,9 +369,7 @@ connection_combo_changed (GtkWidget *combo,
 	}
 
 	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_entry")), is_new);
-	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_label")), is_new);
 	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_combo")), is_new);
-	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_combo_label")), is_new);
 	gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_vbox")), is_new);
 }
 
@@ -530,7 +528,6 @@ connection_combo_init (NMAWifiDialog *self)
 
 	g_signal_handlers_disconnect_by_func (widget, connection_combo_changed, self);
 	if (priv->specific_connection || !num_added) {
-		gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (priv->builder, "connection_label")));
 		gtk_widget_hide (widget);
 	} else {
 		g_signal_connect (widget, "changed",
@@ -642,7 +639,6 @@ device_combo_init (NMAWifiDialog *self, NMDevice *device)
 		g_signal_connect (G_OBJECT (widget), "changed",
 		                  G_CALLBACK (device_combo_changed), self);
 		if (num_added == 1) {
-			gtk_widget_hide (GTK_WIDGET (gtk_builder_get_object (priv->builder, "device_label")));
 			gtk_widget_hide (widget);
 		}
 		if (gtk_tree_model_get_iter_first (priv->device_model, &iter))
@@ -1147,9 +1143,6 @@ internal_init (NMAWifiDialog *self,
 
 	/* If given a valid connection, hide the SSID bits and connection combo */
 	if (specific_connection) {
-		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_label"));
-		gtk_widget_hide (widget);
-
 		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "network_name_entry"));
 		gtk_widget_hide (widget);
 
@@ -1184,8 +1177,6 @@ internal_init (NMAWifiDialog *self,
 
 	if (secrets_only) {
 		gtk_widget_hide (priv->sec_combo);
-		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "security_combo_label"));
-		gtk_widget_hide (widget);
 	}
 
 	if (security_combo_focus && !secrets_only)

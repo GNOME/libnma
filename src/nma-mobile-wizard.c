@@ -263,19 +263,15 @@ confirm_prepare (NMAMobileWizard *self)
 
 	if (priv->dev_desc) {
 		gtk_label_set_text (priv->confirm_device, priv->dev_desc);
-		gtk_widget_show (GTK_WIDGET (priv->confirm_device_label));
 		gtk_widget_show (GTK_WIDGET (priv->confirm_device));
 	} else {
-		gtk_widget_hide (GTK_WIDGET (priv->confirm_device_label));
 		gtk_widget_hide (GTK_WIDGET (priv->confirm_device));
 	}
 
 	if (priv->provider_only_cdma) {
-		gtk_widget_hide (GTK_WIDGET (priv->confirm_plan_label));
 		gtk_widget_hide (GTK_WIDGET (priv->confirm_plan));
 	} else {
 		/* Plan */
-		gtk_widget_show (GTK_WIDGET (priv->confirm_plan_label));
 		gtk_widget_show (GTK_WIDGET (priv->confirm_plan));
 
 		if (method)
@@ -1540,7 +1536,6 @@ nma_mobile_wizard_new (GtkWindow *parent,
 	if (priv->family) {
 		priv->initial_family = TRUE;  /* Skip device selection */
 	} else {
-		gtk_widget_show (GTK_WIDGET (priv->dev_combo_label));
 		gtk_widget_show (GTK_WIDGET (priv->dev_combo));
 	}
 

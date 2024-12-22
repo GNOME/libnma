@@ -220,7 +220,6 @@ constructed (GObject *object)
 	 * supplicant when connecting to the AP.
 	 */
 	gtk_widget_hide (self->sae_type_combo);
-	gtk_widget_hide (self->sae_type_label);
 
 	G_OBJECT_CLASS (nma_ws_sae_parent_class)->constructed (object);
 }

@@ -37,7 +37,7 @@
     <property name="column_spacing">6</property>
     <child>
       <object class="GtkLabel" id="eap_peap_anon_identity_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="eap_peap_anon_identity_entry" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">Anony_mous identity</property>
         <property name="use_underline">True</property>
@@ -78,7 +78,7 @@
     </child>
     <child>
       <object class="GtkLabel" id="eap_peap_version_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="eap_peap_version_combo" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">PEAP _version</property>
         <property name="use_underline">True</property>
@@ -110,7 +110,7 @@
     </child>
     <child>
       <object class="GtkLabel" id="eap_peap_inner_auth_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="eap_peap_inner_auth_combo" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">_Inner authentication</property>
         <property name="use_underline">True</property>
@@ -157,7 +157,7 @@
     </child>
     <child>
       <object class="GtkLabel" id="eap_peap_domain_label">
-        <property name="visible">True</property>
+        <property name="visible" bind-source="eap_peap_domain_entry" bind-property="visible" bind-flags="sync-create"/>
         <property name="can_focus">False</property>
         <property name="tooltip_text" translatable="yes">Suffix of the server certificate name.</property>
         <property name="label" translatable="yes">_Domain</property>

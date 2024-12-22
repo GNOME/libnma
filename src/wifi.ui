@@ -92,7 +92,8 @@
         </child>
         <child>
           <object class="GtkLabel" id="security_combo_label">
-            <property name="visible">True</property>
+            <property name="visible" bind-source="security_combo" bind-property="visible" bind-flags="sync-create"/>
+            <property name="sensitive" bind-source="security_combo" bind-property="sensitive" bind-flags="sync-create"/>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Wi-Fi _security</property>
             <property name="use_underline">True</property>
@@ -124,7 +125,8 @@
         </child>
         <child>
           <object class="GtkLabel" id="network_name_label">
-            <property name="visible">True</property>
+            <property name="visible" bind-source="network_name_entry" bind-property="visible" bind-flags="sync-create"/>
+            <property name="sensitive" bind-source="network_name_entry" bind-property="sensitive" bind-flags="sync-create"/>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">_Network name</property>
             <property name="use_underline">True</property>
@@ -149,7 +151,7 @@
         </child>
         <child>
           <object class="GtkLabel" id="connection_label">
-            <property name="visible">True</property>
+            <property name="visible" bind-source="connection_combo" bind-property="visible" bind-flags="sync-create"/>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">C_onnection</property>
             <property name="use_underline">True</property>
@@ -174,7 +176,7 @@
         </child>
         <child>
           <object class="GtkLabel" id="device_label">
-            <property name="visible">True</property>
+            <property name="visible" bind-source="device_combo" bind-property="visible" bind-flags="sync-create"/>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Wi-Fi _adapter</property>
             <property name="use_underline">True</property>
