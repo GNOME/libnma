@@ -8,6 +8,7 @@
 #include "nm-default.h"
 
 #include "nma-eap.h"
+#include "nma-ws-private.h"
 #include "nm-utils.h"
 #include "utils.h"
 
@@ -99,7 +100,8 @@ nma_eap_phase2_update_secrets_helper (NMAEap *method,
 }
 
 NMAEap *
-nma_eap_init (gsize obj_size,
+nma_eap_init (NMAWs *ws,
+              gsize obj_size,
               NMAEapValidateFunc validate,
               NMAEapAddToSizeGroupFunc add_to_size_group,
               NMAEapFillConnectionFunc fill_connection,
@@ -111,6 +113,9 @@ nma_eap_init (gsize obj_size,
               gboolean phase2)
 {
 	NMAEap *method;
+#if GTK_CHECK_VERSION(4,0,0)
+	GtkBuilderScope *scope;
+#endif
 	GError *error = NULL;
 
 	g_return_val_if_fail (obj_size > 0, NULL);
@@ -130,6 +135,18 @@ nma_eap_init (gsize obj_size,
 	method->phase2 = phase2;
 
 	method->builder = gtk_builder_new ();
+
+#if GTK_CHECK_VERSION(4,0,0)
+	scope = gtk_builder_cscope_new ();
+	gtk_builder_cscope_add_callback_symbol (GTK_BUILDER_CSCOPE (scope), "nma_ws_changed_cb", G_CALLBACK (nma_ws_changed_cb));
+	gtk_builder_set_scope (method->builder, scope);
+	g_object_unref (scope);
+#else
+	gtk_builder_add_callback_symbol (method->builder, "nma_ws_changed_cb", G_CALLBACK (nma_ws_changed_cb));
+#endif
+
+	gtk_builder_expose_object (method->builder, "NMAWs", G_OBJECT (ws));
+
 	if (!gtk_builder_add_from_resource (method->builder, ui_resource, &error)) {
 		g_warning ("Couldn't load UI builder resource %s: %s",
 		           ui_resource, error->message);

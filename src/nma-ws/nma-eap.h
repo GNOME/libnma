@@ -70,7 +70,8 @@ GType nma_eap_get_type (void);
 #include "nma-eap-peap.h"
 #include "nma-eap-simple.h"
 
-NMAEap *nma_eap_init (gsize obj_size,
+NMAEap *nma_eap_init (NMAWs *ws,
+                      gsize obj_size,
                       NMAEapValidateFunc validate,
                       NMAEapAddToSizeGroupFunc add_to_size_group,
                       NMAEapFillConnectionFunc fill_connection,

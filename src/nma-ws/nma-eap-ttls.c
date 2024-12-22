@@ -393,7 +393,8 @@ nma_eap_ttls_new (NMAWs8021x *ws_8021x,
 	NMSetting8021x *s_8021x = NULL;
 	gboolean ca_not_required = FALSE;
 
-	parent = nma_eap_init (sizeof (NMAEapTtls),
+	parent = nma_eap_init (NMA_WS (ws_8021x),
+	                       sizeof (NMAEapTtls),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,

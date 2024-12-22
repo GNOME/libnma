@@ -359,7 +359,8 @@ nma_eap_fast_new (NMAWs8021x *ws_8021x,
 	GFile *file;
 	gboolean provisioning_enabled = TRUE;
 
-	parent = nma_eap_init (sizeof (NMAEapFast),
+	parent = nma_eap_init (NMA_WS (ws_8021x),
+	                       sizeof (NMAEapFast),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,

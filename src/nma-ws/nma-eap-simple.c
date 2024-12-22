@@ -331,7 +331,8 @@ nma_eap_simple_new (NMAWs8021x *ws_8021x,
 	GtkWidget *widget;
 	NMSetting8021x *s_8021x = NULL;
 
-	parent = nma_eap_init (sizeof (NMAEapSimple),
+	parent = nma_eap_init (NMA_WS (ws_8021x),
+	                       sizeof (NMAEapSimple),
 	                       validate,
 	                       add_to_size_group,
 	                       fill_connection,
