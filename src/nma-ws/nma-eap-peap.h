@@ -8,6 +8,10 @@
 #ifndef NMA_EAP_PEAP_H
 #define NMA_EAP_PEAP_H
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <glib.h>
 #include <NetworkManager.h>
 

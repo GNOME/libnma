@@ -9,6 +9,10 @@
 #ifndef __NMA_PRIVATE_H__
 #define __NMA_PRIVATE_H__
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #if !GTK_CHECK_VERSION(4,0,0)
 #define gtk_editable_set_text(editable,text)		gtk_entry_set_text(GTK_ENTRY(editable), (text))
 #define gtk_editable_get_text(editable)			gtk_entry_get_text(GTK_ENTRY(editable))

@@ -9,6 +9,10 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <net/ethernet.h>
 
 gboolean utils_ether_addr_valid (const struct ether_addr *test_addr);

@@ -9,6 +9,10 @@
 #ifndef __NMA_CERT_CHOOSER_BUTTON_H__
 #define __NMA_CERT_CHOOSER_BUTTON_H__
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <gtk/gtk.h>
 
 /**

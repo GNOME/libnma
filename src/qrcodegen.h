@@ -23,6 +23,10 @@
 
 #pragma once
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
