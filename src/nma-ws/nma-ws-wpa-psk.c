@@ -25,8 +25,6 @@ struct _NMAWsWpaPsk {
 
 	GtkWidget *wpa_psk_entry;
 	GtkWidget *wpa_psk_label;
-	GtkWidget *wpa_psk_type_combo;
-	GtkWidget *wpa_psk_type_label;
 
 	NMConnection *connection;
 	gboolean secrets_only;
@@ -90,7 +88,6 @@ add_to_size_group (NMAWs *ws, GtkSizeGroup *group)
 {
 	NMAWsWpaPsk *self = NMA_WS_WPA_PSK (ws);
 
-	gtk_size_group_add_widget (group, self->wpa_psk_type_label);
 	gtk_size_group_add_widget (group, self->wpa_psk_label);
 }
 
@@ -235,11 +232,6 @@ constructed (GObject *object)
 
 	gtk_widget_grab_focus (self->wpa_psk_entry);
 
-	/* Hide WPA/RSN for now since this can be autodetected by NM and the
-	 * supplicant when connecting to the AP.
-	 */
-	gtk_widget_hide (self->wpa_psk_type_combo);
-
 	G_OBJECT_CLASS (nma_ws_wpa_psk_parent_class)->constructed (object);
 }
 
@@ -284,8 +276,6 @@ nma_ws_wpa_psk_class_init (NMAWsWpaPskClass *klass)
 
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWpaPsk, wpa_psk_entry);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsWpaPsk, wpa_psk_label);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsWpaPsk, wpa_psk_type_combo);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsWpaPsk, wpa_psk_type_label);
 
 	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
 }

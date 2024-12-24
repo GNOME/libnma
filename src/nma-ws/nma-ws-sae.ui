@@ -38,20 +38,6 @@
       </packing>
     </child>
     <child>
-      <object class="GtkLabel" id="sae_type_label">
-        <property name="visible" bind-source="sae_type_combo" bind-property="visible" bind-flags="sync-create"/>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">_Type</property>
-        <property name="use_underline">True</property>
-        <property name="mnemonic_widget">sae_type_combo</property>
-        <property name="xalign">1</property>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">2</property>
-      </packing>
-    </child>
-    <child>
       <object class="GtkCheckButton" id="show_checkbutton_sae">
         <property name="label" translatable="yes">Sho_w password</property>
         <property name="visible">True</property>
@@ -64,16 +50,6 @@
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkComboBox" id="sae_type_combo">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-      <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">2</property>
       </packing>
     </child>
     <child>

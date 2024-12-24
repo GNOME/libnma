@@ -20,8 +20,6 @@ struct _NMAWsSae {
 
 	GtkWidget *psk_entry;
 	GtkWidget *sae_label;
-	GtkWidget *sae_type_combo;
-	GtkWidget *sae_type_label;
 
 	NMConnection *connection;
 	gboolean secrets_only;
@@ -71,7 +69,6 @@ add_to_size_group (NMAWs *ws, GtkSizeGroup *group)
 {
 	NMAWsSae *self = NMA_WS_SAE (ws);
 
-	gtk_size_group_add_widget (group, self->sae_type_label);
 	gtk_size_group_add_widget (group, self->sae_label);
 }
 
@@ -216,11 +213,6 @@ constructed (GObject *object)
 
 	gtk_widget_grab_focus (self->psk_entry);
 
-	/* Hide WPA/RSN for now since this can be autodetected by NM and the
-	 * supplicant when connecting to the AP.
-	 */
-	gtk_widget_hide (self->sae_type_combo);
-
 	G_OBJECT_CLASS (nma_ws_sae_parent_class)->constructed (object);
 }
 
@@ -265,8 +257,6 @@ nma_ws_sae_class_init (NMAWsSaeClass *klass)
 
 	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, psk_entry);
 	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_label);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_combo);
-	gtk_widget_class_bind_template_child (widget_class, NMAWsSae, sae_type_label);
 
 	gtk_widget_class_bind_template_callback (widget_class, nma_ws_changed_cb);
 }
