@@ -111,8 +111,6 @@ static guint signals[LAST_SIGNAL] = { 0 };
 G_DEFINE_TYPE_WITH_CODE (NMACertChooser, nma_cert_chooser, GTK_TYPE_GRID,
                          G_ADD_PRIVATE (NMACertChooser))
 
-#define NMA_CERT_CHOOSER_GET_PRIVATE(self) nma_cert_chooser_get_instance_private((NMACertChooser*)(self))
-
 static gboolean
 accu_validation_error (GSignalInvocationHint *ihint,
                        GValue *return_accu,
@@ -174,10 +172,9 @@ void
 nma_cert_chooser_set_cert_uri (NMACertChooser *cert_chooser,
                                const gchar *uri)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	if (uri == NULL || g_str_has_prefix (uri, NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PATH)) {
 		gtk_widget_set_sensitive (priv->cert_password, FALSE);
@@ -233,10 +230,9 @@ nma_cert_chooser_set_cert (NMACertChooser *cert_chooser,
 gchar *
 nma_cert_chooser_get_cert_uri (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser), NULL);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	return g_strdup (nma_cert_chooser_button_get_uri (NMA_CERT_CHOOSER_BUTTON (priv->cert_button)));
 }
@@ -275,11 +271,10 @@ nma_cert_chooser_get_cert (NMACertChooser *cert_chooser, NMSetting8021xCKScheme 
 void
 nma_cert_chooser_set_cert_password (NMACertChooser *cert_chooser, const gchar *password)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 	g_return_if_fail (password);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	g_return_if_fail (priv->cert_password != NULL);
 	if (password)
@@ -299,11 +294,10 @@ nma_cert_chooser_set_cert_password (NMACertChooser *cert_chooser, const gchar *p
 const gchar *
 nma_cert_chooser_get_cert_password (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	const gchar *text;
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser), NULL);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	g_return_val_if_fail (priv->cert_password != NULL, NULL);
 	text = gtk_editable_get_text (GTK_EDITABLE (priv->cert_password));
@@ -324,10 +318,9 @@ void
 nma_cert_chooser_set_key_uri (NMACertChooser *cert_chooser,
                               const gchar *uri)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	if (uri) {
 		gtk_widget_set_sensitive (priv->key_button, TRUE);
@@ -405,10 +398,9 @@ nma_cert_chooser_get_key (NMACertChooser *cert_chooser, NMSetting8021xCKScheme *
 gchar *
 nma_cert_chooser_get_key_uri (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser), NULL);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	return g_strdup (nma_cert_chooser_button_get_uri (NMA_CERT_CHOOSER_BUTTON (priv->key_button)));
 }
@@ -425,11 +417,10 @@ nma_cert_chooser_get_key_uri (NMACertChooser *cert_chooser)
 void
 nma_cert_chooser_set_key_password (NMACertChooser *cert_chooser, const gchar *password)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 	g_return_if_fail (password);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	g_return_if_fail (priv->key_password != NULL);
 	if (password)
@@ -449,11 +440,10 @@ nma_cert_chooser_set_key_password (NMACertChooser *cert_chooser, const gchar *pa
 const gchar *
 nma_cert_chooser_get_key_password (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	const gchar *text;
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser), NULL);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	g_return_val_if_fail (priv->key_password != NULL, NULL);
 	text = gtk_editable_get_text (GTK_EDITABLE (priv->key_password));
@@ -477,10 +467,9 @@ nma_cert_chooser_get_key_password (NMACertChooser *cert_chooser)
 void
 nma_cert_chooser_add_to_size_group (NMACertChooser *cert_chooser, GtkSizeGroup *group)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	gtk_size_group_add_widget (group, priv->cert_button_label);
 	gtk_size_group_add_widget (group, priv->cert_password_label);
@@ -504,11 +493,10 @@ nma_cert_chooser_add_to_size_group (NMACertChooser *cert_chooser, GtkSizeGroup *
 gboolean
 nma_cert_chooser_validate (NMACertChooser *cert_chooser, GError **error)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	GError *local = NULL;
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser), TRUE);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	if (!nma_cert_chooser_button_get_uri (NMA_CERT_CHOOSER_BUTTON (priv->cert_button))) {
 		g_set_error_literal (error, NMA_ERROR, NMA_ERROR_GENERIC, _("No certificate set"));
@@ -583,10 +571,9 @@ nma_cert_chooser_setup_cert_password_storage (NMACertChooser *cert_chooser,
                                               gboolean with_not_required,
                                               gboolean ask_mode)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	nma_utils_setup_password_storage (priv->cert_password,
 	                                  initial_flags,
@@ -614,10 +601,9 @@ nma_cert_chooser_update_cert_password_storage (NMACertChooser *cert_chooser,
                                                NMSetting *setting,
                                                const char *password_flags_name)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	nma_utils_update_password_storage (priv->cert_password,
 	                                   secret_flags,
@@ -641,11 +627,10 @@ nma_cert_chooser_update_cert_password_storage (NMACertChooser *cert_chooser,
 NMSettingSecretFlags
 nma_cert_chooser_get_cert_password_flags (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser),
 	                      NM_SETTING_SECRET_FLAG_NONE);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	return nma_utils_menu_to_secret_flags (priv->cert_password);
 }
@@ -672,10 +657,9 @@ nma_cert_chooser_setup_key_password_storage (NMACertChooser *cert_chooser,
                                              gboolean with_not_required,
                                              gboolean ask_mode)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	nma_utils_setup_password_storage (priv->key_password,
 	                                  initial_flags,
@@ -703,10 +687,9 @@ nma_cert_chooser_update_key_password_storage (NMACertChooser *cert_chooser,
                                                NMSetting *setting,
                                                const char *password_flags_name)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	nma_utils_update_password_storage (priv->key_password,
 	                                   secret_flags,
@@ -730,11 +713,10 @@ nma_cert_chooser_update_key_password_storage (NMACertChooser *cert_chooser,
 NMSettingSecretFlags
 nma_cert_chooser_get_key_password_flags (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv;
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_val_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser),
 	                      NM_SETTING_SECRET_FLAG_NONE);
-	priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
 
 	return nma_utils_menu_to_secret_flags (priv->key_password);
 }
@@ -742,7 +724,8 @@ nma_cert_chooser_get_key_password_flags (NMACertChooser *cert_chooser)
 static void
 cert_changed_cb (NMACertChooserButton *button, gpointer user_data)
 {
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
+	NMACertChooser *cert_chooser = NMA_CERT_CHOOSER (user_data);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	GckUriData *uri_data;
 	gchar *pin = NULL;
 	const gchar *uri;
@@ -799,7 +782,8 @@ key_password_changed_cb (GtkEntry *entry, gpointer user_data)
 static void
 key_changed_cb (NMACertChooserButton *button, gpointer user_data)
 {
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (NMA_CERT_CHOOSER (user_data));
+	NMACertChooser *cert_chooser = NMA_CERT_CHOOSER (user_data);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	gchar *pin = NULL;
 
 	if (nma_cert_chooser_button_get_remember_pin (button))
@@ -818,7 +802,7 @@ static void
 constructed (GObject *object)
 {
 	NMACertChooser *cert_chooser = NMA_CERT_CHOOSER (object);
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 	NMACertChooserButtonFlags button_flags = NMA_CERT_CHOOSER_BUTTON_FLAG_NONE;
 	gs_free gchar *mnemonic_escaped = NULL;
 	gchar *text;
@@ -937,7 +921,7 @@ static void
 set_property (GObject *object, guint property_id, const GValue *value, GParamSpec *pspec)
 {
 	NMACertChooser *cert_chooser = NMA_CERT_CHOOSER (object);
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	g_return_if_fail (NMA_IS_CERT_CHOOSER (cert_chooser));
 
@@ -957,7 +941,8 @@ set_property (GObject *object, guint property_id, const GValue *value, GParamSpe
 static void
 dispose (GObject *object)
 {
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (object);
+	NMACertChooser *cert_chooser = NMA_CERT_CHOOSER (object);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	nm_clear_g_free (&priv->title);
 
@@ -1100,7 +1085,7 @@ nma_cert_chooser_class_init (NMACertChooserClass *klass)
 static void
 nma_cert_chooser_init (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv = NMA_CERT_CHOOSER_GET_PRIVATE (cert_chooser);
+	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
 
 	gtk_grid_insert_column (GTK_GRID (cert_chooser), 2);
 	gtk_grid_set_row_spacing (GTK_GRID (cert_chooser), 6);
