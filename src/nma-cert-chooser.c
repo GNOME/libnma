@@ -108,9 +108,10 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE (NMACertChooser, nma_cert_chooser, GTK_TYPE_GRID)
+G_DEFINE_TYPE_WITH_CODE (NMACertChooser, nma_cert_chooser, GTK_TYPE_GRID,
+                         G_ADD_PRIVATE (NMACertChooser))
 
-#define NMA_CERT_CHOOSER_GET_PRIVATE(self) _NM_GET_PRIVATE (self, NMACertChooser, NMA_IS_CERT_CHOOSER)
+#define NMA_CERT_CHOOSER_GET_PRIVATE(self) nma_cert_chooser_get_instance_private((NMACertChooser*)(self))
 
 static gboolean
 accu_validation_error (GSignalInvocationHint *ihint,
@@ -967,8 +968,6 @@ static void
 nma_cert_chooser_class_init (NMACertChooserClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-	g_type_class_add_private (object_class, sizeof (NMACertChooserPrivate));
 
 	object_class->constructed = constructed;
 	object_class->set_property = set_property;
