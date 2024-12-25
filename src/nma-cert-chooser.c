@@ -178,12 +178,9 @@ nma_cert_chooser_set_cert_uri (NMACertChooser *cert_chooser,
 
 	if (uri == NULL || g_str_has_prefix (uri, NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PATH)) {
 		gtk_widget_set_sensitive (priv->cert_password, FALSE);
-		gtk_widget_set_sensitive (priv->cert_password_label, FALSE);
 	} else if (g_str_has_prefix (uri, NM_SETTING_802_1X_CERT_SCHEME_PREFIX_PKCS11)) {
 		gtk_widget_set_sensitive (priv->cert_password, TRUE);
-		gtk_widget_set_sensitive (priv->cert_password_label, TRUE);
 		gtk_widget_show (priv->cert_password);
-		gtk_widget_show (priv->cert_password_label);
 		gtk_widget_show (priv->show_password);
 	} else {
 		g_warning ("The certificate '%s' uses an unknown scheme\n", uri);
@@ -324,15 +321,11 @@ nma_cert_chooser_set_key_uri (NMACertChooser *cert_chooser,
 
 	if (uri) {
 		gtk_widget_set_sensitive (priv->key_button, TRUE);
-		gtk_widget_set_sensitive (priv->key_button_label, TRUE);
 		gtk_widget_set_sensitive (priv->key_password, TRUE);
-		gtk_widget_set_sensitive (priv->key_password_label, TRUE);
 		gtk_widget_show (priv->key_password);
-		gtk_widget_show (priv->key_password_label);
 		gtk_widget_show (priv->show_password);
 	} else {
 		gtk_widget_set_sensitive (priv->key_password, FALSE);
-		gtk_widget_set_sensitive (priv->key_password_label, FALSE);
 		nma_cert_chooser_set_cert_password (cert_chooser, "");
 	}
 
@@ -741,18 +734,15 @@ cert_changed_cb (NMACertChooserButton *button, gpointer user_data)
 		gtk_editable_set_text (GTK_EDITABLE (priv->cert_password), pin);
 
 	gtk_widget_set_sensitive (priv->cert_password, uri_data != NULL);
-	gtk_widget_set_sensitive (priv->cert_password_label, uri_data != NULL);
 
 	if (!gtk_widget_get_sensitive (priv->key_button)) {
 		gtk_widget_set_sensitive (priv->key_button, TRUE);
-		gtk_widget_set_sensitive (priv->key_button_label, TRUE);
 
 		if (uri_data) {
 			/* URI that is good both for a certificate and for a key. */
 			if (!gck_attributes_find (uri_data->attributes, CKA_CLASS)) {
 				nma_cert_chooser_button_set_uri (NMA_CERT_CHOOSER_BUTTON (priv->key_button), uri);
 				gtk_widget_set_sensitive (priv->key_password, TRUE);
-				gtk_widget_set_sensitive (priv->key_password_label, TRUE);
 				if (pin)
 					gtk_editable_set_text (GTK_EDITABLE (priv->key_password), pin);
 			}
@@ -794,7 +784,6 @@ key_changed_cb (NMACertChooserButton *button, gpointer user_data)
 	}
 
 	gtk_widget_set_sensitive (priv->key_password, TRUE);
-	gtk_widget_set_sensitive (priv->key_password_label, TRUE);
 	g_signal_emit_by_name (user_data, "changed");
 }
 
@@ -821,6 +810,12 @@ constructed (GObject *object)
 
 	priv->cert_button = nma_cert_chooser_button_new (button_flags);
 	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->cert_button_label), priv->cert_button);
+	g_object_bind_property (priv->cert_button, "visible",
+	                        priv->cert_button_label, "visible",
+	                        G_BINDING_SYNC_CREATE);
+	g_object_bind_property (priv->cert_button, "sensitive",
+	                        priv->cert_button_label, "sensitive",
+	                        G_BINDING_SYNC_CREATE);
 
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_button, 1, 0, 1, 1);
 	gtk_widget_set_hexpand (priv->cert_button, TRUE);
@@ -847,6 +842,12 @@ constructed (GObject *object)
 	priv->key_button = nma_cert_chooser_button_new (button_flags |
 							NMA_CERT_CHOOSER_BUTTON_FLAG_KEY);
 	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->key_button_label), priv->key_button);
+	g_object_bind_property (priv->key_button, "visible",
+	                        priv->key_button_label, "visible",
+	                        G_BINDING_SYNC_CREATE);
+	g_object_bind_property (priv->key_button, "sensitive",
+	                        priv->key_button_label, "sensitive",
+	                        G_BINDING_SYNC_CREATE);
 
 	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_button, 1, 2, 1, 1);
 	gtk_widget_set_hexpand (priv->key_button, TRUE);
@@ -873,48 +874,36 @@ constructed (GObject *object)
 
 	if (priv->flags & NMA_CERT_CHOOSER_FLAG_CERT) {
 		gtk_widget_hide (priv->key_button);
-		gtk_widget_hide (priv->key_button_label);
 		gtk_widget_hide (priv->key_password);
-		gtk_widget_hide (priv->key_password_label);
 	}
 
 	if (priv->flags & NMA_CERT_CHOOSER_FLAG_PASSWORDS) {
 		gtk_widget_hide (priv->cert_button);
-		gtk_widget_hide (priv->cert_button_label);
 		gtk_widget_hide (priv->key_button);
-		gtk_widget_hide (priv->key_button_label);
 
 		/* With FLAG_PASSWORDS the user can't pick a different key or a
 		 * certificate, so there's no point in showing inactive password
 		 * inputs. */
 		if (!gtk_widget_get_sensitive (priv->cert_password)) {
 			gtk_widget_hide (priv->cert_password);
-			gtk_widget_hide (priv->cert_password_label);
 		}
 		if (!gtk_widget_get_sensitive (priv->key_password)) {
 			gtk_widget_hide (priv->key_password);
-			gtk_widget_hide (priv->key_password_label);
-		}
-		if (   !gtk_widget_get_visible (priv->cert_password)
-		    && !gtk_widget_get_visible (priv->key_password)) {
-			gtk_widget_hide (priv->show_password);
 		}
 	}
 
 	if (priv->flags & NMA_CERT_CHOOSER_FLAG_PEM) {
 		gtk_widget_hide (priv->cert_password);
-		gtk_widget_hide (priv->cert_password_label);
-		if (priv->flags & NMA_CERT_CHOOSER_FLAG_CERT)
-			gtk_widget_hide (priv->show_password);
 	}
 
 	if (priv->flags & NMA_CERT_CHOOSER_FLAG_NO_PASSWORDS) {
 		gtk_widget_hide (priv->cert_password);
-		gtk_widget_hide (priv->cert_password_label);
 		gtk_widget_hide (priv->key_password);
-		gtk_widget_hide (priv->key_password_label);
-		gtk_widget_hide (priv->show_password);
 	}
+
+	gtk_widget_set_visible (priv->show_password,
+	                        gtk_widget_get_visible (priv->cert_password) ||
+	                        gtk_widget_get_visible (priv->key_password));
 }
 
 static void
@@ -953,6 +942,7 @@ static void
 nma_cert_chooser_class_init (NMACertChooserClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	object_class->constructed = constructed;
 	object_class->set_property = set_property;
@@ -1080,97 +1070,25 @@ nma_cert_chooser_class_init (NMACertChooserClass *klass)
 	                                 NULL, NULL, NULL,
 	                                 G_TYPE_NONE, 0);
 
+	gtk_widget_class_set_template_from_resource (widget_class,
+	                                             "/org/gnome/libnma/nma-cert-chooser.ui");
+
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, cert_button_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, cert_password);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, cert_password_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, key_button_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, key_password);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, key_password_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMACertChooser, show_password);
+
+	gtk_widget_class_bind_template_callback (widget_class, cert_password_changed_cb);
+	gtk_widget_class_bind_template_callback (widget_class, key_password_changed_cb);
 }
 
 static void
 nma_cert_chooser_init (NMACertChooser *cert_chooser)
 {
-	NMACertChooserPrivate *priv = nma_cert_chooser_get_instance_private (cert_chooser);
-
-	gtk_grid_insert_column (GTK_GRID (cert_chooser), 2);
-	gtk_grid_set_row_spacing (GTK_GRID (cert_chooser), 6);
-	gtk_grid_set_column_spacing (GTK_GRID (cert_chooser), 6);
-
-	/* Show password row */
-
-	gtk_grid_insert_row (GTK_GRID (cert_chooser), 0);
-	priv->show_password = gtk_check_button_new_with_mnemonic _("Sho_w passwords");
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->show_password, 1, 2, 1, 1);
-	gtk_widget_show (priv->show_password);
-	gtk3_widget_set_no_show_all (priv->show_password, TRUE);
-
-	/* The key chooser row */
-
-	gtk_grid_insert_row (GTK_GRID (cert_chooser), 0);
-
-	priv->key_button_label = gtk_label_new (NULL);
-	g_object_set (priv->key_button_label, "xalign", (gfloat) 1, NULL);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_button_label, 0, 0, 1, 1);
-	gtk_widget_set_sensitive (priv->key_button_label, FALSE);
-	gtk_widget_show (priv->key_button_label);
-	gtk3_widget_set_no_show_all (priv->key_button_label, TRUE);
-
-	/* The key password entry row */
-
-	gtk_grid_insert_row (GTK_GRID (cert_chooser), 1);
-
-	priv->key_password = gtk_entry_new ();
-	gtk_entry_set_visibility (GTK_ENTRY (priv->key_password), FALSE);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_password, 1, 1, 1, 1);
-	gtk_widget_set_hexpand (priv->key_password, TRUE);
-	gtk_widget_set_sensitive (priv->key_password, FALSE);
-	gtk_widget_show (priv->key_password);
-	gtk3_widget_set_no_show_all (priv->key_password, TRUE);
-	g_object_bind_property (priv->show_password, "active",
-	                        priv->key_password, "visibility",
-	                        G_BINDING_SYNC_CREATE);
-
-	g_signal_connect (priv->key_password, "changed",
-	                  G_CALLBACK (key_password_changed_cb), cert_chooser);
-
-	priv->key_password_label = gtk_label_new (NULL);
-	g_object_set (priv->key_password_label, "xalign", (gfloat) 1, NULL);
-	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->key_password_label), priv->key_password);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->key_password_label, 0, 1, 1, 1);
-	gtk_widget_set_sensitive (priv->key_password_label, FALSE);
-	gtk_widget_show (priv->key_password_label);
-	gtk3_widget_set_no_show_all (priv->key_password_label, TRUE);
-
-	/* The certificate chooser row */
-
-	gtk_grid_insert_row (GTK_GRID (cert_chooser), 0);
-
-	priv->cert_button_label = gtk_label_new (NULL);
-	g_object_set (priv->cert_button_label, "xalign", (gfloat) 1, NULL);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_button_label, 0, 0, 1, 1);
-	gtk_widget_show (priv->cert_button_label);
-	gtk3_widget_set_no_show_all (priv->cert_button_label, TRUE);
-
-	/* The cert password entry row */
-
-	gtk_grid_insert_row (GTK_GRID (cert_chooser), 1);
-
-	priv->cert_password = gtk_entry_new ();
-	gtk_entry_set_visibility (GTK_ENTRY (priv->cert_password), FALSE);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_password, 1, 1, 1, 1);
-	gtk_widget_set_hexpand (priv->cert_password, TRUE);
-	gtk_widget_set_sensitive (priv->cert_password, FALSE);
-	gtk_widget_show (priv->cert_password);
-	gtk3_widget_set_no_show_all (priv->cert_password, TRUE);
-	g_object_bind_property (priv->show_password, "active",
-	                        priv->cert_password, "visibility",
-	                        G_BINDING_SYNC_CREATE);
-
-	g_signal_connect (priv->cert_password, "changed",
-	                  G_CALLBACK (cert_password_changed_cb), cert_chooser);
-
-	priv->cert_password_label = gtk_label_new (NULL);
-	g_object_set (priv->cert_password_label, "xalign", (gfloat) 1, NULL);
-	gtk_label_set_mnemonic_widget (GTK_LABEL (priv->cert_password_label), priv->cert_password);
-	gtk_grid_attach (GTK_GRID (cert_chooser), priv->cert_password_label, 0, 1, 1, 1);
-	gtk_widget_set_sensitive (priv->cert_password_label, FALSE);
-	gtk_widget_show (priv->cert_password_label);
-	gtk3_widget_set_no_show_all (priv->cert_password_label, TRUE);
+	gtk_widget_init_template (GTK_WIDGET (cert_chooser));
 }
 
 /**

@@ -162,6 +162,7 @@ EXTRA_DIST += \
 	src/libnma-gtk4/nma-ws/nma-eap-peap.ui \
 	src/libnma-gtk4/nma-ws/nma-eap-ttls.ui \
 	src/libnma-gtk4/nma-ws/nma-ws-sae.ui \
+	src/libnma-gtk4/nma-cert-chooser.ui \
 	src/libnma-gtk4/nma-pkcs11-token-login-dialog.ui \
 	src/libnma-gtk4/nma-vpn-password-dialog.ui \
 	src/libnma-gtk4/nma-pkcs11-cert-chooser-dialog.ui \
@@ -730,6 +731,7 @@ EXTRA_DIST += \
 	src/wifi.ui \
 	src/nma-mobile-wizard.ui \
 	src/nma-bar-code-widget.ui \
+	src/nma-cert-chooser.ui \
 	src/nma-pkcs11-token-login-dialog.ui \
 	src/nma-pkcs11-cert-chooser-dialog.ui \
 	src/nma-vpn-password-dialog.ui \

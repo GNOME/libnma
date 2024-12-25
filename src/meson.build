@@ -19,6 +19,7 @@ subdir('nma-ws')
 
 resource_data = nma_ws_resource_data + files(
   'nma-bar-code-widget.ui',
+  'nma-cert-chooser.ui',
   'nma-mobile-wizard.ui',
   'nma-pkcs11-cert-chooser-dialog.ui',
   'nma-pkcs11-token-login-dialog.ui',
