@@ -1050,11 +1050,28 @@ revalidate (gpointer user_data)
 }
 
 static void
+set_text (NMAWifiDialog *self,
+          const gchar   *dialog_title,
+          const gchar   *header_title,
+          const gchar   *header_description)
+{
+	NMAWifiDialogPrivate *priv = nma_wifi_dialog_get_instance_private (self);
+	gchar *label;
+
+	gtk_window_set_title (GTK_WINDOW (self), dialog_title);
+	label = g_markup_printf_escaped ("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s",
+	                                 header_title,
+	                                 header_description);
+	gtk_label_set_markup (GTK_LABEL (priv->caption_label), label);
+	g_free (label);
+}
+
+static void
 constructed (GObject *object)
 {
 	NMAWifiDialog *self = NMA_WIFI_DIALOG (object);
 	NMAWifiDialogPrivate *priv = nma_wifi_dialog_get_instance_private (self);
-	char *label, *icon_name = "network-wireless";
+	const char *icon_name = "network-wireless";
 	gboolean security_combo_focus = FALSE;
 
 	gtk_window_set_default_size (GTK_WINDOW (self), 488, -1);
@@ -1131,27 +1148,24 @@ constructed (GObject *object)
 
 		tmp = g_strdup_printf (_("Passwords or encryption keys are required to access the Wi-Fi network “%s”."),
 		                       esc_ssid ? esc_ssid : "<unknown>");
-		gtk_window_set_title (GTK_WINDOW (self), _("Wi-Fi Network Authentication Required"));
-		label = g_markup_printf_escaped ("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s",
-		                                 _("Authentication required by Wi-Fi network"),
-		                                 tmp);
+		set_text (self,
+		          _("Wi-Fi Network Authentication Required"),
+		          _("Authentication required by Wi-Fi network"),
+		          tmp);
 		g_free (esc_ssid);
 		g_free (tmp);
 	} else if (priv->operation == OP_CREATE_ADHOC) {
-		gtk_window_set_title (GTK_WINDOW (self), _("Create New Wi-Fi Network"));
-		label = g_strdup_printf ("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s",
-		                         _("New Wi-Fi network"),
-		                         _("Enter a name for the Wi-Fi network you wish to create."));
+		set_text (self,
+		          _("Create New Wi-Fi Network"),
+		          _("New Wi-Fi network"),
+		          _("Enter a name for the Wi-Fi network you wish to create."));
 	} else if (priv->operation == OP_CONNECT_HIDDEN) {
-		gtk_window_set_title (GTK_WINDOW (self), _("Connect to Hidden Wi-Fi Network"));
-		label = g_strdup_printf ("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s",
-		                         _("Hidden Wi-Fi network"),
-		                         _("Enter the name and security details of the hidden Wi-Fi network you wish to connect to."));
+		set_text (self,
+		          _("Connect to Hidden Wi-Fi Network"),
+		          _("Hidden Wi-Fi network"),
+		          _("Enter the name and security details of the hidden Wi-Fi network you wish to connect to."));
 	} else
 		g_assert_not_reached ();
-
-	gtk_label_set_markup (GTK_LABEL (priv->caption_label), label);
-	g_free (label);
 
 	/* Re-validate from an idle handler so that widgets like file choosers
 	 * have had time to find their files.
