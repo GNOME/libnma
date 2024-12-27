@@ -24,7 +24,7 @@ resource_data = nma_ws_resource_data + files(
   'nma-pkcs11-cert-chooser-dialog.ui',
   'nma-pkcs11-token-login-dialog.ui',
   'nma-vpn-password-dialog.ui',
-  'wifi.ui'
+  'nma-wifi-dialog.ui'
 )
 
 built_sources = gnome.compile_resources(

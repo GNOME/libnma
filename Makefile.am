@@ -166,7 +166,7 @@ EXTRA_DIST += \
 	src/libnma-gtk4/nma-pkcs11-token-login-dialog.ui \
 	src/libnma-gtk4/nma-vpn-password-dialog.ui \
 	src/libnma-gtk4/nma-pkcs11-cert-chooser-dialog.ui \
-	src/libnma-gtk4/wifi.ui
+	src/libnma-gtk4/nma-wifi-dialog.ui
 
 CLEANFILES += \
 	$(libnma_h_priv_gen) \
@@ -728,13 +728,13 @@ EXTRA_DIST += \
 	src/libnma.ver \
 	src/libnma-gtk4.deps \
 	src/libnma.deps \
-	src/wifi.ui \
 	src/nma-mobile-wizard.ui \
 	src/nma-bar-code-widget.ui \
 	src/nma-cert-chooser.ui \
 	src/nma-pkcs11-token-login-dialog.ui \
 	src/nma-pkcs11-cert-chooser-dialog.ui \
 	src/nma-vpn-password-dialog.ui \
+	src/nma-wifi-dialog.ui \
 	src/nma.gresource.xml \
 	src/meson.build \
 	src/tests/meson.build \

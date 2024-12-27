@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
 	<gresource prefix="/org/gnome/libnma">
-		<file preprocess="xml-stripblanks">wifi.ui</file>
 		<file preprocess="xml-stripblanks">nma-cert-chooser.ui</file>
 		<file preprocess="xml-stripblanks">nma-pkcs11-token-login-dialog.ui</file>
 		<file preprocess="xml-stripblanks">nma-pkcs11-cert-chooser-dialog.ui</file>
 		<file preprocess="xml-stripblanks">nma-mobile-wizard.ui</file>
 		<file preprocess="xml-stripblanks">nma-vpn-password-dialog.ui</file>
+		<file preprocess="xml-stripblanks">nma-wifi-dialog.ui</file>
 		<file preprocess="xml-stripblanks">nma-bar-code-widget.ui</file>
                 <file preprocess="xml-stripblanks" alias="nma-ws-802-1x.ui">nma-ws/nma-ws-802-1x.ui</file>
                 <file preprocess="xml-stripblanks" alias="nma-ws-leap.ui">nma-ws/nma-ws-leap.ui</file>

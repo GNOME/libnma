@@ -18,6 +18,7 @@ src/nma-ui-utils.c
 src/nma-vpn-password-dialog.c
 src/nma-vpn-password-dialog.ui
 src/nma-wifi-dialog.c
+src/nma-wifi-dialog.ui
 src/nma-ws/nma-eap-fast.c
 src/nma-ws/nma-eap-fast.ui
 src/nma-ws/nma-eap-leap.c
@@ -46,4 +47,3 @@ src/nma-ws/nma-ws-wpa-psk.c
 src/nma-ws/nma-ws-wpa-psk.ui
 src/nma-ws/nma-ws.c
 src/utils/utils.c
-src/wifi.ui
