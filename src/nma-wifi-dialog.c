@@ -16,12 +16,6 @@
 #include "nma-ws.h"
 #include "nma-eap.h"
 
-G_DEFINE_TYPE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG)
-
-#define NMA_WIFI_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
-                                        NMA_TYPE_WIFI_DIALOG, \
-                                        NMAWifiDialogPrivate))
-
 typedef struct {
 	NMAWifiDialog *self;
 	NMConnection *connection;
@@ -55,6 +49,11 @@ typedef struct {
 
 	NMAWs *ws;
 } NMAWifiDialogPrivate;
+
+G_DEFINE_TYPE_WITH_CODE (NMAWifiDialog, nma_wifi_dialog, GTK_TYPE_DIALOG,
+                         G_ADD_PRIVATE (NMAWifiDialog))
+
+#define NMA_WIFI_DIALOG_GET_PRIVATE(self) nma_wifi_dialog_get_instance_private((NMAWifiDialog*)(self))
 
 enum {
 	OP_NONE = 0,
@@ -1554,8 +1553,6 @@ static void
 nma_wifi_dialog_class_init (NMAWifiDialogClass *nmad_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (nmad_class);
-
-	g_type_class_add_private (nmad_class, sizeof (NMAWifiDialogPrivate));
 
 	/* virtual methods */
 	object_class->dispose = dispose;
