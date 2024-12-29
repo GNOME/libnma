@@ -506,12 +506,8 @@ connection_combo_init (NMAWifiDialog *self)
 
 	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->connection_combo), 0);
 
-	g_signal_handlers_disconnect_by_func (priv->connection_combo, connection_combo_changed, self);
 	if (priv->specific_connection || !num_added) {
 		gtk_widget_hide (priv->connection_combo);
-	} else {
-		g_signal_connect (priv->connection_combo, "changed",
-		                  G_CALLBACK (connection_combo_changed), self);
 	}
 	if (gtk_tree_model_get_iter_first (priv->connection_model, &tree_iter))
 		gtk_tree_model_get (priv->connection_model, &tree_iter, C_CON_COLUMN, &priv->connection, -1);
@@ -610,8 +606,6 @@ device_combo_init (NMAWifiDialog *self, NMDevice *device)
 	}
 
 	if (num_added > 0) {
-		g_signal_connect (G_OBJECT (priv->device_combo), "changed",
-		                  G_CALLBACK (device_combo_changed), self);
 		gtk_combo_box_set_active (GTK_COMBO_BOX (priv->device_combo), 0);
 		if (num_added == 1) {
 			gtk_widget_hide (priv->device_combo);
@@ -1103,7 +1097,6 @@ internal_init (NMAWifiDialog *self,
 		security_combo_focus = TRUE;
 		priv->network_name_focus = FALSE;
 	} else {
-		g_signal_connect (G_OBJECT (priv->network_name_entry), "changed", (GCallback) ssid_entry_changed, self);
 		priv->network_name_focus = TRUE;
 	}
 
@@ -1125,8 +1118,6 @@ internal_init (NMAWifiDialog *self,
 	}
 
 	security_combo_changed (priv->security_combo, self);
-	g_signal_connect (G_OBJECT (priv->security_combo), "changed",
-	                  G_CALLBACK (security_combo_changed_manually), self);
 
 	if (secrets_only) {
 		gtk_widget_hide (priv->security_combo);
@@ -1508,4 +1499,9 @@ nma_wifi_dialog_class_init (NMAWifiDialogClass *nmad_class)
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_combo_label);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_model);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_vbox);
+
+	gtk_widget_class_bind_template_callback (widget_class, connection_combo_changed);
+	gtk_widget_class_bind_template_callback (widget_class, device_combo_changed);
+	gtk_widget_class_bind_template_callback (widget_class, security_combo_changed_manually);
+	gtk_widget_class_bind_template_callback (widget_class, ssid_entry_changed);
 }
