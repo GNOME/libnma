@@ -2,10 +2,10 @@
 <!-- Generated with glade 3.20.0 -->
 <interface domain="libnma">
   <requires lib="gtk+" version="3.10"/>
-  <object class="GtkListStore" id="model1">
+  <object class="GtkListStore" id="security_model">
     <columns>
-      <!-- column-name gchararray -->
       <column type="gchararray"/>
+      <column type="NMAWs"/>
     </columns>
     <data>
       <row>
@@ -13,16 +13,19 @@
       </row>
     </data>
   </object>
-  <object class="GtkListStore" id="model2">
+  <object class="GtkListStore" id="connection_model">
     <columns>
-      <!-- column-name gchararray -->
       <column type="gchararray"/>
+      <column type="NMConnection"/>
+      <column type="gboolean"/>
+      <column type="gboolean"/>
     </columns>
-    <data>
-      <row>
-        <col id="0"> </col>
-      </row>
-    </data>
+  </object>
+  <object class="GtkListStore" id="device_model">
+    <columns>
+      <column type="gchararray"/>
+      <column type="NMDevice"/>
+    </columns>
   </object>
   <template class="NMAWifiDialog" parent="GtkDialog">
     <property name="can_focus">False</property>
@@ -156,7 +159,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
-                    <property name="model">model1</property>
+                    <property name="model">security_model</property>
                     <child>
                       <object class="GtkCellRendererText" id="renderer1"/>
                       <attributes>
@@ -214,6 +217,13 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
+                    <property name="model">connection_model</property>
+                    <child>
+                      <object class="GtkCellRendererText"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -239,7 +249,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
-                    <property name="model">model2</property>
+                    <property name="model">device_model</property>
                     <child>
                       <object class="GtkCellRendererText" id="renderer2"/>
                       <attributes>

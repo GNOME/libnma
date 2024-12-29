@@ -48,6 +48,7 @@ typedef struct {
 	GtkTreeModel *device_model;
 	GtkTreeModel *connection_model;
 	GtkSizeGroup *group;
+	GtkTreeModel *security_model;
 
 	gboolean network_name_focus;
 
@@ -217,10 +218,8 @@ security_combo_changed (GtkWidget *combo,
 	}
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
-	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)) {
-		g_warning ("%s: no active security combo box item.", __func__);
+	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter))
 		return;
-	}
 
 	gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &priv->ws, -1);
 	if (!priv->ws) {
@@ -395,15 +394,12 @@ connection_combo_init (NMAWifiDialog *self)
 	int num_added = 0;
 	GtkTreeIter tree_iter;
 	NMSettingConnection *s_con;
-	GtkCellRenderer *renderer;
 	const char *id;
 
-	g_clear_object (&priv->connection_model);
 	g_clear_object (&priv->connection);
 
-	/* New model */
-	store = gtk_list_store_new (4, G_TYPE_STRING, G_TYPE_OBJECT, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN);
-	priv->connection_model = GTK_TREE_MODEL (store);
+	store = GTK_LIST_STORE (priv->connection_model);
+	gtk_list_store_clear (store);
 
 	if (priv->specific_connection) {
 		s_con = nm_connection_get_setting_connection (priv->specific_connection);
@@ -498,16 +494,9 @@ connection_combo_init (NMAWifiDialog *self)
 		g_slist_free (to_add);
 	}
 
-	gtk_cell_layout_clear (GTK_CELL_LAYOUT (priv->connection_combo));
-	renderer = gtk_cell_renderer_text_new ();
-	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->connection_combo), renderer, TRUE);
-	gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (priv->connection_combo), renderer,
-	                               "text", C_NAME_COLUMN);
 #if !GTK_CHECK_VERSION(4,0,0)
 	gtk_combo_box_set_wrap_width (GTK_COMBO_BOX (priv->connection_combo), 1);
 #endif
-
-	gtk_combo_box_set_model (GTK_COMBO_BOX (priv->connection_combo), priv->connection_model);
 
 	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (priv->connection_combo),
 	                                      connection_combo_separator_cb,
@@ -597,8 +586,8 @@ device_combo_init (NMAWifiDialog *self, NMDevice *device)
 
 	g_return_val_if_fail (priv->device == NULL, FALSE);
 
-	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_OBJECT);
-	priv->device_model = GTK_TREE_MODEL (store);
+	store = GTK_LIST_STORE (priv->device_model);
+	gtk_list_store_clear (store);
 
 	if (device) {
 		if (!can_use_device (device))
@@ -622,7 +611,6 @@ device_combo_init (NMAWifiDialog *self, NMDevice *device)
 	if (num_added > 0) {
 		GtkTreeIter iter;
 
-		gtk_combo_box_set_model (GTK_COMBO_BOX (priv->device_combo), priv->device_model);
 		gtk_combo_box_set_active (GTK_COMBO_BOX (priv->device_combo), 0);
 		g_signal_connect (G_OBJECT (priv->device_combo), "changed",
 		                  G_CALLBACK (device_combo_changed), self);
@@ -913,7 +901,8 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 		wep_type = NM_WEP_KEY_TYPE_PASSPHRASE;
 	}
 
-	sec_model = gtk_list_store_new (2, G_TYPE_STRING, NMA_TYPE_WS);
+	sec_model = GTK_LIST_STORE (priv->security_model);
+	gtk_list_store_clear (sec_model);
 
 	if (security_valid (NMU_SEC_NONE, mode, dev_caps, !!priv->ap, ap_flags, ap_wpa, ap_rsn)) {
 		gtk_list_store_append (sec_model, &iter);
@@ -1023,9 +1012,7 @@ security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
 		item++;
 	}
 
-	gtk_combo_box_set_model (GTK_COMBO_BOX (priv->security_combo), GTK_TREE_MODEL (sec_model));
 	gtk_combo_box_set_active (GTK_COMBO_BOX (priv->security_combo), active < 0 ? 0 : (guint32) active);
-	g_object_unref (G_OBJECT (sec_model));
 
 	/* If the dialog was given a connection when it was created, that connection
 	 * will already be populated with secrets.  If no connection was given,
@@ -1466,6 +1453,8 @@ nma_wifi_dialog_nag_user (NMAWifiDialog *self)
 static void
 nma_wifi_dialog_init (NMAWifiDialog *self)
 {
+	g_type_ensure (NMA_TYPE_WS);
+
 	gtk_widget_init_template (GTK_WIDGET (self));
 }
 
@@ -1480,9 +1469,6 @@ dispose (GObject *object)
 	}
 
 	g_clear_object (&priv->client);
-
-	g_clear_object (&priv->device_model);
-	g_clear_object (&priv->connection_model);
 
 	g_clear_object (&priv->group);
 
@@ -1517,13 +1503,16 @@ nma_wifi_dialog_class_init (NMAWifiDialogClass *nmad_class)
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, caption_label);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, connection_combo);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, connection_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, connection_model);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_combo);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_model);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, image1);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, network_name_entry);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, network_name_label);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, ok_button);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_combo);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_combo_label);
+	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_model);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, security_vbox);
 }
