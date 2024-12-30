@@ -311,7 +311,7 @@ ssid_entry_changed (GtkWidget *entry, gpointer user_data)
 
 	if (ws) {
 		valid = nma_ws_validate (ws, &error);
-		g_object_unref (ws);
+		g_clear_object (&ws);
 	} else {
 		valid = TRUE;
 	}
@@ -346,9 +346,7 @@ connection_combo_changed (GtkWidget *combo,
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 
-	if (priv->connection)
-		g_object_unref (priv->connection);
-
+	g_clear_object (&priv->connection);
 	gtk_tree_model_get (model, &iter,
 	                    C_CON_COLUMN, &priv->connection,
 	                    C_EDITABLE_COLUMN, &is_editable, -1);
@@ -703,7 +701,7 @@ add_security_item (NMAWifiDialog *self,
 	                    S_NAME_COLUMN, text,
 	                    S_SEC_COLUMN, g_object_ref_sink (ws),
 	                    -1);
-	g_object_unref (ws);
+	g_clear_object (&ws);
 }
 
 static void
@@ -784,13 +782,13 @@ get_secrets_cb (GObject *object,
 			gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
 			if (ws) {
 				nma_ws_update_secrets (ws, priv->connection);
-				g_object_unref (ws);
+				g_clear_object (&ws);
 			}
 		} while (gtk_tree_model_iter_next (model, &iter));
 	}
 
 out:
-	g_object_unref (info->connection);
+	g_clear_object (&info->connection);
 	g_free (info);
 }
 
@@ -1239,7 +1237,7 @@ nma_wifi_dialog_get_connection (NMAWifiDialog *self,
 		gtk_tree_model_get (model, &iter, S_SEC_COLUMN, &ws, -1);
 	if (ws) {
 		nma_ws_fill_connection (ws, connection);
-		g_object_unref (ws);
+		g_clear_object (&ws);
 	}
 
 	/* Save new CA cert ignore values to GSettings */
