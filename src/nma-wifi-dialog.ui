@@ -278,4 +278,7 @@
       <action-widget response="-5">ok_button</action-widget>
     </action-widgets>
   </template>
+  <object class="GtkSizeGroup" id="group">
+    <property name="mode">horizontal</property>
+  </object>
 </interface>

@@ -1297,8 +1297,6 @@ internal_new_dialog (NMClient *client,
 		if (ap)
 			priv->ap = g_object_ref (ap);
 
-		priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
-
 		/* Handle CA cert ignore stuff */
 		nma_eap_ca_cert_ignore_load (connection);
 
@@ -1408,7 +1406,6 @@ internal_new_operation (NMClient *client,
 	priv = nma_wifi_dialog_get_instance_private (self);
 
 	priv->client = g_object_ref (client);
-	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 	priv->operation = operation;
 
 	if (!internal_init (self, NULL, NULL, FALSE, NULL, NULL)) {
@@ -1470,8 +1467,6 @@ dispose (GObject *object)
 
 	g_clear_object (&priv->client);
 
-	g_clear_object (&priv->group);
-
 	g_clear_object (&priv->specific_connection);
 	g_clear_object (&priv->connection);
 
@@ -1507,6 +1502,7 @@ nma_wifi_dialog_class_init (NMAWifiDialogClass *nmad_class)
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_combo);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_label);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, device_model);
+	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, group);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, image1);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, network_name_entry);
 	gtk_widget_class_bind_template_child_private (widget_class, NMAWifiDialog, network_name_label);
