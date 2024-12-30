@@ -53,17 +53,16 @@ typedef struct {
 	GtkWidget *button_label;
 } NMACertChooserButtonPrivate;
 
-G_DEFINE_TYPE (NMACertChooserButton, nma_cert_chooser_button, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_CODE (NMACertChooserButton, nma_cert_chooser_button, GTK_TYPE_BOX,
+                         G_ADD_PRIVATE (NMACertChooserButton))
+
+#define NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE(self) nma_cert_chooser_button_get_instance_private((NMACertChooserButton*)(self))
 
 enum {
 	PROP_0,
 	PROP_FLAGS,
 	LAST_PROP
 };
-
-#define NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
-                                                NMA_TYPE_CERT_CHOOSER_BUTTON, \
-                                                NMACertChooserButtonPrivate))
 
 static void
 update_title (NMACertChooserButton *button);
@@ -534,8 +533,6 @@ nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
-	g_type_class_add_private (object_class, sizeof (NMACertChooserButtonPrivate));
 
 	object_class->constructed = constructed;
 	object_class->dispose = dispose;
