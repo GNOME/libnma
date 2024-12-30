@@ -56,8 +56,6 @@ typedef struct {
 G_DEFINE_TYPE_WITH_CODE (NMACertChooserButton, nma_cert_chooser_button, GTK_TYPE_BOX,
                          G_ADD_PRIVATE (NMACertChooserButton))
 
-#define NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE(self) nma_cert_chooser_button_get_instance_private((NMACertChooserButton*)(self))
-
 enum {
 	PROP_0,
 	PROP_FLAGS,
@@ -96,7 +94,7 @@ static void
 modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 {
 	NMACertChooserButton *self = NMA_CERT_CHOOSER_BUTTON (user_data);
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (self);
 	GList *slots;
 	GList *list_iter;
 	GError *error = NULL;
@@ -165,7 +163,7 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 static char *
 title_from_pkcs11 (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 	GError *error = NULL;
 	char *label = NULL;
 	GckUriData *data;
@@ -193,7 +191,7 @@ title_from_pkcs11 (NMACertChooserButton *button)
 static void
 select_from_token (NMACertChooserButton *button, GckSlot *slot)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 	GtkRoot *toplevel;
 	GtkWidget *dialog;
 
@@ -228,7 +226,7 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 static void
 initialize_gck_modules (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	gck_modules_initialize_registered_async (priv->cancellable, modules_initialized, button);
 }
@@ -245,7 +243,7 @@ typedef void GckSlot;
 static char *
 title_from_pkcs11 (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	g_warning ("PKCS#11 URI, but GCR/GCK support not built in.");
 	return g_strdup (priv->uri);
@@ -272,7 +270,7 @@ use_simple_button (NMACertChooserButtonFlags flags)
 static void
 update_title (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 	GtkTreeIter iter;
 	GtkTreeModel *model;
 	gs_free char *label = NULL;
@@ -309,7 +307,7 @@ update_title (NMACertChooserButton *button)
 static void
 select_from_file (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 	GtkRoot *toplevel;
 	GtkWidget *dialog;
 	GFile *file;
@@ -403,7 +401,7 @@ row_separator (GtkTreeModel *model, GtkTreeIter *iter, gpointer data)
 static void
 create_cert_combo (NMACertChooserButton *self)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (self);
 	GtkListStore *model;
 	GtkTreeIter iter;
 	GtkCellRenderer *cell;
@@ -448,7 +446,7 @@ create_cert_combo (NMACertChooserButton *self)
 static void
 create_file_button (NMACertChooserButton *self)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (self);
 	GtkWidget *widget;
 	GtkWidget *box;
 
@@ -478,7 +476,7 @@ static void
 constructed (GObject *object)
 {
 	NMACertChooserButton *self = NMA_CERT_CHOOSER_BUTTON (object);
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (self);
 
         G_OBJECT_CLASS (nma_cert_chooser_button_parent_class)->constructed (object);
 
@@ -493,7 +491,7 @@ constructed (GObject *object)
 static void
 set_property (GObject *object, guint property_id, const GValue *value, GParamSpec *pspec)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (NMA_CERT_CHOOSER_BUTTON (object));
 
 	switch (property_id) {
 	case PROP_FLAGS:
@@ -508,7 +506,7 @@ set_property (GObject *object, guint property_id, const GValue *value, GParamSpe
 static void
 dispose (GObject *object)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (NMA_CERT_CHOOSER_BUTTON (object));
 
 	g_cancellable_cancel (priv->cancellable);
 	g_clear_object (&priv->cancellable);
@@ -523,7 +521,7 @@ dispose (GObject *object)
 static gboolean
 mnemonic_activate (GtkWidget *widget, gboolean group_cycling)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (widget);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (NMA_CERT_CHOOSER_BUTTON (widget));
 
 	return gtk_widget_mnemonic_activate (priv->button, group_cycling);
 }
@@ -560,7 +558,7 @@ nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
 static void
 nma_cert_chooser_button_init (NMACertChooserButton *self)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (self);
 
 	priv->cancellable = g_cancellable_new ();
 }
@@ -575,7 +573,7 @@ nma_cert_chooser_button_init (NMACertChooserButton *self)
 void
 nma_cert_chooser_button_set_title (NMACertChooserButton *button, const gchar *title)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	if (priv->title)
 		g_free (priv->title);
@@ -594,7 +592,7 @@ nma_cert_chooser_button_set_title (NMACertChooserButton *button, const gchar *ti
 const gchar *
 nma_cert_chooser_button_get_uri (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	return priv->uri;
 }
@@ -609,7 +607,7 @@ nma_cert_chooser_button_get_uri (NMACertChooserButton *button)
 void
 nma_cert_chooser_button_set_uri (NMACertChooserButton *button, const gchar *uri)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	if (priv->uri)
 		g_free (priv->uri);
@@ -629,7 +627,7 @@ nma_cert_chooser_button_set_uri (NMACertChooserButton *button, const gchar *uri)
 gchar *
 nma_cert_chooser_button_get_pin (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	return g_strdup (priv->pin);
 }
@@ -646,7 +644,7 @@ nma_cert_chooser_button_get_pin (NMACertChooserButton *button)
 gboolean
 nma_cert_chooser_button_get_remember_pin (NMACertChooserButton *button)
 {
-	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+	NMACertChooserButtonPrivate *priv = nma_cert_chooser_button_get_instance_private (button);
 
 	return priv->remember_pin;
 }
