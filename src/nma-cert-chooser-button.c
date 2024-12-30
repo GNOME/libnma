@@ -47,6 +47,7 @@ typedef struct {
 	gchar *pin;
 	gboolean remember_pin;
 	NMACertChooserButtonFlags flags;
+	GCancellable *cancellable;
 
 	GtkWidget *button;
 	GtkWidget *button_label;
@@ -107,7 +108,9 @@ modules_initialized (GObject *object, GAsyncResult *res, gpointer user_data)
 	gchar *label;
 
 	modules = gck_modules_initialize_registered_finish (res, &error);
-	if (error) {
+	if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+		return;
+	} else if (error) {
 		/* The Front Fell Off. */
 		g_warning ("Error getting registered modules: %s", error->message);
 		g_clear_error (&error);
@@ -226,7 +229,9 @@ select_from_token (NMACertChooserButton *button, GckSlot *slot)
 static void
 initialize_gck_modules (NMACertChooserButton *button)
 {
-	gck_modules_initialize_registered_async (NULL, modules_initialized, button);
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (button);
+
+	gck_modules_initialize_registered_async (priv->cancellable, modules_initialized, button);
 }
 
 static int
@@ -506,6 +511,9 @@ dispose (GObject *object)
 {
 	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (object);
 
+	g_cancellable_cancel (priv->cancellable);
+	g_clear_object (&priv->cancellable);
+
 	nm_clear_g_free (&priv->title);
 	nm_clear_g_free (&priv->uri);
 	nm_clear_g_free (&priv->pin);
@@ -555,6 +563,9 @@ nma_cert_chooser_button_class_init (NMACertChooserButtonClass *klass)
 static void
 nma_cert_chooser_button_init (NMACertChooserButton *self)
 {
+	NMACertChooserButtonPrivate *priv = NMA_CERT_CHOOSER_BUTTON_GET_PRIVATE (self);
+
+	priv->cancellable = g_cancellable_new ();
 }
 
 /**
