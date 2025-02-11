@@ -218,8 +218,10 @@ security_combo_changed (GtkWidget *combo,
 	size_group_clear (priv->group);
 
 	/* Remove the previous wireless security widget */
-	if (priv->ws)
+	if (priv->ws) {
 		gtk_box_remove (GTK_BOX (vbox), GTK_WIDGET (priv->ws));
+		priv->ws = NULL;
+	}
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)) {
