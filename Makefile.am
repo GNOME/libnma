@@ -94,6 +94,7 @@ if WITH_LIBNMA_GTK4
 noinst_LTLIBRARIES += src/utils/libutils-libnm-gtk4.la
 
 src_utils_libutils_libnm_gtk4_la_CPPFLAGS = \
+	$(dflt_cppflags) \
 	"-I$(srcdir)/shared" \
 	$(GTK4_CFLAGS) \
 	$(LIBNM_CFLAGS)
@@ -497,6 +498,7 @@ nodist_src_libnma_gtk4_la_SOURCES = \
 	$(libnma_gtk4_c_gen)
 
 src_libnma_gtk4_la_CFLAGS = \
+	$(dflt_cppflags) \
 	-DICONDIR=\""$(datadir)/icons"\" \
 	-DBINDIR=\""$(bindir)"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
