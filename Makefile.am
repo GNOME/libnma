@@ -62,7 +62,8 @@ SUBDIRS = \
 	. \
 	po
 
-dflt_cppflags = -std=gnu99
+dflt_cppflags = -std=gnu99 \
+	-DNMA_COMPILATION
 
 ###############################################################################
 

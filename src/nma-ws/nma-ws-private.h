@@ -8,6 +8,10 @@
 #ifndef NMA_WS_PRIVATE_H
 #define NMA_WS_PRIVATE_H
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <gtk/gtk.h>
 #include <glib.h>
 #include <glib-object.h>

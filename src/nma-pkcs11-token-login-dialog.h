@@ -9,6 +9,10 @@
 #ifndef __NMA_PKCS11_TOKEN_LOGIN_DIALOG_H__
 #define __NMA_PKCS11_TOKEN_LOGIN_DIALOG_H__
 
+#if !defined(NMA_COMPILATION)
+#error "This is an internal header, available only when building libnma."
+#endif
+
 #include <gtk/gtk.h>
 #include <gck/gck.h>
 

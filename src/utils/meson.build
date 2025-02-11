@@ -10,13 +10,18 @@ deps = [
   libnm_dep
 ]
 
+cflags = [
+  '-DNMA_COMPILATION',
+]
+
 libutils_libnm = static_library(
   'utils-libnm',
   sources: shared_sources + files(
     'utils.c',
   ),
   include_directories: incs,
-  dependencies: deps
+  dependencies: deps,
+  c_args: cflags,
 )
 
 libutils_libnm_dep = declare_dependency(
@@ -31,6 +36,7 @@ exe = executable(
   'tests/' + test_unit + '.c',
   include_directories: incs,
   dependencies: deps,
+  c_args: cflags,
   link_with: libutils_libnm
 )
 

@@ -80,6 +80,7 @@ deps = [
 ]
 
 cflags = [
+  '-DNMA_COMPILATION',
   '-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB',
   '-DBINDIR="@0@"'.format(nma_bindir),
   '-DDATADIR="@0@"'.format(nma_datadir),
