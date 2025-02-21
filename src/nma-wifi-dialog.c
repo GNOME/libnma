@@ -533,7 +533,7 @@ device_combo_changed (GtkWidget *combo,
 	}
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
 
-	g_object_unref (priv->device);
+	g_clear_object (&priv->device);
 	gtk_tree_model_get (model, &iter, D_DEV_COLUMN, &priv->device, -1);
 
 	if (!connection_combo_init (self)) {
@@ -609,16 +609,12 @@ device_combo_init (NMAWifiDialog *self, NMDevice *device)
 	}
 
 	if (num_added > 0) {
-		GtkTreeIter iter;
-
-		gtk_combo_box_set_active (GTK_COMBO_BOX (priv->device_combo), 0);
 		g_signal_connect (G_OBJECT (priv->device_combo), "changed",
 		                  G_CALLBACK (device_combo_changed), self);
+		gtk_combo_box_set_active (GTK_COMBO_BOX (priv->device_combo), 0);
 		if (num_added == 1) {
 			gtk_widget_hide (priv->device_combo);
 		}
-		if (gtk_tree_model_get_iter_first (priv->device_model, &iter))
-			gtk_tree_model_get (priv->device_model, &iter, D_DEV_COLUMN, &priv->device, -1);
 	}
 
 	return num_added > 0 ? TRUE : FALSE;
