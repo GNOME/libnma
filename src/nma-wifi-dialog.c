@@ -79,7 +79,7 @@ enum {
 #define C_NAME_COLUMN		0
 #define C_CON_COLUMN		1
 #define C_SEP_COLUMN		2
-#define C_NEW_COLUMN		3
+#define C_EDITABLE_COLUMN	3
 
 static gboolean security_combo_init (NMAWifiDialog *self, gboolean secrets_only,
                                      const char *secrets_setting_name,
@@ -321,7 +321,7 @@ connection_combo_changed (GtkWidget *combo,
 	NMAWifiDialogPrivate *priv = nma_wifi_dialog_get_instance_private (self);
 	GtkTreeIter iter;
 	GtkTreeModel *model;
-	gboolean is_new = FALSE;
+	gboolean is_editable = FALSE;
 	NMSettingWireless *s_wireless;
 	char *utf8_ssid;
 
@@ -337,7 +337,7 @@ connection_combo_changed (GtkWidget *combo,
 
 	gtk_tree_model_get (model, &iter,
 	                    C_CON_COLUMN, &priv->connection,
-	                    C_NEW_COLUMN, &is_new, -1);
+	                    C_EDITABLE_COLUMN, &is_editable, -1);
 
 	if (priv->connection)
 		nma_eap_ca_cert_ignore_load (priv->connection);
@@ -360,9 +360,9 @@ connection_combo_changed (GtkWidget *combo,
 		gtk_editable_set_text (GTK_EDITABLE (priv->network_name_entry), "");
 	}
 
-	gtk_widget_set_sensitive (priv->network_name_entry, is_new);
-	gtk_widget_set_sensitive (priv->security_combo, is_new);
-	gtk_widget_set_sensitive (priv->security_vbox, is_new);
+	gtk_widget_set_sensitive (priv->network_name_entry, is_editable);
+	gtk_widget_set_sensitive (priv->security_combo, is_editable);
+	gtk_widget_set_sensitive (priv->security_vbox, is_editable);
 }
 
 static gboolean
@@ -416,7 +416,8 @@ connection_combo_init (NMAWifiDialog *self)
 		gtk_list_store_append (store, &tree_iter);
 		gtk_list_store_set (store, &tree_iter,
 		                    C_NAME_COLUMN, id,
-		                    C_CON_COLUMN, priv->specific_connection, -1);
+		                    C_CON_COLUMN, priv->specific_connection,
+		                    C_EDITABLE_COLUMN, TRUE, -1);
 	} else {
 		GSList *to_add = NULL, *iter;
 		const GPtrArray *connections;
@@ -425,7 +426,7 @@ connection_combo_init (NMAWifiDialog *self)
 		gtk_list_store_append (store, &tree_iter);
 		gtk_list_store_set (store, &tree_iter,
 		                    C_NAME_COLUMN, _("New…"),
-		                    C_NEW_COLUMN, TRUE, -1);
+		                    C_EDITABLE_COLUMN, TRUE, -1);
 
 		gtk_list_store_append (store, &tree_iter);
 		gtk_list_store_set (store, &tree_iter, C_SEP_COLUMN, TRUE, -1);
