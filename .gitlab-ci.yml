@@ -40,7 +40,7 @@
 
 .dist: &dist
   dependencies:
-    - fedora35_dist
+    - fedora42_dist
   variables:
     GIT_STRATEGY: none
 
@@ -96,7 +96,7 @@
     - cd libnma-*/
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
-    - find |xargs touch
+    - find | xargs touch
     - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=no
@@ -123,7 +123,7 @@
     - cd libnma-*/
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
-    - find |xargs touch
+    - find | xargs touch
     - ./configure $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=yes
@@ -141,9 +141,9 @@
     - make -j$(nproc) install
     - make -j$(nproc) uninstall
 
-fedora35_dist:
+fedora42_dist:
   <<: *fedora_full
-  image: fedora:35
+  image: fedora:42
   stage: build
   script:
     - dnf -y install
@@ -182,88 +182,6 @@ fedora_autotools_full:
   image: fedora:latest
   stage: test
 
-# Fedora 37 includes gcr version that no longer pulls in gtk3.
-# gcr-4 support can be moved above and the four jobs below can be removed
-# once fedora:latest is actually fedora:37 or later.
-
-f37_meson_gcr4:
-  <<: *fedora_meson_full
-  variables:
-    EXTRA_PACKAGES: gcr-devel
-    EXTRA_MESON_FLAGS: -Dlibnma_gtk4=true
-  image: fedora:37
-  stage: test
-
-f37_meson_gcr3:
-  <<: *fedora_meson_full
-  variables:
-    EXTRA_PACKAGES: gcr3-devel
-  image: fedora:37
-  stage: test
-
-f37_autotools_gcr4:
-  <<: *fedora_autotools_full
-  variables:
-    EXTRA_PACKAGES: gcr-devel
-    EXTRA_CONFIGURE_FLAGS: --with-libnma-gtk4
-  image: fedora:37
-  stage: test
-
-f37_autotools_gcr3:
-  <<: *fedora_autotools_full
-  variables:
-    EXTRA_PACKAGES: gcr3-devel
-  image: fedora:37
-  stage: test
-
-centos7:
-  <<: *dist
-  before_script:
-    - sed 's/^mirrorlist=/#&/;s,^#baseurl=http://mirror.centos.org/,baseurl=https://vault.centos.org/,'
-      -i /etc/yum.repos.d/*.repo
-    - yum -y install
-      file
-      findutils
-      gcc
-      desktop-file-utils
-      gettext-devel
-      glib2-devel
-      gtk3-devel
-      intltool
-      NetworkManager-libnm-devel
-      pkgconfig
-      /usr/bin/autopoint
-      /usr/bin/vapigen
-      gcr-devel
-      gobject-introspection-devel redhat-rpm-config
-      gtk-doc
-      iso-codes-devel
-      mobile-broadband-provider-info-devel
-      make
-  script:
-    - tar xJf libnma-*.tar.xz
-    - cd libnma-*/
-    # Sometimes the CI builder clocks are skewed.
-    # Make sure the dst files are not from future.
-    - find |xargs touch
-    - ./configure
-      --disable-silent-rules
-      --with-more-asserts=yes
-      --enable-nls
-      --enable-iso-codes
-      --enable-mobile-broadband-provider-info
-      --enable-gtk-doc
-      --enable-introspection
-      --enable-vala
-      --enable-more-warnings
-      --with-gcr
-    - make -j$(nproc)
-    - make -j$(nproc) check
-    - make -j$(nproc) install
-    - make -j$(nproc) uninstall
-  image: centos:7
-  stage: test
-
 # https://libnma.pages.gitlab.gnome.org/libnma/
 pages:
   <<: *fedora_full
@@ -276,7 +194,7 @@ pages:
     - cd libnma-*/
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
-    - find |xargs touch
+    - find | xargs touch
     - ./configure
       --disable-silent-rules
       --enable-gtk-doc
