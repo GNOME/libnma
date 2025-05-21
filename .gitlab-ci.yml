@@ -142,6 +142,49 @@
     - make -j$(nproc) install
     - make -j$(nproc) uninstall
 
+.centos_meson: &centos_meson
+  before_script:
+    - dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-${CENTOS_VERSION}.noarch.rpm
+    - dnf install -y 'dnf-command(config-manager)'
+    - dnf config-manager --set-enabled crb
+    - dnf -y install
+      file
+      findutils
+      gcc
+      desktop-file-utils
+      gettext-devel
+      glib2-devel
+      gtk3-devel
+      gtk4-devel
+      intltool
+      NetworkManager-libnm-devel
+      pkgconfig
+      /usr/bin/vapigen
+      gcr-devel
+      gobject-introspection-devel
+      redhat-rpm-config
+      gtk-doc
+      iso-codes-devel
+      mobile-broadband-provider-info-devel
+  script:
+    - dnf -y install meson
+    - tar xf libnma-*.tar.xz
+    - meson $EXTRA_MESON_FLAGS
+      -Dlibnma_gtk4=true
+      -Dgcr=true
+      -Diso_codes=true
+      -Dmobile_broadband_provider_info=true
+      -Dld_gc=true
+      -Dgtk_doc=true
+      -Dintrospection=true
+      -Dvapi=true
+      -Dmore_asserts=yes
+      libnma-*/ build
+    - ninja -v -C build
+    - ninja -v -C build test
+    - ninja -v -C build install
+    - ninja -v -C build uninstall
+
 fedora42_dist:
   <<: *fedora_full
   image: fedora:42
@@ -181,6 +224,22 @@ fedora_autotools_full:
   variables:
     EXTRA_PACKAGES: gcr-devel
   image: fedora:latest
+  stage: test
+
+centos9_meson_full:
+  <<: *dist
+  <<: *centos_meson
+  variables:
+    CENTOS_VERSION: 9
+  image: quay.io/centos/centos:stream9
+  stage: test
+
+centos10_meson_full:
+  <<: *dist
+  <<: *centos_meson
+  variables:
+    CENTOS_VERSION: 10
+  image: quay.io/centos/centos:stream10
   stage: test
 
 # https://libnma.pages.gitlab.gnome.org/libnma/
