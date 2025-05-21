@@ -16,6 +16,7 @@
       gtk3-devel
       NetworkManager-libnm-devel
       pkgconfig
+      gawk
       /usr/bin/autopoint
 
 .fedora_full: &fedora_full
