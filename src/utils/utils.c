@@ -303,6 +303,17 @@ widget_set_error (GtkWidget *widget)
 	g_return_if_fail (GTK_IS_WIDGET (widget));
 
 	gtk_style_context_add_class (gtk_widget_get_style_context (widget), "error");
+#if GTK_CHECK_VERSION(4,0,0)
+	gtk_accessible_update_state (GTK_ACCESSIBLE (widget),
+	                             GTK_ACCESSIBLE_STATE_INVALID,
+	                             GTK_ACCESSIBLE_INVALID_TRUE,
+	                             -1);
+#endif
+	if (GTK_IS_ENTRY (widget))
+		gtk_entry_set_icon_from_icon_name (GTK_ENTRY (widget),
+		                                   GTK_ENTRY_ICON_PRIMARY,
+		                                   "dialog-error-symbolic");
+
 }
 
 void
@@ -311,6 +322,16 @@ widget_unset_error (GtkWidget *widget)
 	g_return_if_fail (GTK_IS_WIDGET (widget));
 
 	gtk_style_context_remove_class (gtk_widget_get_style_context (widget), "error");
+#if GTK_CHECK_VERSION(4,0,0)
+	gtk_accessible_update_state (GTK_ACCESSIBLE (widget),
+	                             GTK_ACCESSIBLE_STATE_INVALID,
+	                             GTK_ACCESSIBLE_INVALID_FALSE,
+	                             -1);
+#endif
+	if (GTK_IS_ENTRY (widget))
+		gtk_entry_set_icon_from_icon_name (GTK_ENTRY (widget),
+		                                   GTK_ENTRY_ICON_PRIMARY,
+		                                   NULL);
 }
 
 gboolean
