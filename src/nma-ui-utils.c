@@ -351,6 +351,9 @@ nma_utils_setup_password_storage (GtkWidget *passwd_entry,
 	gtk_entry_set_icon_activatable (GTK_ENTRY (passwd_entry), GTK_ENTRY_ICON_SECONDARY,
 	                                !ask_mode);
 
+#if GTK_CHECK_VERSION(4,20,0)
+	NM_LIBNM_COMPAT_UNDEPRECATE(gtk_entry_set_menu_entry_icon_text (GTK_ENTRY (passwd_entry), GTK_ENTRY_ICON_SECONDARY, _("Password storage options")));
+#endif
 	/* Initialize active item for password-storage popup menu */
 	if (setting && password_flags_name)
 		nm_setting_get_secret_flags (setting, password_flags_name, &secret_flags, NULL);
