@@ -41,7 +41,7 @@
 
 .dist: &dist
   dependencies:
-    - fedora42_dist
+    - fedora_dist
   variables:
     GIT_STRATEGY: none
 
@@ -185,9 +185,9 @@
     - ninja -v -C build install
     - ninja -v -C build uninstall
 
-fedora42_dist:
+fedora_dist:
   <<: *fedora_full
-  image: fedora:42
+  image: fedora:latest
   stage: build
   script:
     - dnf -y install
