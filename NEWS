@@ -1,4 +1,18 @@
 =======================================
+libnma-1.10.8
+Overview of changes since libnma-1.10.6
+=======================================
+
+* Add single header (nma.h) to consume the library.
+* Fix GTK4 icon sizes in dialogs.
+* Avoid emitting the "changed" signal unnecessarily for password entries.
+* Fix race condition in cert-chooser-button where a callback could fire
+  after the widget was disposed.
+* Add error icon in invalid text entries.
+* Add accessibility to password storage.
+* Internal refactoring of wifi-dialog and cert-chooser widgets.
+
+=======================================
 libnma-1.10.6
 Overview of changes since libnma-1.10.4
 =======================================
