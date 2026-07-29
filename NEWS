@@ -1,4 +1,21 @@
 =======================================
+libnma-1.12.0
+Overview of changes since libnma-1.10.6
+=======================================
+
+* Drop autotools build system support; meson is now the only build system.
+* Switch to a new versioning scheme: every micro version is a release.
+* Add single header (nma.h) to consume the library.
+* Fix race condition in cert-chooser-button where a callback could fire
+  after the widget was disposed.
+* Fix GTK4 icon sizes in dialogs.
+* Avoid emitting the "changed" signal unnecessarily for password entries.
+* Add error icon in invalid text entries.
+* Add accessibility to password storage.
+* Add GNOME release pipeline for automated tarball uploads.
+* Internal refactoring of wifi-dialog and cert-chooser widgets.
+
+=======================================
 libnma-1.10.6
 Overview of changes since libnma-1.10.4
 =======================================
