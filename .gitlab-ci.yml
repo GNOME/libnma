@@ -190,10 +190,10 @@ fedora_dist:
   image: fedora:latest
   stage: build
   script:
-    - dnf -y install
-      autoconf automake make gcr-devel
-    - sh autogen.sh
-    - make -j$(nproc) distcheck
+    - dnf -y install meson gcr-devel ninja-build gtk4-devel git
+    - meson setup -Dgtk_doc=true _build
+    - meson dist -C _build
+    - cp _build/meson-dist/libnma-*.tar.xz .
   artifacts:
     paths:
       - "*.xz"
