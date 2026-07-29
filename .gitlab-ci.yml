@@ -4,6 +4,13 @@
 # If things don't seem to work, this can help:
 # https://gitlab.gnome.org/GNOME/libnma/-/ci/lint
 
+include:
+  - component: "gitlab.gnome.org/GNOME/citemplates/release-service@master"
+    inputs:
+      job-stage: "deploy"
+      dist-job-name: "dist-tarball"
+      service-url: "https://gnome-release-route-sandbox-gnome-release-service.apps.openshift.gnome.org"
+
 .fedora_minimal: &fedora_minimal
   before_script:
     - dnf -y install $EXTRA_PACKAGES
@@ -193,10 +200,25 @@ fedora_dist:
     - dnf -y install meson gcr-devel ninja-build gtk4-devel git
     - meson setup -Dgtk_doc=true _build
     - meson dist -C _build
-    - cp _build/meson-dist/libnma-*.tar.xz .
+    - cp _build/meson-dist/libnma-*.tar.xz{,.sha256sum} .
   artifacts:
     paths:
-      - "*.xz"
+      - "*.tar.xz"
+      - "*.tar.xz.sha256sum"
+
+dist-tarball:
+  stage: build
+  image: fedora:latest
+  needs:
+    - fedora_dist
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - mkdir public-dist/
+    - cp libnma-*.tar.xz{,.sha256sum} public-dist/
+  artifacts:
+    paths:
+      - "public-dist/"
 
 fedora_meson_minimal:
   <<: *fedora_meson_minimal
