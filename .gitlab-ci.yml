@@ -98,7 +98,7 @@
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
     - find | xargs touch
-    - ./configure $EXTRA_CONFIGURE_FLAGS
+    - sh autogen.sh $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=no
       --disable-nls
@@ -125,7 +125,7 @@
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
     - find | xargs touch
-    - ./configure $EXTRA_CONFIGURE_FLAGS
+    - sh autogen.sh $EXTRA_CONFIGURE_FLAGS
       --disable-silent-rules
       --with-more-asserts=yes
       --enable-nls
@@ -190,14 +190,10 @@ fedora_dist:
   image: fedora:latest
   stage: build
   script:
-    - dnf -y install
-      autoconf automake make gcr-devel
-      xorg-x11-server-Xvfb xorg-x11-xinit
-    - sh autogen.sh
-    # The Xvfb dance below is because of
-    # https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
-    - xinit /bin/sh -c 'make -j$(nproc) distcheck && touch .success' -- /usr/bin/Xvfb :5
-    - test -e .success
+    - dnf -y install meson gcr-devel ninja-build gtk4-devel git
+    - meson setup -Dgtk_doc=true _build
+    - meson dist -C _build
+    - cp _build/meson-dist/libnma-*.tar.xz .
   artifacts:
     paths:
       - "*.xz"
@@ -255,7 +251,7 @@ pages:
     # Sometimes the CI builder clocks are skewed.
     # Make sure the dst files are not from future.
     - find | xargs touch
-    - ./configure
+    - sh autogen.sh
       --disable-silent-rules
       --enable-gtk-doc
     - make -j$(nproc)
