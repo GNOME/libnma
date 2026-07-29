@@ -6,7 +6,7 @@ project(
     'buildtype=debugoptimized',
     'c_std=gnu99'
   ],
-  meson_version: '>= 0.46.0'
+  meson_version: '>= 0.48.0'
 )
 
 nma_version = meson.project_version()
@@ -394,6 +394,8 @@ configure_file(
   output: config,
   configuration: config_h
 )
+
+meson.add_dist_script('scripts/meson-dist.sh')
 
 output = '\n'
 output += '  Build library libnm-gtk4 for use with GTK4: ' + enable_libnma_gtk4.to_string() + '\n'
