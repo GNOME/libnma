@@ -4,6 +4,22 @@
 # If things don't seem to work, this can help:
 # https://gitlab.gnome.org/GNOME/libnma/-/ci/lint
 
+# The release service uses job "rules:", which triggers the creation
+# of a merge-request pipeline. That pipeline fails because the other
+# jobs defined here are disabled for merge-request pipelines. Define
+# workflow rules that prevent merge-request pipelines.
+# https://gitlab.com/gitlab-org/gitlab/-/work_items/387920
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH || $CI_COMMIT_TAG'
+
+include:
+  - component: "gitlab.gnome.org/GNOME/citemplates/release-service@master"
+    inputs:
+      job-stage: "deploy"
+      dist-job-name: "dist-tarball"
+      service-url: "https://gnome-release-route-sandbox-gnome-release-service.apps.openshift.gnome.org"
+
 .fedora_minimal: &fedora_minimal
   before_script:
     - dnf -y install $EXTRA_PACKAGES
@@ -137,10 +153,29 @@ fedora_dist:
     - dnf -y install meson gcr-devel ninja-build gtk4-devel git
     - meson setup -Dgtk_doc=true _build
     - meson dist -C _build
-    - cp _build/meson-dist/libnma-*.tar.xz .
+    - cp _build/meson-dist/libnma-*.tar.xz{,.sha256sum} .
   artifacts:
     paths:
       - "*.xz"
+      - "*.xz.sha256sum"
+
+dist-tarball:
+  stage: build
+  image: fedora:latest
+  needs:
+    - fedora_dist
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - mkdir public-dist/
+    - cp libnma-*.tar.xz{,.sha256sum} public-dist/
+  artifacts:
+    paths:
+      - "public-dist/"
+  # Only run the release pipeline when a tag is pushed. Uncomment when switching from
+  # the sandbox release service to the real one.
+  #rules:
+  #  - if: $CI_COMMIT_TAG
 
 fedora_meson_minimal:
   <<: *fedora_meson_minimal
