@@ -67,15 +67,15 @@
 
 /* For releases, NMA_API_VERSION is equal to NMA_VERSION.
  *
- * For development builds, NMA_API_VERSION is the next
- * stable API after NMA_VERSION. When you run a development
+ * For development and RC builds, NMA_API_VERSION is the next
+ * stable API after NMA_VERSION. When you run a devel or RC
  * version, you are already using the future API, even if
- * it is not yet release. Hence, the currently used API
+ * it is not yet released. Hence, the currently used API
  * version is the future one.  */
 #define NMA_API_VERSION \
     (((NMA_MINOR_VERSION % 2) == 1) \
-        ? NMA_ENCODE_VERSION (NMA_MAJOR_VERSION, NMA_MINOR_VERSION + 1, 0                               ) \
-        : NMA_ENCODE_VERSION (NMA_MAJOR_VERSION, NMA_MINOR_VERSION    , ((NMA_MICRO_VERSION + 1) / 2) * 2))
+        ? NMA_ENCODE_VERSION (NMA_MAJOR_VERSION, NMA_MINOR_VERSION + 1, 0) \
+        : NMA_VERSION)
 
 /* deprecated. */
 #define NMA_VERSION_CUR_STABLE  NMA_API_VERSION
