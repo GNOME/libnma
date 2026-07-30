@@ -192,12 +192,8 @@ fedora42_dist:
   script:
     - dnf -y install
       autoconf automake make gcr-devel
-      xorg-x11-server-Xvfb xorg-x11-xinit
     - sh autogen.sh
-    # The Xvfb dance below is because of
-    # https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
-    - xinit /bin/sh -c 'make -j$(nproc) distcheck && touch .success' -- /usr/bin/Xvfb :5
-    - test -e .success
+    - make -j$(nproc) distcheck
   artifacts:
     paths:
       - "*.xz"
