@@ -16,8 +16,6 @@
       gtk3-devel
       NetworkManager-libnm-devel
       pkgconfig
-      gawk
-      /usr/bin/autopoint
 
 .fedora_full: &fedora_full
   before_script:
@@ -33,8 +31,8 @@
       NetworkManager-libnm-devel
       pkgconfig
       /usr/bin/vapigen
-      /usr/bin/autopoint
-      gobject-introspection-devel redhat-rpm-config
+      gobject-introspection-devel
+      redhat-rpm-config
       gtk-doc
       iso-codes-devel
       mobile-broadband-provider-info-devel
@@ -87,60 +85,6 @@
     - ninja -v -C build test
     - ninja -v -C build install
     - ninja -v -C build uninstall
-
-.fedora_autotools_minimal: &fedora_autotools_minimal
-  <<: *fedora_minimal
-  <<: *dist
-  script:
-    - dnf -y install make
-    - tar xJf libnma-*.tar.xz
-    - cd libnma-*/
-    # Sometimes the CI builder clocks are skewed.
-    # Make sure the dst files are not from future.
-    - find | xargs touch
-    - ./configure $EXTRA_CONFIGURE_FLAGS
-      --disable-silent-rules
-      --with-more-asserts=no
-      --disable-nls
-      --disable-iso-codes
-      --disable-mobile-broadband-provider-info
-      --disable-gtk-doc
-      --disable-introspection
-      --disable-vala
-      --disable-more-warnings
-      --without-libnma-gtk4
-      --without-gcr
-    - make -j$(nproc)
-    - make -j$(nproc) check
-    - make -j$(nproc) install
-    - make -j$(nproc) uninstall
-
-.fedora_autotools_full: &fedora_autotools_full
-  <<: *fedora_full
-  <<: *dist
-  script:
-    - dnf -y install make
-    - tar xJf libnma-*.tar.xz
-    - cd libnma-*/
-    # Sometimes the CI builder clocks are skewed.
-    # Make sure the dst files are not from future.
-    - find | xargs touch
-    - ./configure $EXTRA_CONFIGURE_FLAGS
-      --disable-silent-rules
-      --with-more-asserts=yes
-      --enable-nls
-      --enable-iso-codes
-      --enable-mobile-broadband-provider-info
-      --enable-gtk-doc
-      --enable-introspection
-      --enable-vala
-      --enable-more-warnings
-      --with-libnma-gtk4
-      --with-gcr
-    - make -j$(nproc)
-    - make -j$(nproc) check
-    - make -j$(nproc) install
-    - make -j$(nproc) uninstall
 
 .centos_meson: &centos_meson
   before_script:
@@ -210,18 +154,6 @@ fedora_meson_full:
   image: fedora:latest
   stage: test
 
-fedora_autotools_minimal:
-  <<: *fedora_autotools_minimal
-  image: fedora:latest
-  stage: test
-
-fedora_autotools_full:
-  <<: *fedora_autotools_full
-  variables:
-    EXTRA_PACKAGES: gcr-devel
-  image: fedora:latest
-  stage: test
-
 centos9_meson_full:
   <<: *dist
   <<: *centos_meson
@@ -240,22 +172,11 @@ centos10_meson_full:
 
 # https://libnma.pages.gitlab.gnome.org/libnma/
 pages:
-  <<: *fedora_full
   <<: *dist
   image: fedora:latest
   stage: deploy
   script:
-    - dnf -y install make
     - tar xJf libnma-*.tar.xz
-    - cd libnma-*/
-    # Sometimes the CI builder clocks are skewed.
-    # Make sure the dst files are not from future.
-    - find | xargs touch
-    - ./configure
-      --disable-silent-rules
-      --enable-gtk-doc
-    - make -j$(nproc)
-    - cd ..
     - mv libnma-*/html public
   artifacts:
     paths:
