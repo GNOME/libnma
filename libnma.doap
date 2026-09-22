@@ -19,16 +19,9 @@
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Lubomir Rintel</foaf:name>
-      <foaf:mbox rdf:resource="mailto:lkundrak@v3.sk" />
-      <gnome:userid>lkundrak</gnome:userid>
-    </foaf:Person>
-  </maintainer>
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Thomas Haller</foaf:name>
-      <foaf:mbox rdf:resource="mailto:thaller@redhat.com" />
-      <gnome:userid>thaller</gnome:userid>
+      <foaf:name>Felipe Borges</foaf:name>
+      <foaf:mbox rdf:resource="mailto:felipeborges@gnome.org" />
+      <gnome:userid>felipeborges</gnome:userid>
     </foaf:Person>
   </maintainer>
   <maintainer>
@@ -38,20 +31,4 @@
       <gnome:userid>bgalvani</gnome:userid>
     </foaf:Person>
   </maintainer>
-<!--  <maintainer>
-    <foaf:Person>
-      <foaf:name>Francesco Giudici</foaf:name>
-      <foaf:mbox rdf:resource="mailto:fgiudici@redhat.com" />
-      <gnome:userid>fgiudici</gnome:userid>
-    </foaf:Person>
-  </maintainer> -->
-<!--  <maintainer>
-    <foaf:Person>
-      <foaf:name>Dan Williams</foaf:name>
-      <foaf:mbox rdf:resource="mailto:dcbw@redhat.com" />
-      <gnome:userid>dcbw</gnome:userid>
-    </foaf:Person>
-  </maintainer> -->
-
 </Project>
-
